@@ -1,6 +1,7 @@
 site_name: CRM-ProInjecao
 
 theme:
+  language: pt-BR
   name: material
   palette:
     primary: 'blue'
