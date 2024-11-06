@@ -1,0 +1,8 @@
+# Remove the virtual environment
+venv/
+
+# Remove the static files
+site/
+
+# Remove environment variables
+.env

@@ -1,0 +1,13 @@
+site_name: CRM-ProInjecao
+
+theme:
+  name: material
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+nav:
+  - Início: index.md
