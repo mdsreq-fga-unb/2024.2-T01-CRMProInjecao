@@ -13,7 +13,6 @@ theme:
 nav:
   - Pagina Inicial:
     - Home: index.md
-    - Sobre: sample.md
   - Visão do Produto:
     - Cenário Atual: cenario-atual.md
     - Solução Proposta: solucao-proposta.md
