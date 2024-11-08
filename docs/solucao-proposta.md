@@ -1,6 +1,6 @@
 ## Objetivos do Produto
 
-O produto tem como objetivo facilitar e agilizar a comunicação com os clientes da Pro Injeção através de um aplicativo web. O sistema incluirá funcionalidades para gerenciar e cadastrar clientes e controlar o estoque, garantindo um atendimento mais rápido e preciso, além de reduzir erros no processo. Abaixo estão os objetivos mais específicos para o negócio:
+O produto tem como objetivo agilizar a comunicação com os clientes da Pro Injeção através de um aplicativo web.  Abaixo estão os objetivos mais específicos para o negócio:
 
 1. **Aprimorar a Organização e Eficiência dos Processos Internos**: A Pro Injeção busca implementar um sistema que substitua as atuais planilhas e processos manuais para uma gestão mais centralizada e organizada. Isso permitirá que a equipe dedique mais tempo à execução técnica dos serviços e menos ao gerenciamento administrativo, aumentando a produtividade.
 
@@ -23,7 +23,8 @@ Esses objetivos estabelecem um norte claro para a Pro Injeção, orientando o de
 
 Estas são as principais características da nossa solução: 
 
-- **Cadastro** de clientes e **automatização** do orçamento de seus pedidos, proporcionando um melhor acompanhamento;
+- **Automatização** do orçamento de seus pedidos, proporcionando um melhor acompanhamento;
+- **Cadastro** de clientes; 
 - Controle, cadastro e gestão dos produtos de estoque da empresa, proporcionando uma maior agilidade em seus processos;
 - Histórico de atendimento dos clientes;
 - Coleta de feedbacks e controle de satisfação dos clientes, por meio do envio de formulários após o serviço;
@@ -51,7 +52,7 @@ A maioria dos concorrentes oferece sistemas de gestão abrangentes, com funciona
 
 - **Plataforma de Análise de satisfação do cliente**: Pretendemos trazer o cliente para mais próximo da Pro injeção, ao oferecer um sistema de avaliação do serviço prestado, possibilitando análise e melhorias nos processos dos serviços ofertados, disponibilizando uma interface para o cliente e uma interface de análise de dados para o prestador.
 
-- **Simplicidade e Intuitividade**: Foco em uma interface amigável que facilite o uso por parte de todos os colaboradores, independentemente do nível de familiaridade com tecnologia
+- **Clareza nas informações e facilidade de uso**: Prioridade em uma interface fácil de entender e utilizar, que permita a todos os colaboradores, independentemente do nível de conhecimento tecnológico, operar o sistema sem dificuldades.
 
 - **Maior contato com o cliente**: Nossa solução informará ao cliente sobre o progresso de seu atendimento, oferecendo um canal de comunicação direta com o cliente.
 
@@ -69,17 +70,18 @@ Com relação a competência da equipe, os desenvolvedores já apresentaram conh
 
 Com a implementação da aplicação web, espera-se melhora na capacidade de gerenciamento dos serviços oferecidos pela empresa Pro Injeção:
 
-- **Gestão adequada de clientes**: Coletando informações necessárias sobre o veículo do cliente (marca, modelo, ano de fabricação) para direcionar a execução do diagnóstico e posterior execução do serviço;
+- **Gestão de clientes**: Coletando informações necessárias sobre o veículo do cliente (marca, modelo, ano de fabricação) para direcionar a execução do diagnóstico e posterior execução do serviço;
 
 - **Coleta de feedbacks de clientes**: Solicitar ao cliente a responder um questionário sobre o serviço prestado;
 
-- **Aumento da eficiência operacional**: Devido a equipe profissional pequena para a realização de muitos processos distintos, a aplicação facilitará sua execução em um mesmo ambiente;
+- **Otimização dos processos**: Devido a equipe profissional pequena para a realização de muitos processos distintos, a aplicação facilitará sua execução em um mesmo ambiente;
 
 - **Centralização das atividades da empresa**: Migrar os dados de controle do negócio, já existentes em tabelas e planilhas, para o novo sistema de forma objetiva e organizada;
 
-- **Gestão adequada de produtos no estoque**: A integração automática com o estoque garantirá uma gestão mais precisa, proporcionando ao dono da empresa conhecimento em tempo real dos seus produtos para realização dos serviços nos carros dos clientes.
+- **Gestão de produtos no estoque**: A integração automática com o estoque garantirá uma gestão mais precisa, proporcionando ao dono da empresa conhecimento em tempo real dos seus produtos para realização dos serviços nos carros dos clientes.
 
 
 | Versão | Descrição                 | Autor                   | Data       |
 |--------|---------------------------|-------------------------|------------|
 | 0.1    | Primeira ideia do projeto | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
+| 0.2    | Atualizando o projeto com os feedbacks enviados pelo professor | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 08/11/2024 |
