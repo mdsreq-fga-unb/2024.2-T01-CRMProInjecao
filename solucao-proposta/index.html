@@ -1,0 +1,780 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../cenario-atual/">
+      
+      
+        <link rel="next" href="../estrategias-de-engenharia-de-software/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.44">
+    
+    
+      
+        <title>Solução Proposta - CRM-ProInjecao</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="/css/main.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#objetivos-do-produto" class="md-skip">
+          Pular para conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="CRM-ProInjecao" class="md-header__button md-logo" aria-label="CRM-ProInjecao" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CRM-ProInjecao
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Solução Proposta
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando busca
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="CRM-ProInjecao" class="md-nav__button md-logo" aria-label="CRM-ProInjecao" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    CRM-ProInjecao
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Pagina Inicial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Pagina Inicial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Visão do Produto
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Visão do Produto
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cenario-atual/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cenário Atual
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Solução Proposta
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Solução Proposta
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos do Produto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-da-solucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características da Solução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-a-serem-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias a Serem Utilizadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pesquisa-de-mercado-e-analise-competitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pesquisa de Mercado e Análise Competitiva
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analise-de-viabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Análise de Viabilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impacto-da-solucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impacto da Solução
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../estrategias-de-engenharia-de-software/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Estratégias de Engenharia de Software
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cronograma-de-entregas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cronograma de Entregas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../interacao-entre-equipe-e-cliente/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interação Entre Equipe e Cliente
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licoes-aprendidas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lições Aprendidas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objetivos-do-produto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Objetivos do Produto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#caracteristicas-da-solucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características da Solução
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tecnologias-a-serem-utilizadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tecnologias a Serem Utilizadas
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pesquisa-de-mercado-e-analise-competitiva" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pesquisa de Mercado e Análise Competitiva
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#analise-de-viabilidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      Análise de Viabilidade
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#impacto-da-solucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Impacto da Solução
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Solução Proposta</h1>
+
+<h2 id="objetivos-do-produto">Objetivos do Produto</h2>
+<p>O produto tem como objetivo agilizar a comunicação com os clientes da Pro Injeção através de um aplicativo web.  Abaixo estão os objetivos mais específicos para o negócio:</p>
+<ol>
+<li>
+<p><strong>Aprimorar a Organização e Eficiência dos Processos Internos</strong>: A Pro Injeção busca implementar um sistema que substitua as atuais planilhas e processos manuais para uma gestão mais centralizada e organizada. Isso permitirá que a equipe dedique mais tempo à execução técnica dos serviços e menos ao gerenciamento administrativo, aumentando a produtividade.</p>
+</li>
+<li>
+<p><strong>Melhorar a Qualidade do Atendimento ao Cliente</strong>: Um dos objetivos da empresa é proporcionar uma experiência de atendimento que seja rápida, precisa e transparente. Ao implementar uma solução digital para orçamentos e ordens de serviço, a Pro Injeção pretende reduzir o tempo de espera dos clientes e melhorar a precisão dos diagnósticos e das informações fornecidas, o que contribuirá para um atendimento mais profissional.</p>
+</li>
+<li>
+<p><strong>Fortalecer a Retenção e Fidelização de Clientes</strong>: Com uma base de clientes variada, que inclui tanto motoristas individuais quanto empresas de manutenção e frotas, a Pro Injeção tem o objetivo de fidelizar seus clientes oferecendo um serviço de alta qualidade e confiável. Para isso, a empresa visa criar um histórico detalhado de cada cliente, facilitando o acompanhamento de serviços anteriores e permitindo um atendimento personalizado.</p>
+</li>
+<li>
+<p><strong>Expandir a Capacidade de Atendimento para Empresas e Frotas</strong>: Ao organizar melhor suas operações e automatizar processos, a Pro Injeção busca ter mais capacidade para atender um maior número de clientes, incluindo empresas com frotas de veículos que exigem serviços regulares de manutenção. A empresa vê nesse segmento uma oportunidade de crescimento e de estabelecimento como uma referência confiável para empresas com necessidades específicas de manutenção eletrônica automotiva.</p>
+</li>
+<li>
+<p><strong>Garantir a Segurança e Conformidade com as Melhores Práticas do Setor</strong>: Dado que o sistema armazenará dados sensíveis sobre clientes e veículos, a Pro Injeção tem o objetivo de seguir as melhores práticas de segurança da informação, garantindo a privacidade dos dados e a conformidade com normativas e regulamentos do setor automotivo.</p>
+</li>
+<li>
+<p><strong>Apoiar o Crescimento e a Escalabilidade do Negócio</strong>: A Pro Injeção está em uma fase inicial, com quatro meses de operação. A empresa planeja se estruturar para crescer de forma escalável, o que inclui preparar seus processos e sistemas para suportar uma base crescente de clientes e expandir suas operações. Esse objetivo envolve tanto a ampliação dos serviços quanto a otimização dos processos para acompanhar o crescimento futuro.</p>
+</li>
+<li>
+<p><strong>Utilizar Inovação para Diferenciação Competitiva</strong>: A Pro Injeção visa utilizar a tecnologia como diferencial no mercado local, oferecendo um sistema digital para o gerenciamento de serviços que seja intuitivo e robusto. Ao se posicionar como uma empresa inovadora no setor automotivo, a Pro Injeção espera atrair mais clientes e se destacar entre a concorrência.</p>
+</li>
+</ol>
+<p>Esses objetivos estabelecem um norte claro para a Pro Injeção, orientando o desenvolvimento do sistema de gestão e ajudando a consolidar uma base sólida para o crescimento e a diferenciação da empresa no mercado.</p>
+<h2 id="caracteristicas-da-solucao">Características da Solução</h2>
+<p>Estas são as principais características da nossa solução: </p>
+<ul>
+<li><strong>Automatização</strong> do orçamento de seus pedidos, proporcionando um melhor acompanhamento;</li>
+<li><strong>Cadastro</strong> de clientes; </li>
+<li>Controle, cadastro e gestão dos produtos de estoque da empresa, proporcionando uma maior agilidade em seus processos;</li>
+<li>Histórico de atendimento dos clientes;</li>
+<li>Coleta de feedbacks e controle de satisfação dos clientes, por meio do envio de formulários após o serviço;</li>
+<li>Análise de dados dos produtos que estão ficando sem estoque e prazos que estão se excedendo.</li>
+</ul>
+<h2 id="tecnologias-a-serem-utilizadas">Tecnologias a Serem Utilizadas</h2>
+<p>A arquitetura do projeto foi cuidadosamente planejada para garantir uma aplicação web robusta, escalável e de alto desempenho. O back-end terá como foco o <strong>Node.js</strong>, com TypeScript como linguagem principal, usando o framework <strong>NestJS</strong> para facilitar a construção de APIs seguras e bem estruturadas. </p>
+<p>No front-end, também será utilizado o Node.js e TypeScript, aliados ao <strong>ReactJS</strong> para a criação de interfaces dinâmicas e interativas, em conjunto com o framework <strong>NextJS</strong>, que proporciona otimizações de SEO e melhor performance através de renderização híbrida. </p>
+<p>Por fim, para o gerenciamento de dados, optamos pelo banco de dados <strong>PostgreSQL</strong>, integrando-o com o ORM <strong>TypeORM</strong>, que facilita a manipulação de dados e garante um controle mais eficiente e seguro sobre as operações de persistência. </p>
+<h2 id="pesquisa-de-mercado-e-analise-competitiva">Pesquisa de Mercado e Análise Competitiva</h2>
+<p>No mercado de software de gestão para oficinas automotivas, destacam-se várias soluções que oferecem funcionalidades abrangentes para atender às necessidades específicas do setor. Entre os principais concorrentes, cabe citar:</p>
+<ul>
+<li>
+<p><strong>Ultracar</strong>: Oferece um sistema de gestão online desenvolvido especialmente para oficinas mecânicas, auto centers e funilarias. Suas funcionalidades incluem controle financeiro, automação de processos, controle de estoque e redução de erros operacionais. O Ultracar é reconhecido por sua facilidade de uso e suporte técnico eficiente.</p>
+</li>
+<li>
+<p><strong>Oficina Inteligente</strong>: Apresenta um sistema online completo para reparação automotiva, com mais de 120 recursos para acompanhamento de ponta a ponta. Inclui controle de estoque, vendas, caixa e integração com WhatsApp para facilitar o processo de vendas e orçamentos.</p>
+</li>
+<li>
+<p><strong>Syscar</strong>: Sistema de gestão automotivo que abrange desde agendamentos, orçamentos, ordens de serviço, controle de estoque e financeiro, até histórico completo do veículo. Destaca-se por ser multiempresa e acessível de qualquer dispositivo conectado à internet.</p>
+</li>
+</ul>
+<p>A maioria dos concorrentes oferece sistemas de gestão abrangentes, com funcionalidades que vão desde o controle financeiro até a gestão de estoque e atendimento ao cliente. No entanto, estas soluções concorrentes estão voltadas para oficinas com demandas específicas de usuários, algumas não correspondendo com os atendimentos especificados pela Pro Injeção. Sendo assim, nossa solução se diferencia das demais nos seguintes aspectos :</p>
+<ul>
+<li>
+<p><strong>Plataforma de Análise de satisfação do cliente</strong>: Pretendemos trazer o cliente para mais próximo da Pro injeção, ao oferecer um sistema de avaliação do serviço prestado, possibilitando análise e melhorias nos processos dos serviços ofertados, disponibilizando uma interface para o cliente e uma interface de análise de dados para o prestador.</p>
+</li>
+<li>
+<p><strong>Clareza nas informações e facilidade de uso</strong>: Prioridade em uma interface fácil de entender e utilizar, que permita a todos os colaboradores, independentemente do nível de conhecimento tecnológico, operar o sistema sem dificuldades.</p>
+</li>
+<li>
+<p><strong>Maior contato com o cliente</strong>: Nossa solução informará ao cliente sobre o progresso de seu atendimento, oferecendo um canal de comunicação direta com o cliente.</p>
+</li>
+</ul>
+<h2 id="analise-de-viabilidade">Análise de Viabilidade</h2>
+<p>A viabilidade técnica do projeto é boa, pois a equipe de desenvolvimento já possui conhecimento sobre as tecnologias <strong>Node.js</strong>, <strong>ReactJS</strong> e <strong>PostgreSQL</strong>. Quanto ao back-end serão utilizados APIs construídas pelo <strong>NestJS</strong>, no qual a equipe apresenta bom domínio para fazer a ligação entre os sistemas.</p>
+<p>O projeto está planejado para cumprir um prazo de <strong>cinco meses</strong>, organizado em sprints de duas semanas. No qual a cada entrega de uma sprint aconteça de maneira incremental de funcionalidades, permitindo uma análise rápida e frequente.  O cronograma é viável, considerando que a equipe possui experiência em projetos semelhantes e conta com os recursos tecnológicos necessários para integrar e implementar as funcionalidades dentro do prazo definido.</p>
+<p>Com relação a competência da equipe, os desenvolvedores já apresentaram conhecimento sobre sistemas complexos, e já apresentam familiaridade com tecnologias escaláveis e seguras.</p>
+<h2 id="impacto-da-solucao">Impacto da Solução</h2>
+<p>Com a implementação da aplicação web, espera-se melhora na capacidade de gerenciamento dos serviços oferecidos pela empresa Pro Injeção:</p>
+<ul>
+<li>
+<p><strong>Gestão de clientes</strong>: Coletando informações necessárias sobre o veículo do cliente (marca, modelo, ano de fabricação) para direcionar a execução do diagnóstico e posterior execução do serviço;</p>
+</li>
+<li>
+<p><strong>Coleta de feedbacks de clientes</strong>: Solicitar ao cliente a responder um questionário sobre o serviço prestado;</p>
+</li>
+<li>
+<p><strong>Otimização dos processos</strong>: Devido a equipe profissional pequena para a realização de muitos processos distintos, a aplicação facilitará sua execução em um mesmo ambiente;</p>
+</li>
+<li>
+<p><strong>Centralização das atividades da empresa</strong>: Migrar os dados de controle do negócio, já existentes em tabelas e planilhas, para o novo sistema de forma objetiva e organizada;</p>
+</li>
+<li>
+<p><strong>Gestão de produtos no estoque</strong>: A integração automática com o estoque garantirá uma gestão mais precisa, proporcionando ao dono da empresa conhecimento em tempo real dos seus produtos para realização dos serviços nos carros dos clientes.</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Versão</th>
+<th>Descrição</th>
+<th>Autor</th>
+<th>Data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.1</td>
+<td>Primeira ideia do projeto</td>
+<td><a href="http://github.com/BrunoBReis">Bruno Bragança</a>, <a href="http://github.com/fabioaletorres">Fábio Torres</a>, <a href="http://github.com/PauloFilho2">Paulo Filho</a>, <a href="http://github.com/Stain19">Pedro Braga</a>, <a href="http://github.com/viniciusvieira00">Vinicius Vieira</a></td>
+<td>07/11/2024</td>
+</tr>
+<tr>
+<td>0.2</td>
+<td>Atualizando o projeto com os feedbacks enviados pelo professor</td>
+<td><a href="http://github.com/BrunoBReis">Bruno Bragança</a>, <a href="http://github.com/fabioaletorres">Fábio Torres</a>, <a href="http://github.com/PauloFilho2">Paulo Filho</a>, <a href="http://github.com/Stain19">Pedro Braga</a>, <a href="http://github.com/viniciusvieira00">Vinicius Vieira</a></td>
+<td>08/11/2024</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "mais 1 nesta p\u00e1gina", "search.result.more.other": "# mais nesta p\u00e1gina", "search.result.none": "Nenhum documento encontrado", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
