@@ -11,4 +11,12 @@ theme:
     code: 'Roboto Mono'
 
 nav:
-  - Início: index.md
+  - Pagina Inicial:
+    - Home: index.md
+  - Visão do Produto:
+    - Cenário Atual: cenario-atual.md
+    - Solução Proposta: solucao-proposta.md
+    - Estratégias de Engenharia de Software: estrategias-de-engenharia-de-software.md
+    - Cronograma de Entregas: cronograma-de-entregas.md
+    - Interação Entre Equipe e Cliente: interacao-entre-equipe-e-cliente.md
+    - Lições Aprendidas: licoes-aprendidas.md
