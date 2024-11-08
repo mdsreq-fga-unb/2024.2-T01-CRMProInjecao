@@ -1,5 +1,8 @@
 site_name: CRM-ProInjecao
 
+extra_css:
+  - /css/main.css
+
 theme:
   language: pt-BR
   name: material
