@@ -1,0 +1,25 @@
+site_name: CRM-ProInjecao
+
+extra_css:
+  - /css/main.css
+
+theme:
+  language: pt-BR
+  name: material
+  palette:
+    primary: 'blue'
+    accent: 'blue'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+
+nav:
+  - Pagina Inicial:
+    - Home: index.md
+  - Visão do Produto:
+    - Cenário Atual: cenario-atual.md
+    - Solução Proposta: solucao-proposta.md
+    - Estratégias de Engenharia de Software: estrategias-de-engenharia-de-software.md
+    - Cronograma de Entregas: cronograma-de-entregas.md
+    - Interação Entre Equipe e Cliente: interacao-entre-equipe-e-cliente.md
+    - Lições Aprendidas: licoes-aprendidas.md
