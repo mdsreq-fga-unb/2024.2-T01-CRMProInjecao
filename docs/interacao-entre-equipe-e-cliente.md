@@ -16,4 +16,4 @@ A equipe de desenvolvimento será composta por:
 
 | Versão | Descrição                 | Autor                   | Data       |
 |--------|---------------------------|-------------------------|------------|
-| 0.1    | Adicionando composição da equipe  | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
+| 0.1    | Adicionando composição da equipe  | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
