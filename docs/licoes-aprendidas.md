@@ -4,7 +4,7 @@ Durante a execução do projeto, a equipe da Pro Injeção identificou algumas l
 ### 1. Comunicação da equipe
 
 - **Desafio**: Estávamos organizando as atividades verbalmente em reunião, o que poderia gerar confusão e falta de comunicação.
-- **Ação de melhoria**: Por conta dessa dificuldade, decidimos utilizar o Projects do GitHub, onde conseguimos organizar e separar o que acada integrante precisa fazer no formato de issues com o método do Kanban. Torando a comunicação mais eficiente e clara.
+- **Ação de melhoria**: Por conta dessa dificuldade, decidimos utilizar o Projects do GitHub, onde conseguimos organizar e separar o que acada integrante precisa fazer no formato de issues com o método do Kanban. Transformando a comunicação mais eficiente e clara.
 
 ### 2. Nivelamento de conhecimento
 
