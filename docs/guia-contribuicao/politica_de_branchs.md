@@ -62,7 +62,7 @@ hotfix/guia_contribuicao
 ### Main
 
 <p align="justify" style="text-indent: 20px">
-    Branch principal do MeasureSoftGram, apresenta código em sua última versão e estável para o usuário final. Por isso possui as seguintes regras:
+    Branch principal do 2024.2-T01-CRMProInjeca, apresenta código em sua última versão e estável para o usuário final. Por isso possui as seguintes regras:
 </p>
 
 - Só existe uma main/master no projeto;
