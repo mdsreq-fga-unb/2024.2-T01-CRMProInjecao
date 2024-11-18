@@ -1,21 +1,130 @@
 site_name: CRM-ProInjecao
+site_author: While(True) Team
+site_description: >-
+  Essa é a documentação do projeto CRM-ProInjeção, desenvolvido pela equipe While(True) Team, para a disciplina de Requisitos de Software, ministrada pelo professor George, no semestre 2024.2, na Universidade de Brasília.
+site_url: https://mdsreq-fga-unb.github.io/2024.2-T01-CRMProInjecao/
+
+repo_name: '2024.2-T01-CRMProInjecao'
+repo_url: 'https://github.com/mdsreq-fga-unb/2024.2-T01-CRMProInjecao'
+
+# Copyright
+copyright: Copyright &copy; 2024 While(True) Team
+
 
 extra_css:
-  - /css/main.css
+  - stylesheets/extra.css
 
 theme:
-  language: pt-BR
+  language: 'pt'
   name: material
+  custom_dir: assets
   palette:
-    primary: 'blue'
-    accent: 'blue'
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/moon-waning-crescent
+        name: Mudar para o tema escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle:
+        icon: material/white-balance-sunny
+        name: Mudar para o tema claro
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+    text: 'Montserrat'
+    code: 'Roboto Mono' 
+  favicon: assets/images/favicon.ico
+  logo: assets/images/logo-vetor.png
+  features:
+    - announce.dismiss
+    # - content.action.edit
+    # - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.code.select
+    # - content.footnote.tooltips
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.footer
+    - navigation.indexes
+    # - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+# Plugins
+extra:
+  version:
+    provider: vinicius
+extra_javascript:
+  - javascripts/removeCredits.js
+  - javascripts/main.js
+watch:
+  - assets/stylesheets/extra.css
+plugins:
+  - termynal:
+      title: "shell"
+      buttons: "macos"
+      prompt_literal_start:
+        - "$"
+        - ">"
+        - ">>>"
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+  - macros
+
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      normalize_issue_symbols: true
+      repo_url_shorthand: true
+      user: mdsreq-fga-unb
+      repo: 2024.2-T01-CRMProInjecao
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 nav:
-  - Pagina Inicial:
-    - Home: index.md
+  - Início: index.md
   - Visão do Produto:
     - Cenário Atual: cenario-atual.md
     - Solução Proposta: solucao-proposta.md
@@ -25,3 +134,7 @@ nav:
     - Lições Aprendidas: licoes-aprendidas.md
   - Apresentações:
     - Unidade 1: apresentacao-1.md
+  - Guia de Contribuição: 
+    - Política de Commits: guia-contribuicao/politica_de_commits.md
+    - Política de Branchs: guia-contribuicao/politica_de_branchs.md
+    - Código de conduta: guia-contribuicao/code_of_conduct.md
