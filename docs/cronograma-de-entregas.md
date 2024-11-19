@@ -108,9 +108,6 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
     - Aprovação do cliente após homologação.  
     - Monitoramento inicial para garantir estabilidade e funcionalidade do sistema.  
 
-
-Segue a reformulação das considerações importantes, ajustando e complementando com base nas mudanças e melhorias:
-
 ## Considerações Importantes
 
 1. **Duração das Sprints**  
