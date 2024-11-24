@@ -33,7 +33,7 @@ A fim de entender melhor o motivo deste problema será necessário entender:
 
 A Figura, a seguir apresenta o diagrama de Ishikawa contendo as causas (organizados pelos 6M’s) e o problema da Pro  Injeção. 
 
-![fish-bone diagram](./assets/fish-bone.png)
+![fish-bone diagram](./assets/images/fish_bone.png)
 
 ## Desafios do Projeto
 
