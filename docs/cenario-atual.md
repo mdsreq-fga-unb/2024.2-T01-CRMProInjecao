@@ -33,7 +33,7 @@ A fim de entender melhor o motivo deste problema será necessário entender:
 
 A Figura, a seguir apresenta o diagrama de Ishikawa contendo as causas (organizados pelos 6M’s) e o problema da Pro  Injeção. 
 
-![fish-bone diagram](./assets/images/fish_bone.png)
+![fish-bone diagram](./assets/images/fish-bone.png)
 
 ## Desafios do Projeto
 
@@ -67,3 +67,4 @@ A Pro Injeção atende principalmente motoristas e proprietários de veículos q
 |--------|---------------------------|-------------------------|------------|
 | 0.1    | Primeira ideia do projeto | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
 | 0.2    | Atualizando o projeto com os feedbacks enviados pelo professor | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 08/11/2024 |
+| 0.3    | Atualizando a imagem o fishbone | [Bruno Bragança](http://github.com/BrunoBReis) | 24/11/2024 |
