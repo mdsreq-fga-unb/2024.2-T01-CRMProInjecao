@@ -4,7 +4,7 @@
 
 | Versão | Data       | Descrição           | Autor         |
 | ------ | ---------- | ------------------- | ------------- |
-| 1.0    | DD/MM/YYYY | Descrição Da Versão | Nome do autor |
+| x.x    | DD/MM/YYYY | Descrição Da Versão | Nome do autor |
 
 Os padrões de commits foram definidos pelo time, conforme o padrão [Conventional Commits](https://conventionalcommits.org/).
 
@@ -103,27 +103,10 @@ No corpo, ele deve dizer: `This reverts commit <hash>.`, onde o hash é o SHA do
 
       2. Aplicando o exemplo de um commit de criação de um novo módulo, a descrição deve ser: “create new module”.
 
-### Pré-commits
-
-Para garantir que os commits sigam o padrão definido, recomenda-se o uso do utilitário [Commitizen](https://commitizen-tools.github.io/commitizen/) como auxílio no processo de criação de commits.
-
-Para instalar o Commitizen, execute o comando abaixo:
-
-```bash
-pip install --user -U Commitizen
-```
-
-Para utilizar o Commitizen, execute o comando abaixo:
-
-```bash
-cz commit
-```
-
-Para mais comandos para [integração com pré-commit](https://commitizen-tools.github.io/commitizen/getting_started/#integration-with-pre-commit) ou geração de [changelogs](https://commitizen-tools.github.io/commitizen/changelog/) consulte a documentação do Commitizen.
-
 
 ## Histórico de Versão
 
-| Versão | Data       | Descrição                   | Autor                                                  |
-| ------ | ---------- | --------------------------- | ------------------------------------------------------ |
-| 1.0    | 18/11/2024 | Versão inicial do documento | [Vinicius Vieira](https://github.com/viniciusvieira00) |
+| Versão | Data       | Descrição                         | Autor                                                  |
+| ------ | ---------- | --------------------------------- | ------------------------------------------------------ |
+| 1.0    | 18/11/2024 | Versão inicial do documento       | [Vinicius Vieira](https://github.com/viniciusvieira00) |
+| 1.1    | 19/11/2024 | Remoção de conteúdo não aplicável | [Vinicius Vieira](https://github.com/viniciusvieira00) |
