@@ -80,8 +80,13 @@ Com a implementação da aplicação web, espera-se melhora na capacidade de ger
 
 - **Gestão de produtos no estoque**: A integração automática com o estoque garantirá uma gestão mais precisa, proporcionando ao dono da empresa conhecimento em tempo real dos seus produtos para realização dos serviços nos carros dos clientes.
 
+## Histórico de Versão
 
-| Versão | Descrição                 | Autor                   | Data       |
-|--------|---------------------------|-------------------------|------------|
-| 0.1    | Primeira ideia do projeto | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
+<center>
+
+| Versão | Descrição                                                      | Autor                                                                                                                                                                                                                                           | Data       |
+| ------ | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| 0.1    | Primeira ideia do projeto                                      | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
 | 0.2    | Atualizando o projeto com os feedbacks enviados pelo professor | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 08/11/2024 |
+
+</center>

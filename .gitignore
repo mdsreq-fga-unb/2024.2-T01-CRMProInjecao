@@ -1,8 +1,7 @@
-# Remove the virtual environment
-venv/
-
-# Remove the static files
+## Mkdocs ##
 site/
 
-# Remove environment variables
+## Virtual Environment ##
 .env
+.venv
+venv/

@@ -61,10 +61,14 @@ A Pro Injeção atende principalmente motoristas e proprietários de veículos q
 2. **Empresas de Manutenção Automotiva e Oficinas**: A Pro Injeção também atende oficinas e empresas do setor automotivo que precisam de suporte especializado para serviços que envolvem sistemas eletrônicos complexos. Essas empresas frequentemente terceirizam esses serviços para especialistas em eletrônica automotiva, especialmente para programação de módulos (ECU), ajustes em painéis e configuração de componentes eletrônicos. Esse segmento valoriza agilidade, precisão e qualidade nos serviços para complementar suas operações.
 
 
+## Histórico de Versão
 
+<center>
 
-| Versão | Descrição                 | Autor                   | Data       |
-|--------|---------------------------|-------------------------|------------|
-| 0.1    | Primeira ideia do projeto | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
+| Versão | Descrição                                                      | Autor                                                                                                                                                                                                                                           | Data       |
+| ------ | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| 0.1    | Primeira ideia do projeto                                      | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
 | 0.2    | Atualizando o projeto com os feedbacks enviados pelo professor | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 08/11/2024 |
-| 0.3    | Atualizando a imagem o fishbone | [Bruno Bragança](http://github.com/BrunoBReis) | 24/11/2024 |
+| 0.3    | Atualizando a imagem o fishbone                                | [Bruno Bragança](http://github.com/BrunoBReis)                                                                                                                                                                                                  | 24/11/2024 |
+
+<center/>
