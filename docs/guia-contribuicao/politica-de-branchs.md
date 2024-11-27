@@ -18,10 +18,10 @@
 </p>
 
 ```bash
-  docs/X-nome_documento
+  doc/X-nome_documento
   
   Exemplo: 
-  docs/1-guia_contribuicao
+  doc/1-guia_contribuicao
 ```
 
 <p align="justify" style="text-indent: 20px">
@@ -183,3 +183,4 @@ hotfix/v2.4.3
 | Versão | Data       | Descrição                   | Autor                                                  |
 | ------ | ---------- | --------------------------- | ------------------------------------------------------ |
 | 1.0    | 18/11/2024 | Versão inicial do documento | [Vinicius Vieira](https://github.com/viniciusvieira00) |
+| 1.1    | 26/11/2024 | Alterando a criação de branch de docs | [Bruno Bragança](http://github.com/BrunoBReis) |
