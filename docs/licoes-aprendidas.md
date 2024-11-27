@@ -14,8 +14,8 @@ Durante a execução do projeto, a equipe da Pro Injeção identificou algumas l
 
 <center>
 
-| Versão | Descrição             | Autor                                                 | Data       |
-| ------ | --------------------- | ----------------------------------------------------- | ---------- |
-| 0.1    | Lições aprendidas na unidade 1 | [Bruno Bragança](http://github.com/BrunoBReis)        | 11/11/2024 |
+| Versão | Descrição                      | Autor                                          | Data       |
+| ------ | ------------------------------ | ---------------------------------------------- | ---------- |
+| 0.1    | Lições aprendidas na unidade 1 | [Bruno Bragança](http://github.com/BrunoBReis) | 11/11/2024 |
 
 </center>

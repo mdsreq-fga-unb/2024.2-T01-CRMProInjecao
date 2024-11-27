@@ -10,7 +10,6 @@
 
 - Só existe uma main no projeto;
 - Commits não são permitidos diretamente nessa branch;
-- Mudanças nela só ocorrem por meio de pull requests das branches hotfix ou docs.
 
 ### Docs
 <p align="justify" style="text-indent: 20px">
@@ -180,7 +179,11 @@ hotfix/v2.4.3
 
 ## Histórico de Versão
 
+<center>
+
 | Versão | Data       | Descrição                   | Autor                                                  |
 | ------ | ---------- | --------------------------- | ------------------------------------------------------ |
 | 1.0    | 18/11/2024 | Versão inicial do documento | [Vinicius Vieira](https://github.com/viniciusvieira00) |
 | 1.1    | 26/11/2024 | Alterando a criação de branch de docs | [Bruno Bragança](http://github.com/BrunoBReis) |
+
+</center>

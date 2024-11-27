@@ -148,11 +148,11 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
 
 <center>
 
-| Versão | Descrição             | Autor                                                 | Data       |
-| ------ | --------------------- | ----------------------------------------------------- | ---------- |
-| 0.1    | Cronograma do Projeto | [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
-| 0.2    | Ajuste do cronograma  | [Vinicius Vieira](http://github.com/viniciusvieira00) | 19/11/2024 |
-| 0.3    | Melhorando a visualização das sprints  | [Bruno Bragança](http://github.com/BrunoBReis) | 26/11/2024 |
+| Versão | Descrição                             | Autor                                                 | Data       |
+| ------ | ------------------------------------- | ----------------------------------------------------- | ---------- |
+| 0.1    | Cronograma do Projeto                 | [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
+| 0.2    | Ajuste do cronograma                  | [Vinicius Vieira](http://github.com/viniciusvieira00) | 19/11/2024 |
+| 0.3    | Melhorando a visualização das sprints | [Bruno Bragança](http://github.com/BrunoBReis)        | 26/11/2024 |
 
 
 </center>

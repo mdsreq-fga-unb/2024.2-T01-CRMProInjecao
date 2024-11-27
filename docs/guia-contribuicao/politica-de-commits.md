@@ -106,7 +106,11 @@ No corpo, ele deve dizer: `This reverts commit <hash>.`, onde o hash é o SHA do
 
 ## Histórico de Versão
 
+<center>
+
 | Versão | Data       | Descrição                         | Autor                                                  |
 | ------ | ---------- | --------------------------------- | ------------------------------------------------------ |
 | 1.0    | 18/11/2024 | Versão inicial do documento       | [Vinicius Vieira](https://github.com/viniciusvieira00) |
 | 1.1    | 19/11/2024 | Remoção de conteúdo não aplicável | [Vinicius Vieira](https://github.com/viniciusvieira00) |
+
+</center>
