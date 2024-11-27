@@ -6,7 +6,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
 
 ## Cronograma de Sprints e Entregas
 
-??? info "Sprint 1 - Configuração Inicial"
+???+ info "Sprint 1 - Configuração Inicial"
 
     **Período:** 18/11/2024 a 02/12/2024  
 
@@ -24,7 +24,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
     - Revisão e aprovação do backlog inicial.  
     - Confirmação de que todos os membros estão aptos a trabalhar com as tecnologias propostas.  
 
-??? info "Sprint 2 - Módulos de Usuários e Clientes"
+???+ info "Sprint 2 - Módulos de Usuários e Clientes"
 
     **Período:** 03/12/2024 a 16/12/2024  
 
@@ -39,7 +39,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
     - Feedback sobre a usabilidade e funcionalidade dos módulos.  
     - Revisão do controle administrativo e ajustes necessários.  
 
-??? warning "Sprint 3 - Entrega 1 - Módulos de Produtos e Serviços"
+???+ warning "Sprint 3 - Entrega 1 - Módulos de Produtos e Serviços"
 
     **Período:** 17/12/2024 a 23/12/2024  
 
@@ -55,7 +55,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
     - Análise do funcionamento e usabilidade dos módulos entregues.  
     - Identificação de ajustes para sprints subsequentes.  
 
-??? info "Sprint 4 - Ajustes e Fluxo Inicial de Orçamentos e Ordens de Serviço"
+???+ info "Sprint 4 - Ajustes e Fluxo Inicial de Orçamentos e Ordens de Serviço"
 
     **Período:** 06/01/2025 a 20/01/2025  
 
@@ -74,7 +74,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
     - Novos feedbacks para refinamento contínuo.  
 
 
-??? warning "Sprint 5 - Entrega 2 - Finalização de Orçamentos e Avaliações"
+???+ warning "Sprint 5 - Entrega 2 - Finalização de Orçamentos e Avaliações"
 
     **Período:** 21/01/2025 a 04/02/2025  
 
@@ -91,7 +91,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
     - Análise do módulo de avaliações e experiência do cliente.  
 
 
-??? warning "Sprint 6 - Entrega 3 - Homologação e Lançamento em Produção"
+???+ warning "Sprint 6 - Entrega 3 - Homologação e Lançamento em Produção"
 
     **Período:** 05/02/2025 a 17/02/2025  
 
@@ -152,5 +152,7 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
 | ------ | --------------------- | ----------------------------------------------------- | ---------- |
 | 0.1    | Cronograma do Projeto | [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
 | 0.2    | Ajuste do cronograma  | [Vinicius Vieira](http://github.com/viniciusvieira00) | 19/11/2024 |
+| 0.3    | Melhorando a visualização das sprints  | [Bruno Bragança](http://github.com/BrunoBReis) | 26/11/2024 |
+
 
 </center>
