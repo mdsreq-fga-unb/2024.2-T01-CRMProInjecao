@@ -12,15 +12,17 @@ A equipe de desenvolvimento será composta por:
 
 ### Ferramentas de Comunicação
 
-- **Telegram:** Principal meio de comunicação rápida e diária entre os membros equipe, garantindo maior eficiência para a realização das tarefas.
+- **Telegram**: Principal meio de comunicação rápida e diária entre os membros equipe, as dailys estão sendo realizadas nesta ferramenta.
 
-- **Whatsapp:** Meio de comunicação entre os membros da equipe e o cliente, garantindo rapidez e objetividade em eventuais dúvidas sobre o processo de trabalho realizado na empresa do cliente.
+- **Whatsapp**: Meio de comunicação entre os membros da equipe e o cliente, garantindo rapidez e objetividade em eventuais dúvidas sobre o processo de trabalho realizado na empresa do cliente.
 
-- **Meets:**  Utilizado para reuniões iniciais com a equipe, facilitando as discussões técnicas e tomadas de decisões com interações mais dinâmicas.
+- **Microsoft Teams**:  Utilizado para reuniões em que é necessário a gravação, tanto entre membros da equipe quanto o cliente.
 
-- **Discord:**  Será utilizado para reuniões gravadas entre cliente e a equipe, permitindo acompanhamento de informações importantes do conteúdo das reuniões quando necessário.
+- **Discord**: Utilizado como o principal canal para reuniões virtuais entre os membros da equipe.
 
-- **Miro:**  Ferramenta para gerenciamento de tarefas e acompanhamento do backlog do projeto, proporcionando a equipe uma visibilidade mais clara sobre o progresso das atividades, priorização das tarefas e definição de responsáveis.
+- **Github Projects**: Principal ferramenta de gerenciamento de atividades nas sprints, utilizando a visualização de kanban.
+
+- **Miro**:  Ferramenta para gerenciamento de tarefas e acompanhamento do backlog do projeto, proporcionando a equipe uma visibilidade mais clara sobre o progresso das atividades, priorização das tarefas e definição de responsáveis.
 
 ### Métodos e Frequência de Reuniões
 
@@ -37,3 +39,4 @@ A equipe de desenvolvimento será composta por:
 |--------|---------------------------|-------------------------|------------|
 | 0.1    | Adicionando composição da equipe  | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
 | 0.2    | Adicionando o tópico de comunicação e validação   |  [Fábio Torres](http://github.com/fabioaletorres) | 11/11/2024 |
+| 0.3    | Atualizando as ferramentas de comunicação   |  [Bruno Bragança](http://github.com/BrunoBReis) | 26/11/2024 |
