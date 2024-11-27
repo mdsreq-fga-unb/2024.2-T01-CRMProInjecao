@@ -174,9 +174,9 @@ hotfix/v2.4.3
 
 ## Referências
 
-> [1] DRIESSEN, Vincent. A successful Git branching model. [S. l.], 5 jan. 2010. Disponível em: <a href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a>. Acesso em: 15 outubro. 2022.
+> [1] DRIESSEN, Vincent. A successful Git branching model. [S. l.], 5 jan. 2010. Disponível em: <a href="https://nvie.com/posts/a-successful-git-branching-model/">https://nvie.com/posts/a-successful-git-branching-model/</a>. Acesso em: 18 novembro. 2024.
 
-> [2] GITFLOW Workflow. [S. l.], 201-. Disponível em: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a>. Acesso em: 15 outubro. 2022.
+> [2] GITFLOW Workflow. [S. l.], 201-. Disponível em: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow">https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow</a>. Acesso em: 18 novembro. 2024.
 
 ## Histórico de Versão
 
