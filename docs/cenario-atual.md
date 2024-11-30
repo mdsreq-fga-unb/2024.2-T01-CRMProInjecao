@@ -58,7 +58,7 @@ A Pro Injeção atende principalmente motoristas e proprietários de veículos q
 
 1. **Motoristas Individuais com Veículos Pessoais**: Esse segmento inclui proprietários de veículos que buscam serviços de manutenção e reparo para garantir a segurança e o desempenho de seus automóveis. Esse público é composto por motoristas de diferentes idades, mas geralmente entre 25 e 55 anos, que possuem veículos de uso pessoal e procuram um atendimento confiável e eficiente para resolver problemas eletrônicos e elétricos. Suas principais necessidades incluem a confiabilidade nos serviços e um custo-benefício adequado.
 
-2. **Empresas de Manutenção Automotiva e Oficinas**: A Pro Injeção também atende oficinas e empresas do setor automotivo que precisam de suporte especializado para serviços que envolvem sistemas eletrônicos complexos. Essas empresas frequentemente terceirizam esses serviços para especialistas em eletrônica automotiva, especialmente para programação de módulos (ECU), ajustes em painéis e configuração de componentes eletrônicos. Esse segmento valoriza agilidade, precisão e qualidade nos serviços para complementar suas operações.
+2. **Empresas de Manutenção Automotiva e Oficinas**: A Pro Injeção também atende oficinas e empresas do setor automotivo que precisam de suporte especializado para serviços que envolvem sistemas eletrônicos complexos. Essas empresas frequentemente terceirizam esses serviços para especialistas em eletrônica automotiva, especialmente para programação de módulos (ECU), ajustes em painéis e configuração de componentes eletrônicos. Esse segmento valoriza agilidade, precisão e qualidade nos serviços para complementar suas operações. Geralmente o responsável pelo contato entre as empresas e a Pro Injeção é estabelecido pelo dono, que costuma estar na faixa dos 45 a 60 anos de idade, com alguns casos raros de uma interação com a secretaria.
 
 
 ## Histórico de Versão
@@ -70,5 +70,6 @@ A Pro Injeção atende principalmente motoristas e proprietários de veículos q
 | 0.1    | Primeira ideia do projeto                                      | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
 | 0.2    | Atualizando o projeto com os feedbacks enviados pelo professor | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 08/11/2024 |
 | 0.3    | Atualizando a imagem o fishbone                                | [Bruno Bragança](http://github.com/BrunoBReis)                                                                                                                                                                                                  | 24/11/2024 |
+| 0.4    | Atualizando a segmentação de clientes com relação as empresas e oficinas | [Paulo Filho](http://github.com/PauloFilho2) |  30/11/2024  |
 
 <center/>
