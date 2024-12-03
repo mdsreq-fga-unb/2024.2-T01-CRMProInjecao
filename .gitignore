@@ -5,3 +5,11 @@ site/
 .env
 .venv
 venv/
+
+## Node Modules ##
+node_modules
+
+
+## Next ##
+.next
+next-env.d.ts
