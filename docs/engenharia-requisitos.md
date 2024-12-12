@@ -56,3 +56,12 @@
 |                    Revisão da Sprint                    | Declaração                | Mostrar o progresso das histórias de usuários finalizadas pela PBB                                       | PBB                          | Ajustar os user stories conforme feedback do P.O.                                                                        |
 |                                                         | Validação                 | Coletar informações do stakehorlder a partir da apresnetação do produto da sprint                        | Coleta de Feedback           | Validação com o P.O. dos resultados da Execução da Sprint                                                                |
 |                      Retrospectiva                      | Organização e Atualização | Depois da coleta de feedbacks ajustar o PBB com os seus devidios critérios de DoR e Pontos por Histórias | PBB, Pontos por Histórias    | Organizar os requisitos para a próxima iteração                                                                          |
+
+
+<center>
+
+| Versão | Descrição                      | Autor                                          | Data       |
+| ------ | ------------------------------ | ---------------------------------------------- | ---------- |
+| 0.1    | Criação da engenhria de requisitos | [Bruno Bragança](http://github.com/BrunoBReis) | 12/12/2024 |
+
+</center>
