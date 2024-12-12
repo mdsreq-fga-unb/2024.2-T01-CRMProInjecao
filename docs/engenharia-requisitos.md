@@ -1,4 +1,4 @@
-## Atividades e suas técnicas
+## Atividades de ER e suas técnicas
 
 ### Planejamento Inicial
 
