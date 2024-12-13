@@ -10,7 +10,7 @@
 #### Análise e Consenso
 - **PBB**: Essa técnica será empregada para declarar e organizar as User Stories (US). O time irá decompor os requisitos em histórias menores, claras e com critérios de aceitação definidos. As histórias serão organizadas no backlog do produto e da sprint.
 - **MoSCoW**: Será utilizada para priorizar os requisitos, classificando-os como "Must Have" (essenciais), "Should Have" (importantes), "Could Have" (desejáveis) e "Won't Have" (não serão implementados agora). Isso garante que o time trabalhe nas funcionalidades mais importantes primeiro.
-- **DEEP**: A aplicação do conceito DEEP (Detailed, Emergent, Estimated, Prioritized) assegurará que o backlog esteja sempre detalhado, evoluindo conforme as necessidades do projeto, estimado em termos de esforço e priorizado para maximizar o valor. Essa técnica será aplicada em conjunto com a Lean Inception na etapa de priorização dos requisitos: *Revisão Técnica, de UX e de Negócio.*
+- **DEEP**: A aplicação do conceito DEEP (Detailed, Emergent, Estimated, Prioritized) assegurará que o backlog esteja sempre detalhado, evoluindo conforme as necessidades do projeto, estimado em termos de esforço e priorizado para maximizar o valor. Essa técnica será aplicada em conjunto com a Lean Inception na etapa de priorização dos requisitos: *Revisão Técnica e de Negócio.*
 - **DoR**: Será utilizada para definir os critérios mínimos que uma User Story deve atender para estar pronta para entrar em desenvolvimento. Isso inclui clareza dos critérios de aceitação e entendimento comum entre os membros do time.
 
 #### Elicitação e Descoberta
