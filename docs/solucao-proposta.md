@@ -80,6 +80,25 @@ Com a implementação da aplicação web, espera-se melhora na capacidade de ger
 
 - **Gestão de produtos no estoque**: A integração automática com o estoque garantirá uma gestão mais precisa, proporcionando ao dono da empresa conhecimento em tempo real dos seus produtos para realização dos serviços nos carros dos clientes.
 
+## Causas Não Resolvíveis Apenas com Software
+
+De acordo com a solução proposta e o diagrama de Ishikawa, algumas causas identificadas não são diretamente resolvidas pelo sistema, pois envolvem fatores externos ou humanos. Estas limitações devem ser reconhecidas para alinhar expectativas e identificar possíveis áreas de melhoria futura:
+
+### Mão de Obra
+
+- *Equipe pequena*: O software agiliza e organiza processos, mas não resolve a limitação de mão de obra diretamente. Para atender à crescente demanda, será necessário contratar ou treinar mais colaboradores, especialmente para alimentar e monitorar o sistema adequadamente.
+- *Processos dependentes de intervenção humana*: Apesar de automatizar tarefas como cadastro e geração de orçamentos, o uso eficaz do sistema exige dedicação constante dos usuários, o que pode se tornar um gargalo com uma equipe reduzida.
+
+### Meio Ambiente
+
+- *Parceria com outras oficinas*: A solução não aborda a gestão de parcerias externas de forma direta. A empresa precisará continuar gerenciando manualmente essas relações, embora o sistema possa facilitar a organização de dados relacionados a parcerias.
+
+### Limitações do Escopo
+
+- *Integração com ferramentas externas*: O sistema atual não prevê funcionalidades para integrar plataformas externas (como WhatsApp ou soluções fiscais), o que poderia oferecer uma experiência mais fluida aos clientes e colaboradores.
+
+Esses pontos evidenciam que, apesar das melhorias proporcionadas pelo sistema, fatores externos e limitações estruturais podem exigir esforços complementares para garantir que os objetivos estratégicos da empresa sejam plenamente alcançados.
+
 ## Histórico de Versão
 
 <center>
