@@ -111,3 +111,15 @@
   - Back-end: Nest.js como framework.
   - Front-end: Next.js como framework.
   - Banco de Dados: PostgreSQL.
+
+
+
+## Histórico de Versão
+
+<center>
+
+
+| Versão | Descrição                                                    | Autor                                            | Data       |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------ | ---------- |
+| 0.1    | Adicionando listas de requisitos funcionais e não funcionais | [Fábio Torres](http://github.com/fabioaletorres) | 14/12/2024 |
+
