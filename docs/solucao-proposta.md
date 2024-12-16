@@ -107,5 +107,6 @@ Esses pontos evidenciam que, apesar das melhorias proporcionadas pelo sistema, f
 | ------ | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
 | 0.1    | Primeira ideia do projeto                                      | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 07/11/2024 |
 | 0.2    | Atualizando o projeto com os feedbacks enviados pelo professor | [Bruno Bragança](http://github.com/BrunoBReis), [Fábio Torres](http://github.com/fabioaletorres), [Paulo Filho](http://github.com/PauloFilho2), [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 08/11/2024 |
+0.3 |     Adiocionando provaveis causa nao resolviviveis apenas com o software ao arquivo solucao proposta | [Pedro Braga](http://github.com/Stain19) | 15/12/2024 |
 
 </center>
