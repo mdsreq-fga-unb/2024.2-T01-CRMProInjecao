@@ -17,7 +17,7 @@ O **Definition of Ready (DoR)** é um conjunto de critérios acordados entre o t
 4. **Cobertura por critérios de aceite**
     - O requisito está acompanhado de critérios de aceitação, seguindo os modelos de valor de negócio da Lean Inception.
 
-5. **Mapeamento para uma interface (quando necessário)**
+5. **Mapeamento interface para front-end**
     - Caso o requisito envolva uma interface, ela está definida e descrita, garantindo clareza para o desenvolvimento.
 
 6. **Identificação de dependências**
@@ -78,7 +78,7 @@ Se um requisito não atender ao DoD, ele não deve ser considerado pronto para a
     - A funcionalidade foi testada no front-end e está integrada corretamente, garantindo o funcionamento esperado nas interfaces de usuário.
 
 13. **Deploy em ambiente de teste concluído**
-    - O incremento foi deployado em um ambiente de teste e validado antes da liberação para o cliente ou produção.
+    - O incremento foi implementado em um ambiente de teste e validado antes da liberação para o cliente ou produção.
 
 ---
 
