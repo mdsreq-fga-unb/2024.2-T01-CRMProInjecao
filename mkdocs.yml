@@ -132,8 +132,10 @@ nav:
     - Engenharia de Requisitos: engenharia-requisitos.md
     - Cronograma de Entregas: cronograma-entregas.md
     - Interação Entre Equipe e Cliente: interacao-equipe-cliente.md
+    - Requisitos de Software: requisitos-software.md
     - Lições Aprendidas: licoes-aprendidas.md
     - DoR e DoD: dor-dod.md
+    - Product Backlog: product-backlog.md
   - Apresentações:
     - Unidade 1: apresentacao-1.md
   - Guia de Contribuição: 
