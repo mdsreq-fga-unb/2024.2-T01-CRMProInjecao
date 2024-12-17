@@ -34,6 +34,56 @@ O Backlog Geral contém todas as funcionalidades e melhorias planejadas para o s
 | 22     | Redefinir senha de acesso por e-mail.                                         | RF35                         | Médio                    | Baixo               | Sim     | Autenticação                   |
 | 23     | Cadastrar e gerenciar usuários administrativos.                               | RF29, RF30, RF31             | Médio                    | Médio               | Não     | Gerenciamento Administrativo   |
 
+## Histórias de Usuário
+
+### Gerenciamento de Clientes
+
+1. Como administrador eu posso cadastrar clientes e seus veículos para que o sistema tenha informações organizadas para gerenciamento.
+2. Como administrador eu posso consultar clientes com filtros (nome, status, veículo) para que a busca por informações seja mais eficiente.
+3. Como administrador eu posso atualizar e desativar clientes para que as informações permaneçam consistentes e atualizadas.
+4. Como administrador eu posso registrar o histórico de serviços realizados para um cliente para que seja possível acompanhar os serviços prestados.
+
+### Gerenciamento de Serviços
+
+5. Como administrador eu posso criar tipos de serviço para ordens de serviço para que o sistema tenha categorias organizadas para registro.
+6. Como administrador eu posso atualizar tipos de serviço para que o cadastro de serviços esteja sempre atualizado.
+7. Como administrador eu posso criar ordens de serviço vinculadas a clientes e veículos para que os serviços prestados sejam devidamente registrados
+8. Como administrador eu posso atualizar o status das ordens de serviço e enviar notificações automáticas para que os clientes sejam informados sobre o progresso.
+9. Como administrador eu posso consultar ordens de serviço com filtros (cliente, status, veículo) para que seja possível encontrar rapidamente as informações desejadas.
+
+### Gerenciamento de Orçamentos
+
+10. Como administrador eu posso criar orçamentos vinculando tipos de serviços e produtos para que os custos dos serviços sejam formalizados.
+11. Como administrador eu posso enviar orçamentos para clientes para que eles tenham acesso aos valores previstos.
+12. Como administrador eu posso gerar PDFs de orçamentos para que os clientes recebam documentos formais dos valores estimados.
+
+### Produtos e Controle de Estoque
+
+13. Como administrador eu posso cadastrar produtos para que o sistema tenha um controle eficiente do estoque.
+14. Como administrador eu posso atualizar informações de produtos cadastrados para que os dados dos produtos estejam corretos.
+15. Como administrador eu posso criar entradas ou saídas de estoque para um produto cadastrado para que o controle do estoque seja atualizado.
+16. Como administrador eu posso consultar produtos com filtros (nome, categoria) para que a busca de produtos seja mais ágil.
+
+### Coleta e Análise de Feedback
+
+17. Como administrador eu posso criar formulários de feedback personalizados para que os clientes possam avaliar os serviços prestados.
+18. Como administrador eu posso gerar relatórios de métricas de satisfação baseados nos feedbacks coletados para que o desempenho do serviço seja analisado.
+
+### Relatórios e Análise de Dados
+
+19. Como administrador eu posso criar relatórios personalizados com dados de serviços, clientes e desempenho para que decisões estratégicas possam ser tomadas.
+20. Como administrador eu posso exibir um dashboard com visão geral do negócio (KPIs: clientes, serviços, etc.) para que tenha acesso às métricas em tempo real.
+
+### Autenticação
+
+21. Como administrador eu posso autenticar usuários no sistema com login por e-mail e senha para que o acesso seja seguro e controlado.
+22. Como administrador eu posso redefinir a senha de acesso por e-mail para que os usuários possam recuperar o acesso ao sistema.
+
+### Gerenciamento Administrativo
+
+23. Como administrador eu posso cadastrar e gerenciar usuários administrativos para que o controle de acessos e permissões seja eficiente.
+
+
 ---
 
 Aqui está a adaptação da seção **Priorização do Backlog Geral** seguindo a matriz de priorização da **Lean Inception** que utilizamos.
