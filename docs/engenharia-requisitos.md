@@ -1,67 +1,63 @@
-## Atividades de ER e suas técnicas
+## Atividades e suas técnicas
 
 ### Planejamento Inicial
 
 #### Elicitação e Descoberta
-- **Lean Inception**: A técnica Lean Inception será utilizada para alinhar o time e os stakeholders sobre a visão inicial do produto. Será realizada uma série de workshops colaborativos com o objetivo de identificar os principais requisitos iniciais e criar um backlog do produto. O resultado esperado é um backlog do produto com itens priorizados e prontos para iniciar a primeira sprint.
+- **Lean Inception**: A técnica Lean Inception será utilizada para levantar os requisitos iniciais do produto. Por meio de workshops colaborativos, o time e os stakeholders alinharão a visão do produto, criando um backlog inicial priorizado e pronto para iniciar a primeira sprint.
 
 ### Planejamento da Sprint
 
 #### Análise e Consenso
-- **PBB**: Essa técnica será empregada para declarar e organizar as User Stories (US). O time irá decompor os requisitos em histórias menores, claras e com critérios de aceitação definidos. As histórias serão organizadas no backlog do produto e da sprint.
-- **MoSCoW**: Será utilizada para priorizar os requisitos, classificando-os como "Must Have" (essenciais), "Should Have" (importantes), "Could Have" (desejáveis) e "Won't Have" (não serão implementados agora). Isso garante que o time trabalhe nas funcionalidades mais importantes primeiro.
-- **DEEP**: A aplicação do conceito DEEP (Detailed, Emergent, Estimated, Prioritized) assegurará que o backlog esteja sempre detalhado, evoluindo conforme as necessidades do projeto, estimado em termos de esforço e priorizado para maximizar o valor. Essa técnica será aplicada em conjunto com a Lean Inception na etapa de priorização dos requisitos: *Revisão Técnica e de Negócio.*
-- **DoR**: Será utilizada para definir os critérios mínimos que uma User Story deve atender para estar pronta para entrar em desenvolvimento. Isso inclui clareza dos critérios de aceitação e entendimento comum entre os membros do time.
+- **Lean Inception**: Será aplicada novamente para priorizar requisitos, definir os problemas e alinhar as expectativas do time.
+- **MoSCoW**: Técnica utilizada para priorizar funcionalidades em "Must Have", "Should Have", "Could Have" e "Won't Have", garantindo foco nas entregas essenciais.
+- **DEEP**: Aplicação do conceito DEEP para garantir que o backlog esteja detalhado, emergente, estimado e priorizado.
+- **DoR**: Será definido o conjunto de critérios que uma User Story precisa atender para estar pronta para desenvolvimento.
 
 #### Elicitação e Descoberta
-- **Entrevistas com Stakeholders**: As entrevistas serão conduzidas com os stakeholders para coletar informações detalhadas sobre as expectativas e necessidades do produto. Essa técnica permitirá identificar novas funcionalidades e ajustes necessários no backlog do produto.
+- **Entrevistas com Stakeholders**: Será conduzida uma série de perguntas com os stakeholders para identificar novas funcionalidades necessárias e ajustar o backlog do produto.
 
 #### Declaração e Organização
-- **PBB**: Durante esta etapa, as User Stories serão declaradas e organizadas de forma estruturada, utilizando o modelo de Product Backlog Building. Isso garante que o backlog esteja claro e preparado para as sprints futuras.
-- **Pontos por Histórias**: As histórias serão pontuadas com base em critérios de esforço ou complexidade. Isso ajudará na priorização e na organização eficiente do backlog, otimizando o planejamento das sprints.
-
+- **Lean Inception**: As User Stories (US) serão declaradas e organizadas no backlog, com base nas discussões e prioridades definidas durante a Lean Inception.
+- **Backlog de Requisitos**: A organização das histórias será baseada em critérios claros e alinhados, com foco no refinamento contínuo do backlog.
 
 ### Execução da Sprint
 
 #### Verificação
-- **DoD**: Durante a execução da sprint, as User Stories finalizadas serão verificadas para garantir que atendem aos critérios do DoD. Isso inclui validação técnica e funcional.
+- **DoD (Definition of Done)**: As histórias finalizadas serão verificadas para garantir que atendem aos critérios de aceitação definidos no DoD. Isso inclui a validação técnica e funcional.
 
 #### Organização e Atualização
-- **PBB**: Durante a sprint, o backlog será continuamente atualizado no modelo PBB, refletindo o progresso e garantindo que o planejamento esteja sempre alinhado com as entregas.
+- **Backlog de Requisitos**: Durante a execução, o backlog será atualizado continuamente com o progresso das histórias, garantindo que o trabalho esteja sempre alinhado com as entregas.
 
 ### Revisão da Sprint
 
-#### Declaração
-- **PBB**: Durante a revisão, o progresso das User Stories será apresentado ao Product Owner, ajustando os itens do backlog conforme feedbacks recebidos.
-
 #### Validação
-- **Coleta de Feedback**: Os stakeholders fornecerão feedbacks a partir da demonstração do produto. Isso será essencial para validar os resultados e ajustar as expectativas para as próximas iterações.
+- **Coleta de Feedback**: Durante a apresentação do produto da sprint, os stakeholders fornecerão feedbacks que serão validados e discutidos com o Product Owner (P.O.) para ajustes no backlog.
 
 ### Retrospectiva
 
 #### Organização e Atualização
-- **PBB**: O backlog será ajustado após a coleta de feedbacks para refletir os novos critérios de aceitação.
-- **Pontos por Histórias**: As histórias serão reavaliadas e reorganizadas para a próxima iteração, garantindo que a priorização esteja alinhada com os objetivos do produto.
+- **Backlog de Requisitos**: Após a coleta de feedbacks, o backlog será ajustado com base nos novos critérios definidos.
+- **Pontos por Histórias**: As User Stories serão reavaliadas e pontuadas conforme o esforço necessário, garantindo uma organização eficiente para a próxima iteração.
 
 
-## Tabela
 
-| Planejamento Inicial (ocorrerá só no começo do projeto) | Elicitação e Descoberta   | Levantamento de requisitos iniciais                                                                      | Lean Inception               | Possui o backlog do produto incial para começar a primeira sprint                                                        |
-|:-------------------------------------------------------:|---------------------------|----------------------------------------------------------------------------------------------------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------|
-|                  Planejamento da Sprint                 | Análise e Consenso        | Priorização de requisitos definindo os problemas e expectativas                                          | PBB, MoSCoW, DEEP, DoR       | Backlog da sprint definido e ajustado para interação atual                                                               |
-|                                                         | Elicitação e Descoberta   | Realizar uma serie de perguntas para o stakeholder afim de identificar novas funcionalidades             | Entrevistas com stakeholders | Obter se necessário, novos requisitos para o backlog do produto                                                          |
-|                                                         | Declaração e Organização  | Declarar as US e organizá-las dentro do modelo de PBB                                                    | PBB, Pontos por Histórias    | User stories com critérios de aceitação claros e objetivos bem definidos e organizados no backlog do produto e da sprint |
-|                    Execução da Sprint                   | Verificação               | Verificar se as histórias finalizadas atendem  ao DoD                                                    | DoD                          | Verificação se os requisitos atendem aos critérios de aceitação                                                          |
-|                                                         | Organização e Atualização | Atualizar as histórias finalizadas no PBB                                                                | PBB                          | Backlog da sprint atualizado continuamente com o decorrer da sprint                                                      |
-|                    Revisão da Sprint                    | Declaração                | Mostrar o progresso das histórias de usuários finalizadas pela PBB                                       | PBB                          | Ajustar os user stories conforme feedback do P.O.                                                                        |
-|                                                         | Validação                 | Coletar informações do stakehorlder a partir da apresnetação do produto da sprint                        | Coleta de Feedback           | Validação com o P.O. dos resultados da Execução da Sprint                                                                |
-|                      Retrospectiva                      | Organização e Atualização | Depois da coleta de feedbacks ajustar o PBB com os seus devidios critérios de DoR e Pontos por Histórias | PBB, Pontos por Histórias    | Organizar os requisitos para a próxima iteração                                                                          |
+|                     Fases do ScrumXP                    | Atividades da Engenharia de Requisitos (ER) |                                                           Prática                                                          |                   Técnicas                  |                                                   Resultados Esperados                                                   |
+|:-------------------------------------------------------:|:-------------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------:|
+| Planejamento Inicial (ocorrerá só no começo do projeto) | Elicitação e Descoberta                     | Levantamento de requisitos iniciais                                                                                        | Lean Inception                              | Possui o backlog do produto incial para começar a primeira sprint                                                        |
+|                  Planejamento da Sprint                 | Análise e Consenso                          | Priorização de requisitos definindo os problemas e expectativas                                                            | Lean Inception, MoSCoW, DEEP, DoR           | Backlog da sprint definido e ajustado para interação atual                                                               |
+|                                                         | Elicitação e Descoberta                     | Realizar uma serie de perguntas para o stakeholder afim de identificar novas funcionalidades                               | Entrevistas com stakeholders                | Obter se necessário, novos requisitos para o backlog do produto                                                          |
+|                                                         | Declaração e Organização                    | Declarar as US no modelo da Lean Inception e organização pelo backlog de requisitos                                        | Lean Inception, Backlog de requisitos       | User stories com critérios de aceitação claros e objetivos bem definidos e organizados no backlog do produto e da sprint |
+|                    Execução da Sprint                   | Verificação                                 | Verificar se as histórias finalizadas atendem  ao DoD                                                                      | DoD                                         | Verificação se os requisitos atendem aos critérios de aceitação                                                          |
+|                                                         | Organização e Atualização                   | Atualizar as histórias finalizadas com                                                                                     | Backlog de requisitos                       | Backlog da sprint atualizado continuamente com o decorrer da sprint                                                      |
+|                    Revisão da Sprint                    | Validação                                   | Coletar informações do stakehorlder a partir da apresnetação do produto da sprint                                          | Coleta de Feedback                          | Validação com o P.O. dos resultados da Execução da Sprint                                                                |
+|                      Retrospectiva                      | Organização e Atualização                   | Depois da coleta de feedbacks ajustar o Backlog de requisitos com os seus devidios critérios de DoR e Pontos por Histórias | Backlog de requisitos, Pontos por Histórias | Organizar os requisitos para a próxima iteração                                                                          |
 
+---
 
-<center>
+### **Versão do Documento**
 
-| Versão | Descrição                      | Autor                                          | Data       |
-| ------ | ------------------------------ | ---------------------------------------------- | ---------- |
-| 0.1    | Criação da engenhria de requisitos | [Bruno Bragança](http://github.com/BrunoBReis) | 12/12/2024 |
-
-</center>
+|Versão|Descrição|Autor|Data|
+|---|---|---|---|
+|0.1|Criação da Engenharia de Requisitos|[Bruno Bragança](http://github.com/BrunoBReis)|12/12/2024|
+|0.2|Ajuste para uso exclusivo do Lean Inception e Matriz de Priorização|[Bruno Bragança](http://github.com/BrunoBReis)|16/12/2024|
+|0.3|Ajuste geral|[Bruno Bragança](http://github.com/BrunoBReis)|16/12/2024|
