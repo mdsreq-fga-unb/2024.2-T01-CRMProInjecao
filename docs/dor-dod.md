@@ -17,8 +17,8 @@ O **Definition of Ready (DoR)** é um conjunto de critérios acordados entre o t
 4. **Cobertura por critérios de aceite**
     - O requisito está acompanhado de critérios de aceitação, seguindo os modelos de valor de negócio da Lean Inception.
 
-5. **Mapeamento interface para front-end**
-    - Caso o requisito envolva uma interface, ela está definida e descrita, garantindo clareza para o desenvolvimento.
+5. **Mapeamento de interface**
+    - Caso o requisito envolva uma interface, ela está definida com especificações claras, protótipos de baixa fidelidade ou wireframes para orientar o desenvolvimento.
 
 6. **Identificação de dependências**
     - Todas as dependências do requisito foram identificadas e estão resolvidas ou com planos claros para serem tratadas.
@@ -44,7 +44,7 @@ Se um requisito não atender ao DoD, ele não deve ser considerado pronto para a
 1. **Entrega um incremento do produto**
     - A funcionalidade implementada agrega valor ao produto, resultando em um incremento utilizável e funcional.
 
-2. **Atende aos critérios de aceite**
+2. **Atende aos critérios de aceitação**
     - Todos os critérios de aceitação definidos previamente foram cumpridos, garantindo o comportamento esperado.
 
 3. **Está documentado**
@@ -71,13 +71,7 @@ Se um requisito não atender ao DoD, ele não deve ser considerado pronto para a
 10. **Integração com o banco de dados garantida**
     - No caso de funcionalidades que envolvam persistência, a integração com o banco de dados PostgreSQL (via TypeORM) foi testada e validada.
 
-11. **Documentação de API (para back-end com NestJS)**
-    - Se a funcionalidade incluiu alterações na API, a documentação foi atualizada, facilitando a integração com o front-end.
-
-12. **Compatibilidade com o front-end (ReactJS e NextJS)**
-    - A funcionalidade foi testada no front-end e está integrada corretamente, garantindo o funcionamento esperado nas interfaces de usuário.
-
-13. **Deploy em ambiente de teste concluído**
+11. **Deploy em ambiente de teste concluído**
     - O incremento foi implementado em um ambiente de teste e validado antes da liberação para o cliente ou produção.
 
 ---
