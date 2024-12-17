@@ -2,13 +2,13 @@
 
 A equipe de desenvolvimento será composta por:
 
-| **Papel**               | **Descrição**                                                | Responsável | **Participantes**          |
+| **Papel**               | **Descrição**                                                | **Responsável** | **Participantes**          |
 | ----------------------- | ------------------------------------------------------------ | ----------- | -------------------------- |
-| Product Owner           | Tem como objetivo manter o backlog do produto alinhado com as necessidades e prioridades do cliente. | Paulo       | ---                        |
+| Product Owner           | Tem como objetivo manter o backlog do produto alinhado com as necessidades e prioridades do cliente. | Pedro       | ---                        |
 | Gerente do Projeto      | Responsável por coordenar o projeto, garantindo a comunicação entre cliente e equipe, além de controlar prazos e entrega. | Bruno       | ---                        |
 | Scrum Master            | Responsável por garantir que a equipe siga corretamente os princípios, práticas e valores do Scrum. | Vinicius    | ---                        |
-| Desenvolvedor Back-end  | Responsável pela implementação da lógica de negócio, integrando com o banco de dados e APIs. | Pedro       | Bruno, Arthur              |
-| Desenvolvedor Front-end | Responsável pela construção da interface do usuário e layouts intuitivos, otimizar a performance e usabilidade, além de integrar o front-end com o back-end. | Vinicius    | Fábio, Paulo               |
+| Desenvolvedor Back-end  | Responsável pela implementação da lógica de negócio, integrando com o banco de dados e APIs. | Paulo       | Todos os membros da equipe              |
+| Desenvolvedor Front-end | Responsável pela construção da interface do usuário e layouts intuitivos, otimizar a performance e usabilidade, além de integrar o front-end com o back-end. | Vinicius    | Todos os membros da equipe               |
 | Analista de qualidade   | Garante a qualidade do produto, executando testes no software e verificando se todas as aplicações funcionam como esperado. | Fábio       | Todos os membros da equipe |
 | Analista de requisitos  | Garante que os requisitos funcionais e não funcionais foram corretamente implementados. | Arthur      | Todos os membros da equipe |
 
@@ -48,6 +48,7 @@ A equipe de desenvolvimento será composta por:
 | 0.2    | Adicionando o tópico de comunicação e validação | [Fábio Torres](http://github.com/fabioaletorres)             | 11/11/2024 |
 | 0.3    | Atualizando as ferramentas de comunicação       | [Bruno Bragança](http://github.com/BrunoBReis)               | 26/11/2024 |
 | 0.4    | Atualização da composição da equipe             | [Fábio Torres](http://github.com/fabioaletorres)             | 30/11/2024 |
+| 0.5    | Atualizando as funções       | [Bruno Bragança](http://github.com/BrunoBReis)               | 16/12/2024 |
 
 </center>
 
