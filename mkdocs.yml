@@ -129,15 +129,17 @@ nav:
     - Cenário Atual: cenario-atual.md
     - Solução Proposta: solucao-proposta.md
     - Estratégias de Engenharia de Software: estrategias-ESW.md
-    - Engenharia de Requisitos: engenharia-requisitos.md
-    - Cronograma de Entregas: cronograma-entregas.md
     - Interação Entre Equipe e Cliente: interacao-equipe-cliente.md
+    - Cronograma de Entregas: cronograma-entregas.md
+    - Engenharia de Requisitos: engenharia-requisitos.md
     - Requisitos de Software: requisitos-software.md
-    - Lições Aprendidas: licoes-aprendidas.md
     - DoR e DoD: dor-dod.md
     - Product Backlog: product-backlog.md
+    - Lições Aprendidas: licoes-aprendidas.md
+
   - Apresentações:
     - Unidade 1: apresentacao-1.md
+    - Unidade 2: apresentacao-2.md
   - Guia de Contribuição: 
     - Política de Commits: guia-contribuicao/politica-de-commits.md
     - Política de Branchs: guia-contribuicao/politica-de-branchs.md
