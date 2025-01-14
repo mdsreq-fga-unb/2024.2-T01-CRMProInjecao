@@ -7,6 +7,8 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import { AuthGuard } from './auth/auth.guard';
 import { dataSourceOptions } from 'db/data-source';
+import { ClientModule } from './client/client.module';
+import { VehicleModule } from './vehicle/vehicle.module';
 
 @Module({
   imports: [
@@ -24,6 +26,8 @@ import { dataSourceOptions } from 'db/data-source';
     TypeOrmModule.forRoot(dataSourceOptions),
     AuthModule,
     UserModule,
+    ClientModule,
+    VehicleModule,
   ],
   providers: [
     {
