@@ -1,6 +1,7 @@
 services:
   postgres:
     image: "postgres:15"
+    container_name: crm-proinjection-api
     restart: "always"
     volumes:
       - ./.psql/:/var/lib/postgresql/data/
