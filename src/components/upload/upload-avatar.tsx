@@ -4,7 +4,6 @@ import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
 import Iconify from '../iconify';
 import Image from '../image';
 //
@@ -35,12 +34,6 @@ export default function UploadAvatar({
   const hasError = isDragReject || !!error;
 
   const imgUrl = typeof file === 'string' ? file : file?.preview;
-  const [backgroundColor, setBackgroundColor] = useState('#fff'); // Estado para a cor de fundo
-
-  const handleBackgroundColor = (hexColor: string) => {
-    setBackgroundColor(hexColor);
-  }
-
   const renderPreview = hasFile && (
     <Image
         alt="avatar"
@@ -102,7 +95,9 @@ export default function UploadAvatar({
         overflow: 'hidden',
         borderRadius: '50%',
         position: 'relative',
-        backgroundColor,
+        ...(hasFile && {
+          zIndex: 10,
+        }),
       }}
     >
       {renderPreview}

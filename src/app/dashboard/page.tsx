@@ -4,7 +4,7 @@ import { OverviewAppView } from '@/sections/overview/view';
 // ----------------------------------------------------------------------
 
 export const metadata = {
-  title: 'Dashboard: CRM PRO INJEÇÃO',
+  title: 'CRM PRO INJEÇÃO - Dashboard',
 };
 
 export default function Page() {

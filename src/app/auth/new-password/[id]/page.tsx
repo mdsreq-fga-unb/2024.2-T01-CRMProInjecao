@@ -1,5 +1,5 @@
 // sections
-import { ClassicNewPasswordView } from '@/sections/auth-demo/classic';
+import { ModernForgotPasswordView } from '@/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------
 
@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function ClassicVerifyPage() {
-  return <ClassicNewPasswordView />;
+  return <ModernForgotPasswordView />;
 }
