@@ -1,3 +1,4 @@
+'use client';
 import { forwardRef } from 'react';
 // @mui
 import Link from '@mui/material/Link';
@@ -5,6 +6,7 @@ import Box, { BoxProps } from '@mui/material/Box';
 // routes
 import { RouterLink } from '@/routes/components';
 import Image from 'next/image';
+import { useTheme } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -14,6 +16,7 @@ export interface LogoProps extends BoxProps {
 
 const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ disabledLink = false, sx, ...other }, ref) => {
+    const theme = useTheme();
 
 
     const logo = (
@@ -28,8 +31,11 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
         }}
         {...other}
       >
-        <Image src="/next.svg" alt="logo" width={40} height={40} />
-
+        <Image src={
+          theme.palette.mode === 'light'
+            ? "/next.svg"
+            : "/next-dark.svg"
+        } alt="logo" width={40} height={40} />
       </Box>
     );
 

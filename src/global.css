@@ -1,0 +1,13 @@
+/* carousel */
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
+.helpClassBlack {
+  color: #7A0916;
+}
+.helpClassWhite {
+  color: #fff;
+}
+.introjs-skipbutton {
+  display: none;
+}

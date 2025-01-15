@@ -1,5 +1,3 @@
-import { webpack } from "next/dist/compiled/webpack/webpack";
-
 module.exports = {
   trailingSlash: true,
   modularizeImports: {
@@ -10,7 +8,7 @@ module.exports = {
       transform: '@mui/lab/{{member}}',
     },
   },
-  webpack(config: webpack.Configuration) {
+  webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
