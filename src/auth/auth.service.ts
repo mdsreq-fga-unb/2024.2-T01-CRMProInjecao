@@ -20,7 +20,6 @@ export class AuthService {
     password: string,
   ): Promise<{ user: Partial<User>; access_token: string }> {
     const user = await this.userService.findOneByEmail(email);
-    console.log(user.email);
     if (!user) {
       throw new UnauthorizedException('User not found');
     }

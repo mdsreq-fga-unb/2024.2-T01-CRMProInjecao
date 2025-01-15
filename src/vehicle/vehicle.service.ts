@@ -1,11 +1,48 @@
 import { Injectable } from '@nestjs/common';
 import { CreateVehicleDto } from './dto/create-vehicle.dto';
 import { UpdateVehicleDto } from './dto/update-vehicle.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Vehicle } from './entities/vehicle.entity';
+import { Client } from '../client/entities/client.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class VehicleService {
-  create(createVehicleDto: CreateVehicleDto) {
-    return 'This action adds a new vehicle';
+  constructor(
+    @InjectRepository(Vehicle)
+    private readonly vehicleRepository: Repository<Vehicle>,
+    @InjectRepository(Client)
+    private readonly clientRepository: Repository<Client>,
+  ) {}
+  async create(createVehicleDto: CreateVehicleDto): Promise<{
+    message: string;
+    data: {
+      clientCPF: string;
+      licensePlate: string;
+      brand: string;
+      model: string;
+      modelYear: number;
+    };
+  }> {
+    const vehicle = this.vehicleRepository.create(createVehicleDto);
+    const client = await this.clientRepository.findOne({
+      where: { cpf: createVehicleDto.clientCPF },
+    });
+    if (!client) {
+      throw new Error('Client not found');
+    }
+    vehicle.client = client;
+    await this.vehicleRepository.save(vehicle);
+    return {
+      message: 'Vehicle created successfully',
+      data: {
+        clientCPF: vehicle.client.cpf,
+        licensePlate: vehicle.licensePlate,
+        brand: vehicle.brand,
+        model: vehicle.model,
+        modelYear: vehicle.modelYear,
+      },
+    };
   }
 
   findAll() {

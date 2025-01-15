@@ -9,11 +9,11 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-enum VehicleStatus {
-  AVAILABLE,
-  UNDER_MAINTANCE,
-  WAITING_MAINTENANCE,
-  OUT_OF_SERVICE,
+export enum VehicleStatus {
+  AVAILABLE = 'AVAILABLE',
+  UNDER_MAINTANCE = 'UNDER_MAINTANCE',
+  WAITING_MAINTENANCE = 'WAITING_MAINTENANCE',
+  OUT_OF_SERVICE = 'OUT_OF_SERVICE',
 }
 
 @Entity()
@@ -58,7 +58,7 @@ export class Vehicle {
   })
   status: VehicleStatus;
 
-  @ManyToOne(() => Client, (client) => client.vehicles)
+  @ManyToOne(() => Client, (client) => client.vehicles, { nullable: false })
   client: Client;
 
   @CreateDateColumn()

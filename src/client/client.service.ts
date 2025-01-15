@@ -11,9 +11,21 @@ export class ClientService {
     @InjectRepository(Client)
     private readonly clientRepository: Repository<Client>,
   ) {}
-  async create(createClientDto: CreateClientDto): Promise<Client> {
+  async create(createClientDto: CreateClientDto): Promise<{
+    message: string;
+    data: { cpf: string; name: string; email: string; phone: string };
+  }> {
     const client = this.clientRepository.create(createClientDto);
-    return await this.clientRepository.save(client);
+    await this.clientRepository.save(client);
+    return {
+      message: 'Client created successfully',
+      data: {
+        cpf: client.cpf,
+        name: client.name,
+        email: client.email,
+        phone: client.phoneNumber,
+      },
+    };
   }
 
   async findAll() {
