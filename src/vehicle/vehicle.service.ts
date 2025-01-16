@@ -16,12 +16,8 @@ export class VehicleService {
   ) {}
   async create(createVehicleDto: CreateVehicleDto): Promise<{
     message: string;
-    data: {
+    data: Pick<Vehicle, 'licensePlate' | 'brand' | 'model' | 'modelYear'> & {
       clientCPF: string;
-      licensePlate: string;
-      brand: string;
-      model: string;
-      modelYear: number;
     };
   }> {
     const vehicle = this.vehicleRepository.create(createVehicleDto);

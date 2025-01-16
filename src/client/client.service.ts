@@ -13,22 +13,19 @@ export class ClientService {
   ) {}
   async create(createClientDto: CreateClientDto): Promise<{
     message: string;
-    data: { cpf: string; name: string; email: string; phone: string };
+    data: Omit<Client, 'vehicles' | 'deletedAt'>;
   }> {
     const client = this.clientRepository.create(createClientDto);
     await this.clientRepository.save(client);
     return {
       message: 'Client created successfully',
       data: {
-        cpf: client.cpf,
-        name: client.name,
-        email: client.email,
-        phone: client.phoneNumber,
+        ...client,
       },
     };
   }
 
-  async findAll() {
+  async findAll(): Promise<Client[]> {
     return await this.clientRepository.find({
       select: { name: true, email: true, phoneNumber: true, address: true },
     });
