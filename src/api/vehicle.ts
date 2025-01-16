@@ -33,7 +33,7 @@ const options = {
 //   return memoizedValue;
 // }
 
-export async function createVehicle(vehicle: createVehicle) {
+export async function useCreateVehicle(vehicle: createVehicle) {
   const URL_CREATE = URL.create;
   const data = {
     ...vehicle,
@@ -47,7 +47,7 @@ export async function createVehicle(vehicle: createVehicle) {
   return response.data;
 }
 
-export async function getOneClient(plate: string) {
+export async function getOneVehicle(plate: string) {
   const URL_FIND_ONE = URL.findOne.replace(':plate', plate);
   const { data, isLoading, error, isValidating } = useSWR(URL_FIND_ONE, fetcher, options);
 
