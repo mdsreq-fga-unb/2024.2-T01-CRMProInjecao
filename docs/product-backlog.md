@@ -8,36 +8,36 @@ Esta seção descreve o backlog de produto (preliminar ou completo), que é uma 
 
 O Backlog Geral contém todas as funcionalidades e melhorias planejadas para o software. Cada item é detalhado e priorizado para garantir uma visão clara do que será desenvolvido ao longo do projeto.
 
-| **ID** | **Descrição**                                                                 | **Requisitos Funcionais**    | **Valor para o Negócio** | **Esforço Técnico** | **MVP** | **Épico Relacionado**          |
-| ------ | ----------------------------------------------------------------------------- | ---------------------------- | ------------------------ | ------------------- | ------- | ------------------------------ |
-| 1      | Cadastrar clientes.                                                           | RF01                         | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
-| 2      | Vincular veiculos aos clientes.                                               | RF07                         | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
-| 3      | Consultar clientes com filtros (nome, status, veículo).                       | RF04, RF05                   | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
-| 4      | Desativar clientes.                                                           | RF02                         | Médio                    | Médio               | Sim     | Gerenciamento de Clientes      |
-| 5      | Atualizar clientes.                                                           | RF03                         | Médio                    | Médio               | Sim     | Gerenciamento de Clientes      |
-| 6      | Registrar histórico de serviços realizados para um cliente.                   | RF06                         | Alto                     | Médio               | Sim     | Gerenciamento de Clientes      |
-| 7      | Criar tipos de serviço para ordens de serviço.                                | RF12                         | Alto                     | Baixo               | Sim     | Gerenciamento de Serviços      |
-| 8      | Atualizar tipos de serviço.                                                   | RF14                         | Médio                    | Baixo               | Não     | Gerenciamento de Serviços      |
-| 9      | Criar ordens de serviço vinculadas a clientes e veículos.                     | RF11                         | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
-| 10     | Atualizar status de ordens de serviço e enviar notificações automáticas.      | RF09, RF13, RF15, RF16, RF17 | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
-| 11     | Consultar ordens de serviço com filtros (cliente, status, veículo).           | RF15                         | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
-| 12     | Criar orçamentos vinculando tipos de serviços.                                | RF18                         | Alto                     | Médio               | Sim     | Gerenciamento de Orçamentos    |
-| 13     | Enviar orçamentos para clientes.                                              | RF19                         | Alto                     | Baixo               | Sim     | Gerenciamento de Orçamentos    |
-| 14     | Gerar PDFs de orçamentos.                                                     | RF21                         | Médio                    | Médio               | Não     | Gerenciamento de Orçamentos    |
-| 15     | Cadastrar produtos.                                                           | RF22                         | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
-| 16     | Atualizar informações de produtos cadastrados.                                | RF23, RF24                   | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
-| 17     | Criar entrada de estoque para um produto cadastrado.                          | RF26, RF28                   | Médio                    | Médio               | Sim     | Produtos e Controle de Estoque |
-| 18     | Criar saida de estoque para um produto cadastrado.                            | RF26, RF28                   | Médio                    | Médio               | Sim     | Produtos e Controle de Estoque |
-| 19     | Consultar produtos com filtros (nome, categoria).                             | RF25                         | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
-| 20     | Criar formulários de feedback personalizados.                                 | RF08                         | Médio                    | Médio               | Não     | Coleta e Análise de Feedback   |
-| 21     | Gerar relatórios de métricas de satisfação baseados nos feedbacks coletados.  | RF10                         | Médio                    | Médio               | Não     | Coleta e Análise de Feedback   |
-| 22     | Criar relatórios personalizados com dados de serviços, clientes e desempenho. | RF32                         | Médio                    | Alto                | Não     | Relatórios e Análise de Dados  |
-| 23     | Configurar relatórios.                                                        | RF32                         | Médio                    | Alto                | Não     | Relatórios e Análise de Dados  |
-| 24     | Exibir dashboard com visão geral do negócio (KPIs: clientes, serviços, etc.). | RF33                         | Alto                     | Alto                | Não     | Relatórios e Análise de Dados  |
-| 25     | Configurar elemnetos do dashboard.                                            | RF33                         | Alto                     | Alto                | Não     | Relatórios e Análise de Dados  |
-| 26     | Autenticar usuários no sistema com login por e-mail e senha.                  | RF34                         | Alto                     | Baixo               | Sim     | Autenticação                   |
-| 27     | Redefinir senha de acesso por e-mail.                                         | RF35                         | Médio                    | Baixo               | Sim     | Autenticação                   |
-| 28     | Cadastrar e gerenciar usuários administrativos.                               | RF29, RF30, RF31             | Médio                    | Médio               | Não     | Gerenciamento Administrativo   |
+| **ID** | **Descrição**                                                                          | **Requisitos Funcionais**    | **Valor para o Negócio** | **Esforço Técnico** | **MVP** | **Épico Relacionado**          |
+| ------ | -------------------------------------------------------------------------------------- | ---------------------------- | ------------------------ | ------------------- | ------- | ------------------------------ |
+| 1      | Cadastrar clientes.                                                                    | RF01                         | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
+| 2      | Vincular veiculos aos clientes.                                                        | RF07                         | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
+| 3      | Consultar clientes com filtros (nome, status, veículo).                                | RF04, RF05                   | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
+| 4      | Desativar clientes.                                                                    | RF02                         | Médio                    | Médio               | Sim     | Gerenciamento de Clientes      |
+| 5      | Atualizar clientes.                                                                    | RF03                         | Médio                    | Médio               | Sim     | Gerenciamento de Clientes      |
+| 6      | Registrar histórico de serviços realizados para um cliente.                            | RF06                         | Alto                     | Médio               | Sim     | Gerenciamento de Clientes      |
+| 7      | Criar tipos de serviço para ordens de serviço.                                         | RF12                         | Alto                     | Baixo               | Sim     | Gerenciamento de Serviços      |
+| 8      | Atualizar tipos de serviço.                                                            | RF14                         | Médio                    | Baixo               | Não     | Gerenciamento de Serviços      |
+| 9      | Criar ordens de serviço vinculadas a clientes e veículos.                              | RF11                         | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
+| 10     | Atualizar status de ordens de serviço e enviar notificações automáticas.               | RF09, RF13, RF15, RF16, RF17 | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
+| 11     | Consultar ordens de serviço com filtros (cliente, status, veículo).                    | RF15                         | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
+| 12     | Criar orçamentos vinculando tipos de serviços.                                         | RF18                         | Alto                     | Médio               | Sim     | Gerenciamento de Orçamentos    |
+| 13     | Enviar orçamentos para clientes.                                                       | RF19                         | Alto                     | Baixo               | Sim     | Gerenciamento de Orçamentos    |
+| 14     | Gerar PDFs de orçamentos.                                                              | RF21                         | Médio                    | Médio               | Não     | Gerenciamento de Orçamentos    |
+| 15     | Cadastrar produtos.                                                                    | RF22                         | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
+| 16     | Atualizar informações de produtos cadastrados.                                         | RF23, RF24                   | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
+| 17     | Criar entrada de estoque para um produto cadastrado.                                   | RF26, RF28                   | Médio                    | Médio               | Sim     | Produtos e Controle de Estoque |
+| 18     | Criar saida de estoque para um produto cadastrado.                                     | RF26, RF28                   | Médio                    | Médio               | Sim     | Produtos e Controle de Estoque |
+| 19     | Consultar produtos com filtros (nome, categoria).                                      | RF25                         | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
+| 20     | Criar formulários de feedback personalizados.                                          | RF08                         | Médio                    | Médio               | Não     | Coleta e Análise de Feedback   |
+| 21     | Gerar relatórios de métricas de satisfação baseados nos feedbacks coletados.           | RF10                         | Médio                    | Médio               | Não     | Coleta e Análise de Feedback   |
+| 22     | Criar relatórios personalizados com dados de serviços, clientes, desempenho e estoque. | RF32, RF33, RF34, RF35       | Médio                    | Alto                | Não     | Relatórios e Análise de Dados  |
+| 23     | Configurar relatórios.                                                                 | RF32, RF33, RF34, RF35       | Médio                    | Alto                | Não     | Relatórios e Análise de Dados  |
+| 24     | Exibir dashboard com visão geral do negócio (KPIs: clientes, serviços, etc.).          | RF36                         | Alto                     | Alto                | Não     | Relatórios e Análise de Dados  |
+| 25     | Configurar elemnetos do dashboard.                                                     | RF36                         | Alto                     | Alto                | Não     | Relatórios e Análise de Dados  |
+| 26     | Autenticar usuários no sistema com login por e-mail e senha.                           | RF37                         | Alto                     | Baixo               | Sim     | Autenticação                   |
+| 27     | Redefinir senha de acesso por e-mail.                                                  | RF38                         | Médio                    | Baixo               | Sim     | Autenticação                   |
+| 28     | Cadastrar e gerenciar usuários administrativos.                                        | RF29, RF30, RF31             | Médio                    | Médio               | Não     | Gerenciamento Administrativo   |
 
 ## Histórias de Usuário
 
@@ -138,9 +138,10 @@ As funcionalidades incluídas no **MVP** são as que possuem "Sim" na coluna **M
 
 <center>
 
-| Versão | Descrição                                             | Autor                                                 | Data       |
-| ------ | ----------------------------------------------------- | ----------------------------------------------------- | ---------- |
-| 0.1    | Criação do documento de Product Backlog               | [Vinicius Vieira](http://github.com/viniciusvieira00) | 16/12/2024 |
-| 0.2    | Ajuste do Backlog a partir dos feedbacks do professor | [Paulo André](http://github.com/PauloFilho2)          | 15/01/2025 |
+| Versão | Descrição                                                  | Autor                                                 | Data       |
+| ------ | ---------------------------------------------------------- | ----------------------------------------------------- | ---------- |
+| 0.1    | Criação do documento de Product Backlog                    | [Vinicius Vieira](http://github.com/viniciusvieira00) | 16/12/2024 |
+| 0.2    | Ajuste do Backlog a partir dos feedbacks do professor      | [Paulo André](http://github.com/PauloFilho2)          | 15/01/2025 |
+| 0.3    | Ajuste do Backlog a partir dos reavaliação dos requisitos  | [Paulo André](http://github.com/PauloFilho2)          | 16/01/2025 |
 
 </center>
