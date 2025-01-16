@@ -43,7 +43,6 @@ export default function HeaderSimple() {
         }}
       >
         <Logo />
-
       </Toolbar>
 
       {offsetTop && <HeaderShadow />}

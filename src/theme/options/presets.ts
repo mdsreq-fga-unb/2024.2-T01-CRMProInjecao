@@ -13,7 +13,7 @@ export function presets(presetsColor: string) {
       primary,
     },
     customShadows: {
-      primary: `0 8px 16px 0 ${alpha(`${primary?.main ?? "#00A76F"}`, 0.24)}`,
+      primary: `0 8px 16px 0 ${alpha(`${primary?.main ?? '#00A76F'}`, 0.24)}`,
     },
   };
 

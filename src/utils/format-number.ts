@@ -17,7 +17,20 @@ export function isValidCPF(cpf: string): boolean {
   if (cpf.length !== 11) return false;
 
   // Elimina CPFs inválidos conhecidos
-  if (["00000000000", "11111111111", "22222222222", "33333333333", "44444444444", "55555555555", "66666666666", "77777777777", "88888888888", "99999999999"].includes(cpf)) {
+  if (
+    [
+      '00000000000',
+      '11111111111',
+      '22222222222',
+      '33333333333',
+      '44444444444',
+      '55555555555',
+      '66666666666',
+      '77777777777',
+      '88888888888',
+      '99999999999',
+    ].includes(cpf)
+  ) {
     return false;
   }
 
@@ -40,8 +53,6 @@ export function isValidCPF(cpf: string): boolean {
   return true;
 }
 
-
-
 export function isValidCNPJ(cnpj: string): boolean {
   cnpj = cnpj.replace(/[^\d]+/g, '');
 
@@ -49,7 +60,20 @@ export function isValidCNPJ(cnpj: string): boolean {
   if (cnpj.length !== 14) return false;
 
   // Elimina CNPJs inválidos conhecidos
-  if (["00000000000000", "11111111111111", "22222222222222", "33333333333333", "44444444444444", "55555555555555", "66666666666666", "77777777777777", "88888888888888", "99999999999999"].includes(cnpj)) {
+  if (
+    [
+      '00000000000000',
+      '11111111111111',
+      '22222222222222',
+      '33333333333333',
+      '44444444444444',
+      '55555555555555',
+      '66666666666666',
+      '77777777777777',
+      '88888888888888',
+      '99999999999999',
+    ].includes(cnpj)
+  ) {
     return false;
   }
 
@@ -60,12 +84,12 @@ export function isValidCNPJ(cnpj: string): boolean {
   let soma = 0;
   let pos = tamanho - 7;
 
-  for (let i = tamanho; i >= 1; (i -= 1)) {
+  for (let i = tamanho; i >= 1; i -= 1) {
     soma += numeros.charAt(tamanho - i) * pos;
-    pos = pos === 2 ? 9 : pos - 1;  // Resetando a posição corretamente após atingir 2
+    pos = pos === 2 ? 9 : pos - 1; // Resetando a posição corretamente após atingir 2
   }
 
-  let resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+  let resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
   if (resultado !== parseInt(digitos.charAt(0), 10)) {
     return false;
   }
@@ -75,12 +99,12 @@ export function isValidCNPJ(cnpj: string): boolean {
   soma = 0;
   pos = tamanho - 7;
 
-  for (let i = tamanho; i >= 1; (i -= 1)) {
+  for (let i = tamanho; i >= 1; i -= 1) {
     soma += numeros.charAt(tamanho - i) * pos;
-    pos = pos === 2 ? 9 : pos - 1;  // Resetando a posição corretamente após atingir 2
+    pos = pos === 2 ? 9 : pos - 1; // Resetando a posição corretamente após atingir 2
   }
 
-  resultado = soma % 11 < 2 ? 0 : 11 - soma % 11;
+  resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
   if (resultado !== parseInt(digitos.charAt(1), 10)) {
     return false;
   }
@@ -98,7 +122,6 @@ export function isValidCpfOrCnpj(cpfOrCnpj: string) {
   }
   return false;
 }
-
 
 export function fNumber(inputValue: InputValue) {
   const { code } = getLocaleCode();
@@ -190,4 +213,3 @@ export function fData(inputValue: InputValue) {
 
   return fm;
 }
-

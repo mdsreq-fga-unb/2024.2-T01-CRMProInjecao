@@ -2,13 +2,13 @@
 
 export type ActionMapType<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
-  ? {
-    type: Key;
-  }
-  : {
-    type: Key;
-    payload: M[Key];
-  };
+    ? {
+        type: Key;
+      }
+    : {
+        type: Key;
+        payload: M[Key];
+      };
 };
 
 export type AuthUser = {
@@ -63,6 +63,7 @@ export type JWTContextType = CanRemove & {
     cpf: string,
     birthdate: string,
     sex: string,
-    profilePhoto: string | null) => Promise<void>;
+    profilePhoto: string | null
+  ) => Promise<void>;
   logout: () => Promise<void>;
 };

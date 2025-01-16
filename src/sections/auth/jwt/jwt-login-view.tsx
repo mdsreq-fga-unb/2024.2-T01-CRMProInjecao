@@ -101,7 +101,7 @@ export default function JwtLoginView() {
       />
 
       <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-        <Link href='/auth/forgot-password' variant="body2" color="inherit" underline="always">
+        <Link href="/auth/forgot-password" variant="body2" color="inherit" underline="always">
           Esqueceu sua senha?
         </Link>
       </Box>

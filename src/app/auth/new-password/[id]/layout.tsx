@@ -11,9 +11,9 @@ type Props = {
 };
 
 export default function Layout({ children }: Props) {
-  return(
-  <SnackbarProvider>
-    <CompactLayout>{children}</CompactLayout>
-  </SnackbarProvider>
-  )
+  return (
+    <SnackbarProvider>
+      <CompactLayout>{children}</CompactLayout>
+    </SnackbarProvider>
+  );
 }

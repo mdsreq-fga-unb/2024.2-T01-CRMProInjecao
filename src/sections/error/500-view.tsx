@@ -29,7 +29,8 @@ export default function Page500() {
           <Typography sx={{ color: 'text.secondary' }}>
             O servidor encontrou um erro e não pôde completar sua solicitação.
             <br />
-            Por favor, tente novamente mais tarde. Se o problema persistir, entre em contato com o administrador do sistema.
+            Por favor, tente novamente mais tarde. Se o problema persistir, entre em contato com o
+            administrador do sistema.
           </Typography>
         </m.div>
 

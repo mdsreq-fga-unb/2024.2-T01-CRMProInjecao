@@ -19,6 +19,8 @@
 
 # production
 /build
+/dist
+.psql
 
 # misc
 .DS_Store

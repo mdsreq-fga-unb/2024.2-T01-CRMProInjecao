@@ -57,12 +57,10 @@ export default function Toolbar({ id, isSimple, ...other }: EditorToolbarProps) 
           <button type="button" className="ql-strike" />
         </div>
 
-
         <div className="ql-formats">
           <select className="ql-color" />
           <select className="ql-background" />
         </div>
-
 
         <div className="ql-formats">
           <button type="button" className="ql-list" value="ordered" />
@@ -71,19 +69,15 @@ export default function Toolbar({ id, isSimple, ...other }: EditorToolbarProps) 
           <button type="button" className="ql-indent" value="+1" />
         </div>
 
-        
-          <div className="ql-formats">
-            <button type="button" className="ql-script" value="super" />
-            <button type="button" className="ql-script" value="sub" />
-          </div>
-        
+        <div className="ql-formats">
+          <button type="button" className="ql-script" value="super" />
+          <button type="button" className="ql-script" value="sub" />
+        </div>
 
-        
-          <div className="ql-formats">
-            <button type="button" className="ql-code-block" />
-            <button type="button" className="ql-blockquote" />
-          </div>
-        
+        <div className="ql-formats">
+          <button type="button" className="ql-code-block" />
+          <button type="button" className="ql-blockquote" />
+        </div>
 
         <div className="ql-formats">
           <button type="button" className="ql-direction" value="rtl" />
@@ -97,7 +91,7 @@ export default function Toolbar({ id, isSimple, ...other }: EditorToolbarProps) 
         </div>
 
         <div className="ql-formats">
-           <button type="button" className="ql-formula" />
+          <button type="button" className="ql-formula" />
           <button type="button" className="ql-clean" />
         </div>
       </div>

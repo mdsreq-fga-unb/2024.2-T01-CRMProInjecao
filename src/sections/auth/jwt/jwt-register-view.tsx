@@ -65,7 +65,7 @@ export default function JwtRegisterView() {
     cpf: '',
     birthdate: '',
     sex: '',
-    profilePhoto: ""
+    profilePhoto: '',
   };
 
   const methods = useForm({
@@ -84,17 +84,17 @@ export default function JwtRegisterView() {
   const onSubmit = handleSubmit(async (data) => {
     console.log('21');
 
-
     try {
-
-      await register?.(data.name,
+      await register?.(
+        data.name,
         data.email,
         data.password,
         data.phone,
         data.cpf,
         data.birthdate,
         data.sex,
-        data.profilePhoto);
+        data.profilePhoto
+      );
 
       router.push(returnTo || PATH_AFTER_REGISTER);
     } catch (error) {
@@ -103,7 +103,6 @@ export default function JwtRegisterView() {
       reset();
     }
   });
-
 
   const handleDrop = useCallback(
     async (acceptedFiles: File[]) => {
@@ -116,10 +115,9 @@ export default function JwtRegisterView() {
           const { data } = await axiosInstance.post(endpoints.images.upload, formData);
 
           setValue('profilePhoto', data.imageUrl, { shouldValidate: true });
-
         } catch (error) {
           setErrorMsg('Falha ao enviar foto');
-          setValue('profilePhoto', "", { shouldValidate: false });
+          setValue('profilePhoto', '', { shouldValidate: false });
         }
       }
     },
@@ -171,7 +169,6 @@ export default function JwtRegisterView() {
           name="profilePhoto"
           maxSize={3145728}
           onDrop={handleDrop}
-
           helperText={
             <Typography
               variant="caption"
@@ -216,12 +213,12 @@ export default function JwtRegisterView() {
             />
           )}
         />
-        <RHFSelect
-          required
-          name="sex"
-          label="Sexo"
-        >
-          {[['M', 'Masculino'], ['F', 'Feminino'], ['O', 'Outros']].map((option) => (
+        <RHFSelect required name="sex" label="Sexo">
+          {[
+            ['M', 'Masculino'],
+            ['F', 'Feminino'],
+            ['O', 'Outros'],
+          ].map((option) => (
             <MenuItem key={option[0]} value={option[0]}>
               {option[1]}
             </MenuItem>
@@ -261,13 +258,11 @@ export default function JwtRegisterView() {
 
   return (
     <>
-
       {renderHead}
 
       {renderForm}
 
       {renderTerms}
-
     </>
   );
 }

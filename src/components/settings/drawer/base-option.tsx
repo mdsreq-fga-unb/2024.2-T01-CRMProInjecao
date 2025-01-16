@@ -15,7 +15,6 @@ type Props = {
 };
 
 export default function BaseOptions({ icons, options, value, onChange }: Props) {
-
   return (
     <Stack direction="row" spacing={2}>
       {options.map((option, index) => {
@@ -61,10 +60,8 @@ export default function BaseOptions({ icons, options, value, onChange }: Props) 
 export function BaseOptionRenderMode({ icons, options, value, onChange }: Props) {
   return (
     <Stack direction="row" spacing={2}>
-
-
       <Button
-        aria-label='Trocar modo de exibição do tema'
+        aria-label="Trocar modo de exibição do tema"
         onClick={() => onChange(value === options[0] ? options[1] : options[0])}
         sx={{
           width: 1,
@@ -75,9 +72,10 @@ export function BaseOptionRenderMode({ icons, options, value, onChange }: Props)
           },
         }}
       >
-        <SvgColor src={`/assets/icons/setting/ic_${value === options[0] ? icons[0] : icons[1]}.svg`} />
+        <SvgColor
+          src={`/assets/icons/setting/ic_${value === options[0] ? icons[0] : icons[1]}.svg`}
+        />
       </Button>
-
     </Stack>
   );
 }

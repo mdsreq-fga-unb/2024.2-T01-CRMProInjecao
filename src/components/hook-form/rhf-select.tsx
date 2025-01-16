@@ -133,11 +133,7 @@ export function RHFMultiSelect({
             displayEmpty={!!placeholder}
             labelId={name}
             input={<OutlinedInput fullWidth label={label} error={!!error} />}
-            renderValue={
-              chip
-                ? (selected) => renderValues(selected as string[])
-                : undefined
-            }
+            renderValue={chip ? (selected) => renderValues(selected as string[]) : undefined}
             {...other}
           >
             {placeholder && (

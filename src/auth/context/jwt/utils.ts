@@ -19,7 +19,6 @@ function jwtDecode(token: string) {
   return JSON.parse(jsonPayload);
 }
 
-
 // ----------------------------------------------------------------------
 
 export const isValidToken = (accessToken: string) => {
@@ -75,7 +74,6 @@ export const setSession = (accessToken: string | null) => {
   }
 };
 
-
 export const setAnySessionStorage = (key: string, value: string) => {
   if (getAnySessionStorage(key) === null) {
     sessionStorage.setItem(key, value);
@@ -84,16 +82,16 @@ export const setAnySessionStorage = (key: string, value: string) => {
   } else {
     sessionStorage.removeItem(key);
     delete axios.defaults.headers.common[key];
-    sessionStorage.setItem(key, value)
+    sessionStorage.setItem(key, value);
     axios.defaults.headers.common[key] = value;
   }
 };
 
-export const getAnySessionStorage = (key: string) => sessionStorage.getItem(key)
+export const getAnySessionStorage = (key: string) => sessionStorage.getItem(key);
 
-
-export const timer = async (time: number) => new Promise((resolve) => {
+export const timer = async (time: number) =>
+  new Promise((resolve) => {
     setTimeout(() => {
-      resolve(true)
-    }, time)
-  })
+      resolve(true);
+    }, time);
+  });

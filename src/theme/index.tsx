@@ -61,7 +61,7 @@ export default function ThemeProvider({ children }: Props) {
         // Presets: remove if not in use
         presetsOption,
         // Contrast: remove if not in use
-        contrastOption.theme,
+        contrastOption.theme
       ),
     [baseOption, directionOption, darkModeOption, presetsOption, contrastOption.theme]
   );

@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function Page() {
-  return <OverviewAppView  />;
+  return <OverviewAppView />;
 }

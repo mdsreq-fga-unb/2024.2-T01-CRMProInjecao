@@ -15,7 +15,7 @@ export const paths = {
       verify: `${ROOTS.AUTH}/verify`,
       forgotPassword: `${ROOTS.AUTH}/forgot-password`,
       resetPassword: `${ROOTS.AUTH}/reset-password`,
-    }
+    },
   },
   dashboard: {
     root: ROOTS.DASHBOARD,
@@ -27,5 +27,4 @@ export const paths = {
     configuration: `${ROOTS.DASHBOARD}/configuration`,
     account: `${ROOTS.DASHBOARD}/account`,
   },
-  
 };

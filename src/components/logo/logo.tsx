@@ -19,7 +19,6 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
   ({ disabledLink = false, sx, ...other }, ref) => {
     const theme = useTheme();
 
-
     const logo = (
       <Box
         ref={ref}
@@ -32,11 +31,12 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
         }}
         {...other}
       >
-        <Image src={
-          theme.palette.mode === 'light'
-            ? "/next.svg"
-            : "/next-dark.svg"
-        } alt="logo" width={40} height={40} />
+        <Image
+          src={theme.palette.mode === 'light' ? '/next.svg' : '/next-dark.svg'}
+          alt="logo"
+          width={40}
+          height={40}
+        />
       </Box>
     );
 

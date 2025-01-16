@@ -10,8 +10,10 @@ type Props = {
 
 export default function FormProvider({ children, onSubmit, methods }: Props) {
   return (
-    <Form {...methods} >
-      <form lang='pt' onSubmit={onSubmit}>{children}</form>
+    <Form {...methods}>
+      <form lang="pt" onSubmit={onSubmit}>
+        {children}
+      </form>
     </Form>
   );
 }

@@ -10,7 +10,7 @@ import 'react-quill/dist/quill.snow.css';
 
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/captions.css';
-import 'yet-another-react-lightbox/plugins/thumbnails.css'
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
 import 'intro.js/introjs.css';
 
@@ -41,8 +41,7 @@ export const viewport = {
 
 export const metadata = {
   title: 'CRM PRO INJEÇÃO Dashboard',
-  description:
-    'Dashboard de administração - CRM PRO INJEÇÃO',
+  description: 'Dashboard de administração - CRM PRO INJEÇÃO',
   keywords: 'dashboard,admin,crm,proinjecao',
 };
 
@@ -66,7 +65,6 @@ export default function RootLayout({ children }: Props) {
                 themeStretch: false,
               }}
             >
-
               <ThemeProvider>
                 <MotionLazy>
                   <SettingsDrawer />
@@ -74,13 +72,10 @@ export default function RootLayout({ children }: Props) {
                   <AuthConsumer>{children}</AuthConsumer>
                 </MotionLazy>
               </ThemeProvider>
-
             </SettingsProvider>
           </LocalizationProvider>
         </AuthProvider>
       </body>
-    </html >
+    </html>
   );
 }
-
-

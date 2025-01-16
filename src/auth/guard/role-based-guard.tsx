@@ -25,17 +25,16 @@ type RoleBasedGuardProp = {
 };
 
 export default function RoleBasedGuard({ hasContent, roles, children, sx }: RoleBasedGuardProp) {
-
   const router = useRouter();
   // Logic here to get current user role
   const { user, authenticated, method } = useAuthContext();
   // const currentRole = 'user';
   const currentRole = () => {
-    if(user) {
+    if (user) {
       return user.role;
     }
     return 'adm';
-  }
+  };
 
   const [checked, setChecked] = useState(false);
 
@@ -89,8 +88,6 @@ export default function RoleBasedGuard({ hasContent, roles, children, sx }: Role
       </Container>
     ) : null;
   }
-
-
 
   return <> {children} </>;
 }

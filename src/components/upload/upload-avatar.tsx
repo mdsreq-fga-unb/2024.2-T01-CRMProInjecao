@@ -36,14 +36,14 @@ export default function UploadAvatar({
   const imgUrl = typeof file === 'string' ? file : file?.preview;
   const renderPreview = hasFile && (
     <Image
-        alt="avatar"
-        src={imgUrl}
-        sx={{
-          width: 1,
-          height: 1,
-          borderRadius: '50%',
-        }}
-      />
+      alt="avatar"
+      src={imgUrl}
+      sx={{
+        width: 1,
+        height: 1,
+        borderRadius: '50%',
+      }}
+    />
   );
 
   const renderPlaceholder = (

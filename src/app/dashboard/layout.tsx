@@ -17,7 +17,7 @@ type Props = {
 
 export default function Layout({ children }: Props) {
   return (
-    <RoleBasedGuard roles={["adm"]}>
+    <RoleBasedGuard roles={['adm']}>
       <DashboardLayout>{children}</DashboardLayout>
     </RoleBasedGuard>
   );

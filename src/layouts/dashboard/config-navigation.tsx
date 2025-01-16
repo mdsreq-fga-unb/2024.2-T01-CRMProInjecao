@@ -40,30 +40,24 @@ const ICONS = {
 
 // ----------------------------------------------------------------------
 
-export type NavProps = {
-};
-
+export type NavProps = {};
 
 export function useNavData() {
-
-  const navData: any = useMemo(() => [
-    {
-      subheader: 'app',
-      items: [
-        {
-          title: 'dashboard',
-          path: "/dashboard",
-          icon: ICONS.dashboard,
-        }
-      ]
-    },
-  ], []);
-
-
-
-
+  const navData: any = useMemo(
+    () => [
+      {
+        subheader: 'app',
+        items: [
+          {
+            title: 'dashboard',
+            path: '/dashboard',
+            icon: ICONS.dashboard,
+          },
+        ],
+      },
+    ],
+    []
+  );
 
   return useMemo(() => navData, [navData]);
-
-
 }

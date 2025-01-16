@@ -111,7 +111,7 @@ export default function AuthClassicLayout({ children, image, title }: Props) {
             fontWeight: 'bold',
             fontSize: { sm: '1.4rem', md: '2rem', lg: '2.5rem' },
             lineHeight: 1.2,
-            
+
             mx: 'auto',
             background: `linear-gradient(45deg, ${theme.palette.primary.main}, ${theme.palette.secondary.main})`,
             WebkitBackgroundClip: 'text',

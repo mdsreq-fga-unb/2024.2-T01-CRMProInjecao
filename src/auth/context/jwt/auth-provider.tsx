@@ -7,8 +7,6 @@ import { AuthContext } from './auth-context';
 import { isValidToken, setSession } from './utils';
 import { ActionMapType, AuthStateType, AuthUserType } from '../../types';
 
-
-
 enum Types {
   INITIAL = 'INITIAL',
   LOGIN = 'LOGIN',
@@ -69,7 +67,6 @@ const reducer = (state: AuthStateType, action: ActionsType) => {
 
 const STORAGE_KEY = 'accessToken';
 
-
 type Props = {
   children: React.ReactNode;
 };
@@ -83,7 +80,6 @@ export function AuthProvider({ children }: Props) {
 
       if (accessToken && isValidToken(accessToken)) {
         setSession(accessToken);
-
 
         const res = await axios.get(`/auth/profile`); // recebe usuario logado
 
@@ -125,10 +121,11 @@ export function AuthProvider({ children }: Props) {
 
     const response = await axios.post(endpoints.auth.login, data);
 
-    const { access_token }: {
+    const {
+      access_token,
+    }: {
       access_token: string;
     } = response.data;
-
 
     setSession(access_token);
 
@@ -142,14 +139,16 @@ export function AuthProvider({ children }: Props) {
   }, []);
 
   const register = useCallback(
-    async (name: string,
+    async (
+      name: string,
       email: string,
       password: string,
       phone: string,
       cpf: string,
       birthdate: string,
       sex: string,
-      profilePhoto: string | null) => {
+      profilePhoto: string | null
+    ) => {
       const data = {
         name,
         email,
@@ -158,11 +157,10 @@ export function AuthProvider({ children }: Props) {
         cpf,
         birthdate,
         sex,
-        profilePhoto
+        profilePhoto,
       };
 
       await axios.post(endpoints.auth.register, data);
-
 
       dispatch({
         type: Types.REGISTER,
@@ -175,7 +173,6 @@ export function AuthProvider({ children }: Props) {
   );
 
   const validateToken = useCallback(async (token: string) => {
-
     const response = await axios.post(endpoints.auth.validateToken, { token });
 
     const { access_token, user: receivedUser } = response.data;
@@ -192,7 +189,6 @@ export function AuthProvider({ children }: Props) {
       },
     });
   }, []);
-
 
   // LOGOUT
   const logout = useCallback(async () => {
@@ -226,5 +222,5 @@ export function AuthProvider({ children }: Props) {
     [login, logout, register, validateToken, state.user, status]
   );
   // !todo: fix any
-  return <AuthContext.Provider value={(memoizedValue as any)}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={memoizedValue as any}>{children}</AuthContext.Provider>;
 }

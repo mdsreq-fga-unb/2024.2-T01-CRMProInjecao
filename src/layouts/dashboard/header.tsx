@@ -33,7 +33,6 @@ export default function Header({ onOpenNav }: Props) {
 
   const lgUp = useResponsive('up', 'lg');
 
-
   const renderContent = (
     <>
       {lgUp && isNavHorizontal && <Logo sx={{ mr: 2.5 }} />}
@@ -44,8 +43,6 @@ export default function Header({ onOpenNav }: Props) {
         </IconButton>
       )}
 
-
-
       <Stack
         flexGrow={1}
         direction="row"
@@ -53,14 +50,12 @@ export default function Header({ onOpenNav }: Props) {
         justifyContent="flex-end"
         spacing={{ xs: 0.5, sm: 1 }}
       >
-
         <BaseOptionRenderMode
           value={settings.themeMode}
           onChange={(newValue: string) => settings.onUpdate('themeMode', newValue)}
           options={['light', 'dark']}
           icons={['sun', 'moon']}
         />
-
       </Stack>
     </>
   );

@@ -15,9 +15,7 @@ import { useNavData } from './config-navigation';
 function NavHorizontal() {
   const theme = useTheme();
 
-
-  const navData = useNavData(
-  );
+  const navData = useNavData();
 
   return (
     <AppBar
@@ -33,11 +31,8 @@ function NavHorizontal() {
           }),
         }}
       >
-        <NavSectionHorizontal
-          data={navData}
-        />
+        <NavSectionHorizontal data={navData} />
       </Toolbar>
-
     </AppBar>
   );
 }
