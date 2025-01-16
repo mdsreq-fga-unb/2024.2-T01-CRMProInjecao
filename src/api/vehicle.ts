@@ -3,11 +3,10 @@ import useSWR, { mutate } from 'swr';
 // utils
 import axios, { fetcher, endpoints } from 'src/utils/axios';
 //types
-import { createClient, IClient } from '@/types/client';
-
+import { createVehicle, IVehicle } from '@/types/vehicle';
 // ----------------------------------------------------------------------
 
-const URL = endpoints.client;
+const URL = endpoints.vehicle;
 
 const options = {
   revalidateIfStale: false,
@@ -34,31 +33,31 @@ const options = {
 //   return memoizedValue;
 // }
 
-export async function createClient(client: createClient) {
+export async function createVehicle(vehicle: createVehicle) {
   const URL_CREATE = URL.create;
   const data = {
-    ...client,
+    ...vehicle,
   };
   const response = await axios.post(URL_CREATE, data);
   mutate(URL, (currentData) => {
-    const clients = currentData as IClient[];
+    const vehicles = currentData as IVehicle[];
 
-    return [...clients, response.data];
+    return [...vehicles, response.data];
   });
   return response.data;
 }
 
-export async function getOneClient(cpf: string) {
-  const URL_FIND_ONE = URL.findOne.replace(':cpf', cpf);
+export async function getOneClient(plate: string) {
+  const URL_FIND_ONE = URL.findOne.replace(':plate', plate);
   const { data, isLoading, error, isValidating } = useSWR(URL_FIND_ONE, fetcher, options);
 
   const memoizedValue = useMemo(
     () => ({
-      client: data as IClient,
-      clientLoading: isLoading,
-      clientError: error,
-      clientValidating: isValidating,
-      clientEmpty: !isLoading && !data?.ordered.length,
+      vehicle: data as IVehicle,
+      vehicleLoading: isLoading,
+      vehicleError: error,
+      vehicleValidating: isValidating,
+      vehicleEmpty: !isLoading && !data?.ordered.length,
     }),
     [data, error, isLoading, isValidating]
   );
