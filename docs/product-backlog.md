@@ -10,34 +10,34 @@ O Backlog Geral contém todas as funcionalidades e melhorias planejadas para o s
 
 | **ID** | **Descrição**                                                                 | **Requisitos Funcionais**    | **Valor para o Negócio** | **Esforço Técnico** | **MVP** | **Épico Relacionado**          |
 | ------ | ----------------------------------------------------------------------------- | ---------------------------- | ------------------------ | ------------------- | ------- | ------------------------------ |
-| 1      | Cadastrar clientes.                                                           | RF01                         | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
-| 2      | Vincular veiculos aos clientes.                                               | RF07                         | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
-| 3      | Consultar clientes com filtros (nome, status, veículo).                       | RF04, RF05                   | Alto                     | Baixo               | Sim     | Gerenciamento de Clientes      |
-| 4      | Desativar clientes.                                                           | RF02                         | Médio                    | Médio               | Sim     | Gerenciamento de Clientes      |
-| 5      | Atualizar clientes.                                                           | RF03                         | Médio                    | Médio               | Sim     | Gerenciamento de Clientes      |
-| 6      | Registrar histórico de serviços realizados para um cliente.                   | RF06                         | Alto                     | Médio               | Sim     | Gerenciamento de Clientes      |
-| 7      | Criar tipos de serviço para ordens de serviço.                                | RF12                         | Alto                     | Baixo               | Sim     | Gerenciamento de Serviços      |
-| 8      | Atualizar tipos de serviço.                                                   | RF14                         | Médio                    | Baixo               | Não     | Gerenciamento de Serviços      |
-| 9      | Criar ordens de serviço vinculadas a clientes e veículos.                     | RF11                         | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
-| 10     | Atualizar status de ordens de serviço e enviar notificações automáticas.      | RF09, RF13, RF15, RF16, RF17 | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
-| 11     | Consultar ordens de serviço com filtros (cliente, status, veículo).           | RF15                         | Alto                     | Médio               | Sim     | Gerenciamento de Serviços      |
-| 12     | Criar orçamentos vinculando tipos de serviços.                                | RF18                         | Alto                     | Médio               | Sim     | Gerenciamento de Orçamentos    |
-| 13     | Enviar orçamentos para clientes.                                              | RF19                         | Alto                     | Baixo               | Sim     | Gerenciamento de Orçamentos    |
-| 14     | Gerar PDFs de orçamentos.                                                     | RF21                         | Médio                    | Médio               | Não     | Gerenciamento de Orçamentos    |
-| 15     | Cadastrar produtos.                                                           | RF22                         | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
-| 16     | Atualizar informações de produtos cadastrados.                                | RF23, RF24                   | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
-| 17     | Criar entrada de estoque para um produto cadastrado.                          | RF26, RF28                   | Médio                    | Médio               | Sim     | Produtos e Controle de Estoque |
-| 18     | Criar saida de estoque para um produto cadastrado.                            | RF26, RF28                   | Médio                    | Médio               | Sim     | Produtos e Controle de Estoque |
-| 19     | Consultar produtos com filtros (nome, categoria).                             | RF25                         | Médio                    | Baixo               | Sim     | Produtos e Controle de Estoque |
-| 20     | Criar formulários de feedback personalizados.                                 | RF08                         | Médio                    | Médio               | Não     | Coleta e Análise de Feedback   |
-| 21     | Gerar relatórios de métricas de satisfação baseados nos feedbacks coletados.  | RF10                         | Médio                    | Médio               | Não     | Coleta e Análise de Feedback   |
-| 22     | Criar relatórios personalizados com dados de serviços, clientes e desempenho. | RF32                         | Médio                    | Alto                | Não     | Relatórios e Análise de Dados  |
-| 23     | Configurar relatórios.                                                        | RF32                         | Médio                    | Alto                | Não     | Relatórios e Análise de Dados  |
-| 24     | Exibir dashboard com visão geral do negócio (KPIs: clientes, serviços, etc.). | RF33                         | Alto                     | Alto                | Não     | Relatórios e Análise de Dados  |
-| 25     | Configurar elemnetos do dashboard.                                            | RF33                         | Alto                     | Alto                | Não     | Relatórios e Análise de Dados  |
-| 26     | Autenticar usuários no sistema com login por e-mail e senha.                  | RF34                         | Alto                     | Baixo               | Sim     | Autenticação                   |
-| 27     | Redefinir senha de acesso por e-mail.                                         | RF35                         | Médio                    | Baixo               | Sim     | Autenticação                   |
-| 28     | Cadastrar e gerenciar usuários administrativos.                               | RF29, RF30, RF31             | Médio                    | Médio               | Não     | Gerenciamento Administrativo   |
+| 1      | Cadastrar clientes.                                                           | RF01                         | 3                     | 1               | Sim     | Gerenciamento de Clientes      |
+| 2      | Vincular veiculos aos clientes.                                               | RF07                         | 3                     | 1               | Sim     | Gerenciamento de Clientes      |
+| 3      | Consultar clientes com filtros (nome, status, veículo).                       | RF04, RF05                   | 3                     | 1               | Sim     | Gerenciamento de Clientes      |
+| 4      | Desativar clientes.                                                           | RF02                         | 2                    | 2               | Sim     | Gerenciamento de Clientes      |
+| 5      | Atualizar clientes.                                                           | RF03                         | 2                    | 2               | Sim     | Gerenciamento de Clientes      |
+| 6      | Registrar histórico de serviços realizados para um cliente.                   | RF06                         | 3                     | 2               | Sim     | Gerenciamento de Clientes      |
+| 7      | Criar tipos de serviço para ordens de serviço.                                | RF12                         | 3                     | 1               | Sim     | Gerenciamento de Serviços      |
+| 8      | Atualizar tipos de serviço.                                                   | RF14                         | 2                    | 1               | Não     | Gerenciamento de Serviços      |
+| 9      | Criar ordens de serviço vinculadas a clientes e veículos.                     | RF11                         | 3                     | 2               | Sim     | Gerenciamento de Serviços      |
+| 10     | Atualizar status de ordens de serviço e enviar notificações automáticas.      | RF09, RF13, RF15, RF16, RF17 | 3                     | 2               | Sim     | Gerenciamento de Serviços      |
+| 11     | Consultar ordens de serviço com filtros (cliente, status, veículo).           | RF15                         | 3                     | 2               | Sim     | Gerenciamento de Serviços      |
+| 12     | Criar orçamentos vinculando tipos de serviços.                                | RF18                         | 3                     | 2               | Sim     | Gerenciamento de Orçamentos    |
+| 13     | Enviar orçamentos para clientes.                                              | RF19                         | 3                     | 1               | Sim     | Gerenciamento de Orçamentos    |
+| 14     | Gerar PDFs de orçamentos.                                                     | RF21                         | 2                    | 2               | Não     | Gerenciamento de Orçamentos    |
+| 15     | Cadastrar produtos.                                                           | RF22                         | 2                    | 1               | Sim     | Produtos e Controle de Estoque |
+| 16     | Atualizar informações de produtos cadastrados.                                | RF23, RF24                   | 2                    | 1               | Sim     | Produtos e Controle de Estoque |
+| 17     | Criar entrada de estoque para um produto cadastrado.                          | RF26, RF28                   | 2                    | 2               | Sim     | Produtos e Controle de Estoque |
+| 18     | Criar saida de estoque para um produto cadastrado.                            | RF26, RF28                   | 2                    | 2               | Sim     | Produtos e Controle de Estoque |
+| 19     | Consultar produtos com filtros (nome, categoria).                             | RF25                         | 2                    | 1               | Sim     | Produtos e Controle de Estoque |
+| 20     | Criar formulários de feedback personalizados.                                 | RF08                         | 2                    | 2               | Não     | Coleta e Análise de Feedback   |
+| 21     | Gerar relatórios de métricas de satisfação baseados nos feedbacks coletados.  | RF10                         | 2                    | 2               | Não     | Coleta e Análise de Feedback   |
+| 22     | Criar relatórios personalizados com dados de serviços, clientes e desempenho. | RF32                         | 2                    | 3                | Não     | Relatórios e Análise de Dados  |
+| 23     | Configurar relatórios.                                                        | RF32                         | 2                    | 3                | Não     | Relatórios e Análise de Dados  |
+| 24     | Exibir dashboard com visão geral do negócio (KPIs: clientes, serviços, etc.). | RF33                         | 3                     | 3                | Não     | Relatórios e Análise de Dados  |
+| 25     | Configurar elemnetos do dashboard.                                            | RF33                         | 3                     | 3                | Não     | Relatórios e Análise de Dados  |
+| 26     | Autenticar usuários no sistema com login por e-mail e senha.                  | RF34                         | 3                     | 1               | Sim     | Autenticação                   |
+| 27     | Redefinir senha de acesso por e-mail.                                         | RF35                         | 2                    | 1               | Sim     | Autenticação                   |
+| 28     | Cadastrar e gerenciar usuários administrativos.                               | RF29, RF30, RF31             | 2                    | 2               | Não     | Gerenciamento Administrativo   |
 
 ## Histórias de Usuário
 
@@ -104,27 +104,29 @@ Aqui está a adaptação da seção **Priorização do Backlog Geral** seguindo 
 
 A priorização do backlog foi realizada utilizando a **Matriz de Priorização da Lean Inception**, que considera dois critérios principais:
 
-1. **Valor para o Negócio**: Representa o impacto positivo que a funcionalidade proporciona aos objetivos do negócio e à experiência do usuário. Funcionalidades de **alto valor** são essenciais para atender as necessidades mais críticas e gerar maior retorno.
+1. **Valor para o Negócio**: Representa o impacto positivo que a funcionalidade proporciona aos objetivos do negócio e à experiência do usuário. Funcionalidades de **alto valor** são essenciais para atender as necessidades mais críticas e gerar maior retorno. Representado por uma escala de 1 a 3, sendo 1 considerado baixo valor de negócio, 2 considerado médio e 3 considerado alto.
    
-2. **Esforço Técnico**: Indica o nível de complexidade e o tempo necessário para implementar a funcionalidade. Funcionalidades de **baixo esforço** são mais rápidas de serem entregues, enquanto funcionalidades de **alto esforço** requerem mais tempo e recursos.
+2. **Esforço Técnico**: Indica o nível de complexidade e o tempo necessário para implementar a funcionalidade. Funcionalidades de **baixo esforço** são mais rápidas de serem entregues, enquanto funcionalidades de **alto esforço** requerem mais tempo e recursos. Representado por uma escala de 1 a 3, sendo 1 considerado baixo esforço técnico, 2 considerado médio e 3 considerado alto.
 
-A matriz avalia esses critérios em três níveis: **Alto, Médio e Baixo**.
+A matriz avalia esses critérios em três níveis: **1 (Baixo), 2 (Médio) e 3 (Alto)**.
 
 #### **Matriz de Priorização**
 
-| **Prioridade**       | **Descrição**                                                                                                 |
-| -------------------- | ------------------------------------------------------------------------------------------------------------- |
-| **Alta Prioridade**  | Funcionalidades com **alto valor para o negócio** e **baixo ou médio esforço técnico**. São entregues no MVP. |
-| **Média Prioridade** | Funcionalidades com **médio valor para o negócio** e **médio ou baixo esforço técnico**.                      |
-| **Baixa Prioridade** | Funcionalidades com **baixo valor para o negócio** ou **alto esforço técnico**.                               |
+| **Prioridade**       | **Valor para o Negócio** | **Esforço Técnico** |**Descrição**                                                                                              |
+ -------------------- |---------------------------| --------------------| ----------------------
+| **3**  | 3 | 1 | Funcionalidades com **alto valor para o negócio** e **baixo esforço técnico**. São entregues no MVP. |
+| **3**  | 3 | 2 | Funcionalidades com **alto valor para o negócio** e **médio esforço técnico**. São entregues no MVP. | 
+| **2** | 2 | 2 | Funcionalidades com **médio valor para o negócio** e **médio esforço técnico**.                      |
+| **2** | 2 | 1 | Funcionalidades com **médio valor para o negócio** e **baixo esforço técnico**.                      |
+| **1** | 1 | 3 | Funcionalidades com **baixo valor para o negócio** e **alto esforço técnico**.                               |
 
 #### **Visualização da Matriz**  
 Na **Lean Inception**, funcionalidades foram organizadas na matriz de acordo com a combinação entre **"O que fazer" (valor)** e **"Como fazer" (esforço técnico)**:
 
-- **Alto Valor / Baixo Esforço** → Verde: **Alta Prioridade** (entregue no MVP).  
-- **Alto Valor / Alto Esforço** → Amarelo: Priorizado após o MVP, pois exige planejamento.  
-- **Médio Valor / Médio Esforço** → Amarelo: Funcionalidades importantes, mas não essenciais no MVP.  
-- **Baixo Valor / Qualquer Esforço** → Vermelho: **Baixa Prioridade**, para versões futuras.  
+- **Alto Valor / Baixo Esforço** → 3: **Alta Prioridade** (entregue no MVP).  
+- **Alto Valor / Alto Esforço** → 2: Priorizado após o MVP, pois exige planejamento.  
+- **Médio Valor / Médio Esforço** → 2: Funcionalidades importantes, mas não essenciais no MVP.  
+- **Baixo Valor / Qualquer Esforço** → 1: **Baixa Prioridade**, para versões futuras.  
 
 A **coluna MVP** no Backlog Geral identifica quais funcionalidades foram consideradas essenciais (**Must Have**) para compor o Produto Mínimo Viável.
 
