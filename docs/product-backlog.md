@@ -123,10 +123,10 @@ A matriz avalia esses critérios em três níveis: **1 (Baixo), 2 (Médio) e 3 (
 #### **Visualização da Matriz**  
 Na **Lean Inception**, funcionalidades foram organizadas na matriz de acordo com a combinação entre **"O que fazer" (valor)** e **"Como fazer" (esforço técnico)**:
 
-- **Alto Valor / Baixo Esforço** → 3: **Alta Prioridade** (entregue no MVP).  
-- **Alto Valor / Alto Esforço** → 2: Priorizado após o MVP, pois exige planejamento.  
-- **Médio Valor / Médio Esforço** → 2: Funcionalidades importantes, mas não essenciais no MVP.  
-- **Baixo Valor / Qualquer Esforço** → 1: **Baixa Prioridade**, para versões futuras.  
+- **Alto Valor / Baixo Esforço** → Verde: **Alta Prioridade** (entregue no MVP).  
+- **Alto Valor / Alto Esforço** → Amarelo: Priorizado após o MVP, pois exige planejamento.  
+- **Médio Valor / Médio Esforço** → Amarelo: Funcionalidades importantes, mas não essenciais no MVP.  
+- **Baixo Valor / Qualquer Esforço** → Vermelho: **Baixa Prioridade**, para versões futuras.  
 
 A **coluna MVP** no Backlog Geral identifica quais funcionalidades foram consideradas essenciais (**Must Have**) para compor o Produto Mínimo Viável.
 
