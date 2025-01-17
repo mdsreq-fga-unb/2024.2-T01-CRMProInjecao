@@ -114,11 +114,11 @@ A matriz avalia esses critérios em três níveis: **1 (Baixo), 2 (Médio) e 3 (
 
 | **Prioridade**       | **Valor para o Negócio** | **Esforço Técnico** |**Descrição**                                                                                              |
  -------------------- |---------------------------| --------------------| ----------------------
-| **3**  | 3 | 1 | Funcionalidades com **alto valor para o negócio** e **baixo esforço técnico**. São entregues no MVP. |
-| **3**  | 3 | 2 | Funcionalidades com **alto valor para o negócio** e **médio esforço técnico**. São entregues no MVP. | 
-| **2** | 2 | 2 | Funcionalidades com **médio valor para o negócio** e **médio esforço técnico**.                      |
-| **2** | 2 | 1 | Funcionalidades com **médio valor para o negócio** e **baixo esforço técnico**.                      |
-| **1** | 1 | 3 | Funcionalidades com **baixo valor para o negócio** e **alto esforço técnico**.                               |
+| **Alta**  | 3 | 1 | Funcionalidades com **alto valor para o negócio** e **baixo esforço técnico**. São entregues no MVP. |
+| **Alta**  | 3 | 2 | Funcionalidades com **alto valor para o negócio** e **médio esforço técnico**. São entregues no MVP. | 
+| **Média** | 2 | 2 | Funcionalidades com **médio valor para o negócio** e **médio esforço técnico**.                      |
+| **Média** | 2 | 1 | Funcionalidades com **médio valor para o negócio** e **baixo esforço técnico**.                      |
+| **Baixa** | 1 | 3 | Funcionalidades com **baixo valor para o negócio** e **alto esforço técnico**.                               |
 
 #### **Visualização da Matriz**  
 Na **Lean Inception**, funcionalidades foram organizadas na matriz de acordo com a combinação entre **"O que fazer" (valor)** e **"Como fazer" (esforço técnico)**:
