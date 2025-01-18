@@ -55,13 +55,15 @@
 
 ##### Relatório e Análise de Dados
 
-- **RF32** - Criar relatórios personalizados: O sistema deve a partir das informações selecionadas (serviços, clientes, desempenho financeiro) o sistema deve ser capaz de gerar um relatório específico de um destes dados.
-- **RF33** - Analisar negócio geral: O sistema deve ser capaz de gerar um relatório geral sobre o negócio, com informações pré-selecionadas (número de clientes atendido, serviços concluídos, etc..)
+- **RF32** - Criar relatório de serviços: O sistema deve ser capaz de gerar relatórios com base nas informações dos serviços.
+- **RF33** - Criar relatório de clientes: O sistema deve ser capaz de gerar relatórios com base nas informações dos clientes.
+- **RF34** - Criar relatório financeiro: O sistema deve ser capaz de gerar relatórios com base no desempenho financeiro.
+- **RF35** - Criar relatório de estoque: O sistema deve ser capaz de gerar relatórios com base no status dos produtos e estoque.
+- **RF36** - Criar painel de análise geral: O sistema deve ser capaz de apresentar um painel consolidado com informações gerais do negócio, como número de clientes atendidos, serviços concluídos, desempenho financeiro e status do estoque.
 
 ##### Autenticação
 
 - **RF34** - Validar o acesso do usuário: O sistema deve, a partir das informações inseridas no login (email e senha), validar o acesso do usuário.
-
 - **RF35** - Redefinir senha de acesso: O sistema deve ser capaz de gerar uma nova senha para usuário.
 
 
@@ -119,7 +121,8 @@
 <center>
 
 
-| Versão | Descrição                                                    | Autor                                            | Data       |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------ | ---------- |
-| 0.1    | Adicionando listas de requisitos funcionais e não funcionais | [Fábio Torres](http://github.com/fabioaletorres) | 14/12/2024 |
+| Versão | Descrição                                                            | Autor                                            | Data       |
+| ------ | -------------------------------------------------------------------- | ------------------------------------------------ | ---------- |
+| 0.1    | Adicionando listas de requisitos funcionais e não funcionais         | [Fábio Torres](http://github.com/fabioaletorres) | 14/12/2024 |
+| 0.2    | Ajuste dos requisitos funcionais a partir dos feedbacks do professor | [Paulo André](http://github.com/PauloFilho2)     | 17/01/2025 |
 
