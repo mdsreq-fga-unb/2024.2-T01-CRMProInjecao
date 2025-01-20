@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   UseGuards,
+  Query,
 } from '@nestjs/common';
 import { ClientService } from './client.service';
 import { CreateClientDto } from './dto/create-client.dto';
@@ -34,12 +35,15 @@ export class ClientController {
   }
 
   @Patch(':cpf')
-  update(@Param('cpf') cpf: string, @Body() updateClientDto: UpdateClientDto) {
-    return this.clientService.update(cpf, updateClientDto);
+  async update(
+    @Param('cpf') cpf: string,
+    @Body() updateClientDto: UpdateClientDto,
+  ) {
+    return await this.clientService.update(cpf, updateClientDto);
   }
 
   @Delete(':cpf')
-  remove(@Param('cpf') cpf: string) {
-    return this.clientService.remove(cpf);
+  async remove(@Param('cpf') cpf: string) {
+    return await this.clientService.remove(cpf);
   }
 }

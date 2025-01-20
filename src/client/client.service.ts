@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -38,11 +38,31 @@ export class ClientService {
     });
   }
 
-  async update(cpf: string, updateClientDto: UpdateClientDto) {
-    return await this.clientRepository.update({ cpf: cpf }, updateClientDto);
+  async update(
+    cpf: string,
+    updateClientDto: UpdateClientDto,
+  ): Promise<{ message: string; cpf: string }> {
+    const updatedResult = await this.clientRepository.update(
+      cpf,
+      updateClientDto,
+    );
+    if (updatedResult.affected === 0) {
+      throw new NotFoundException('Client not found');
+    }
+    return {
+      message: 'Client updated successfully',
+      cpf: cpf,
+    };
   }
 
-  async remove(cpf: string) {
-    return await this.clientRepository.delete({ cpf: cpf });
+  async remove(cpf: string): Promise<{ message: string; cpf: string }> {
+    const updateResult = await this.clientRepository.softDelete({ cpf: cpf });
+    if (updateResult.affected === 0) {
+      throw new NotFoundException('Client not found');
+    }
+    return {
+      message: 'Client deleted successfully',
+      cpf: cpf,
+    };
   }
 }
