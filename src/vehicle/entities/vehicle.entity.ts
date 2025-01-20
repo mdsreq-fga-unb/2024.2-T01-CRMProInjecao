@@ -58,7 +58,10 @@ export class Vehicle {
   })
   status: VehicleStatus;
 
-  @ManyToOne(() => Client, (client) => client.vehicles, { nullable: false })
+  @ManyToOne(() => Client, (client) => client.vehicles, {
+    nullable: false,
+    cascade: ['update', 'soft-remove', 'recover'],
+  })
   client: Client;
 
   @CreateDateColumn()
