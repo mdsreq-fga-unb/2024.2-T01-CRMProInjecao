@@ -1,9 +1,4 @@
-import { PickType } from '@nestjs/mapped-types';
-import { Client } from '../entities/client.entity';
+import { PartialType } from '@nestjs/mapped-types';
+import { CreateClientDto } from './create-client.dto';
 
-export class UpdateClientDto extends PickType(Client, [
-  'name',
-  'email',
-  'phoneNumber',
-  'address',
-]) {}
+export class UpdateClientDto extends PartialType(CreateClientDto) {}
