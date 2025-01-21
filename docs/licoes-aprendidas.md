@@ -45,6 +45,24 @@ Durante a execução do projeto, a equipe da Pro Injeção identificou algumas l
 
 ---
 
+### Unidade 3
+
+#### 1. Estudo de caso PBB (Product Backlog Building)
+
+- **Desafio**: A equipe enfrentou dificuldades para realizar o estudo de caso e estruturar o backlog utilizando o método Product Backlog Building (PBB).
+- **Ação de melhoria**: Realizamos sessões colaborativas para construção do backlog, incluindo a identificação de objetivos de negócios, atividades dos usuários e funcionalidades, garantindo alinhamento com a visão do produto e do projeto.
+
+#### 2. Estudo de caso do USM (User Story Mapping)
+
+- **Desafio**: A equipe encontrou dificuldades para mapear e organizar as user stories utilizando a técnica de User Story Mapping (USM), resultando em falhas de priorização e alinhamento.
+- **Ação de melhoria**: Realizamos workshops internos para explorar a técnica de User Story Mapping. Durante o processo, priorizamos histórias com base nas jornadas dos usuários e alinhamos as entregas ao longo de releases.
+
+#### 3. Desenvolvimento do projeto
+
+- **Desafio**: O desenvolvimento do projeto foi impactado pelo curto prazo disponível para entrega e pela grande quantidade de MVPs documentados.
+- **Ação de melhoria**: Para lidar com o alto volume de tarefas em tempo limitado, dividimos as entregas em ciclos menores e priorizamos os MVPs críticos para o funcionamento do sistema.
+
+
 
 <center>
 
@@ -52,5 +70,6 @@ Durante a execução do projeto, a equipe da Pro Injeção identificou algumas l
 | ------ | ------------------------------ | ---------------------------------------------- | ---------- |
 | 0.1    | Lições aprendidas na unidade 1 | [Bruno Bragança](http://github.com/BrunoBReis) | 11/11/2024 |
 | 0.2    | Adicionando lições aprendidas na unidade 2 | [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
+| 0.3    | Lições aprendidas na unidade 3 | [Arthur Heleno](http://github.com/arthur-heleno) | 20/01/2025 |
 
 </center>
