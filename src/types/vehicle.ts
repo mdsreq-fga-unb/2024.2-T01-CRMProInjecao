@@ -1,5 +1,3 @@
-import { IClient } from './client';
-
 export enum IVehicleStatus {
   AVAILABLE = 'AVAILABLE',
   UNDER_MAINTANCE = 'UNDER_MAINTANCE',
@@ -32,7 +30,16 @@ export type IVehicle = {
 
   status: IVehicleStatus | string;
 
-  client: IClient | number;
+  client: {
+    cpf: string;
+    name: string;
+    email: string;
+    phoneNumber: string;
+    address: string;
+    createdAt: Date;
+    updatedAt: Date;
+    deletedAt: Date;
+  }
 
   createdAt: Date;
 
@@ -67,4 +74,29 @@ export type createVehicle = {
   status: IVehicleStatus | string;
 
   clientCPF: string;
+};
+
+export type IupdateVehicle = {
+  licensePlate?: string;
+  model?: string;
+
+  brand?: string;
+
+  fabricationDate?: Date;
+
+  modelYear?: number;
+
+  color?: string;
+
+  renavam?: string;
+
+  fuelType?: string;
+
+  chassiNumber?: string;
+
+  currentMileage?: number;
+
+  descritpion?: string;
+
+  status?: IVehicleStatus | string;
 };

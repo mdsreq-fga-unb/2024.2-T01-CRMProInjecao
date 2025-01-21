@@ -3,6 +3,8 @@
 import { useEffect, useReducer, useCallback, useMemo } from 'react';
 // utils
 import axios, { endpoints } from '@/utils/axios';
+import { useRouter } from 'next/navigation';
+import { paths } from '@/routes/paths';
 import { AuthContext } from './auth-context';
 import { isValidToken, setSession } from './utils';
 import { ActionMapType, AuthStateType, AuthUserType } from '../../types';
@@ -73,7 +75,7 @@ type Props = {
 
 export function AuthProvider({ children }: Props) {
   const [state, dispatch] = useReducer(reducer, initialState);
-
+  const router = useRouter();
   const initialize = useCallback(async () => {
     try {
       const accessToken = sessionStorage.getItem(STORAGE_KEY);
@@ -140,27 +142,16 @@ export function AuthProvider({ children }: Props) {
 
   const register = useCallback(
     async (
-      name: string,
       email: string,
       password: string,
-      phone: string,
-      cpf: string,
-      birthdate: string,
-      sex: string,
-      profilePhoto: string | null
     ) => {
       const data = {
-        name,
         email,
         password,
-        phone,
-        cpf,
-        birthdate,
-        sex,
-        profilePhoto,
       };
 
-      await axios.post(endpoints.auth.register, data);
+      const res = await axios.post(endpoints.auth.register, data);
+
 
       dispatch({
         type: Types.REGISTER,
@@ -168,8 +159,12 @@ export function AuthProvider({ children }: Props) {
           user: null,
         },
       });
+      
+      if (res && res.status === 201) {
+        router.push(paths.dashboard.root);
+      }
     },
-    []
+    [router]
   );
 
   const validateToken = useCallback(async (token: string) => {

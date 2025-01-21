@@ -2,11 +2,11 @@
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 // theme
-import { hideScroll } from '@/theme/css';
+import { hideScroll } from 'src/theme/css';
 // components
-import Logo from '@/components/logo';
-import { NavSectionMini } from '@/components/nav-section';
-//
+import Logo from 'src/components/logo';
+import { NavSectionMini } from 'src/components/nav-section';
+
 import { NAV } from '../config-layout';
 import { useNavData } from './config-navigation';
 import { NavToggleButton } from '../_common';
@@ -14,6 +14,7 @@ import { NavToggleButton } from '../_common';
 // ----------------------------------------------------------------------
 
 export default function NavMini() {
+
   const navData = useNavData();
 
   return (
@@ -43,8 +44,11 @@ export default function NavMini() {
       >
         <Logo sx={{ mx: 'auto', my: 2 }} />
 
-        <NavSectionMini data={navData} />
+        <NavSectionMini
+          data={navData}
+        />
       </Stack>
+
     </Box>
   );
 }

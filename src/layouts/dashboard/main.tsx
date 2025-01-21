@@ -1,10 +1,11 @@
 // @mui
 import Box, { BoxProps } from '@mui/material/Box';
 // hooks
-import { useResponsive } from '@/hooks/use-responsive';
+import { useResponsive } from 'src/hooks/use-responsive';
 // components
-import { useSettingsContext } from '@/components/settings';
+import { useSettingsContext } from 'src/components/settings';
 //
+import { SnackbarProvider } from 'src/components/snackbar';
 import { HEADER, NAV } from '../config-layout';
 
 // ----------------------------------------------------------------------
@@ -62,7 +63,9 @@ export default function Main({ children, sx, ...other }: BoxProps) {
       }}
       {...other}
     >
-      {children}
+      <SnackbarProvider>
+        {children}
+      </SnackbarProvider>
     </Box>
   );
 }

@@ -18,15 +18,22 @@ import { useBoolean } from '@/hooks/use-boolean';
 // components
 import Iconify from '@/components/iconify';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
+import { useAuthContext } from '@/auth/hooks';
+import { useSnackbar } from 'notistack';
+import { useRouter } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 
 export default function ModernLoginView() {
   const password = useBoolean();
 
+  const { login } = useAuthContext()
+  const { enqueueSnackbar } = useSnackbar()
+  const router = useRouter()
+
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().required('Email is required').email('Email must be a valid email address'),
-    password: Yup.string().required('Password is required'),
+    email: Yup.string().required('Email é obrigatório').email('Email deve ser um endereço de email válido'),
+    password: Yup.string().required('Senha é obrigatória'),
   });
 
   const defaultValues = {
@@ -46,22 +53,24 @@ export default function ModernLoginView() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      console.info('DATA', data);
+      await login(data.email, data.password);
+      enqueueSnackbar('Login efetuado com sucesso!');
+      router.push(paths.dashboard.root);
     } catch (error) {
       console.error(error);
+      enqueueSnackbar('Erro ao efetuar login', { variant: 'error' });
+
     }
   });
 
   const renderHead = (
     <Stack spacing={2} sx={{ mb: 5 }}>
-      <Typography variant="h4">Sign in to Minimal</Typography>
 
       <Stack direction="row" spacing={0.5}>
-        <Typography variant="body2">New user?</Typography>
+        <Typography variant="body2">Novo usuário?</Typography>
 
         <Link component={RouterLink} href={paths.auth.jwt.register} variant="subtitle2">
-          Create an account
+          Crie uma conta
         </Link>
       </Stack>
     </Stack>
@@ -69,11 +78,11 @@ export default function ModernLoginView() {
 
   const renderForm = (
     <Stack spacing={2.5}>
-      <RHFTextField name="email" label="Email address" />
+      <RHFTextField name="email" label="Endereço de Email" />
 
       <RHFTextField
         name="password"
-        label="Password"
+        label="Senha"
         type={password.value ? 'text' : 'password'}
         InputProps={{
           endAdornment: (
@@ -86,16 +95,6 @@ export default function ModernLoginView() {
         }}
       />
 
-      <Link
-        component={RouterLink}
-        href={paths.auth.jwt.login}
-        variant="body2"
-        color="inherit"
-        underline="always"
-        sx={{ alignSelf: 'flex-end' }}
-      >
-        Forgot password?
-      </Link>
 
       <LoadingButton
         fullWidth

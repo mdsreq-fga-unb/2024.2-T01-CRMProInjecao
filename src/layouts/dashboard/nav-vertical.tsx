@@ -1,15 +1,17 @@
+
+
 import { useEffect } from 'react';
 // @mui
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Drawer from '@mui/material/Drawer';
 // hooks
-import { useResponsive } from '@/hooks/use-responsive';
+import { useResponsive } from 'src/hooks/use-responsive';
 // components
-import Logo from '@/components/logo';
-import Scrollbar from '@/components/scrollbar';
-import { usePathname } from '@/routes/hooks';
-import { NavSectionVertical } from '@/components/nav-section';
+import Logo from 'src/components/logo';
+import Scrollbar from 'src/components/scrollbar';
+import { usePathname } from 'src/routes/hooks';
+import { NavSectionVertical } from 'src/components/nav-section';
 //
 import { NAV } from '../config-layout';
 import { useNavData } from './config-navigation';
@@ -23,6 +25,7 @@ type Props = {
 };
 
 export default function NavVertical({ openNav, onCloseNav }: Props) {
+
   const pathname = usePathname();
   const lgUp = useResponsive('up', 'lg');
 
@@ -34,6 +37,10 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
+
+
+
+
 
   const renderContent = (
     <Scrollbar
@@ -48,12 +55,14 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     >
       <Logo sx={{ mt: 3, ml: 4, mb: 1 }} />
 
-      <NavSectionVertical data={navData} />
+      <NavSectionVertical
+        data={navData}
+      />
 
       <Box sx={{ flexGrow: 1 }} />
+
     </Scrollbar>
   );
-
   return (
     <Box
       component="nav"
@@ -66,6 +75,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
 
       {lgUp ? (
         <Stack
+          className='selector1'
           sx={{
             height: 1,
             position: 'fixed',
@@ -77,6 +87,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         </Stack>
       ) : (
         <Drawer
+          className='selector1'
           open={openNav}
           onClose={onCloseNav}
           PaperProps={{

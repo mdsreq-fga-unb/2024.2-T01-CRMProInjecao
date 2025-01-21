@@ -8,7 +8,9 @@
       "esnext"
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "./src/*"
+      ]
     },
     "strict": true,
     "noEmit": true,
@@ -34,7 +36,6 @@
       }
     ],
   },
-  
   "include": [
     "next-env.d.ts",
     "**/*.ts",

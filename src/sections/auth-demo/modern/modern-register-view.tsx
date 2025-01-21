@@ -20,7 +20,6 @@ import { RouterLink } from '@/routes/components';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
 import { useAuthContext } from '@/auth/hooks';
 import { useSnackbar } from 'notistack';
-import { useRouter } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +27,6 @@ export default function ModernRegisterView() {
   const password = useBoolean();
   const { register } = useAuthContext()
   const {enqueueSnackbar} = useSnackbar()
-  const router = useRouter()
 
   const RegisterSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
@@ -47,69 +45,43 @@ export default function ModernRegisterView() {
 
   const {
     handleSubmit,
+    reset,
     formState: { isSubmitting },
   } = methods;
 
   const onSubmit = handleSubmit(async (data) => {
     try {
       await register(data.email, data.password)
-      enqueueSnackbar('Login efetuado com sucesso!')
-      router.push("/dashboard")
       
     } catch (error) {
       console.error(error);
-      enqueueSnackbar('Erro ao efetuar login!')
+      enqueueSnackbar('Erro ao efetuar login!', { variant: 'error' });
+      reset()
     }
   });
 
   const renderHead = (
     <Stack spacing={2} sx={{ mb: 5, position: 'relative' }}>
-      <Typography variant="h4">Get started absolutely free</Typography>
+      <Typography variant="h4">Registre-se agora</Typography>
 
       <Stack direction="row" spacing={0.5}>
-        <Typography variant="body2"> Already have an account? </Typography>
+        <Typography variant="body2"> Você já tem uma conta?</Typography>
 
         <Link href={paths.auth.jwt.login} component={RouterLink} variant="subtitle2">
-          Sign in
+          Faça o login
         </Link>
       </Stack>
     </Stack>
   );
 
-  const renderTerms = (
-    <Typography
-      component="div"
-      sx={{
-        color: 'text.secondary',
-        mt: 2.5,
-        typography: 'caption',
-        textAlign: 'center',
-      }}
-    >
-      {'By signing up, I agree to '}
-      <Link underline="always" color="text.primary">
-        Terms of Service
-      </Link>
-      {' and '}
-      <Link underline="always" color="text.primary">
-        Privacy Policy
-      </Link>
-      .
-    </Typography>
-  );
 
   const renderForm = (
     <Stack spacing={2.5}>
-      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-        <RHFTextField name="firstName" label="First name" />
-        <RHFTextField name="lastName" label="Last name" />
-      </Stack>
-
-      <RHFTextField name="email" label="Email address" />
+      <RHFTextField name="email" label="Endereço de Email" />
 
       <RHFTextField
         name="password"
-        label="Password"
+        label="Senha"
         type={password.value ? 'text' : 'password'}
         InputProps={{
           endAdornment: (
@@ -122,6 +94,8 @@ export default function ModernRegisterView() {
         }}
       />
 
+
+
       <LoadingButton
         fullWidth
         color="inherit"
@@ -132,7 +106,7 @@ export default function ModernRegisterView() {
         endIcon={<Iconify icon="eva:arrow-ios-forward-fill" />}
         sx={{ justifyContent: 'space-between', pl: 2, pr: 1.5 }}
       >
-        Create account
+        Criar conta
       </LoadingButton>
     </Stack>
   );
@@ -140,10 +114,7 @@ export default function ModernRegisterView() {
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>
       {renderHead}
-
       {renderForm}
-
-      {renderTerms}
     </FormProvider>
   );
 }

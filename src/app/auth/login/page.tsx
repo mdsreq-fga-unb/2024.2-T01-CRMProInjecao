@@ -1,5 +1,5 @@
 // sections
-import { JwtLoginView } from '@/sections/auth/jwt';
+import { ModernLoginView } from '@/sections/auth-demo/modern';
 
 // ----------------------------------------------------------------------
 
@@ -8,5 +8,5 @@ export const metadata = {
 };
 
 export default function LoginPage() {
-  return <JwtLoginView />;
+  return <ModernLoginView />;
 }

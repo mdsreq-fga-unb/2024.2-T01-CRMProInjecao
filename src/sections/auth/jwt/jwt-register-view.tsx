@@ -25,7 +25,6 @@ import { useAuthContext } from '@/auth/hooks';
 // components
 import Iconify from '@/components/iconify';
 import FormProvider, { RHFSelect, RHFTextField, RHFUploadAvatar } from '@/components/hook-form';
-import axiosInstance, { endpoints } from '@/utils/axios';
 import { fData } from '@/utils/format-number';
 import { DatePicker } from '@mui/x-date-pickers';
 import { MenuItem } from '@mui/material';
@@ -88,12 +87,6 @@ export default function JwtRegisterView() {
       await register?.(
         data.name,
         data.email,
-        data.password,
-        data.phone,
-        data.cpf,
-        data.birthdate,
-        data.sex,
-        data.profilePhoto
       );
 
       router.push(returnTo || PATH_AFTER_REGISTER);
