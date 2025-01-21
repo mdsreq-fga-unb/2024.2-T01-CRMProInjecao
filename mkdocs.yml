@@ -144,6 +144,8 @@ nav:
   - Apresentações:
     - Unidade 1: apresentacao-1.md
     - Unidade 2: apresentacao-2.md
+    - Unidade 3: apresentacao-3.md
+
   - Guia de Contribuição: 
     - Política de Commits: guia-contribuicao/politica-de-commits.md
     - Política de Branchs: guia-contribuicao/politica-de-branchs.md
