@@ -1861,6 +1861,11 @@ class-transform@^0.7.0:
   resolved "https://registry.yarnpkg.com/class-transform/-/class-transform-0.7.0.tgz#1b4788570be65da78c56f882e046ddb85ff0c141"
   integrity sha512-j5O1TkgxsR836BOgyG83i5gKH3yaqdxMIbwviV3qJpcjGh1Vfil1CjtXn8RHgvtLvbosUutoewa+RA3Qty4SFA==
 
+class-transformer@^0.5.1:
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/class-transformer/-/class-transformer-0.5.1.tgz#24147d5dffd2a6cea930a3250a677addf96ab336"
+  integrity sha512-SQa1Ws6hUbfC98vKGxZH3KFY0Y1lm5Zm0SY8XX9zbK7FJCyVEac3ATW0RIpwzW+oOfmHE5PMPufDG9hCfoEOMw==
+
 class-validator@^0.14.1:
   version "0.14.1"
   resolved "https://registry.yarnpkg.com/class-validator/-/class-validator-0.14.1.tgz#ff2411ed8134e9d76acfeb14872884448be98110"
