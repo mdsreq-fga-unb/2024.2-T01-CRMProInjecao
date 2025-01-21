@@ -12,57 +12,63 @@
 - **RF04** - Consultar Clientes: O sistema deve ser capaz de consultar clientes cadastrados.
 - **RF05** - Categorizar Clientes: O sistema deve ser capaz de categorizar clientes entre empresas e pessoas físicas.
 - **RF06** - Registrar histórico de pedido: O sistema deve ser capaz de registrar o histórico de pedidos de cada cliente.
-- **RF07** - Vincular Veículos ao Cliente: O sistema deve ser capaz de vincular veículos ao cliente no cadastro.
+- **RF07** - Cadastrar Veiculo: O sistema de ser capaz de cadasdtrar veiculos.
+- **RF08** - Vincular Veículos ao Cliente: O sistema deve ser capaz de vincular veículos ao cliente no cadastro.
 
 ##### Coleta e Gestão de Feedbacks
 
-- **RF08** - Criar formulário de Feedback: O sistema deve ser capaz de criar formulários personalizados de feedback.
-- **RF09** - Enviar formulário de Feedback: O sistema deve ser capaz de enviar formulários de feedback aos clientes.
-- **RF10** - Gerar relatório do Feedback: O sistema deve ser capaz de gerar relatórios com os resultados dos feedbacks coletados.
+- **RF09** - Criar formulário de Feedback: O sistema deve ser capaz de criar formulários personalizados de feedback.
+- **RF10** - Enviar formulário de Feedback: O sistema deve ser capaz de enviar formulários de feedback aos clientes.
+- **RF11** - Gerar relatório do Feedback: O sistema deve ser capaz de gerar relatórios com os resultados dos feedbacks coletados.
 
 ##### Gerenciamento de Serviços
 
-- **RF11** - Criar ordem de serviço: O sistema deve ser capaz de criar ordem de serviço para os clientes.
-- **RF12** - Criar tipo de serviço: O sistema deve ser capaz de criar um tipo de serviço.
-- **RF13** - Finalizar ordem de serviço: O sistema deve ser capaz de finalizar ordem de serviço.
-- **RF14** - Atualizar ordem de serviço: O sistema deve ser capaz de atualizar as informações das ordens de serviço.
-- **RF15** - Consultar ordem de serviço: O sistema deve ser capaz de consultar as ordens de serviço cadastradas.
-- **RF16** - Atualizar status da ordem de serviço: O sistema deve ser capaz de atualizar o status da ordem de serviço (ex.: "em andamento", "concluído").
-- **RF17** - Enviar notificação de status da ordem de serviço: O sistema deve ser capaz de enviar notificações via e-mail sobre o status das ordens de serviços aos clientes.
+- **RF12** - Criar ordem de serviço: O sistema deve ser capaz de criar ordem de serviço para os clientes.
+- **RF13** - Criar tipo de serviço: O sistema deve ser capaz de criar um tipo de serviço.
+- **RF14** - Finalizar ordem de serviço: O sistema deve ser capaz de finalizar ordem de serviço.
+- **RF15** - Atualizar ordem de serviço: O sistema deve ser capaz de atualizar as informações das ordens de serviço.
+- **RF16** - Consultar ordem de serviço: O sistema deve ser capaz de consultar as ordens de serviço cadastradas.
+- **RF17** - Atualizar status da ordem de serviço: O sistema deve ser capaz de atualizar o status da ordem de serviço (ex.: "em andamento", "concluído").
+- **RF18** - Enviar notificação de status da ordem de serviço: O sistema deve ser capaz de enviar notificações via e-mail sobre o status das ordens de serviços aos clientes.
 
 ##### Gerenciamento do Orçamento
 
-- **RF18** - Criar orçamento: O sistema deve ser capaz de criar orçamento, baseado em tipos de serviço, produtos e valores adicionais vinculados ao orçamento.
-- **RF19** - Enviar orçamentos: O sistema deve ser capaz de enviar orçamentos aos clientes.
-- **RF20** - Atualizar orçamento: O sistema deve ser capaz de atualizar o status de um orçamento.
-- **RF21** - Gerar PDF do orçamento: O sistema deve ser capaz de gerar um .pdf do orçamento.
+- **RF19** - Criar orçamento: O sistema deve ser capaz de criar orçamento, baseado em tipos de serviço, produtos e valores adicionais vinculados ao orçamento.
+- **RF20** - Enviar orçamentos: O sistema deve ser capaz de enviar orçamentos aos clientes.
+- **RF21** - Atualizar orçamento: O sistema deve ser capaz de atualizar o status de um orçamento.
+- **RF22** - Gerar PDF do orçamento: O sistema deve ser capaz de gerar um .pdf do orçamento.
 
 ##### Gerenciamento de Produtos e Estoque
 
-- **RF22** - Cadastrar Produtos: O sistema deve ser capaz de cadastrar produtos.
-- **RF23** - Desativar os Produtos: O sistema deve ser capaz de inativar produtos.
-- **RF24** - Atualizar Produtos: O sistema deve ser capaz de atualizar as informações dos produtos.
-- **RF25** - Consultar Produtos: O sistema deve ser capaz de consultar os produtos cadastrados.
-- **RF26** - Criar entrada ou saída de estoque: O sistema deve ser capaz de gerar uma entrada ou saída para um produto cadastrado.
-- **RF27** - Automatizar o Estoque: O sistema deve ser capaz de atualizar automaticamente os produtos que forem utilizados pelo pedido.
-- **RF28** - Enviar notificação de baixo Estoque: O sistema deve ser capaz de enviar uma notificação ao administrador quando há um produto em baixo nível de estoque (definido pelo usuário).
+- **RF23** - Cadastrar Produtos: O sistema deve ser capaz de cadastrar produtos.
+- **RF24** - Desativar os Produtos: O sistema deve ser capaz de inativar produtos.
+- **RF25** - Atualizar Produtos: O sistema deve ser capaz de atualizar as informações dos produtos.
+- **RF26** - Consultar Produtos: O sistema deve ser capaz de consultar os produtos cadastrados.
+- **RF27** - Criar entrada ou saída de estoque: O sistema deve ser capaz de gerar uma entrada ou saída para um produto cadastrado.
+- **RF28** - Automatizar o Estoque: O sistema deve ser capaz de atualizar automaticamente os produtos que forem utilizados pelo pedido.
+- **RF29** - Enviar notificação de baixo Estoque: O sistema deve ser capaz de enviar uma notificação ao administrador quando há um produto em baixo nível de estoque (definido pelo usuário).
 
 ##### Gerenciamento Administrativo
 
-- **RF29** - Criar Administrador: O sistema deve ser capaz de cadastrar administradores.
-- **RF30** - Atualizar Administrador: O sistema deve ser capaz de atualizar as informações dos administradores.
-- **RF31** - Excluir Administrador: O sistema deve ser capaz de excluir administradores.
+- **RF30** - Criar Administrador: O sistema deve ser capaz de cadastrar administradores.
+- **RF31** - Atualizar Administrador: O sistema deve ser capaz de atualizar as informações dos administradores.
+- **RF32** - Excluir Administrador: O sistema deve ser capaz de excluir administradores.
 
 ##### Relatório e Análise de Dados
 
-- **RF32** - Criar relatórios personalizados: O sistema deve a partir das informações selecionadas (serviços, clientes, desempenho financeiro) o sistema deve ser capaz de gerar um relatório específico de um destes dados.
-- **RF33** - Analisar negócio geral: O sistema deve ser capaz de gerar um relatório geral sobre o negócio, com informações pré-selecionadas (número de clientes atendido, serviços concluídos, etc..)
+- **RF33** - Criar relatório de serviços: O sistema deve ser capaz de gerar relatórios com base nas informações dos serviços.
+- **RF34** - Criar relatório de clientes: O sistema deve ser capaz de gerar relatórios com base nas informações dos clientes.
+- **RF35** - Criar relatório desempenho: O sistema deve ser capaz de gerar relatórios com base no desempenho de equipe.
+- **RF36** - Criar relatório de estoque: O sistema deve ser capaz de gerar relatórios com base no status dos produtos e estoque.
+- **RF37** - Criar painel de clientes: O sistema cria um painel consolidado com informações gerais do negócio dos clientes atendidos
+- **RF38** - Criar painel de serviços: O sistema cria um painel consolidado com informações gerais do negócio dos serviços concluídos
+- **RF39** - Criar painel de desempenho: O sistema cria criar um painel consolidado com informações gerais do negócio do desempenho de equipe 
+- **RF40** - Criar painel de estoque: O sistema cria um painel consolidado com informações gerais do negócio do status do estoque.
 
 ##### Autenticação
 
-- **RF34** - Validar o acesso do usuário: O sistema deve, a partir das informações inseridas no login (email e senha), validar o acesso do usuário.
-
-- **RF35** - Redefinir senha de acesso: O sistema deve ser capaz de gerar uma nova senha para usuário.
+- **RF41** - Validar o acesso do usuário: O sistema deve, a partir das informações inseridas no login (email e senha), validar o acesso do usuário.
+- **RF42** - Redefinir senha de acesso: O sistema deve ser capaz de gerar uma nova senha para usuário.
 
 
 
@@ -119,7 +125,8 @@
 <center>
 
 
-| Versão | Descrição                                                    | Autor                                            | Data       |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------ | ---------- |
-| 0.1    | Adicionando listas de requisitos funcionais e não funcionais | [Fábio Torres](http://github.com/fabioaletorres) | 14/12/2024 |
+| Versão | Descrição                                                            | Autor                                            | Data       |
+| ------ | -------------------------------------------------------------------- | ------------------------------------------------ | ---------- |
+| 0.1    | Adicionando listas de requisitos funcionais e não funcionais         | [Fábio Torres](http://github.com/fabioaletorres) | 14/12/2024 |
+| 0.2    | Ajuste dos requisitos funcionais a partir dos feedbacks do professor | [Paulo André](http://github.com/PauloFilho2)     | 19/01/2025 |
 
