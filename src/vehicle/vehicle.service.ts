@@ -1,4 +1,7 @@
-import { Injectable } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateVehicleDto } from './dto/create-vehicle.dto';
 import { UpdateVehicleDto } from './dto/update-vehicle.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -14,21 +17,30 @@ export class VehicleService {
     @InjectRepository(Client)
     private readonly clientRepository: Repository<Client>,
   ) {}
+
   async create(createVehicleDto: CreateVehicleDto): Promise<{
     message: string;
     data: Pick<Vehicle, 'licensePlate' | 'brand' | 'model' | 'modelYear'> & {
       clientCPF: string;
     };
   }> {
-    const vehicle = this.vehicleRepository.create(createVehicleDto);
+    const { clientCPF, ...vehicleData } = createVehicleDto;
+
     const client = await this.clientRepository.findOne({
-      where: { cpf: createVehicleDto.clientCPF },
+      where: { cpf: clientCPF },
     });
+
     if (!client) {
-      throw new Error('Client not found');
+      throw new NotFoundException('Client not found');
     }
-    vehicle.client = client;
+
+    const vehicle = this.vehicleRepository.create({
+      ...vehicleData,
+      client,
+    });
+
     await this.vehicleRepository.save(vehicle);
+
     return {
       message: 'Vehicle created successfully',
       data: {
@@ -41,19 +53,79 @@ export class VehicleService {
     };
   }
 
-  findAll() {
-    return `This action returns all vehicle`;
+  async findAll(clientCPF?: string): Promise<Vehicle[]> {
+    const queryBuilder = this.vehicleRepository
+      .createQueryBuilder('vehicle')
+      .leftJoinAndSelect('vehicle.client', 'client');
+
+    if (clientCPF) {
+      queryBuilder.where('client.cpf = :clientCPF', { clientCPF });
+    }
+
+    return await queryBuilder.getMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} vehicle`;
+  async findOne(licensePlate: string): Promise<Vehicle> {
+    const vehicle = await this.vehicleRepository.findOne({
+      where: { licensePlate },
+      relations: ['client'],
+    });
+
+    if (!vehicle) {
+      throw new NotFoundException(
+        `Vehicle with license plate ${licensePlate} not found`,
+      );
+    }
+
+    return vehicle;
   }
 
-  update(id: number, updateVehicleDto: UpdateVehicleDto) {
-    return `This action updates a #${id} vehicle`;
+  async update(
+    licensePlate: string,
+    updateVehicleDto: UpdateVehicleDto,
+  ): Promise<{
+    message: string;
+    updatedVehicle: Vehicle;
+  }> {
+    const vehicle = await this.vehicleRepository.findOne({
+      where: { licensePlate },
+    });
+
+    if (!vehicle) {
+      throw new NotFoundException(
+        `Vehicle with license plate ${licensePlate} not found`,
+      );
+    }
+
+    const updatedVehicle = this.vehicleRepository.merge(
+      vehicle,
+      updateVehicleDto,
+    );
+    await this.vehicleRepository.save(updatedVehicle);
+
+    return {
+      message: 'Vehicle updated successfully',
+      updatedVehicle,
+    };
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} vehicle`;
+  async remove(licensePlate: string): Promise<{
+    message: string;
+    licensePlate: string;
+  }> {
+    const deleteResult = await this.vehicleRepository.softDelete({
+      licensePlate,
+    });
+
+    if (!deleteResult.affected) {
+      throw new NotFoundException(
+        `Vehicle with license plate ${licensePlate} not found`,
+      );
+    }
+
+    return {
+      message: 'Vehicle removed successfully',
+      licensePlate,
+    };
   }
 }
