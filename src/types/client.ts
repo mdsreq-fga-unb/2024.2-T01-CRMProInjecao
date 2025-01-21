@@ -2,30 +2,19 @@ import { IVehicle } from './vehicle';
 
 export type IClient = {
   cpf: string;
-
   name: string;
-
   email: string;
-
   phoneNumber: string;
-
   address: string;
-
-  createdAt: Date;
-
-  updatedAt: Date;
-
-  deletedAt: Date;
-
   vehicles: IVehicle[] | number;
+  createdAt: Date;
+  updatedAt: Date;
+  deletedAt: Date;
 };
 
-export type createClient = {
+export type ICreateClient = {
   name: string;
-
   email: string;
-
   phoneNumber: string;
-
   address?: string;
 };

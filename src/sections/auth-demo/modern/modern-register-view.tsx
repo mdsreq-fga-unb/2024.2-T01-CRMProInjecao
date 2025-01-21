@@ -18,22 +18,24 @@ import { paths } from '@/routes/paths';
 import Iconify from '@/components/iconify';
 import { RouterLink } from '@/routes/components';
 import FormProvider, { RHFTextField } from '@/components/hook-form';
+import { useAuthContext } from '@/auth/hooks';
+import { useSnackbar } from 'notistack';
+import { useRouter } from 'next/navigation';
 
 // ----------------------------------------------------------------------
 
 export default function ModernRegisterView() {
   const password = useBoolean();
+  const { register } = useAuthContext()
+  const {enqueueSnackbar} = useSnackbar()
+  const router = useRouter()
 
   const RegisterSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name required'),
-    lastName: Yup.string().required('Last name required'),
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
     password: Yup.string().required('Password is required'),
   });
 
   const defaultValues = {
-    firstName: '',
-    lastName: '',
     email: '',
     password: '',
   };
@@ -50,10 +52,13 @@ export default function ModernRegisterView() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await new Promise((resolve) => setTimeout(resolve, 500));
-      console.info('DATA', data);
+      await register(data.email, data.password)
+      enqueueSnackbar('Login efetuado com sucesso!')
+      router.push("/dashboard")
+      
     } catch (error) {
       console.error(error);
+      enqueueSnackbar('Erro ao efetuar login!')
     }
   });
 

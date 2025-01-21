@@ -112,9 +112,9 @@ export default function JwtRegisterView() {
         const formData = new FormData();
         formData.append('file', file);
         try {
-          const { data } = await axiosInstance.post(endpoints.images.upload, formData);
+          // const { data } = await axiosInstance.post(endpoints.images.upload, formData);
 
-          setValue('profilePhoto', data.imageUrl, { shouldValidate: true });
+          // setValue('profilePhoto', data.imageUrl, { shouldValidate: true });
         } catch (error) {
           setErrorMsg('Falha ao enviar foto');
           setValue('profilePhoto', '', { shouldValidate: false });

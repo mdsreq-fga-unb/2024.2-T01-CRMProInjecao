@@ -2,13 +2,13 @@
 
 export type ActionMapType<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
-    ? {
-        type: Key;
-      }
-    : {
-        type: Key;
-        payload: M[Key];
-      };
+  ? {
+    type: Key;
+  }
+  : {
+    type: Key;
+    payload: M[Key];
+  };
 };
 
 export type AuthUser = {
@@ -31,14 +31,8 @@ export type AuthStateType = {
 type CanRemove = {
   login?: (email: string, password: string) => Promise<void>;
   register?: (
-    name: string,
     email: string,
-    password: string,
-    phone: string,
-    cpf: string,
-    birthdate: string,
-    sex: string,
-    profilePhoto: string | null
+    password: string
   ) => Promise<void>;
   //
   confirmRegister?: (email: string, code: string) => Promise<void>;
@@ -56,14 +50,8 @@ export type JWTContextType = CanRemove & {
   validateToken: (token: string) => Promise<void>;
   login: (email: string, password: string) => Promise<void>;
   register: (
-    name: string,
     email: string,
-    password: string,
-    phone: string,
-    cpf: string,
-    birthdate: string,
-    sex: string,
-    profilePhoto: string | null
+    password: string
   ) => Promise<void>;
   logout: () => Promise<void>;
 };

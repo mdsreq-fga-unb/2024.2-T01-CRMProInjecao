@@ -3,7 +3,7 @@ import useSWR, { mutate } from 'swr';
 // utils
 import axios, { fetcher, endpoints } from 'src/utils/axios';
 //types
-import { createClient, IClient } from '@/types/client';
+import { ICreateClient, IClient } from '@/types/client';
 
 // ----------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ const options = {
 //   return memoizedValue;
 // }
 
-export async function createClient(client: createClient) {
+export async function createClient(client: ICreateClient) {
   const URL_CREATE = URL.create;
   const data = {
     ...client,
