@@ -41,13 +41,12 @@ export class AuthService {
   }
 
   async register(email: string, password: string): Promise<Partial<User>> {
-    const hashedPassword = await bcrypt.hash(password, 10);
     if (await this.userService.findOneByEmail(email)) {
       throw new ForbiddenException('Email already under use');
     }
     const userCreated = await this.userService.create({
       email,
-      password: hashedPassword,
+      password: password,
     });
 
     return {
