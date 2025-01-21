@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository, Brackets } from 'typeorm';
+import { Client } from './entities/client.entity';
 import { CreateClientDto } from './dto/create-client.dto';
 import { UpdateClientDto } from './dto/update-client.dto';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Client } from './entities/client.entity';
-import { Brackets, Repository } from 'typeorm';
 import { SearchClientDto } from './dto/search-client.dto';
 
 @Injectable()
@@ -12,36 +12,36 @@ export class ClientService {
     @InjectRepository(Client)
     private readonly clientRepository: Repository<Client>,
   ) {}
+
+  // Criação de um novo cliente
   async create(createClientDto: CreateClientDto): Promise<{
     message: string;
-    data: Omit<Client, 'vehicles' | 'deletedAt'>;
+    data: Client;
   }> {
-    const client = this.clientRepository.create(createClientDto);
-    await this.clientRepository.save(client);
+    const newClient = this.clientRepository.create(createClientDto);
+    const savedClient = await this.clientRepository.save(newClient);
+
     return {
       message: 'Client created successfully',
-      data: {
-        ...client,
-      },
+      data: savedClient,
     };
   }
 
+  // Busca com filtros e paginação
   async findAllWithFilters(
     searchClientDto: SearchClientDto,
   ): Promise<Client[]> {
-    const { search, searchVehicle, page, limit } = searchClientDto;
-    const queryBuilder = await this.clientRepository
+    const { search, searchVehicle, page = 1, limit = 10 } = searchClientDto;
+
+    const queryBuilder = this.clientRepository
       .createQueryBuilder('client')
       .leftJoinAndSelect('client.vehicles', 'vehicle');
+
     if (search) {
       queryBuilder.andWhere(
         new Brackets((qb) => {
-          qb.where('client.name ILIKE :search', {
-            search: `%${search}%`,
-          })
-            .orWhere('client.email ILIKE :search', {
-              search: `%${search}%`,
-            })
+          qb.where('client.name ILIKE :search', { search: `%${search}%` })
+            .orWhere('client.email ILIKE :search', { search: `%${search}%` })
             .orWhere('client.phoneNumber ILIKE :search', {
               search: `%${search}%`,
             });
@@ -73,38 +73,54 @@ export class ClientService {
     return clients;
   }
 
-  async findOneByCPF(cpf: string) {
-    return await this.clientRepository.findOne({
-      where: { cpf: cpf },
-      select: { name: true, email: true, phoneNumber: true, address: true },
+  // Busca cliente por CPF
+  async findOneByCPF(cpf: string): Promise<Partial<Client>> {
+    const client = await this.clientRepository.findOne({
+      where: { cpf },
+      select: ['name', 'email', 'phoneNumber', 'address'],
     });
+
+    if (!client) {
+      throw new NotFoundException('Client not found');
+    }
+
+    return client;
   }
 
+  // Atualização de cliente por CPF
   async update(
     cpf: string,
     updateClientDto: UpdateClientDto,
-  ): Promise<{ message: string; cpf: string }> {
-    const updatedResult = await this.clientRepository.update(
-      cpf,
-      updateClientDto,
-    );
-    if (updatedResult.affected === 0) {
+  ): Promise<{
+    message: string;
+    data: Client;
+  }> {
+    const client = await this.clientRepository.findOne({ where: { cpf } });
+
+    if (!client) {
       throw new NotFoundException('Client not found');
     }
+
+    const updatedClient = this.clientRepository.merge(client, updateClientDto);
+    await this.clientRepository.save(updatedClient);
+
     return {
       message: 'Client updated successfully',
-      cpf: cpf,
+      data: updatedClient,
     };
   }
 
+  // Remoção lógica de cliente por CPF
   async remove(cpf: string): Promise<{ message: string; cpf: string }> {
-    const updateResult = await this.clientRepository.softDelete({ cpf: cpf });
-    if (updateResult.affected === 0) {
+    const result = await this.clientRepository.softDelete({ cpf });
+
+    if (result.affected === 0) {
       throw new NotFoundException('Client not found');
     }
+
     return {
       message: 'Client deleted successfully',
-      cpf: cpf,
+      cpf,
     };
   }
 }
