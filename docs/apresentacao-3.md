@@ -1,3 +1,3 @@
 ## Unidade 3
 
-Link da nossa apresentação: [Apresetação](https://youtu.be/Fi3ilNfXgDk)
+Link da nossa apresentação: [Apresentação](https://youtu.be/Fi3ilNfXgDk)
