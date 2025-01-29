@@ -1,5 +1,5 @@
 import { DataSource, type DataSourceOptions } from 'typeorm';
-import 'dotenv/config';
+require("dotenv").config();
 
 const MODE = process.env.PG_MODE || 'dev';
 
@@ -16,6 +16,7 @@ const prodConfig = {
     NODE_TLS_REJECT_UNAUTHORIZED: '0',
   },
 };
+console.log(parseInt(process.env.DATABASE_PORT, 10));
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',
   host: process.env.DATABASE_HOST,
