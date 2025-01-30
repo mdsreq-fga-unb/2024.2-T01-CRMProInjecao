@@ -52,7 +52,7 @@ Como técnico de campo posso ser capaz de enviar o registro do cliente para o si
    - **Dado** que o técnico deixou o campo "Tipo de Problema" vazio
    - **Quando** mover o cursor para o próximo campo
    - **Então** o sistema deve:
-       - Highlightar o campo em vermelho
+       - Destacar o campo em vermelho
        - Exibir ícone de alerta
        - Mostrar mensagem: "Campo obrigatório"
 
@@ -60,7 +60,7 @@ Como técnico de campo posso ser capaz de enviar o registro do cliente para o si
 
    - **Dado** que o registro foi enviado com sucesso
    - **Quando** o sistema processar
-   - **Então** deve enviar e-mail para suporte@empresa.com com:
+   - **Então** deve enviar e-mail para tecnico@empresa.com com:
        - Assunto: "Novo registro #00123"
        - Anexo PDF
        - Link para dashboard de acompanhamento
@@ -90,7 +90,7 @@ Como técnico de campo posso ser capaz de escrever o registro do serviço para m
        - Adicionar timestamp na captura
        - Vincular automaticamente ao registro
 
-3) **CENÁRIO: Checklist de configuração**  
+3) **CENÁRIO: Checklist de configuração**  "
   
    - **Dado** que o tipo de problema é "Configuração"
    - **Quando** selecionar o checklist
@@ -108,15 +108,15 @@ Como técnico de campo posso identificar meu acesso no sistema para garantir seg
 
 1) **CENÁRIO: Login com 2FA via SMS**  
  
-   - **Dado** que o técnico inseriu CPF e senha corretos
-   - **Quando** o sistema enviar código via SMS para (11) 98765-4321
+   - **Dado** que o técnico inseriu CPF "123.123.123-12" e senha: "minhasenha" corretos
+   - **Quando** o sistema enviar código "hfdhifd" via SMS para (11) 98765-4321
    - **E** o código for inserido corretamente
    - **Então** deve conceder acesso completo
    - **E** registrar o método de autenticação
 
 2) **CENÁRIO: Bloqueio por tentativas fracassadas**  
 
-   - **Dado** 3 tentativas de login com senha incorreta
+   - **Dado** 3 tentativas de login com senha incorreta. Senha correta "minhasenha", senha digitada "MinhaSenha"
    - **Quando** tentar o 4º acesso
    - **Então** o sistema deve:
        - Bloquear a conta por 30 minutos
