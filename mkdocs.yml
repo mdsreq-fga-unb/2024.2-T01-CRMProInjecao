@@ -138,8 +138,13 @@ nav:
     - Lições Aprendidas: licoes-aprendidas.md
 
   - Estudo de casos:
-    - USM - EduConnect: estudo-de-caso-usm.md
-    - PBB - TechFix: estudo-de-caso-pbb.md
+    - USM - EduConnect: estudo-de-caso-usm.md 
+    - PBB - TechFix: 
+      - Introdução: estudo-de-caso-pbb/estudo-de-caso-pbb.md
+      - Problemas Identificados: estudo-de-caso-pbb/problemas-identificados.md
+      - Historias de Usuário: estudo-de-caso-pbb/lista-historias-usuario.md
+      - Critérios de Aceitação: estudo-de-caso-pbb/criterios-aceitacao.md
+      - BDD: estudo-de-caso-pbb/bdd.md
 
   - Apresentações:
     - Unidade 1: apresentacao-1.md
