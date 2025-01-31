@@ -21,7 +21,7 @@ export class ProductsService {
     });
     const product = this.productRepository.create({
       ...productData,
-      categories: categoriesEntities
+      categories: categoriesEntities,
     });
 
     return await this.productRepository.save(product);

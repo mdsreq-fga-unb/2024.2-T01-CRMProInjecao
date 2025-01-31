@@ -1,46 +1,56 @@
-import { Column, Entity, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn, JoinTable, CreateDateColumn, UpdateDateColumn, DeleteDateColumn } from "typeorm";
-import { Category } from "./category.entity";
+import {
+  Column,
+  Entity,
+  ManyToMany,
+  PrimaryColumn,
+  PrimaryGeneratedColumn,
+  JoinTable,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+} from 'typeorm';
+import { Category } from './category.entity';
 
 @Entity()
 export class Product {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column( { default: "" } )
-    description: string;
+  @Column({ default: '' })
+  description: string;
 
-    @Column( { default: "" } )
-    brand: string;
+  @Column({ default: '' })
+  brand: string;
 
-    @Column({
-        type: "decimal",
-        precision: 11,
-        scale: 2,
-        nullable: true,
-    })
-    costPrice: number;
+  @Column({
+    type: 'decimal',
+    precision: 11,
+    scale: 2,
+    nullable: true,
+  })
+  costPrice: number;
 
-    @Column({
-        type: "decimal",
-        precision: 11,
-        scale: 2,
-        nullable: true,
-    })
-    sellPrice: number;
-   
-    @CreateDateColumn()
-    createdAt: Date;
+  @Column({
+    type: 'decimal',
+    precision: 11,
+    scale: 2,
+    nullable: true,
+  })
+  sellPrice: number;
 
-    @UpdateDateColumn()
-    updatedAt: Date;
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @DeleteDateColumn()
-    deletedAt: Date;  
+  @UpdateDateColumn()
+  updatedAt: Date;
 
-    @ManyToMany(() => Category, { cascade: ["insert", "update"] })
-    @JoinTable()
-    categories: Category[];
+  @DeleteDateColumn()
+  deletedAt: Date;
+
+  @ManyToMany(() => Category, { cascade: ['insert', 'update'] })
+  @JoinTable()
+  categories: Category[];
 }
