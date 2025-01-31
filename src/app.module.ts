@@ -9,6 +9,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { dataSourceOptions } from 'db/data-source';
 import { ClientModule } from './client/client.module';
 import { VehicleModule } from './vehicle/vehicle.module';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
     UserModule,
     ClientModule,
     VehicleModule,
+    ProductsModule,
   ],
   providers: [
     {
