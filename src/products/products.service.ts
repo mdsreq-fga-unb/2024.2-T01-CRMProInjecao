@@ -6,6 +6,9 @@ import { Category } from './entities/category.entity';
 import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
+/**
+ * Service dealing with product-related operations.
+ */
 @Injectable()
 export class ProductsService {
   constructor(
@@ -14,6 +17,13 @@ export class ProductsService {
     @InjectRepository(Category)
     private categoryRepository: Repository<Category>,
   ) {}
+
+  /**
+   * Creates a new product.
+   *
+   * @param createProductDto - Data Transfer Object containing the details of the product to be created.
+   * @returns The created product.
+   */
   async create(createProductDto: CreateProductDto) {
     const { categories, ...productData } = createProductDto;
     const categoriesEntities = await this.categoryRepository.find({
