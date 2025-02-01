@@ -8,105 +8,120 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
 
 ???+ info "Sprint 1 - Configuração Inicial"
 
-    **Período:** 18/11/2024 a 02/12/2024  
+​    **Período:** 18/11/2024 a 02/12/2024  
 
-    **Objetivo Principal:** Nivelamento da equipe e configuração do ambiente de desenvolvimento.  
-    - Realização de dojos e treinamentos sobre as tecnologias utilizadas.  
-    - Configuração completa dos ambientes de desenvolvimento (backend e frontend).  
-    - Definição do backlog inicial de funcionalidades, priorizando entregas futuras.  
+​    **Objetivo Principal:** Nivelamento da equipe e configuração do ambiente de desenvolvimento.  
 
-    **Entregas Esperadas:**  
-    - Ambientes configurados e operacionais.  
-    - Backlog inicial priorizado.  
-    - Equipe nivelada quanto às tecnologias utilizadas no projeto.  
+   - Realização de dojos e treinamentos sobre as tecnologias utilizadas.  
+     - Configuração completa dos ambientes de desenvolvimento (backend e frontend).  
+       - Definição do backlog inicial de funcionalidades, priorizando entregas futuras.  
 
-    **Validação do Cliente e/ou Equipe:**  
-    - Revisão e aprovação do backlog inicial.  
-    - Confirmação de que todos os membros estão aptos a trabalhar com as tecnologias propostas.  
+​    **Entregas Esperadas:**  
+
+   - Ambientes configurados e operacionais.  
+     - Backlog inicial priorizado.  
+       - Equipe nivelada quanto às tecnologias utilizadas no projeto.  
+
+​    **Validação do Cliente e/ou Equipe:**  
+
+   - Revisão e aprovação do backlog inicial.  
+     - Confirmação de que todos os membros estão aptos a trabalhar com as tecnologias propostas.  
 
 ???+ info "Sprint 2 - Módulos de Usuários e Clientes"
 
-    **Período:** 03/12/2024 a 16/12/2024  
+​    **Período:** 03/12/2024 a 16/12/2024  
 
-    **Objetivo Principal:** Implementação dos módulos de usuários e clientes.  
-    - Desenvolvimento de módulos com operações CRUD completas para usuários e clientes.  
-    - Configuração de controle administrativo, com gestão de permissões e acessos.  
+​    **Objetivo Principal:** Implementação dos módulos de usuários e clientes.  
 
-    **Entregas Esperadas:**  
-    - Módulos de usuários e clientes com operações CRUD completas e controles administrativos.  
+   - Desenvolvimento de módulos com operações CRUD completas para usuários e clientes.  
+     - Configuração de controle administrativo, com gestão de permissões e acessos.  
 
-    **Validação do Cliente e/ou Equipe:**  
-    - Feedback sobre a usabilidade e funcionalidade dos módulos.  
-    - Revisão do controle administrativo e ajustes necessários.  
+​    **Entregas Esperadas:**  
+
+   - US01, US02, US03, US05, US06. 
+
+​    **Validação do Cliente e/ou Equipe:**  
+
+   - Feedback sobre a usabilidade e funcionalidade dos módulos.  
+     - Revisão do controle administrativo e ajustes necessários.  
 
 ???+ warning "Sprint 3 - Entrega 1 - Módulos de Produtos e Serviços"
 
-    **Período:** 17/12/2024 a 23/12/2024  
+​    **Período:** 17/12/2024 a 23/12/2024  
 
-    **Objetivo Principal:** Implementação inicial dos módulos de produtos e serviços.  
-    - Desenvolvimento dos módulos básicos para cadastro e consulta de produtos e serviços (sem controle de estoque).  
-    - Coleta de feedback preliminar do cliente para direcionar melhorias.  
+​    **Objetivo Principal:** Implementação inicial dos módulos de produtos e serviços.  
 
-    **Entregas Esperadas:**  
-    - Módulos de produtos e serviços (sem controle de estoque).  
-    - Feedback inicial coletado.  
+   - Desenvolvimento dos módulos básicos para cadastro e consulta de produtos e serviços (sem controle de estoque).  
+     - Coleta de feedback preliminar do cliente para direcionar melhorias.  
 
-    **Validação do Cliente e/ou Equipe:**  
-    - Análise do funcionamento e usabilidade dos módulos entregues.  
-    - Identificação de ajustes para sprints subsequentes.  
+​    **Entregas Esperadas:**  
+
+   - US08, US09, US16, US17.
+     - Feedback inicial do cliente coletado.  
+
+​    **Validação do Cliente e/ou Equipe:**  
+
+   - Análise do funcionamento e usabilidade dos módulos entregues.  
+     - Identificação de ajustes para sprints subsequentes.  
 
 ???+ info "Sprint 4 - Ajustes e Fluxo Inicial de Orçamentos e Ordens de Serviço"
 
-    **Período:** 06/01/2025 a 20/01/2025  
+​    **Período:** 06/01/2025 a 20/01/2025  
 
-    **Objetivo Principal:** Melhorias com base no feedback e início do fluxo de orçamentos e ordens de serviço.  
-    - Ajustes nos módulos entregues anteriormente conforme o feedback recebido.  
-    - Implementação do fluxo inicial de criação de orçamentos e ordens de serviço.  
-    - Introdução do controle de estoque no módulo de produtos.  
+​    **Objetivo Principal:** Melhorias com base no feedback e início do fluxo de orçamentos e ordens de serviço.  
 
-    **Entregas Esperadas:**  
-    - Melhorias aplicadas nos módulos anteriores.  
-    - Fluxo inicial de orçamentos e ordens de serviço.  
-    - Controle de estoque funcional.  
+   - Ajustes nos módulos entregues anteriormente conforme o feedback recebido.  
+     - Implementação do fluxo inicial de criação de orçamentos e ordens de serviço.  
+       - Introdução do controle de estoque no módulo de produtos.  
 
-    **Validação do Cliente e/ou Equipe:**  
-    - Validação do controle de estoque e fluxo inicial.  
-    - Novos feedbacks para refinamento contínuo.  
+​    **Entregas Esperadas:**  
+
+   - US04, US07, US13, US18, US19, US20. 
+
+​    **Validação do Cliente e/ou Equipe:**  
+
+   - Validação do controle de estoque e fluxo inicial.  
+     - Novos feedbacks para refinamento contínuo.  
 
 
 ???+ warning "Sprint 5 - Entrega 2 - Finalização de Orçamentos e Avaliações"
 
-    **Período:** 21/01/2025 a 04/02/2025  
+​    **Período:** 21/01/2025 a 04/02/2025  
 
-    **Objetivo Principal:** Finalização do fluxo de orçamentos e ordens de serviço e desenvolvimento do módulo de avaliações.  
-    - Conclusão do fluxo completo, incluindo histórico de atendimento e atualização de status.  
-    - Implementação do módulo de avaliações, com envio automatizado de e-mails para coleta de feedback dos clientes.  
+​    **Objetivo Principal:** Finalização do fluxo de orçamentos e ordens de serviço e desenvolvimento do módulo de avaliações.  
 
-    **Entregas Esperadas:**  
-    - Fluxo completo de orçamentos e ordens de serviço com histórico funcional.  
-    - Módulo de avaliações integrado ao sistema de envio de e-mails.  
+   - Conclusão do fluxo completo, incluindo histórico de atendimento e atualização de status.  
+     - Implementação do módulo de avaliações, com envio automatizado de e-mails para coleta de feedback dos clientes.  
 
-    **Validação do Cliente e/ou Equipe:**  
-    - Teste completo do fluxo de orçamentos e histórico.  
-    - Análise do módulo de avaliações e experiência do cliente.  
+​    **Entregas Esperadas:**  
+
+   - US14, US15, US21, US22.
+
+​    **Validação do Cliente e/ou Equipe:**  
+
+   - Teste completo do fluxo de orçamentos e histórico.  
+     - Análise do módulo de avaliações e experiência do cliente.  
 
 
 ???+ warning "Sprint 6 - Entrega 3 - Homologação e Lançamento em Produção"
 
-    **Período:** 05/02/2025 a 17/02/2025  
+​    **Período:** 05/02/2025 a 17/02/2025  
 
-    **Objetivo Principal:** Homologação do sistema e lançamento em produção.  
-    - Testes finais (unitários, integração e segurança).  
-    - Ajustes finais com base na homologação.  
-    - Lançamento do projeto em produção e monitoramento inicial.  
+​    **Objetivo Principal:** Homologação do sistema e lançamento em produção.  
 
-    **Entregas Esperadas:**  
-    - Sistema homologado, testado e em produção.  
-    - Coleta de feedback pós-lançamento.  
+   - Testes finais (unitários, integração e segurança).  
+     - Ajustes finais com base na homologação.  
+       - Lançamento do projeto em produção e monitoramento inicial.  
 
-    **Validação do Cliente e/ou Equipe:**  
-    - Aprovação do cliente após homologação.  
-    - Monitoramento inicial para garantir estabilidade e funcionalidade do sistema.  
+​    **Entregas Esperadas:**  
+
+   - Sistema homologado, testado e em produção.  
+     - Coleta de feedback pós-lançamento.  
+
+​    **Validação do Cliente e/ou Equipe:**  
+
+   - Aprovação do cliente após homologação.  
+     - Monitoramento inicial para garantir estabilidade e funcionalidade do sistema.  
 
 ## Considerações Importantes
 
@@ -148,11 +163,13 @@ Este cronograma busca alinhar as expectativas da equipe e do cliente, promovendo
 
 <center>
 
-| Versão | Descrição                             | Autor                                                 | Data       |
-| ------ | ------------------------------------- | ----------------------------------------------------- | ---------- |
-| 0.1    | Cronograma do Projeto                 | [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
-| 0.2    | Ajuste do cronograma                  | [Vinicius Vieira](http://github.com/viniciusvieira00) | 19/11/2024 |
-| 0.3    | Melhorando a visualização das sprints | [Bruno Bragança](http://github.com/BrunoBReis)        | 26/11/2024 |
 
+| Versão | Descrição                                        | Autor                                                 | Data       |
+| ------ | ------------------------------------------------ | ----------------------------------------------------- | ---------- |
+| 0.1    | Cronograma do Projeto                            | [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
+| 0.2    | Ajuste do cronograma                             | [Vinicius Vieira](http://github.com/viniciusvieira00) | 19/11/2024 |
+| 0.3    | Melhorando a visualização das sprints            | [Bruno Bragança](http://github.com/BrunoBReis)        | 26/11/2024 |
+| 0.4    | Vinculação das US com as sprints correspondentes | [Fábio Torres](http://github.com/fabioaletorres)      | 31/01/2025 |
 
 </center>
+
