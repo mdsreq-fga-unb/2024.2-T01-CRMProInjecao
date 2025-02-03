@@ -20,31 +20,7 @@ Durante a confeção do USM foi identificado alguns requisitos não funcionais:
 - Interface deve possuir poucos cliques para efeturas as ações
 - Interface deve possuir estética moderna
 
-### Persona: Professor Coordenador
-
-![Professor Coordenador](./assets/images/professor-coordenador.png)
-
-### Persona: Professor Participante
-
-![Professor Participante](./assets/images/professor-participante.png)
-
-### Persona: Aluno
-
-![Aluno](./assets/images/aluno.png)
-
-### Persona: Pais
-
-![Pais](./assets/images/pais.png)
-
-### Persona: Especialistas Externos
-
-![Expecialistas Externos](./assets/images/especialisatas-externos.png)
-
-### Persona: Coordenador Pedagógico
-
-![Expecialistas Externos](./assets/images/coordenador-pedagogico.png)
-
 
 ### Link do documento
 
-Para acessar o miro, basta entrar nesse [link](https://miro.com/welcomeonboard/VmxFSzM0bHU2MkhuOW1vQlVkbnhyd0krZGRJMEJEM0R4bWc2U01VdnMycGNBZnJZVmcwb0h1YWRnWW5COEpWOVNaUEl3V3Uwazc1WUN3cHYvbkFGbWpTYy9qMHlCNEtzQ25PUWZsZEFIZERFNlhBUFlmdzFRK1hLdUFaT2txc0YhZQ==?share_link_id=627212575653)
+<iframe width="768" height="432" src="https://miro.com/welcomeonboard/VmxFSzM0bHU2MkhuOW1vQlVkbnhyd0krZGRJMEJEM0R4bWc2U01VdnMycGNBZnJZVmcwb0h1YWRnWW5COEpWOVNaUEl3V3Uwazc1WUN3cHYvbkFGbWpTYy9qMHlCNEtzQ25PUWZsZEFIZERFNlhBUFlmdzFRK1hLdUFaT2txc0YhZQ==?share_link_id=627212575653" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
