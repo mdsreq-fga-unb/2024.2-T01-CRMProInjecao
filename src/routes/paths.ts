@@ -14,11 +14,12 @@ export const paths = {
       register: `${ROOTS.AUTH}/register`,
       verify: `${ROOTS.AUTH}/verify`,
       forgotPassword: `${ROOTS.AUTH}/forgot-password`,
-      resetPassword: `${ROOTS.AUTH}/reset-password`,
+      resetPassword: (token: string) => `${ROOTS.AUTH}/new-password/${token}`,
     },
   },
   dashboard: {
     root: ROOTS.DASHBOARD,
+    users: `${ROOTS.DASHBOARD}/users`,
     clients: `${ROOTS.DASHBOARD}/clients`,
     serviceOrders: `${ROOTS.DASHBOARD}/service-orders`,
     products: `${ROOTS.DASHBOARD}/products`,
