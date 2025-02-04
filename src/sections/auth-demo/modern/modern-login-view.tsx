@@ -21,6 +21,7 @@ import FormProvider, { RHFTextField } from '@/components/hook-form';
 import { useAuthContext } from '@/auth/hooks';
 import { useSnackbar } from 'notistack';
 import { useRouter } from 'next/navigation';
+import { Divider } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -63,17 +64,32 @@ export default function ModernLoginView() {
     }
   });
 
-  const renderHead = (
-    <Stack spacing={2} sx={{ mb: 5 }}>
+  const renderBottom = (
+    <>
+      <Divider sx={{
+        my: 2
+      }} />
+      <Stack spacing={2} direction="row" justifyContent="space-between">
 
-      <Stack direction="row" spacing={0.5}>
-        <Typography variant="body2">Novo usuário?</Typography>
+        <Stack direction="column" spacing={0.5}>
+          <Typography variant="body2">Novo usuário?</Typography>
 
-        <Link component={RouterLink} href={paths.auth.jwt.register} variant="subtitle2">
-          Crie uma conta
-        </Link>
+          <Link component={RouterLink} href={paths.auth.jwt.register} variant="subtitle2">
+            Crie uma conta
+          </Link>
+        </Stack>
+        <Stack direction="column" spacing={0.5}>
+          <Typography variant="body2">Esqueceu a senha?</Typography>
+
+          <Link component={RouterLink} href={paths.auth.jwt.forgotPassword} variant="subtitle2">
+            Resetar senha
+          </Link>
+        </Stack>
       </Stack>
-    </Stack>
+      <Divider sx={{
+        my: 2
+      }} />
+    </>
   );
 
   const renderForm = (
@@ -111,11 +127,12 @@ export default function ModernLoginView() {
     </Stack>
   );
 
+
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>
-      {renderHead}
 
       {renderForm}
+      {renderBottom}
     </FormProvider>
   );
 }

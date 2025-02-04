@@ -55,6 +55,13 @@ export const fetcher = async (args: string | [string, AxiosRequestConfig]) => {
 // ----------------------------------------------------------------------
 
 export const endpoints = {
+  user: {
+    findAll: '/user',
+    create: '/user',
+    findOne: (id: string) => `/user/${id}`,
+    update: (id: string) => `/user/${id}`,
+    delete: (id: string) => `/user/${id}`,
+  },
   auth: {
     login: '/auth/login',
     register: '/auth/register',
