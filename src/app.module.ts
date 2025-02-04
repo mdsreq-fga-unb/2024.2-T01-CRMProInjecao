@@ -13,6 +13,7 @@ import { EmailModule } from './email/email.module';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from "@nestjs-modules/mailer/dist/adapters/handlebars.adapter";
 import { ProductsModule } from './products/products.module';
+import { TokenModule } from './token/token.module';
 
 @Module({
   imports: [
@@ -61,6 +62,7 @@ import { ProductsModule } from './products/products.module';
     VehicleModule,
     EmailModule,
     ProductsModule,
+    TokenModule,
   ],
   providers: [
     {

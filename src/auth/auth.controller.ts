@@ -37,4 +37,22 @@ export class AuthController {
   ): Promise<{ user: Partial<User>; access_token: string }> {
     return await this.authService.validateToken(token.token);
   }
+
+  @Public()
+  @Post("reset-password")
+  resetPassword(
+    @Body() body: { token: string; password: string; confirmPassword: string },
+  ) {
+    return this.authService.resetPassword(
+      body.token,
+      body.password,
+      body.confirmPassword,
+    );
+  }
+
+  @Public()
+  @Post("forgot-password")
+  forgotPassword(@Body() body: { email: string }) {
+    return this.authService.forgotPassword(body.email);
+  }
 }

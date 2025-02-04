@@ -87,12 +87,18 @@ export class UserService {
       return null;
     }
 
-    const updatedUser = await this.usersRepository.save({
-      ...actualUser,
-      ...updateUserDto,
-    });
+    const updatedUser = Object.assign(actualUser, updateUserDto);
 
-    return updatedUser;
+    await this.usersRepository.update(
+      {
+        id: id,
+      },
+      updatedUser,
+    );
+
+    const completeUser = await this.findOneById(id);
+
+    return completeUser;
   }
 
   async remove(id: string) {
