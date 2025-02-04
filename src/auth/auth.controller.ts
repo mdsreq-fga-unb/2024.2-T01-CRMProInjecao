@@ -7,17 +7,14 @@ import { User } from 'src/user/entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Public()
   @Post('register')
   async userSignUp(
     @Body() createUserBody: CreateUserDto,
   ): Promise<Partial<User>> {
-    return await this.authService.register(
-      createUserBody.email,
-      createUserBody.password,
-    );
+    return await this.authService.register(createUserBody);
   }
 
   @Public()
@@ -39,5 +36,23 @@ export class AuthController {
     @Body() token: { token: string },
   ): Promise<{ user: Partial<User>; access_token: string }> {
     return await this.authService.validateToken(token.token);
+  }
+
+  @Public()
+  @Post("reset-password")
+  resetPassword(
+    @Body() body: { token: string; password: string; confirmPassword: string },
+  ) {
+    return this.authService.resetPassword(
+      body.token,
+      body.password,
+      body.confirmPassword,
+    );
+  }
+
+  @Public()
+  @Post("forgot-password")
+  forgotPassword(@Body() body: { email: string }) {
+    return this.authService.forgotPassword(body.email);
   }
 }

@@ -4,11 +4,13 @@ import { AuthService } from './auth.service';
 import { UserModule } from 'src/user/user.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard';
+import { EmailModule } from 'src/email/email.module';
+import { TokenModule } from 'src/token/token.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [UserModule, EmailModule,TokenModule],
   controllers: [AuthController],
   providers: [AuthService, { provide: APP_GUARD, useClass: AuthGuard }],
   exports: [AuthService], // Podera ser utilizado por outros modulos caso o usuario nao esteja logado
 })
-export class AuthModule {}
+export class AuthModule { }
