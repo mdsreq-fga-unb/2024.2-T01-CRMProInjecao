@@ -7,6 +7,7 @@ import * as bcrypt from 'bcrypt';
 import { User } from '../user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
+import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
 export class AuthService {
@@ -40,14 +41,11 @@ export class AuthService {
     };
   }
 
-  async register(email: string, password: string): Promise<Partial<User>> {
-    if (await this.userService.findOneByEmail(email)) {
+  async register(createUserDto: CreateUserDto): Promise<Partial<User>> {
+    if (await this.userService.findOneByEmail(createUserDto.email)) {
       throw new ForbiddenException('Email already under use');
     }
-    const userCreated = await this.userService.create({
-      email,
-      password: password,
-    });
+    const userCreated = await this.userService.create(createUserDto);
 
     return {
       id: userCreated.id,

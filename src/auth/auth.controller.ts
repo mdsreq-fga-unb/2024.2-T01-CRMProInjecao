@@ -7,17 +7,14 @@ import { User } from 'src/user/entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Public()
   @Post('register')
   async userSignUp(
     @Body() createUserBody: CreateUserDto,
   ): Promise<Partial<User>> {
-    return await this.authService.register(
-      createUserBody.email,
-      createUserBody.password,
-    );
+    return await this.authService.register(createUserBody);
   }
 
   @Public()

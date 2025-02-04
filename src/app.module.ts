@@ -9,10 +9,40 @@ import { AuthGuard } from './auth/auth.guard';
 import { dataSourceOptions } from 'db/data-source';
 import { ClientModule } from './client/client.module';
 import { VehicleModule } from './vehicle/vehicle.module';
+import { EmailModule } from './email/email.module';
+import { MailerModule } from '@nestjs-modules/mailer';
+import { HandlebarsAdapter } from "@nestjs-modules/mailer/dist/adapters/handlebars.adapter";
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true, envFilePath: '.env' }),
+    MailerModule.forRootAsync({
+      useFactory: () => ({
+        transport: {
+          host: process.env.SMTP_ENDPOINT,
+          port: parseInt(process.env.SMTP_PORT, 10),
+          auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASSWORD,
+          },
+          debug: true,
+          secure: false,
+          ignoreTLS: false,
+          requireTLS: true,
+        },
+        defaults: {
+          from: "CRM-PROINJECAO <contato@casapiri.com.br>",
+        },
+        template: {
+          dir: `${__dirname}/../email/templates`,
+          adapter: new HandlebarsAdapter(),
+          options: {
+            strict: true,
+          },
+        },
+      }),
+      inject: [ConfigService],
+    }),
     JwtModule.registerAsync({
       imports: [ConfigModule],
       global: true,
@@ -28,6 +58,7 @@ import { VehicleModule } from './vehicle/vehicle.module';
     UserModule,
     ClientModule,
     VehicleModule,
+    EmailModule,
   ],
   providers: [
     {
