@@ -10,7 +10,7 @@ import { Token } from "./entities/token.entity";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { CreateTokenDTO } from "./dto/create-token.dto";
-import { UserService } from "src/user/user.service";
+import { UserService } from "../user/user.service";
 @Injectable()
 export class TokenService {
   constructor(
