@@ -82,4 +82,18 @@ export const endpoints = {
     update: (licensePlate: string) => `/vehicle/${licensePlate}`,
     delete: (licensePlate: string) => `/vehicle/${licensePlate}`,
   },
+  product: {
+    findAll: '/product',
+    create: '/product',
+    findOne: (id: string) => `/product/${id}`,
+    update: (id: string) => `/product/${id}`,
+    delete: (id: string) => `/product/${id}`,
+  },
+  category: {
+    findAll: '/category',
+    create: '/category',
+    findOne: (id: string) => `/category/${id}`,
+    update: (id: string) => `/category/${id}`,
+    delete: (id: string) => `/category/${id}`,
+  },
 };
