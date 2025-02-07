@@ -14,7 +14,6 @@ import { MailerModule } from '@nestjs-modules/mailer';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { ProductsModule } from './products/products.module';
 import { TokenModule } from './token/token.module';
-import { CategoriesModule } from './categories/categories.module';
 import { CategoryModule } from './category/category.module';
 
 @Module({
@@ -65,7 +64,6 @@ import { CategoryModule } from './category/category.module';
     EmailModule,
     ProductsModule,
     TokenModule,
-    CategoriesModule,
     CategoryModule,
   ],
   providers: [
