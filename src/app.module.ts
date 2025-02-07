@@ -11,9 +11,10 @@ import { ClientModule } from './client/client.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { EmailModule } from './email/email.module';
 import { MailerModule } from '@nestjs-modules/mailer';
-import { HandlebarsAdapter } from "@nestjs-modules/mailer/dist/adapters/handlebars.adapter";
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 import { ProductsModule } from './products/products.module';
 import { TokenModule } from './token/token.module';
+import { CategoryModule } from './category/category.module';
 import { ServiceOrderModule } from './service-order/service-order.module';
 import { FeedbackModule } from './feedback/feedback.module';
 
@@ -35,7 +36,7 @@ import { FeedbackModule } from './feedback/feedback.module';
           requireTLS: true,
         },
         defaults: {
-          from: "CRM-PROINJECAO <contato@casapiri.com.br>",
+          from: 'CRM-PROINJECAO <contato@casapiri.com.br>',
         },
         template: {
           dir: `${__dirname}/../email/templates`,
@@ -65,6 +66,7 @@ import { FeedbackModule } from './feedback/feedback.module';
     EmailModule,
     ProductsModule,
     TokenModule,
+    CategoryModule,
     ServiceOrderModule,
     FeedbackModule,
   ],
