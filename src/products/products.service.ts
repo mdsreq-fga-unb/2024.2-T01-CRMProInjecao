@@ -2,9 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
-import { Category } from './entities/category.entity';
+import { Category } from '../category/entities/category.entity';
 import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { CategoryService } from 'src/category/category.service';
 
 /**
  * Service dealing with product-related operations.
@@ -14,9 +15,8 @@ export class ProductsService {
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
-    @InjectRepository(Category)
-    private categoryRepository: Repository<Category>,
-  ) { }
+    private categoryService: CategoryService,
+  ) {}
 
   /**
    * Creates a new product.
@@ -26,9 +26,8 @@ export class ProductsService {
    */
   async create(createProductDto: CreateProductDto) {
     const { categories, ...productData } = createProductDto;
-    const categoriesEntities = await this.categoryRepository.find({
-      where: { id: In(categories) },
-    });
+    const categoriesEntities =
+      await this.categoryService.findAllByIds(categories);
     const product = this.productRepository.create({
       ...productData,
       categories: categoriesEntities,

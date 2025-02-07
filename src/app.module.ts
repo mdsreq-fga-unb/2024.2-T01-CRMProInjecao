@@ -67,8 +67,7 @@ import { FeedbackModule } from './feedback/feedback.module';
     ProductsModule,
     TokenModule,
     CategoryModule,
-    ServiceOrderModule,
-    FeedbackModule,
+    CategoryModule,
   ],
   providers: [
     {
