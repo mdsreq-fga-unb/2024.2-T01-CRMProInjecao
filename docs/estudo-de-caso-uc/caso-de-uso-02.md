@@ -71,15 +71,18 @@ Nos passos 2.2.1.7 ou 2.2.2.6 o advogado não confirma as atualizações. O sist
 - O tempo máximo de resposta do sistema para validação deve ser inferior a 2 segundos.
 - Os campos obrigatórios devem ser destacados e informados ao usuário caso estejam vazios.
 
-## 4. **Regras de Negócio
+## 4. Regras de Negócio
 
 ### RN01 - Validação de informações
 As seguintes validações devem ser realizadas:
-| Nome | Formato | Obrigatoriedade | Valores |
-|-----------------------|:--------:|:---:|:-:|
-|Número de identificação|9999999999|Sim  |   |
-|Especialização médica  |Texto até 500 caracteres|Sim| |
-|Horários de disponibilidade|Texto até 500 caracteres|Sim| |
+
+| Nome                        |         Formato         | Obrigatoriedade | Valores |
+|-----------------------------|:----------------------:|:--------------:|:--------|
+| Número de identificação     |      9999999999       |       Sim      | -       |
+| Especialização médica       | Texto até 500 caracteres |       Sim      | -       |
+| Horários de disponibilidade | Texto até 500 caracteres |       Sim      | -       |
+
+
 
 ## 5. **Pré-Condições** 
 - O profissional de saúde deve ter acesso ao sistema Connect Care via web ou aplicativo móvel.
