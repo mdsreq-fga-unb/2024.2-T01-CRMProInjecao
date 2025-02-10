@@ -1,7 +1,7 @@
 import { Client } from "../../client/entities/client.entity";
 import { Product } from "../../products/entities/product.entity";
 import { Vehicle } from "../../vehicle/entities/vehicle.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BeforeInsert, BeforeUpdate, Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { ServiceOrder, ServiceOrderType } from "./service-order.entity";
 
 export enum BudgetStatus {
@@ -79,14 +79,15 @@ export class Budget {
     nullable: true,
     default: 0,
   })
-  get totalCost(): number {
-    let total = this.initialCost || 0;
-    total += this.additionalCost || 0;
-    
-    if (this.serviceTypes) {
-      total += this.serviceTypes.reduce((sum, type) => sum + (type.price || 0), 0);
-    }
-    
-    return total;
+  totalCost: number;
+  
+  @BeforeUpdate()
+  async updateTotalCost() {
+    this.totalCost = this.initialCost + this.additionalCost;
+  }
+
+  @BeforeInsert()
+  async setTotalCost() {
+    this.totalCost = this.initialCost + this.additionalCost;
   }
 }

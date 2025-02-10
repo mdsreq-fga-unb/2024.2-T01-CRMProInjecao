@@ -19,6 +19,11 @@ export class ServiceOrderController {
     return this.serviceOrderService.findAll();
   }
 
+  @Get('type')
+  findAllTypes() {
+    return this.serviceOrderService.findAllTypes();
+  }
+
   @Get(':id')
   findOne(@Param('id', ParseUUIDPipe) id: string) {
     return this.serviceOrderService.findOne(id);
@@ -43,13 +48,9 @@ export class ServiceOrderController {
     return this.serviceOrderService.createType(createServiceOrderTypeDto);
   }
 
-  @Get('type')
-  findAllTypes() {
-    return this.serviceOrderService.findAllTypes();
-  }
-
   @Get('type/:id')
   findOneType(@Param('id', ParseUUIDPipe) id: string) {
+    console.log('adsada')
     return this.serviceOrderService.findOneType(id);
   }
 

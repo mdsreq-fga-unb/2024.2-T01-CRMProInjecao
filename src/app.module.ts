@@ -15,6 +15,7 @@ import { HandlebarsAdapter } from "@nestjs-modules/mailer/dist/adapters/handleba
 import { ProductsModule } from './products/products.module';
 import { TokenModule } from './token/token.module';
 import { ServiceOrderModule } from './service-order/service-order.module';
+import { FeedbackModule } from './feedback/feedback.module';
 
 @Module({
   imports: [
@@ -65,6 +66,7 @@ import { ServiceOrderModule } from './service-order/service-order.module';
     ProductsModule,
     TokenModule,
     ServiceOrderModule,
+    FeedbackModule,
   ],
   providers: [
     {
