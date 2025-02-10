@@ -150,7 +150,9 @@ nav:
       - Critérios de Aceitação: estudo-de-caso-pbb/criterios-aceitacao.md
       - BDD: estudo-de-caso-pbb/bdd.md
     - UC - Connect Care:
-      - Template: estudo-de-caso-uc/template-especificacao-caso-de-uso.md
+      - Introdução: estudo-de-caso-uc/introducao.md
+      - Casos de uso:
+        - UC001: estudo-de-caso-uc/caso-de-uso-01.md
 
   - Apresentações:
     - Unidade 1: apresentacao-1.md
