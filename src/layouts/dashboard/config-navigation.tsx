@@ -59,10 +59,20 @@ export function useNavData() {
             icon: ICONS.user,
           },
           {
-            title: 'Usuários',
+            title: 'Administradores',
             path: '/dashboard/users',
             icon: ICONS.user,
-          }
+          },
+          {
+            title: 'Ordens de Serviço',
+            path: '/dashboard/service-orders',
+            icon: ICONS.order,
+          },
+          {
+            title: 'Feedbacks',
+            path: '/dashboard/feedbacks',
+            icon: ICONS.file,
+          },
         ],
       },
     ],

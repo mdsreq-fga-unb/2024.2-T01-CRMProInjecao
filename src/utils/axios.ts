@@ -15,7 +15,7 @@ axiosInstance.interceptors.response.use(
       }
       Promise.reject(
         (error.response && error.response.data) ||
-          'Houve um problema com a autenticação, tente novamente!'
+        'Houve um problema com a autenticação, tente novamente!'
       );
     }
 
@@ -25,7 +25,7 @@ axiosInstance.interceptors.response.use(
       }
       Promise.reject(
         (error.response && error.response.data) ||
-          'Você não tem permissão para acessar este recurso!'
+        'Você não tem permissão para acessar este recurso!'
       );
     }
 
@@ -35,7 +35,7 @@ axiosInstance.interceptors.response.use(
 
     Promise.reject(
       (error.response && error.response.data) ||
-        'Estamos com problemas técnicos, tente novamente mais tarde!'
+      'Estamos com problemas técnicos, tente novamente mais tarde!'
     );
   }
 );
@@ -81,5 +81,33 @@ export const endpoints = {
     findOne: (licensePlate: string) => `/vehicle/${licensePlate}`,
     update: (licensePlate: string) => `/vehicle/${licensePlate}`,
     delete: (licensePlate: string) => `/vehicle/${licensePlate}`,
+  },
+  feedback: {
+    create: '/feedback',
+    findAll: '/feedback',
+    findOne: (id: number) => `/feedback/${id}`,
+    update: (id: number) => `/feedback/${id}`,
+    delete: (id: number) => `/feedback/${id}`,
+  },
+  serviceOrder: {
+    create: '/service-order',
+    findAll: '/service-order',
+    findOne: (id: string) => `/service-order/${id}`,
+    update: (id: string) => `/service-order/${id}`,
+    delete: (id: string) => `/service-order/${id}`,
+  },
+  budget: {
+    create: '/budget',
+    findAll: '/budget',
+    findOne: (id: string) => `/budget/${id}`,
+    update: (id: string) => `/budget/${id}`,
+    delete: (id: string) => `/budget/${id}`,
+  },
+  product: {
+    create: '/products',
+    findAll: '/products',
+    findOne: (id: string) => `/products/${id}`,
+    update: (id: string) => `/products/${id}`,
+    delete: (id: string) => `/products/${id}`,
   },
 };
