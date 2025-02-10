@@ -16,30 +16,30 @@ Este caso de uso é iniciado quando o paciente entra no sistema.
 
 1. O sistema apresenta as seguintes opções:
     - **Registro de novo usuário**
-    - **Realizar login do usuário** [FA01](#42-fluxo-alternativo-fa01--realizar-login)
+    - **Realizar login do usuário** [FA01](#fa01-realizar-login)
 2. O paciente seleciona a opção de **registro de novo usuário**.
 3. O sistema apresenta as informações a serem preenchidas para o registro.
 4. O paciente preenche as informações do registro de novo usuário.
 5. O paciente confirma as alterações.
-6. O sistema valida as informações de registro [RN01](#rn01--validação-de-informações) [FE01](#fe01--dados-inválidos).
+6. O sistema valida as informações de registro [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-dados-invalidos).
 7. O sistema envia uma mensagem “Registro Confirmado”.
 8. O caso de uso é encerrado.
 
 ### Fluxo Alternativos
 
-#### FA01 – Realizar Login
+#### FA01 Realizar Login
 Este fluxo alternativo ocorre quando o paciente já possui registro e opta por fazer login.
 
 1. No passo 1, o paciente seleciona a opção de **realizar login**.
 2. O sistema apresenta as informações a serem preenchidas para o login.
 3. O paciente preenche as informações de login.
 4. O paciente confirma as alterações.
-5. O sistema valida o login [RN01](#rn01--validação-de-informações) [FE01](#fe01--dados-inválidos).
+5. O sistema valida o login [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-dados-invalidos).
 6. O caso de uso é encerrado.
 
 ### Fluxo de Exceção
 
-### FE01 – Dados Inválidos
+### FE01 Dados Inválidos
 1. Se no passo 6 do fluxo principal as informações preenchidas pelo paciente forem inválidas, o sistema exibe uma mensagem de erro e retorna ao passo 3 do fluxo principal.
 
 ## Requisitos Especiais
@@ -49,7 +49,7 @@ Este fluxo alternativo ocorre quando o paciente já possui registro e opta por f
 
 ## Regras de Negócio
 
-### RN01 – Validação de Informações
+### RN01 Validação de Informações
 As seguintes validações devem ser realizadas:
 
 | Campo                | Formato                        | Obrigatoriedade |
