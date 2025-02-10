@@ -11,7 +11,7 @@ export class ClientService {
   constructor(
     @InjectRepository(Client)
     private readonly clientRepository: Repository<Client>,
-  ) { }
+  ) {}
 
   // Criação de um novo cliente
   async create(createClientDto: CreateClientDto): Promise<{

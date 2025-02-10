@@ -1,9 +1,9 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { EmailService } from "./email.service";
-import { Logger } from "@nestjs/common";
-import { MailerService } from "@nestjs-modules/mailer";
+import { Test, TestingModule } from '@nestjs/testing';
+import { EmailService } from './email.service';
+import { Logger } from '@nestjs/common';
+import { MailerService } from '@nestjs-modules/mailer';
 
-describe("EmailService", () => {
+describe('EmailService', () => {
   let service: EmailService;
   let logger: Logger;
   let mailerService: jest.Mocked<MailerService>;
@@ -29,7 +29,7 @@ describe("EmailService", () => {
     mailerService = module.get(MailerService);
   });
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(service).toBeDefined();
   });
 

@@ -46,7 +46,12 @@ describe('UserController', () => {
 
   it('should find all users', async () => {
     const result = [
-      { id: '1', name: 'Test User', email: 'test@example.com', password: 'password123' },
+      {
+        id: '1',
+        name: 'Test User',
+        email: 'test@example.com',
+        password: 'password123',
+      },
     ];
     mockUserService.findAll.mockResolvedValue(result);
 
@@ -55,7 +60,12 @@ describe('UserController', () => {
   });
 
   it('should find one user by id', async () => {
-    const result = { id: '1', name: 'Test User', email: 'test@example.com', password: 'password123' };
+    const result = {
+      id: '1',
+      name: 'Test User',
+      email: 'test@example.com',
+      password: 'password123',
+    };
     mockUserService.findOneById.mockResolvedValue(result);
 
     await expect(controller.findOneById('1')).resolves.toEqual(result);
@@ -64,16 +74,28 @@ describe('UserController', () => {
 
   it('should update a user', async () => {
     const updateUserDto: UpdateUserDto = { name: 'Updated User' };
-    const result = { id: '1', name: 'Updated User', email: 'test@example.com', password: 'password123' };
+    const result = {
+      id: '1',
+      name: 'Updated User',
+      email: 'test@example.com',
+      password: 'password123',
+    };
 
     mockUserService.update.mockResolvedValue(result);
 
-    await expect(controller.update('1', updateUserDto)).resolves.toEqual(result);
+    await expect(controller.update('1', updateUserDto)).resolves.toEqual(
+      result,
+    );
     expect(mockUserService.update).toHaveBeenCalledWith('1', updateUserDto);
   });
 
   it('should remove a user', async () => {
-    const result = { id: '1', name: 'Test User', email: 'test@example.com', password: 'password123' };
+    const result = {
+      id: '1',
+      name: 'Test User',
+      email: 'test@example.com',
+      password: 'password123',
+    };
     mockUserService.remove.mockResolvedValue(result);
 
     await expect(controller.remove('1')).resolves.toEqual(result);

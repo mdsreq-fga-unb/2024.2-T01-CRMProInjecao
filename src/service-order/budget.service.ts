@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException, BadRequestException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  BadRequestException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Budget, BudgetStatus } from './entities/budget.entity';
@@ -27,11 +31,15 @@ export class BudgetService {
     const budget = this.budgetRepository.create(createBudgetDto);
 
     // Buscar e validar o cliente pelo CPF
-    const client = await this.clientService.findOneByCPF(createBudgetDto.clientCPF);
+    const client = await this.clientService.findOneByCPF(
+      createBudgetDto.clientCPF,
+    );
     budget.client = client;
 
     // Buscar e validar o veículo pela placa
-    const vehicle = await this.vehicleService.findOne(createBudgetDto.vehicleLicensePlate);
+    const vehicle = await this.vehicleService.findOne(
+      createBudgetDto.vehicleLicensePlate,
+    );
     budget.vehicle = vehicle;
 
     return this.budgetRepository.save(budget);
@@ -39,14 +47,26 @@ export class BudgetService {
 
   async findAll() {
     return this.budgetRepository.find({
-      relations: ['client', 'vehicle', 'products', 'serviceTypes', 'serviceOrders'],
+      relations: [
+        'client',
+        'vehicle',
+        'products',
+        'serviceTypes',
+        'serviceOrders',
+      ],
     });
   }
 
   async findOne(id: string) {
     const budget = await this.budgetRepository.findOne({
       where: { id },
-      relations: ['client', 'vehicle', 'products', 'serviceTypes', 'serviceOrders'],
+      relations: [
+        'client',
+        'vehicle',
+        'products',
+        'serviceTypes',
+        'serviceOrders',
+      ],
     });
 
     if (!budget) {
@@ -63,19 +83,28 @@ export class BudgetService {
       throw new BadRequestException('Cannot update a canceled budget');
     }
 
-    if (budget.status === BudgetStatus.ACCEPTED && updateBudgetDto.status === BudgetStatus.PENDING) {
-      throw new BadRequestException('Cannot change status back to pending after acceptance');
+    if (
+      budget.status === BudgetStatus.ACCEPTED &&
+      updateBudgetDto.status === BudgetStatus.PENDING
+    ) {
+      throw new BadRequestException(
+        'Cannot change status back to pending after acceptance',
+      );
     }
 
     // Atualizar cliente se fornecido
     if (updateBudgetDto.clientCPF) {
-      const client = await this.clientService.findOneByCPF(updateBudgetDto.clientCPF);
+      const client = await this.clientService.findOneByCPF(
+        updateBudgetDto.clientCPF,
+      );
       budget.client = client;
     }
 
     // Atualizar veículo se fornecido
     if (updateBudgetDto.vehicleLicensePlate) {
-      const vehicle = await this.vehicleService.findOne(updateBudgetDto.vehicleLicensePlate);
+      const vehicle = await this.vehicleService.findOne(
+        updateBudgetDto.vehicleLicensePlate,
+      );
       budget.vehicle = vehicle;
     }
 
@@ -88,7 +117,7 @@ export class BudgetService {
             throw new NotFoundException(`Product with ID ${id} not found`);
           }
           return product;
-        })
+        }),
       );
       budget.products = products;
     }
@@ -99,24 +128,32 @@ export class BudgetService {
         updateBudgetDto.serviceTypeIds.map(async (id) => {
           const type = await this.serviceOrderTypeRepository.findOneBy({ id });
           if (!type) {
-            throw new NotFoundException(`ServiceOrderType with ID ${id} not found`);
+            throw new NotFoundException(
+              `ServiceOrderType with ID ${id} not found`,
+            );
           }
           return type;
-        })
+        }),
       );
       budget.serviceTypes = serviceTypes;
     }
 
     // Se o status está mudando para ACCEPTED, criar uma ServiceOrder
-    if (updateBudgetDto.status === BudgetStatus.ACCEPTED && budget.status === BudgetStatus.PENDING) {
+    if (
+      updateBudgetDto.status === BudgetStatus.ACCEPTED &&
+      budget.status === BudgetStatus.PENDING
+    ) {
       await this.createServiceOrderFromBudget(budget);
     }
 
     // Atualizar campos simples
     if (updateBudgetDto.name) budget.name = updateBudgetDto.name;
-    if (updateBudgetDto.description) budget.description = updateBudgetDto.description;
-    if (updateBudgetDto.initialCost !== undefined) budget.initialCost = updateBudgetDto.initialCost;
-    if (updateBudgetDto.additionalCost !== undefined) budget.additionalCost = updateBudgetDto.additionalCost;
+    if (updateBudgetDto.description)
+      budget.description = updateBudgetDto.description;
+    if (updateBudgetDto.initialCost !== undefined)
+      budget.initialCost = updateBudgetDto.initialCost;
+    if (updateBudgetDto.additionalCost !== undefined)
+      budget.additionalCost = updateBudgetDto.additionalCost;
     if (updateBudgetDto.status) budget.status = updateBudgetDto.status;
 
     return this.budgetRepository.save(budget);
@@ -139,9 +176,9 @@ export class BudgetService {
       clientCPF: budget.client.cpf,
       vehicleLicensePlate: budget.vehicle.licensePlate,
       additionalCost: budget.additionalCost,
-      productIds: budget.products.map(product => product.id),
+      productIds: budget.products.map((product) => product.id),
     });
 
     return serviceOrder;
   }
-} 
+}

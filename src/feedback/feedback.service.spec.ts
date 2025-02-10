@@ -49,7 +49,9 @@ describe('FeedbackService', () => {
     }).compile();
 
     service = module.get<FeedbackService>(FeedbackService);
-    feedbackRepository = module.get<Repository<Feedback>>(getRepositoryToken(Feedback));
+    feedbackRepository = module.get<Repository<Feedback>>(
+      getRepositoryToken(Feedback),
+    );
     clientService = module.get<ClientService>(ClientService);
     serviceOrderService = module.get<ServiceOrderService>(ServiceOrderService);
   });
@@ -93,9 +95,13 @@ describe('FeedbackService', () => {
         serviceOrderIds: [],
       };
 
-      mockClientService.findOneByCPF.mockRejectedValue(new NotFoundException('Client not found'));
+      mockClientService.findOneByCPF.mockRejectedValue(
+        new NotFoundException('Client not found'),
+      );
 
-      await expect(service.create(createDto)).rejects.toThrow(NotFoundException);
+      await expect(service.create(createDto)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 

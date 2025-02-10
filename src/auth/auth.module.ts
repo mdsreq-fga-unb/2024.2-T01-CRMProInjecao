@@ -8,9 +8,9 @@ import { EmailModule } from '../email/email.module';
 import { TokenModule } from '../token/token.module';
 
 @Module({
-  imports: [UserModule, EmailModule,TokenModule],
+  imports: [UserModule, EmailModule, TokenModule],
   controllers: [AuthController],
   providers: [AuthService, { provide: APP_GUARD, useClass: AuthGuard }],
   exports: [AuthService], // Podera ser utilizado por outros modulos caso o usuario nao esteja logado
 })
-export class AuthModule { }
+export class AuthModule {}

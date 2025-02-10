@@ -1,6 +1,5 @@
-
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from "../../user/entities/user.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../../user/entities/user.entity';
 
 @Entity()
 export class Token {
@@ -15,7 +14,7 @@ export class Token {
   @Column()
   token: string;
 
-  @Column({ type: "varchar", default: null, nullable: true })
+  @Column({ type: 'varchar', default: null, nullable: true })
   description: string | null;
 
   @Column()

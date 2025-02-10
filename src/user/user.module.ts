@@ -6,9 +6,7 @@ import { User } from './entities/user.entity';
 import { EmailModule } from '../email/email.module';
 
 @Module({
-  imports: [
-    EmailModule,
-    TypeOrmModule.forFeature([User])],
+  imports: [EmailModule, TypeOrmModule.forFeature([User])],
   controllers: [UserController],
   providers: [UserService],
   exports: [UserService],

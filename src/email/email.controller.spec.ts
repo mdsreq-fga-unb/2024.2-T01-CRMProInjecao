@@ -1,8 +1,8 @@
-import { Test, TestingModule } from "@nestjs/testing";
-import { EmailController } from "./email.controller";
-import { EmailService } from "./email.service";
+import { Test, TestingModule } from '@nestjs/testing';
+import { EmailController } from './email.controller';
+import { EmailService } from './email.service';
 
-describe("EmailController", () => {
+describe('EmailController', () => {
   let controller: EmailController;
 
   const mockEmailService = {
@@ -18,7 +18,7 @@ describe("EmailController", () => {
     controller = module.get<EmailController>(EmailController);
   });
 
-  it("should be defined", () => {
+  it('should be defined', () => {
     expect(controller).toBeDefined();
   });
 });

@@ -1,4 +1,10 @@
-import { IsString, IsUUID, IsNumber, IsOptional, IsArray } from 'class-validator';
+import {
+  IsString,
+  IsUUID,
+  IsNumber,
+  IsOptional,
+  IsArray,
+} from 'class-validator';
 
 export class CreateServiceOrderDto {
   @IsUUID()

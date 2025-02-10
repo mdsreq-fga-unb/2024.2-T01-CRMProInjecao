@@ -10,4 +10,4 @@ export class CreateServiceOrderTypeDto {
   @IsNumber()
   @IsOptional()
   price?: number;
-} 
+}

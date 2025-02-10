@@ -1,7 +1,10 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ServiceOrderService } from './service-order.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { ServiceOrder, ServiceOrderType } from './entities/service-order.entity';
+import {
+  ServiceOrder,
+  ServiceOrderType,
+} from './entities/service-order.entity';
 import { Budget } from './entities/budget.entity';
 import { ProductsService } from '../products/products.service';
 import { VehicleService } from '../vehicle/vehicle.service';
@@ -79,9 +82,15 @@ describe('ServiceOrderService', () => {
     }).compile();
 
     service = module.get<ServiceOrderService>(ServiceOrderService);
-    serviceOrderRepository = module.get<Repository<ServiceOrder>>(getRepositoryToken(ServiceOrder));
-    serviceOrderTypeRepository = module.get<Repository<ServiceOrderType>>(getRepositoryToken(ServiceOrderType));
-    budgetRepository = module.get<Repository<Budget>>(getRepositoryToken(Budget));
+    serviceOrderRepository = module.get<Repository<ServiceOrder>>(
+      getRepositoryToken(ServiceOrder),
+    );
+    serviceOrderTypeRepository = module.get<Repository<ServiceOrderType>>(
+      getRepositoryToken(ServiceOrderType),
+    );
+    budgetRepository = module.get<Repository<Budget>>(
+      getRepositoryToken(Budget),
+    );
   });
 
   it('should be defined', () => {
@@ -135,7 +144,9 @@ describe('ServiceOrderService', () => {
 
       mockServiceOrderTypeRepository.findOneBy.mockResolvedValue(null);
 
-      await expect(service.create(createDto)).rejects.toThrow(NotFoundException);
+      await expect(service.create(createDto)).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 
@@ -174,7 +185,9 @@ describe('ServiceOrderService', () => {
     it('should throw NotFoundException when service order is not found', async () => {
       mockServiceOrderRepository.findOne.mockResolvedValue(null);
 
-      await expect(service.findOne('invalid-id')).rejects.toThrow(NotFoundException);
+      await expect(service.findOne('invalid-id')).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 });

@@ -1,4 +1,13 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, ParseUUIDPipe } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+  ParseUUIDPipe,
+} from '@nestjs/common';
 import { ServiceOrderService } from './service-order.service';
 import { CreateServiceOrderDto } from './dto/create-service-order.dto';
 import { UpdateServiceOrderDto } from './dto/update-service-order.dto';
@@ -50,7 +59,7 @@ export class ServiceOrderController {
 
   @Get('type/:id')
   findOneType(@Param('id', ParseUUIDPipe) id: string) {
-    console.log('adsada')
+    console.log('adsada');
     return this.serviceOrderService.findOneType(id);
   }
 

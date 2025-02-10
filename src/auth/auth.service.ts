@@ -1,4 +1,4 @@
-import * as dayjs from "dayjs";
+import * as dayjs from 'dayjs';
 import {
   BadRequestException,
   ForbiddenException,
@@ -10,8 +10,8 @@ import { User } from '../user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { EmailService } from "../email/email.service";
-import { TokenService } from "../token/token.service";
+import { EmailService } from '../email/email.service';
+import { TokenService } from '../token/token.service';
 
 @Injectable()
 export class AuthService {
@@ -20,7 +20,7 @@ export class AuthService {
     private readonly userService: UserService,
     private readonly tokenService: TokenService,
     private readonly emailService: EmailService,
-  ) { }
+  ) {}
 
   async resetPassword(
     token: string,
@@ -30,7 +30,7 @@ export class AuthService {
     const tokenFound = await this.tokenService.findToken(token);
     if (!tokenFound) {
       throw new BadRequestException(
-        "Token inválido, verifique se colocou o token certo",
+        'Token inválido, verifique se colocou o token certo',
       );
     }
 
@@ -40,39 +40,39 @@ export class AuthService {
     if (now.toString() > expirationDate.toString()) {
       await this.tokenService.remove(tokenFound.id);
       throw new BadRequestException(
-        "Token expirado, verifique se colocou o token certo",
+        'Token expirado, verifique se colocou o token certo',
       );
     }
 
     if (password !== confirmPassword) {
-      throw new BadRequestException("As senhas precisam ser iguais");
+      throw new BadRequestException('As senhas precisam ser iguais');
     }
 
     if (!tokenFound.user) {
       throw new BadRequestException(
-        "Usuário associado ao token não encontrado",
+        'Usuário associado ao token não encontrado',
       );
     }
 
     const user = await this.userService.findOneById(tokenFound.user.id);
 
     if (!user) {
-      throw new BadRequestException("Usuário não encontrado");
+      throw new BadRequestException('Usuário não encontrado');
     }
 
     await this.emailService.sendEmail({
       sendTo: user.email,
-      subject: "Senha alterada",
-      template: "simpleEmail",
+      subject: 'Senha alterada',
+      template: 'simpleEmail',
       context: {
-        title: "Sua senha foi alterada com sucesso",
-        message: "Se você não alterou sua senha, entre em contato conosco!",
+        title: 'Sua senha foi alterada com sucesso',
+        message: 'Se você não alterou sua senha, entre em contato conosco!',
       },
     });
 
     if (!tokenFound.user) {
       throw new BadRequestException(
-        "Usuário associado ao token não encontrado",
+        'Usuário associado ao token não encontrado',
       );
     }
     await this.userService.update(tokenFound.user.id, {
@@ -80,13 +80,13 @@ export class AuthService {
     });
     await this.tokenService.remove(tokenFound.id);
 
-    return { message: "Senha alterada com sucesso" };
+    return { message: 'Senha alterada com sucesso' };
   }
 
   async forgotPassword(userEmail: string) {
     const user = await this.userService.findOneByEmail(userEmail);
     if (!user) {
-      return { message: "Verifique a caixa de entradas do seu email" };
+      return { message: 'Verifique a caixa de entradas do seu email' };
     }
 
     const token = await this.tokenService.createToken();
@@ -94,30 +94,30 @@ export class AuthService {
     await this.tokenService.create({
       user: user.id,
       token,
-      expirationDate: dayjs().add(15, "minutes").toDate(),
+      expirationDate: dayjs().add(15, 'minutes').toDate(),
     });
-    const baseLink = process.env.ADMIN_FRONTEND_URL || "http://localhost:3000";
+    const baseLink = process.env.ADMIN_FRONTEND_URL || 'http://localhost:3000';
 
     const linkToAcess = `${baseLink}/auth/new-password/${token}`;
 
     const { send, error } = await this.emailService.sendEmail({
       sendTo: userEmail,
-      subject: "Recuperação de senha",
-      template: "simpleEmail",
+      subject: 'Recuperação de senha',
+      template: 'simpleEmail',
       context: {
-        title: "Recuperação de senha",
-        message: `Olá, ${user.name ?? "Usuário"}, clique no link abaixo para recuperar a senha: ${linkToAcess}`,
+        title: 'Recuperação de senha',
+        message: `Olá, ${user.name ?? 'Usuário'}, clique no link abaixo para recuperar a senha: ${linkToAcess}`,
       },
     });
 
     if (!send) {
       console.log(error);
       throw new BadRequestException(
-        "Erro ao enviar email de recuperação de senha",
+        'Erro ao enviar email de recuperação de senha',
       );
     }
 
-    return { message: "Verifique a caixa de entradas do seu email" };
+    return { message: 'Verifique a caixa de entradas do seu email' };
   }
 
   async signIn(

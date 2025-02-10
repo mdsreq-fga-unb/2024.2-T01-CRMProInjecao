@@ -1,45 +1,16 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { ProductsService } from './products.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
+import { ProductsService } from './products.service';
 import { Product } from './entities/product.entity';
-import { Category } from './entities/category.entity';
-import { In, Repository } from 'typeorm';
+import { CategoryService } from '../category/category.service';
+import { Repository } from 'typeorm';
 import { CreateProductDto } from './dto/create-product.dto';
-
-const categoryEntities: Category[] = [
-  {
-    id: '1',
-    name: 'test',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    deletedAt: null,
-  },
-  {
-    id: '2',
-    name: 'grapes',
-    createdAt: new Date(),
-    updatedAt: new Date(),
-    deletedAt: null,
-  },
-];
-
-const productEntity: Product = {
-  id: '1',
-  name: 'Test Product',
-  description: 'Test Description',
-  brand: 'Test Brand',
-  costPrice: 100,
-  sellPrice: 150,
-  createdAt: new Date(),
-  updatedAt: new Date(),
-  deletedAt: null,
-  categories: categoryEntities,
-};
+import { UpdateProductDto } from './dto/update-product.dto';
 
 describe('ProductsService', () => {
   let service: ProductsService;
   let productRepository: Repository<Product>;
-  let categoryRepository: Repository<Category>;
+  let categoryService: CategoryService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -50,8 +21,10 @@ describe('ProductsService', () => {
           useClass: Repository,
         },
         {
-          provide: getRepositoryToken(Category),
-          useClass: Repository,
+          provide: CategoryService,
+          useValue: {
+            findAllByIds: jest.fn(),
+          },
         },
       ],
     }).compile();
@@ -60,59 +33,160 @@ describe('ProductsService', () => {
     productRepository = module.get<Repository<Product>>(
       getRepositoryToken(Product),
     );
-    categoryRepository = module.get<Repository<Category>>(
-      getRepositoryToken(Category),
-    );
+    categoryService = module.get<CategoryService>(CategoryService);
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
 
-  it('should create a product', async () => {
-    const createProductDto: CreateProductDto = {
-      name: 'Test Product',
-      description: 'Test Description',
-      brand: 'Test Brand',
-      costPrice: 100,
-      sellPrice: 150,
-      categories: ['test', 'grapes'],
-    };
+  describe('create', () => {
+    it('should create a new product', async () => {
+      const createProductDto: CreateProductDto = {
+        name: 'Test Product',
+        costPrice: 100,
+        sellPrice: 150,
+        categories: ['1', '2'],
+      };
+      const categories = [
+        {
+          id: '1',
+          name: 'Category 1',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          deletedAt: null,
+        },
 
-    jest.spyOn(categoryRepository, 'find').mockResolvedValue(categoryEntities);
-    jest.spyOn(productRepository, 'create').mockReturnValue(productEntity);
-    jest.spyOn(productRepository, 'save').mockResolvedValue(productEntity);
+        {
+          id: '2',
+          name: 'Category 2',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          deletedAt: null,
+        },
+      ];
+      const savedProduct = { id: '1', ...createProductDto, categories };
 
-    const result = await service.create(createProductDto);
-    expect(result).toEqual(productEntity);
-    expect(categoryRepository.find).toHaveBeenCalledWith({
-      where: { id: In(createProductDto.categories) },
+      jest.spyOn(categoryService, 'findAllByIds').mockResolvedValue(categories);
+      jest
+        .spyOn(productRepository, 'create')
+        .mockReturnValue(savedProduct as any);
+      jest
+        .spyOn(productRepository, 'save')
+        .mockResolvedValue(savedProduct as any);
+
+      const result = await service.create(createProductDto);
+      expect(result).toEqual(savedProduct);
+      expect(categoryService.findAllByIds).toHaveBeenCalledWith(
+        createProductDto.categories,
+      );
+      expect(productRepository.create).toHaveBeenCalledWith({
+        ...createProductDto,
+        categories,
+      });
+      expect(productRepository.save).toHaveBeenCalledWith(savedProduct);
     });
-    expect(productRepository.create).toHaveBeenCalledWith({
-      ...createProductDto,
-      categories: categoryEntities,
+  });
+
+  describe('findAll', () => {
+    it('should return an array of products', async () => {
+      const products = [
+        { id: '1', name: 'Test Product', price: 100, categories: [] },
+      ];
+      jest.spyOn(productRepository, 'find').mockResolvedValue(products as any);
+
+      const result = await service.findAll();
+      expect(result).toEqual(products);
+      expect(productRepository.find).toHaveBeenCalledWith({
+        relations: ['categories'],
+      });
     });
-    expect(productRepository.save).toHaveBeenCalledWith(productEntity);
   });
 
-  it('should return all products', () => {
-    const result = service.findAll();
-    expect(result).toBe('This action returns all products');
+  describe('findOne', () => {
+    it('should return a single product', async () => {
+      const product = {
+        id: '1',
+        name: 'Test Product',
+        price: 100,
+        categories: [],
+      };
+      jest
+        .spyOn(productRepository, 'findOne')
+        .mockResolvedValue(product as any);
+
+      const result = await service.findOne('1');
+      expect(result).toEqual(product);
+      expect(productRepository.findOne).toHaveBeenCalledWith({
+        where: { id: '1' },
+        relations: ['categories'],
+      });
+    });
   });
 
-  it('should return a product by id', () => {
-    const result = service.findOne(1);
-    expect(result).toBe('This action returns a #1 product');
+  describe('update', () => {
+    it('should update a product', async () => {
+      const updateProductDto: UpdateProductDto = {
+        name: 'Updated Product',
+        costPrice: 150,
+        categories: ['1', '2'],
+      };
+      const categories = [
+        {
+          id: '1',
+          name: 'Category 1',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          deletedAt: null,
+        },
+
+        {
+          id: '2',
+          name: 'Category 2',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          deletedAt: null,
+        },
+      ];
+      const existingProduct = {
+        id: '1',
+        name: 'Test Product',
+        price: 100,
+        categories: [],
+      };
+      const updatedProduct = {
+        ...existingProduct,
+        ...updateProductDto,
+        categories,
+      };
+
+      jest
+        .spyOn(productRepository, 'findOne')
+        .mockResolvedValue(existingProduct as any);
+      jest.spyOn(categoryService, 'findAllByIds').mockResolvedValue(categories);
+      jest
+        .spyOn(productRepository, 'save')
+        .mockResolvedValue(updatedProduct as any);
+
+      const result = await service.update('1', updateProductDto);
+      expect(result).toEqual(updatedProduct);
+      expect(productRepository.findOne).toHaveBeenCalledWith({
+        where: { id: '1' },
+        relations: ['categories'],
+      });
+      expect(categoryService.findAllByIds).toHaveBeenCalledWith(
+        updateProductDto.categories,
+      );
+      expect(productRepository.save).toHaveBeenCalledWith(updatedProduct);
+    });
   });
 
-  it('should update a product by id', () => {
-    const updateProductDto = { name: 'Updated Product', price: 150 };
-    const result = service.update(1, updateProductDto);
-    expect(result).toBe('This action updates a #1 product');
-  });
+  describe('remove', () => {
+    it('should remove a product', async () => {
+      jest.spyOn(productRepository, 'delete').mockResolvedValue({} as any);
 
-  it('should remove a product by id', () => {
-    const result = service.remove(1);
-    expect(result).toBe('This action removes a #1 product');
+      await service.remove('1');
+      expect(productRepository.delete).toHaveBeenCalledWith('1');
+    });
   });
 });

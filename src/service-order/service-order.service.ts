@@ -5,7 +5,10 @@ import { CreateServiceOrderDto } from './dto/create-service-order.dto';
 import { UpdateServiceOrderDto } from './dto/update-service-order.dto';
 import { CreateServiceOrderTypeDto } from './dto/create-service-order-type.dto';
 import { UpdateServiceOrderTypeDto } from './dto/update-service-order-type.dto';
-import { ServiceOrder, ServiceOrderType } from './entities/service-order.entity';
+import {
+  ServiceOrder,
+  ServiceOrderType,
+} from './entities/service-order.entity';
 import { ProductsService } from '../products/products.service';
 import { VehicleService } from '../vehicle/vehicle.service';
 import { ClientService } from '../client/client.service';
@@ -36,21 +39,31 @@ export class ServiceOrderService {
   ) {}
 
   async create(createServiceOrderDto: CreateServiceOrderDto) {
-    const serviceOrder = this.serviceOrderRepository.create(createServiceOrderDto);
+    const serviceOrder = this.serviceOrderRepository.create(
+      createServiceOrderDto,
+    );
 
     // Buscar e validar o tipo
-    const type = await this.serviceOrderTypeRepository.findOneBy({ id: createServiceOrderDto.typeId });
+    const type = await this.serviceOrderTypeRepository.findOneBy({
+      id: createServiceOrderDto.typeId,
+    });
     if (!type) {
-      throw new NotFoundException(`ServiceOrderType with ID ${createServiceOrderDto.typeId} not found`);
+      throw new NotFoundException(
+        `ServiceOrderType with ID ${createServiceOrderDto.typeId} not found`,
+      );
     }
     serviceOrder.type = type;
 
     // Buscar e validar o cliente pelo CPF
-    const client = await this.clientService.findOneByCPF(createServiceOrderDto.clientCPF);
+    const client = await this.clientService.findOneByCPF(
+      createServiceOrderDto.clientCPF,
+    );
     serviceOrder.client = client;
 
     // Buscar e validar o veículo pela placa
-    const vehicle = await this.vehicleService.findOne(createServiceOrderDto.vehicleLicensePlate);
+    const vehicle = await this.vehicleService.findOne(
+      createServiceOrderDto.vehicleLicensePlate,
+    );
     serviceOrder.vehicle = vehicle;
 
     // Buscar e validar os produtos se fornecidos
@@ -62,7 +75,7 @@ export class ServiceOrderService {
             throw new NotFoundException(`Product with ID ${id} not found`);
           }
           return product;
-        })
+        }),
       );
       serviceOrder.products = products;
     }
@@ -93,20 +106,28 @@ export class ServiceOrderService {
     const serviceOrder = await this.findOne(id);
 
     if (updateServiceOrderDto.typeId) {
-      const type = await this.serviceOrderTypeRepository.findOneBy({ id: updateServiceOrderDto.typeId });
+      const type = await this.serviceOrderTypeRepository.findOneBy({
+        id: updateServiceOrderDto.typeId,
+      });
       if (!type) {
-        throw new NotFoundException(`ServiceOrderType with ID ${updateServiceOrderDto.typeId} not found`);
+        throw new NotFoundException(
+          `ServiceOrderType with ID ${updateServiceOrderDto.typeId} not found`,
+        );
       }
       serviceOrder.type = type;
     }
 
     if (updateServiceOrderDto.clientCPF) {
-      const client = await this.clientService.findOneByCPF(updateServiceOrderDto.clientCPF);
+      const client = await this.clientService.findOneByCPF(
+        updateServiceOrderDto.clientCPF,
+      );
       serviceOrder.client = client;
     }
 
     if (updateServiceOrderDto.vehicleLicensePlate) {
-      const vehicle = await this.vehicleService.findOne(updateServiceOrderDto.vehicleLicensePlate);
+      const vehicle = await this.vehicleService.findOne(
+        updateServiceOrderDto.vehicleLicensePlate,
+      );
       serviceOrder.vehicle = vehicle;
     }
 
@@ -118,7 +139,7 @@ export class ServiceOrderService {
             throw new NotFoundException(`Product with ID ${id} not found`);
           }
           return product;
-        })
+        }),
       );
       serviceOrder.products = products;
     }
@@ -141,7 +162,9 @@ export class ServiceOrderService {
 
   // ServiceOrderType methods
   async createType(createServiceOrderTypeDto: CreateServiceOrderTypeDto) {
-    const type = this.serviceOrderTypeRepository.create(createServiceOrderTypeDto);
+    const type = this.serviceOrderTypeRepository.create(
+      createServiceOrderTypeDto,
+    );
     return this.serviceOrderTypeRepository.save(type);
   }
 
@@ -157,7 +180,10 @@ export class ServiceOrderService {
     return type;
   }
 
-  async updateType(id: string, updateServiceOrderTypeDto: UpdateServiceOrderTypeDto) {
+  async updateType(
+    id: string,
+    updateServiceOrderTypeDto: UpdateServiceOrderTypeDto,
+  ) {
     const type = await this.findOneType(id);
     Object.assign(type, updateServiceOrderTypeDto);
     return this.serviceOrderTypeRepository.save(type);
@@ -179,9 +205,13 @@ export class ServiceOrderService {
     });
 
     // Associar o budget à service order
-    const budget = await this.budgetRepository.findOneBy({ id: createFromBudgetDto.budgetId });
+    const budget = await this.budgetRepository.findOneBy({
+      id: createFromBudgetDto.budgetId,
+    });
     if (!budget) {
-      throw new NotFoundException(`Budget with ID ${createFromBudgetDto.budgetId} not found`);
+      throw new NotFoundException(
+        `Budget with ID ${createFromBudgetDto.budgetId} not found`,
+      );
     }
 
     serviceOrder.budget = budget;
