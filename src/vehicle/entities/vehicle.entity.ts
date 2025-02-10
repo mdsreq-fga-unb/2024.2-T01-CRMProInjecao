@@ -1,3 +1,4 @@
+import { ServiceOrder } from '../../service-order/entities/service-order.entity';
 import { Client } from '../../client/entities/client.entity';
 import {
   Column,
@@ -5,9 +6,11 @@ import {
   DeleteDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Budget } from '../../service-order/entities/budget.entity';
 
 export enum VehicleStatus {
   AVAILABLE = 'AVAILABLE',
@@ -63,6 +66,12 @@ export class Vehicle {
     cascade: ['update', 'soft-remove', 'recover'],
   })
   client: Client;
+
+  @OneToMany(() => ServiceOrder, (serviceOrder) => serviceOrder.vehicle)
+  serviceOrders: ServiceOrder[];
+
+  @OneToMany(() => Budget, (budget) => budget.vehicle)
+  budgets: Budget[];
 
   @CreateDateColumn()
   createdAt: Date;

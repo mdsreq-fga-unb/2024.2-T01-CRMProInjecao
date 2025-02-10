@@ -1,13 +1,16 @@
+import { ServiceOrder } from '../../service-order/entities/service-order.entity';
 import { Vehicle } from '../../vehicle/entities/vehicle.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToOne,
   OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Budget } from '../../service-order/entities/budget.entity';
 
 @Entity()
 export class Client {
@@ -37,4 +40,12 @@ export class Client {
 
   @OneToMany(() => Vehicle, (vehicle) => vehicle.client)
   vehicles: Vehicle[];
+
+  @OneToMany(() => ServiceOrder, (serviceOrder) => serviceOrder.client)
+  serviceOrders: ServiceOrder[];
+
+  @OneToMany(() => Budget, (budget) => budget.client)
+  budgets: Budget[];
+
+  
 }

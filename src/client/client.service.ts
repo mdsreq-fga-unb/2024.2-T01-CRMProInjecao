@@ -11,7 +11,7 @@ export class ClientService {
   constructor(
     @InjectRepository(Client)
     private readonly clientRepository: Repository<Client>,
-  ) {}
+  ) { }
 
   // Criação de um novo cliente
   async create(createClientDto: CreateClientDto): Promise<{
@@ -74,10 +74,10 @@ export class ClientService {
   }
 
   // Busca cliente por CPF
-  async findOneByCPF(cpf: string): Promise<Partial<Client>> {
+  async findOneByCPF(cpf: string): Promise<Client> {
     const client = await this.clientRepository.findOne({
       where: { cpf },
-      select: ['name', 'email', 'phoneNumber', 'address'],
+      relations: ['vehicles', 'serviceOrders', 'budgets'],
     });
 
     if (!client) {

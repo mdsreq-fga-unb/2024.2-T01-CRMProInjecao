@@ -4,8 +4,8 @@ import { AuthService } from './auth.service';
 import { UserModule } from '../user/user.module';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './auth.guard';
-import { EmailModule } from 'src/email/email.module';
-import { TokenModule } from 'src/token/token.module';
+import { EmailModule } from '../email/email.module';
+import { TokenModule } from '../token/token.module';
 
 @Module({
   imports: [UserModule, EmailModule,TokenModule],
