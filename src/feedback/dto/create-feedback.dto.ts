@@ -1,7 +1,7 @@
 import { IsNotEmpty, IsNumber, IsString, IsArray, Min, Max, IsOptional } from 'class-validator';
 
 export class CreateFeedbackDto {
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   description: string;
 

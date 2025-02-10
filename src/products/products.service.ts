@@ -16,7 +16,7 @@ export class ProductsService {
     private productRepository: Repository<Product>,
     @InjectRepository(Category)
     private categoryRepository: Repository<Category>,
-  ) {}
+  ) { }
 
   /**
    * Creates a new product.
@@ -38,7 +38,9 @@ export class ProductsService {
   }
 
   findAll() {
-    return `This action returns all products`;
+    return this.productRepository.find({
+      relations: ['categories'],
+    });
   }
 
   async findOne(id: string) {
@@ -49,11 +51,21 @@ export class ProductsService {
     return product;
   }
 
-  update(id: number, updateProductDto: UpdateProductDto) {
-    return `This action updates a #${id} product`;
+  async update(id: string, updateProductDto: UpdateProductDto) {
+    const { categories, ...productData } = updateProductDto;
+
+    const product = await this.productRepository.findOne({
+      where: { id },
+      relations: ['categories'],
+    });
+
+    return this.productRepository.save({
+      ...product,
+      ...productData,
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
+  async remove(id: string) {
+    await this.productRepository.delete(id);
   }
 }

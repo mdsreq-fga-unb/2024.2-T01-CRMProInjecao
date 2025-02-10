@@ -7,7 +7,9 @@ export class Feedback {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    default:""
+  })
   description: string;
 
   @Column()
