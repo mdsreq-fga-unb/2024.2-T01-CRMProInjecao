@@ -7,4 +7,4 @@ export class UpdateBudgetDto extends PartialType(CreateBudgetDto) {
   @IsEnum(BudgetStatus)
   @IsOptional()
   status?: BudgetStatus;
-} 
+}

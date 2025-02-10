@@ -1,6 +1,13 @@
 import { Client } from '../../client/entities/client.entity';
 import { ServiceOrder } from '../../service-order/entities/service-order.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  ManyToMany,
+  JoinTable,
+} from 'typeorm';
 
 @Entity()
 export class Feedback {
@@ -8,14 +15,14 @@ export class Feedback {
   id: number;
 
   @Column({
-    default:""
+    default: '',
   })
   description: string;
 
   @Column()
   rating: number;
 
-  @ManyToOne(() => Client, client => client.feedbacks, { nullable: false })
+  @ManyToOne(() => Client, (client) => client.feedbacks, { nullable: false })
   client: Client;
 
   @ManyToMany(() => ServiceOrder)

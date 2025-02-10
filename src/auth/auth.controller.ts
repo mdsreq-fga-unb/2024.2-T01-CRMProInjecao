@@ -7,7 +7,7 @@ import { User } from '../user/entities/user.entity';
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) { }
+  constructor(private readonly authService: AuthService) {}
 
   @Public()
   @Post('register')
@@ -39,7 +39,7 @@ export class AuthController {
   }
 
   @Public()
-  @Post("reset-password")
+  @Post('reset-password')
   resetPassword(
     @Body() body: { token: string; password: string; confirmPassword: string },
   ) {
@@ -51,7 +51,7 @@ export class AuthController {
   }
 
   @Public()
-  @Post("forgot-password")
+  @Post('forgot-password')
   forgotPassword(@Body() body: { email: string }) {
     return this.authService.forgotPassword(body.email);
   }

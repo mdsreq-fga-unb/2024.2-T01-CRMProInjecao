@@ -5,7 +5,7 @@ import { Product } from './entities/product.entity';
 import { Category } from '../category/entities/category.entity';
 import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CategoryService } from 'src/category/category.service';
+import { CategoryService } from '../category/category.service';
 
 /**
  * Service dealing with product-related operations.
@@ -57,6 +57,12 @@ export class ProductsService {
       where: { id },
       relations: ['categories'],
     });
+
+    if (categories) {
+      const categoriesEntities =
+        await this.categoryService.findAllByIds(categories);
+      product.categories = categoriesEntities;
+    }
 
     return this.productRepository.save({
       ...product,

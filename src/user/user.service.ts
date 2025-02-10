@@ -11,49 +11,69 @@ export class UserService {
   constructor(
     @InjectRepository(User) private usersRepository: Repository<User>,
     private readonly emailService: EmailService,
-  ) { }
+  ) {}
 
-  async handleSendEmailOnCreateOrUpdate(user: {
-    name: string;
-    email: string;
-    password: string;
-  }, context: 'create' | 'update') {
+  async handleSendEmailOnCreateOrUpdate(
+    user: {
+      name: string;
+      email: string;
+      password: string;
+    },
+    context: 'create' | 'update',
+  ) {
     try {
       await this.emailService.sendEmail({
         context: {
-          title: context === 'create' ? 'Bem vindo a plataforma CRM PRO INJEÇÃO' : 'Atualização de sua conta na plataforma CRM PRO INJEÇÃO',
-          message: context === 'create' ? `Olá ${user.name}, o seu email de acesso a plataforma é: ${user.email} e a senha é: ${user.password}` : `Olá ${user.name}, ocorreram alterações em sua conta na plataforma CRM PRO INJEÇÃO, se não tiver sido você, altere sua senha, ou entre em contato com a equipe CRM PRO INJEÇÃO.`,
+          title:
+            context === 'create'
+              ? 'Bem vindo a plataforma CRM PRO INJEÇÃO'
+              : 'Atualização de sua conta na plataforma CRM PRO INJEÇÃO',
+          message:
+            context === 'create'
+              ? `Olá ${user.name}, o seu email de acesso a plataforma é: ${user.email} e a senha é: ${user.password}`
+              : `Olá ${user.name}, ocorreram alterações em sua conta na plataforma CRM PRO INJEÇÃO, se não tiver sido você, altere sua senha, ou entre em contato com a equipe CRM PRO INJEÇÃO.`,
         },
         sendTo: user.email,
-        subject: context === 'create' ? 'Bem vindo a plataforma CRM PRO INJEÇÃO' : 'Atualização de sua conta na plataforma CRM PRO INJEÇÃO',
+        subject:
+          context === 'create'
+            ? 'Bem vindo a plataforma CRM PRO INJEÇÃO'
+            : 'Atualização de sua conta na plataforma CRM PRO INJEÇÃO',
         template: 'simpleEmail',
       });
-
     } catch (error) {
       console.log(error);
-
     }
   }
 
   async create(createUserDto: CreateUserDto) {
-    let user = this.usersRepository.create(createUserDto);
+    const user = this.usersRepository.create(createUserDto);
     if (createUserDto.password) {
-      await this.handleSendEmailOnCreateOrUpdate({
-        name: user.name,
-        email: user.email,
-        password: createUserDto.password
-      }, 'create');
+      await this.handleSendEmailOnCreateOrUpdate(
+        {
+          name: user.name,
+          email: user.email,
+          password: createUserDto.password,
+        },
+        'create',
+      );
     } else {
       const password = (() => {
-        const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        return Array.from({ length: 12 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
+        const chars =
+          'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        return Array.from(
+          { length: 12 },
+          () => chars[Math.floor(Math.random() * chars.length)],
+        ).join('');
       })();
       user.password = password;
-      await this.handleSendEmailOnCreateOrUpdate({
-        name: user.name,
-        email: user.email,
-        password
-      }, 'create');
+      await this.handleSendEmailOnCreateOrUpdate(
+        {
+          name: user.name,
+          email: user.email,
+          password,
+        },
+        'create',
+      );
     }
 
     return await this.usersRepository.save(user);

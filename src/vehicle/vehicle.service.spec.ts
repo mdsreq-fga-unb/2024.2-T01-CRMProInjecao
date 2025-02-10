@@ -32,7 +32,7 @@ describe('VehicleService', () => {
   };
 
   const mockClient: Client = {
-    name: "nome",
+    name: 'nome',
     cpf: '00000000000',
     address: 'endereco',
     email: 'email',
@@ -62,8 +62,12 @@ describe('VehicleService', () => {
     }).compile();
 
     service = module.get<VehicleService>(VehicleService);
-    vehicleRepository = module.get<jest.Mocked<Repository<Vehicle>>>(getRepositoryToken(Vehicle));
-    clientRepository = module.get<jest.Mocked<Repository<Client>>>(getRepositoryToken(Client));
+    vehicleRepository = module.get<jest.Mocked<Repository<Vehicle>>>(
+      getRepositoryToken(Vehicle),
+    );
+    clientRepository = module.get<jest.Mocked<Repository<Client>>>(
+      getRepositoryToken(Client),
+    );
 
     // Mock the findOne method
     clientRepository.findOne = jest.fn().mockResolvedValue(mockClient);
@@ -110,7 +114,9 @@ describe('VehicleService', () => {
         },
       });
 
-      expect(clientRepository.findOne).toHaveBeenCalledWith({ where: { cpf: '00000000000' } });
+      expect(clientRepository.findOne).toHaveBeenCalledWith({
+        where: { cpf: '00000000000' },
+      });
       expect(vehicleRepository.create).toHaveBeenCalledWith({
         licensePlate: 'ABC-1234',
         model: 'Model X',
@@ -131,44 +137,52 @@ describe('VehicleService', () => {
     it('should throw NotFoundException if client does not exist', async () => {
       clientRepository.findOne.mockResolvedValueOnce(null);
 
-      await expect(service.create({
-        clientCPF: '00000000000',
-        licensePlate: 'XYZ-9999',
-        brand: 'Ford',
-        model: 'Focus',
-        modelYear: 2021,
-        chassiNumber: '123456789',
-        color: 'White',
-        currentMileage: 1000,
-        descritpion: 'Description',
-        fuelType: 'Gasoline',
-        renavam: '123456789',
-        status: VehicleStatus.AVAILABLE,
-        fabricationDate: new Date(),
-      })).rejects.toThrow(NotFoundException);
+      await expect(
+        service.create({
+          clientCPF: '00000000000',
+          licensePlate: 'XYZ-9999',
+          brand: 'Ford',
+          model: 'Focus',
+          modelYear: 2021,
+          chassiNumber: '123456789',
+          color: 'White',
+          currentMileage: 1000,
+          descritpion: 'Description',
+          fuelType: 'Gasoline',
+          renavam: '123456789',
+          status: VehicleStatus.AVAILABLE,
+          fabricationDate: new Date(),
+        }),
+      ).rejects.toThrow(NotFoundException);
     });
   });
 
   describe('findAll', () => {
     it('should return all vehicles', async () => {
-      const vehicles = [{ licensePlate: 'ABC-1234', brand: 'Toyota', model: 'Corolla', modelYear: 2022 }];
-      
+      const vehicles = [
+        {
+          licensePlate: 'ABC-1234',
+          brand: 'Toyota',
+          model: 'Corolla',
+          modelYear: 2022,
+        },
+      ];
+
       const queryBuilder = {
         leftJoinAndSelect: jest.fn().mockReturnThis(),
         where: jest.fn().mockReturnThis(),
         getMany: jest.fn().mockResolvedValue(vehicles),
       };
-  
+
       // Certifique-se de que createQueryBuilder retorna o queryBuilder correto
       mockVehicleRepository.createQueryBuilder.mockReturnValue(queryBuilder);
-  
+
       const result = await service.findAll();
 
-  
       expect(result).toEqual(vehicles);
       expect(queryBuilder.getMany).toHaveBeenCalled();
     });
-  
+
     it('should return vehicles filtered by client CPF', async () => {
       const vehicles: Vehicle[] = [
         {
@@ -192,28 +206,37 @@ describe('VehicleService', () => {
           deletedAt: null,
         },
       ];
-  
+
       const queryBuilder = {
         leftJoinAndSelect: jest.fn().mockReturnThis(),
         where: jest.fn().mockReturnThis(),
         getMany: jest.fn().mockResolvedValue(vehicles),
       };
-  
+
       mockVehicleRepository.createQueryBuilder.mockReturnValue(queryBuilder);
-  
+
       const result = await service.findAll('00000000000');
-      
-  
+
       expect(result).toEqual(vehicles);
-      expect(queryBuilder.leftJoinAndSelect).toHaveBeenCalledWith('vehicle.client', 'client');
-      expect(queryBuilder.where).toHaveBeenCalledWith('client.cpf = :clientCPF', { clientCPF: '00000000000' });
+      expect(queryBuilder.leftJoinAndSelect).toHaveBeenCalledWith(
+        'vehicle.client',
+        'client',
+      );
+      expect(queryBuilder.where).toHaveBeenCalledWith(
+        'client.cpf = :clientCPF',
+        { clientCPF: '00000000000' },
+      );
     });
   });
-  
 
   describe('findOne', () => {
     it('should return a vehicle by license plate', async () => {
-      const vehicle = { licensePlate: 'ABC-1234', brand: 'Toyota', model: 'Corolla', modelYear: 2022 };
+      const vehicle = {
+        licensePlate: 'ABC-1234',
+        brand: 'Toyota',
+        model: 'Corolla',
+        modelYear: 2022,
+      };
       mockVehicleRepository.findOne.mockResolvedValue(vehicle);
 
       await expect(service.findOne('ABC-1234')).resolves.toEqual(vehicle);
@@ -225,13 +248,20 @@ describe('VehicleService', () => {
 
     it('should throw NotFoundException if vehicle is not found', async () => {
       mockVehicleRepository.findOne.mockResolvedValue(null);
-      await expect(service.findOne('XYZ-9999')).rejects.toThrow(NotFoundException);
+      await expect(service.findOne('XYZ-9999')).rejects.toThrow(
+        NotFoundException,
+      );
     });
   });
 
   describe('update', () => {
     it('should update a vehicle', async () => {
-      const existingVehicle = { licensePlate: 'ABC-1234', brand: 'Toyota', model: 'Corolla', modelYear: 2022 };
+      const existingVehicle = {
+        licensePlate: 'ABC-1234',
+        brand: 'Toyota',
+        model: 'Corolla',
+        modelYear: 2022,
+      };
       const updateVehicleDto: UpdateVehicleDto = { brand: 'Honda' };
       const updatedVehicle = { ...existingVehicle, ...updateVehicleDto };
 
@@ -239,13 +269,20 @@ describe('VehicleService', () => {
       mockVehicleRepository.merge.mockReturnValue(updatedVehicle);
       mockVehicleRepository.save.mockResolvedValue(updatedVehicle);
 
-      await expect(service.update('ABC-1234', updateVehicleDto)).resolves.toEqual({
+      await expect(
+        service.update('ABC-1234', updateVehicleDto),
+      ).resolves.toEqual({
         message: 'Vehicle updated successfully',
         updatedVehicle,
       });
 
-      expect(mockVehicleRepository.findOne).toHaveBeenCalledWith({ where: { licensePlate: 'ABC-1234' } });
-      expect(mockVehicleRepository.merge).toHaveBeenCalledWith(existingVehicle, updateVehicleDto);
+      expect(mockVehicleRepository.findOne).toHaveBeenCalledWith({
+        where: { licensePlate: 'ABC-1234' },
+      });
+      expect(mockVehicleRepository.merge).toHaveBeenCalledWith(
+        existingVehicle,
+        updateVehicleDto,
+      );
       expect(mockVehicleRepository.save).toHaveBeenCalledWith(updatedVehicle);
     });
   });
@@ -259,7 +296,9 @@ describe('VehicleService', () => {
         licensePlate: 'ABC-1234',
       });
 
-      expect(mockVehicleRepository.softDelete).toHaveBeenCalledWith({ licensePlate: 'ABC-1234' });
+      expect(mockVehicleRepository.softDelete).toHaveBeenCalledWith({
+        licensePlate: 'ABC-1234',
+      });
     });
   });
 });

@@ -10,7 +10,7 @@ import { ServiceOrderModule } from '../service-order/service-order.module';
   imports: [
     TypeOrmModule.forFeature([Feedback]),
     ClientModule,
-    ServiceOrderModule
+    ServiceOrderModule,
   ],
   controllers: [FeedbackController],
   providers: [FeedbackService],

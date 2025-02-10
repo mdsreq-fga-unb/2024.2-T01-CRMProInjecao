@@ -23,15 +23,17 @@ export class FeedbackService {
     const feedback = this.feedbackRepository.create(createFeedbackDto);
 
     // Buscar e validar o cliente
-    const client = await this.clientService.findOneByCPF(createFeedbackDto.clientCPF);
+    const client = await this.clientService.findOneByCPF(
+      createFeedbackDto.clientCPF,
+    );
     feedback.client = client;
 
     // Buscar e validar as ordens de serviço, se fornecidas
     if (createFeedbackDto.serviceOrderIds?.length) {
       const serviceOrders = await Promise.all(
-        createFeedbackDto.serviceOrderIds.map(id =>
-          this.serviceOrderService.findOne(id.toString())
-        )
+        createFeedbackDto.serviceOrderIds.map((id) =>
+          this.serviceOrderService.findOne(id.toString()),
+        ),
       );
       feedback.serviceOrders = serviceOrders;
     }
@@ -63,22 +65,27 @@ export class FeedbackService {
     return feedback;
   }
 
-  async update(id: number, updateFeedbackDto: UpdateFeedbackDto): Promise<{
+  async update(
+    id: number,
+    updateFeedbackDto: UpdateFeedbackDto,
+  ): Promise<{
     message: string;
     data: Feedback;
   }> {
     const feedback = await this.findOne(id);
 
     if (updateFeedbackDto.clientCPF) {
-      const client = await this.clientService.findOneByCPF(updateFeedbackDto.clientCPF);
+      const client = await this.clientService.findOneByCPF(
+        updateFeedbackDto.clientCPF,
+      );
       feedback.client = client;
     }
 
     if (updateFeedbackDto.serviceOrderIds) {
       const serviceOrders = await Promise.all(
-        updateFeedbackDto.serviceOrderIds.map(id =>
-          this.serviceOrderService.findOne(id.toString())
-        )
+        updateFeedbackDto.serviceOrderIds.map((id) =>
+          this.serviceOrderService.findOne(id.toString()),
+        ),
       );
       feedback.serviceOrders = serviceOrders;
     }

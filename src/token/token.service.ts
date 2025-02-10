@@ -3,14 +3,14 @@ import {
   Inject,
   Injectable,
   forwardRef,
-} from "@nestjs/common";
-import { JwtService } from "@nestjs/jwt";
-import { Token } from "./entities/token.entity";
+} from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { Token } from './entities/token.entity';
 
-import { InjectRepository } from "@nestjs/typeorm";
-import { Repository } from "typeorm";
-import { CreateTokenDTO } from "./dto/create-token.dto";
-import { UserService } from "../user/user.service";
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { CreateTokenDTO } from './dto/create-token.dto';
+import { UserService } from '../user/user.service';
 @Injectable()
 export class TokenService {
   constructor(
@@ -19,19 +19,13 @@ export class TokenService {
     private jwtService: JwtService,
     @Inject(forwardRef(() => UserService))
     private usersService: UserService,
-  ) { }
+  ) {}
 
   async findToken(token: string) {
     return await this.TokenRepository.findOne({
       where: { token },
-      relations: ["user",],
-      select: [
-        "id",
-        "expirationDate",
-        "token",
-        "user",
-        "description",
-      ],
+      relations: ['user'],
+      select: ['id', 'expirationDate', 'token', 'user', 'description'],
     });
   }
 
@@ -47,7 +41,7 @@ export class TokenService {
     if (data.user) {
       const userOfToken = await this.usersService.findOneById(data.user);
       if (!userOfToken) {
-        throw new BadRequestException("Usuário não encontrado");
+        throw new BadRequestException('Usuário não encontrado');
       }
 
       const createdToken = this.TokenRepository.create({
@@ -66,8 +60,8 @@ export class TokenService {
   async findOne(id: number) {
     return await this.TokenRepository.findOne({
       where: { id },
-      relations: ["user",],
-      select: ["id", "expirationDate", "token", "user",],
+      relations: ['user'],
+      select: ['id', 'expirationDate', 'token', 'user'],
     });
   }
 
@@ -80,7 +74,7 @@ export class TokenService {
     const token = await this.TokenRepository.findOneBy({ id });
 
     if (!token) {
-      throw new BadRequestException("Token não encontrado");
+      throw new BadRequestException('Token não encontrado');
     }
 
     const updatedUser = Object.assign(token, body);
@@ -91,9 +85,9 @@ export class TokenService {
     const token = this.TokenRepository.delete({ id });
 
     if (!token) {
-      return { message: "Token não encontrado!" };
+      return { message: 'Token não encontrado!' };
     }
 
-    return { message: "Token Deletado" };
+    return { message: 'Token Deletado' };
   }
 }

@@ -1,10 +1,10 @@
-import { MailerService } from "@nestjs-modules/mailer";
-import type { ISendMailOptions } from "@nestjs-modules/mailer/dist/interfaces/send-mail-options.interface.d.ts";
-import { Injectable, Logger } from "@nestjs/common";
+import { MailerService } from '@nestjs-modules/mailer';
+import type { ISendMailOptions } from '@nestjs-modules/mailer/dist/interfaces/send-mail-options.interface.d.ts';
+import { Injectable, Logger } from '@nestjs/common';
 import {
   SendMailBaseOptions,
   SimpleEmailTemplate,
-} from "./templates/templates.types";
+} from './templates/templates.types';
 
 type SendEmailResponse = { send: boolean; error?: string };
 @Injectable()
@@ -27,16 +27,15 @@ export class EmailService {
     try {
       let sendMailOptions: ISendMailOptions = {};
 
-
       sendMailOptions = {
         to: sendTo,
-        from: "CRM-PROINJECAO <contato@casapiri.com.br>",
+        from: 'CRM-PROINJECAO <contato@casapiri.com.br>',
         subject: subject,
         template: template,
         context: context as object,
       };
 
-      if (process.env.EMAIL_DISABLED === "true") {
+      if (process.env.EMAIL_DISABLED === 'true') {
         this.devLogger.debug(sendMailOptions);
       } else {
         await this.mailerService.sendMail(sendMailOptions);

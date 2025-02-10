@@ -21,7 +21,7 @@ export class User {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ default: "Sem nome definido" })
+  @Column({ default: 'Sem nome definido' })
   name: string;
 
   @Column({ unique: true })

@@ -5,7 +5,6 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ManyToOne,
   OneToMany,
   PrimaryColumn,
   UpdateDateColumn,
@@ -50,6 +49,4 @@ export class Client {
 
   @OneToMany(() => Budget, (budget) => budget.client)
   budgets: Budget[];
-
-  
 }

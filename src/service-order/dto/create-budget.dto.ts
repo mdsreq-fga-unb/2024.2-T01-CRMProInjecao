@@ -1,4 +1,11 @@
-import { IsString, IsNumber, IsOptional, IsArray, IsUUID, IsEnum } from 'class-validator';
+import {
+  IsString,
+  IsNumber,
+  IsOptional,
+  IsArray,
+  IsUUID,
+  IsEnum,
+} from 'class-validator';
 import { BudgetStatus } from '../entities/budget.entity';
 
 export class CreateBudgetDto {
@@ -31,4 +38,4 @@ export class CreateBudgetDto {
   @IsUUID('4', { each: true })
   @IsOptional()
   serviceTypeIds?: string[];
-} 
+}

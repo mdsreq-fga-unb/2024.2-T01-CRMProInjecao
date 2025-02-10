@@ -1,8 +1,19 @@
-import { Client } from "../../client/entities/client.entity";
-import { Product } from "../../products/entities/product.entity";
-import { Vehicle } from "../../vehicle/entities/vehicle.entity";
-import { Column, CreateDateColumn, DeleteDateColumn, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { Budget } from "./budget.entity";
+import { Client } from '../../client/entities/client.entity';
+import { Product } from '../../products/entities/product.entity';
+import { Vehicle } from '../../vehicle/entities/vehicle.entity';
+import {
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import { Budget } from './budget.entity';
 
 @Entity()
 export class ServiceOrderType {
@@ -41,7 +52,10 @@ export class ServiceOrder {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @ManyToOne(() => ServiceOrderType, (serviceOrderType) => serviceOrderType.serviceOrders)
+  @ManyToOne(
+    () => ServiceOrderType,
+    (serviceOrderType) => serviceOrderType.serviceOrders,
+  )
   type: ServiceOrderType;
 
   @Column()
@@ -61,7 +75,7 @@ export class ServiceOrder {
     default: 0,
   })
   additionalCost: number;
-  
+
   @ManyToMany(() => Product)
   @JoinTable()
   products: Product[];
@@ -78,6 +92,3 @@ export class ServiceOrder {
   @DeleteDateColumn()
   deletedAt: Date;
 }
-
-
-

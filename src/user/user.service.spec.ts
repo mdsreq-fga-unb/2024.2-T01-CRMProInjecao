@@ -38,7 +38,7 @@ describe('UserService', () => {
 
   // Add more tests for each method in UserService
   it('should find all users', async () => {
-    const result = [{ id: "1", name: 'Test User', email: "test@example.com" }];
+    const result = [{ id: '1', name: 'Test User', email: 'test@example.com' }];
     mockUsersRepository.find.mockResolvedValue(result);
 
     const users = await service.findAll();
@@ -47,16 +47,22 @@ describe('UserService', () => {
   });
 
   it('should find one user by id', async () => {
-    const result = { id: "1", name: 'Test User', email: "test@example.com" };
+    const result = { id: '1', name: 'Test User', email: 'test@example.com' };
     mockUsersRepository.findOne.mockResolvedValue(result);
 
-    const user = await service.findOneById("1");
+    const user = await service.findOneById('1');
     expect(user).toEqual(result);
-    expect(mockUsersRepository.findOne).toHaveBeenCalledWith({ where: { id: "1" } });
+    expect(mockUsersRepository.findOne).toHaveBeenCalledWith({
+      where: { id: '1' },
+    });
   });
 
   it('should create a user with a password', async () => {
-    const createUserDto = { name: 'Test User', email: 'test@example.com', password: 'password123' };
+    const createUserDto = {
+      name: 'Test User',
+      email: 'test@example.com',
+      password: 'password123',
+    };
     const savedUser = { id: '1', ...createUserDto };
     mockUsersRepository.create.mockReturnValue(savedUser);
     mockUsersRepository.save.mockResolvedValue(savedUser);
@@ -68,8 +74,16 @@ describe('UserService', () => {
   });
 
   it('should create a user without a password', async () => {
-    const createUserDto = { name: 'Test User', email: 'test@example.com', password: "password123" };
-    const savedUser = { id: '1', ...createUserDto, password: 'generatedPassword' };
+    const createUserDto = {
+      name: 'Test User',
+      email: 'test@example.com',
+      password: 'password123',
+    };
+    const savedUser = {
+      id: '1',
+      ...createUserDto,
+      password: 'generatedPassword',
+    };
     mockUsersRepository.create.mockReturnValue(savedUser);
     mockUsersRepository.save.mockResolvedValue(savedUser);
 
@@ -82,26 +96,36 @@ describe('UserService', () => {
   it('should find one user by email', async () => {
     const result = { email: 'test@example.com' };
     mockUsersRepository.findOne.mockResolvedValue(result);
-  
+
     const user = await service.findOneByEmail('test@example.com');
     expect(user).toEqual(result);
     expect(mockUsersRepository.findOne).toHaveBeenCalled();
 
     const calls = mockUsersRepository.findOne.mock.calls;
-    expect(calls.some(call => JSON.stringify(call[0]).includes('"email":"test@example.com"'))).toBe(true);
+    expect(
+      calls.some((call) =>
+        JSON.stringify(call[0]).includes('"email":"test@example.com"'),
+      ),
+    ).toBe(true);
   });
-  
 
   it('should update a user', async () => {
     const updateUserDto = { name: 'Updated User' };
-    const existingUser = { id: '1', name: 'Test User', email: 'test@example.com' };
+    const existingUser = {
+      id: '1',
+      name: 'Test User',
+      email: 'test@example.com',
+    };
     const updatedUser = { ...existingUser, ...updateUserDto };
     mockUsersRepository.findOne.mockResolvedValue(existingUser);
     mockUsersRepository.update.mockResolvedValue(updatedUser);
 
     const user = await service.update('1', updateUserDto);
     expect(user).toEqual(updatedUser);
-    expect(mockUsersRepository.update).toHaveBeenCalledWith({ id: '1' }, updatedUser);
+    expect(mockUsersRepository.update).toHaveBeenCalledWith(
+      { id: '1' },
+      updatedUser,
+    );
   });
 
   it('should remove a user', async () => {
