@@ -10,8 +10,8 @@ import { User } from '../user/entities/user.entity';
 import { JwtService } from '@nestjs/jwt';
 import { UserService } from '../user/user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { EmailService } from "src/email/email.service";
-import { TokenService } from "src/token/token.service";
+import { EmailService } from "../email/email.service";
+import { TokenService } from "../token/token.service";
 
 @Injectable()
 export class AuthService {

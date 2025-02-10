@@ -16,6 +16,12 @@ export const mockClient =
   updatedAt: new Date('2024-02-01T12:30:00'),
   vehicles: [
   ],
+  serviceOrders: [
+  ],
+  budgets: [
+  ],
+  feedbacks: [
+  ],
   deletedAt: null,
 }
 
@@ -100,6 +106,12 @@ describe('VehicleController', () => {
           descritpion: 'Description',
           status: VehicleStatus.AVAILABLE,
           client: mockClient,
+          serviceOrders: [
+          ],
+          budgets: [
+          ],
+          feedbacks: [
+          ],
           createdAt: new Date(),
           updatedAt: new Date(),
           deletedAt: null,
@@ -129,6 +141,12 @@ describe('VehicleController', () => {
         descritpion: 'Description',
         status: VehicleStatus.AVAILABLE,
         client: mockClient,
+        serviceOrders: [
+        ],
+        budgets: [
+        ],
+        feedbacks: [
+        ],
         createdAt: new Date(),
         updatedAt: new Date(),
         deletedAt: null,
@@ -161,6 +179,12 @@ describe('VehicleController', () => {
           status: VehicleStatus.AVAILABLE,
           clientCPF: '12345678901',
           client: mockClient,
+          serviceOrders: [
+          ],
+          budgets: [
+          ],
+          feedbacks: [
+          ],
           createdAt: new Date(),
           updatedAt: new Date(),
           deletedAt: null,

@@ -77,7 +77,7 @@ export class ClientService {
   async findOneByCPF(cpf: string): Promise<Client> {
     const client = await this.clientRepository.findOne({
       where: { cpf },
-      relations: ['vehicles', 'serviceOrders', 'budgets'],
+      relations: ['vehicles', 'serviceOrders', 'budgets', 'feedbacks'],
     });
 
     if (!client) {

@@ -11,6 +11,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { Budget } from '../../service-order/entities/budget.entity';
+import { Feedback } from '../../feedback/entities/feedback.entity';
 
 @Entity()
 export class Client {
@@ -43,6 +44,9 @@ export class Client {
 
   @OneToMany(() => ServiceOrder, (serviceOrder) => serviceOrder.client)
   serviceOrders: ServiceOrder[];
+
+  @OneToMany(() => Feedback, (feedback) => feedback.client)
+  feedbacks: Feedback[];
 
   @OneToMany(() => Budget, (budget) => budget.client)
   budgets: Budget[];

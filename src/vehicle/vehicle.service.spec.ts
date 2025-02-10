@@ -40,6 +40,7 @@ describe('VehicleService', () => {
     vehicles: [],
     serviceOrders: [],
     budgets: [],
+    feedbacks: [],
     createdAt: new Date(),
     updatedAt: new Date(),
     deletedAt: null,
