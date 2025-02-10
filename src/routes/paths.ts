@@ -27,5 +27,6 @@ export const paths = {
     ratings: `${ROOTS.DASHBOARD}/ratings`,
     configuration: `${ROOTS.DASHBOARD}/configuration`,
     account: `${ROOTS.DASHBOARD}/account`,
+    feedbacks: `${ROOTS.DASHBOARD}/feedbacks`,
   },
 };

@@ -31,6 +31,7 @@ import { useBoolean } from '@/hooks/use-boolean';
 import CustomBreadcrumbs from '@/components/custom-breadcrumbs';
 import { paths } from '@/routes/paths';
 import Iconify from '@/components/iconify';
+import Scrollbar from '@/components/scrollbar';
 import UserNewEditForm from '../user-new-edit-form';
 import UserTableFiltersResult from '../user-table-filters-result';
 import UserTableToolbar from '../user-table-toolbar';
@@ -144,45 +145,45 @@ export default function UserListView() {
           <UserTableFiltersResult
             filters={filters}
             onFilters={handleFilters}
-            //
             onResetFilters={handleResetFilters}
-            //
             results={dataFiltered.length}
             sx={{ p: 2.5, pt: 0 }}
           />
         )}
 
         <TableContainer sx={{ position: 'relative', overflow: 'unset' }}>
-          <Table size="small">
-            <TableHeadCustom
-              order={table.order}
-              orderBy={table.orderBy}
-              headLabel={TABLE_HEAD}
-              rowCount={dataFiltered.length}
-              numSelected={table.selected.length}
-              onSort={table.onSort}
-            />
-
-            <TableBody>
-              {dataFiltered.map((user) => (
-                <UserTableRow
-                  key={user.id}
-                  row={user}
-                  selected={table.selected.includes(user.id)}
-                  onEditRow={() => handleEditRow(user)}
-                  onSelectRow={() => console.log('Select', user.id)}
-                  onDeleteRow={() => handleDeleteRow(user.id)}
-                />
-              ))}
-
-              <TableEmptyRows
-                height={denseHeight}
-                emptyRows={emptyRows(table.page, table.rowsPerPage, tableData.length)}
+          <Scrollbar>
+            <Table size={table.dense ? 'small' : 'medium'} sx={{ minWidth: 960 }}>
+              <TableHeadCustom
+                order={table.order}
+                orderBy={table.orderBy}
+                headLabel={TABLE_HEAD}
+                rowCount={dataFiltered.length}
+                numSelected={table.selected.length}
+                onSort={table.onSort}
               />
 
-              <TableNoData notFound={notFound} />
-            </TableBody>
-          </Table>
+              <TableBody>
+                {dataFiltered.map((user) => (
+                  <UserTableRow
+                    key={user.id}
+                    row={user}
+                    selected={table.selected.includes(user.id)}
+                    onEditRow={() => handleEditRow(user)}
+                    onSelectRow={() => console.log('Select', user.id)}
+                    onDeleteRow={() => handleDeleteRow(user.id)}
+                  />
+                ))}
+
+                <TableEmptyRows
+                  height={denseHeight}
+                  emptyRows={emptyRows(table.page, table.rowsPerPage, tableData.length)}
+                />
+
+                <TableNoData notFound={notFound} />
+              </TableBody>
+            </Table>
+          </Scrollbar>
         </TableContainer>
 
         <TablePaginationCustom

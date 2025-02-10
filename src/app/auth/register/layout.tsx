@@ -2,6 +2,7 @@
 
 // auth
 import { GuestGuard } from '@/auth/guard';
+import { SnackbarProvider } from '@/components/snackbar';
 // components
 import AuthClassicLayout from '@/layouts/auth/classic';
 
@@ -14,7 +15,9 @@ type Props = {
 export default function Layout({ children }: Props) {
   return (
     <GuestGuard>
-      <AuthClassicLayout>{children}</AuthClassicLayout>
+      <SnackbarProvider>
+        <AuthClassicLayout>{children}</AuthClassicLayout>
+      </SnackbarProvider>
     </GuestGuard>
   );
 }

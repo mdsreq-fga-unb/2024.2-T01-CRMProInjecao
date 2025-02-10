@@ -20,7 +20,10 @@ type Props = {
   //
 };
 
-export default function UserTableToolbar({ filters, onFilters }: Props) {
+export default function FeedbackTableToolbar({
+  filters,
+  onFilters,
+}: Props) {
   const popover = usePopover();
 
   const handleFilterName = useCallback(
