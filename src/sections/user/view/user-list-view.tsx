@@ -23,11 +23,11 @@ import { useBoolean } from '@/hooks/use-boolean';
 import CustomBreadcrumbs from '@/components/custom-breadcrumbs';
 import { paths } from '@/routes/paths';
 import Iconify from '@/components/iconify';
+import Scrollbar from '@/components/scrollbar';
 import UserNewEditForm from '../user-new-edit-form';
 import UserTableFiltersResult from '../user-table-filters-result';
 import UserTableToolbar from '../user-table-toolbar';
 import UserTableRow from '../user-table-row';
-import Scrollbar from '@/components/scrollbar';
 
 // ----------------------------------------------------------------------
 
