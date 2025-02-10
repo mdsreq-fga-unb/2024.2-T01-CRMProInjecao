@@ -27,6 +27,7 @@ import UserNewEditForm from '../user-new-edit-form';
 import UserTableFiltersResult from '../user-table-filters-result';
 import UserTableToolbar from '../user-table-toolbar';
 import UserTableRow from '../user-table-row';
+import Scrollbar from '@/components/scrollbar';
 
 // ----------------------------------------------------------------------
 
@@ -135,38 +136,38 @@ export default function UserListView() {
           <UserTableFiltersResult
             filters={filters}
             onFilters={handleFilters}
-            //
             onResetFilters={handleResetFilters}
-            //
             results={dataFiltered.length}
             sx={{ p: 2.5, pt: 0 }}
           />
         )}
 
         <TableContainer sx={{ position: 'relative', overflow: 'unset' }}>
-          <Table size="small">
-            <TableHeadCustom order={table.order} orderBy={table.orderBy} headLabel={TABLE_HEAD} rowCount={dataFiltered.length} numSelected={table.selected.length} onSort={table.onSort} />
+          <Scrollbar>
+            <Table size={table.dense ? 'small' : 'medium'} sx={{ minWidth: 960 }}>
+              <TableHeadCustom order={table.order} orderBy={table.orderBy} headLabel={TABLE_HEAD} rowCount={dataFiltered.length} numSelected={table.selected.length} onSort={table.onSort} />
 
-            <TableBody>
-              {dataFiltered.map((user) => (
-                <UserTableRow
-                  key={user.id}
-                  row={user}
-                  selected={table.selected.includes(user.id)}
-                  onEditRow={() => handleEditRow(user)}
-                  onSelectRow={() => console.log('Select', user.id)}
-                  onDeleteRow={() => handleDeleteRow(user.id)}
+              <TableBody>
+                {dataFiltered.map((user) => (
+                  <UserTableRow
+                    key={user.id}
+                    row={user}
+                    selected={table.selected.includes(user.id)}
+                    onEditRow={() => handleEditRow(user)}
+                    onSelectRow={() => console.log('Select', user.id)}
+                    onDeleteRow={() => handleDeleteRow(user.id)}
+                  />
+                ))}
+
+                <TableEmptyRows
+                  height={denseHeight}
+                  emptyRows={emptyRows(table.page, table.rowsPerPage, tableData.length)}
                 />
-              ))}
 
-              <TableEmptyRows
-                height={denseHeight}
-                emptyRows={emptyRows(table.page, table.rowsPerPage, tableData.length)}
-              />
-
-              <TableNoData notFound={notFound} />
-            </TableBody>
-          </Table>
+                <TableNoData notFound={notFound} />
+              </TableBody>
+            </Table>
+          </Scrollbar>
         </TableContainer>
 
         <TablePaginationCustom count={dataFiltered.length} page={table.page} rowsPerPage={table.rowsPerPage} onPageChange={table.onChangePage} onRowsPerPageChange={table.onChangeRowsPerPage} dense={table.dense} onChangeDense={table.onChangeDense} />
