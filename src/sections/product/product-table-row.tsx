@@ -10,53 +10,60 @@ import { useBoolean } from 'src/hooks/use-boolean';
 // components
 import Iconify from 'src/components/iconify';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
-import { IUser, UserRole } from 'src/types/user';
 import { ConfirmDialog } from '@/components/custom-dialog';
 import { Typography } from '@mui/material';
 import { fDate } from '@/utils/format-time';
+import { IProduct } from '@/types/product';
 
 // ----------------------------------------------------------------------
 
 type Props = {
   selected: boolean;
   onEditRow: VoidFunction;
-  row: IUser;
+  row: IProduct;
   onSelectRow: VoidFunction;
   onDeleteRow: VoidFunction;
 };
 
-export default function UserTableRow({
+export default function ProductTableRow({
   row,
   selected,
   onEditRow,
   onSelectRow,
   onDeleteRow,
 }: Props) {
-  const { name, email, role, isActive, createdAt } = row;
-
+  const { name, description, brand, costPrice, sellPrice, createdAt } = row;
   const confirm = useBoolean();
   const popover = usePopover();
 
   return (
     <>
       <TableRow hover selected={selected}>
-
         <TableCell>
-          <Typography variant="subtitle2">{name ?? "Sem nome definido"}</Typography>
+          <Typography variant="subtitle2">{name ?? 'Sem nome definido'}</Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{email}</Typography>
+          <Typography variant="subtitle2">
+            {description.length > 30 ? `${description.slice(0, 30)}...` : description}
+            {description.length > 30 && (
+              <Tooltip title={description} arrow>
+                <Iconify icon="eva:info-outline" />
+              </Tooltip>
+            )}
+          </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{
-            role === UserRole.ADMIN ? 'Administrador' : 'Usuário'
-          }</Typography>
+          <Typography variant="subtitle2">{brand}</Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{isActive ? 'Ativo' : 'Inativo'}</Typography>
+          <Typography variant="subtitle2">{costPrice}</Typography>
+        </TableCell>
+
+        <TableCell>
+          <Typography variant="subtitle2">{sellPrice}</Typography>
         </TableCell>
 
         <TableCell>
@@ -100,9 +107,11 @@ export default function UserTableRow({
         open={confirm.value}
         onClose={confirm.onFalse}
         title="Delete"
-        content={<>
-          Você tem certeza que deseja excluir o usuário <strong>{name}</strong>?
-        </>}
+        content={
+          <>
+            Você tem certeza que deseja excluir o usuário <strong>{name}</strong>?
+          </>
+        }
         action={
           <Button variant="contained" color="error" onClick={onDeleteRow}>
             Deletar

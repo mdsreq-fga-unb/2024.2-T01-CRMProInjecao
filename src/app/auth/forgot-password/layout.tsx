@@ -15,5 +15,5 @@ export default function Layout({ children }: Props) {
     <SnackbarProvider>
       <CompactLayout>{children}</CompactLayout>
     </SnackbarProvider>
-  )
+  );
 }

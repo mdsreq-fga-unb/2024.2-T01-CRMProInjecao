@@ -108,7 +108,7 @@ export default function UserNewEditForm({ currentUser, onClose }: Props) {
             </Grid>
 
             <Grid xs={12} md={6}>
-              <RHFSelect name="role" label="Papel" >
+              <RHFSelect name="role" label="Papel">
                 {roleOptions.map((option) => (
                   <MenuItem key={option.value} value={option.value}>
                     {option.label}

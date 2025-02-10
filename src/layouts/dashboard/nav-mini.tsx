@@ -14,7 +14,6 @@ import { NavToggleButton } from '../_common';
 // ----------------------------------------------------------------------
 
 export default function NavMini() {
-
   const navData = useNavData();
 
   return (
@@ -44,11 +43,8 @@ export default function NavMini() {
       >
         <Logo sx={{ mx: 'auto', my: 2 }} />
 
-        <NavSectionMini
-          data={navData}
-        />
+        <NavSectionMini data={navData} />
       </Stack>
-
     </Box>
   );
 }

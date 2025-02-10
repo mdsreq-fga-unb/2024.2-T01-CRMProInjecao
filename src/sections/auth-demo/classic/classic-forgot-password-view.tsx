@@ -23,7 +23,6 @@ import { timer } from 'src/auth/context/jwt/utils';
 
 // ----------------------------------------------------------------------
 
-
 export default function ClassicForgotPasswordView() {
   const { enqueueSnackbar } = useSnackbar();
   const ForgotPasswordSchema = Yup.object().shape({
@@ -55,7 +54,10 @@ export default function ClassicForgotPasswordView() {
       router.push(paths.auth.jwt.login);
     } catch (error) {
       console.error(error);
-      enqueueSnackbar("Ocorreu um erro ao enviar a requisição, verifique se o e-mail inserido, possui uma conta em nosso sistema.", { variant: 'error' });
+      enqueueSnackbar(
+        'Ocorreu um erro ao enviar a requisição, verifique se o e-mail inserido, possui uma conta em nosso sistema.',
+        { variant: 'error' }
+      );
     }
   });
 
@@ -97,7 +99,8 @@ export default function ClassicForgotPasswordView() {
         <Typography variant="h3">Esqueceu sua senha?</Typography>
 
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-          Por favor, insira o seu endereço de email. Você receberá um link para criar uma nova senha via email.
+          Por favor, insira o seu endereço de email. Você receberá um link para criar uma nova senha
+          via email.
         </Typography>
       </Stack>
     </>

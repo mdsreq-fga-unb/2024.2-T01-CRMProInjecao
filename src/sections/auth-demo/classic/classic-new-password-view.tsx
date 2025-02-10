@@ -16,7 +16,7 @@ import { useBoolean } from 'src/hooks/use-boolean';
 // components
 import Iconify from 'src/components/iconify';
 import { RouterLink } from 'src/routes/components';
-import FormProvider, { RHFTextField} from 'src/components/hook-form';
+import FormProvider, { RHFTextField } from 'src/components/hook-form';
 // assets
 import { SentIcon } from 'src/assets/icons';
 import { useParams, useRouter } from 'next/navigation';
@@ -24,11 +24,10 @@ import axiosInstance from 'src/utils/axios';
 import { useSnackbar } from 'notistack';
 import { timer } from 'src/auth/context/jwt/utils';
 
-
 export default function ClassicNewPasswordView() {
   const password = useBoolean();
   const { enqueueSnackbar } = useSnackbar();
-  const {id} = useParams()
+  const { id } = useParams();
 
   const NewPasswordSchema = Yup.object().shape({
     password: Yup.string()
@@ -58,16 +57,15 @@ export default function ClassicNewPasswordView() {
   const router = useRouter();
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await axiosInstance.post(`/auth/reset-password`,{
+      await axiosInstance.post(`/auth/reset-password`, {
         token: id,
         password: data.password,
         confirmPassword: data.confirmPassword,
-      })
+      });
 
       enqueueSnackbar('Senha alterada com sucesso', { variant: 'success' });
       await timer(2000);
       router.push(paths.auth.jwt.login);
-
     } catch (error) {
       console.error(error);
       enqueueSnackbar('Ocorreu um erro ao enviar a requisição.', { variant: 'error' });
@@ -76,7 +74,6 @@ export default function ClassicNewPasswordView() {
 
   const renderForm = (
     <Stack spacing={3} alignItems="center">
-
       <RHFTextField
         name="password"
         label="Nova senha"
@@ -133,9 +130,7 @@ export default function ClassicNewPasswordView() {
     </Stack>
   );
 
-  const renderHead = (
-    <SentIcon sx={{ height: 96 }} />
-  );
+  const renderHead = <SentIcon sx={{ height: 96 }} />;
 
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>

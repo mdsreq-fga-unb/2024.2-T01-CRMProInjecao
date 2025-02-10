@@ -110,8 +110,6 @@ export default function ClientNewEditForm({ currentClient, onClose }: Props) {
               </Stack>
             </Card>
           </Grid>
-
-
         </Grid>
       </FormProvider>
       {/* Veículos Associados */}
@@ -120,11 +118,9 @@ export default function ClientNewEditForm({ currentClient, onClose }: Props) {
           <RenderClientVehicles
             clientCPF={currentClient.cpf}
             vehicles={currentClient.vehicles}
-            onReload={
-              async () => {
-                await mutate(endpoints.client.findAll, false)
-              }
-            }
+            onReload={async () => {
+              await mutate(endpoints.client.findAll, false);
+            }}
           />
         </Grid>
       )}

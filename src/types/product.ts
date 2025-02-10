@@ -1,3 +1,5 @@
+import { ICategory } from './category';
+
 export type IProduct = {
   id: string;
 

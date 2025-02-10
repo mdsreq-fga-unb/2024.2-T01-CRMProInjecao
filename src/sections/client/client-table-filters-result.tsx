@@ -11,7 +11,7 @@ import Iconify from 'src/components/iconify';
 type Props = StackProps & {
   filters: {
     name: string;
-  }
+  };
   onFilters: (name: string, value: string) => void;
   //
   onResetFilters: VoidFunction;
@@ -28,7 +28,6 @@ export default function ClientTableFiltersResult({
   results,
   ...other
 }: Props) {
-
   // const handleRemoveRole = (inputValue: string) => {
   //   const newValue = filters.role.filter((item) => item !== inputValue);
   //   onFilters('role', newValue);
@@ -44,7 +43,6 @@ export default function ClientTableFiltersResult({
       </Box>
 
       <Stack flexGrow={1} spacing={1} direction="row" flexWrap="wrap" alignItems="center">
-
         <Button
           color="error"
           onClick={onResetFilters}

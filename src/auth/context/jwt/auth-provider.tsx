@@ -141,10 +141,7 @@ export function AuthProvider({ children }: Props) {
   }, []);
 
   const register = useCallback(
-    async (
-      email: string,
-      password: string,
-    ) => {
+    async (email: string, password: string) => {
       const data = {
         email,
         password,
@@ -152,14 +149,13 @@ export function AuthProvider({ children }: Props) {
 
       const res = await axios.post(endpoints.auth.register, data);
 
-
       dispatch({
         type: Types.REGISTER,
         payload: {
           user: null,
         },
       });
-      
+
       if (res && res.status === 201) {
         router.push(paths.dashboard.root);
       }

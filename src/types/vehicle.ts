@@ -39,7 +39,7 @@ export type IVehicle = {
     createdAt: Date;
     updatedAt: Date;
     deletedAt: Date;
-  }
+  };
 
   createdAt: Date;
 

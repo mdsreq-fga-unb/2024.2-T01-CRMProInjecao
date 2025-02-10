@@ -62,7 +62,12 @@ export function useNavData() {
             title: 'Usuários',
             path: '/dashboard/users',
             icon: ICONS.user,
-          }
+          },
+          {
+            title: 'Produtos',
+            path: '/dashboard/products',
+            icon: ICONS.product,
+          },
         ],
       },
     ],

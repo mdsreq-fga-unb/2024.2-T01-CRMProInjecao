@@ -17,10 +17,7 @@ type Props = {
   onFilters: (name: string, value: string) => void;
 };
 
-export default function UserTableToolbar({
-  filters,
-  onFilters,
-}: Props) {
+export default function UserTableToolbar({ filters, onFilters }: Props) {
   const popover = usePopover();
 
   const handleFilterName = useCallback(

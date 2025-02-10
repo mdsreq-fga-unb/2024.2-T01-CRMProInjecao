@@ -23,8 +23,8 @@ import { useRouter } from 'next/navigation';
 // ----------------------------------------------------------------------
 
 export default function ClassicVerifyView() {
-  const {validateToken} = useAuthContext()
-  const {enqueueSnackbar} = useSnackbar()
+  const { validateToken } = useAuthContext();
+  const { enqueueSnackbar } = useSnackbar();
   const VerifySchema = Yup.object().shape({
     code: Yup.string().min(6, 'Code must be at least 6 characters').required('Code is required'),
   });
@@ -44,13 +44,13 @@ export default function ClassicVerifyView() {
     formState: { isSubmitting },
   } = methods;
 
-  const router = useRouter()
+  const router = useRouter();
 
   const onSubmit = handleSubmit(async (data) => {
     try {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      await validateToken(data.code)
-      router.push(paths.dashboard.root)
+      await validateToken(data.code);
+      router.push(paths.dashboard.root);
       enqueueSnackbar('Código verificado com sucesso', {
         variant: 'success',
       });
@@ -64,7 +64,6 @@ export default function ClassicVerifyView() {
 
   const renderForm = (
     <Stack spacing={3} alignItems="center">
-
       <RHFCode name="code" />
 
       <LoadingButton
@@ -76,7 +75,7 @@ export default function ClassicVerifyView() {
       >
         Verificar código
       </LoadingButton>
-{/* 
+      {/* 
       <Typography variant="body2">
         {`Não tem mum código? `}
         <Link

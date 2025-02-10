@@ -119,30 +119,26 @@ export default function RenderClientVehicles({ vehicles, clientCPF, onReload }: 
           </Typography>
         )}
 
-        {
-          openCreateDialog && (
-            <VehicleCreateDialogForm
-              open={openCreateDialog}
-              onClose={handleCloseCreateDialog}
-              clientCPF={clientCPF}
-              onReload={onReload}
-            />
-          )
-        }
+        {openCreateDialog && (
+          <VehicleCreateDialogForm
+            open={openCreateDialog}
+            onClose={handleCloseCreateDialog}
+            clientCPF={clientCPF}
+            onReload={onReload}
+          />
+        )}
 
-        {
-          openEditDialog && (
-            <VehicleEditDialogForm
-              open={openEditDialog}
-              onClose={handleCloseEditDialog}
-              licensePlate={selectedVehicle?.licensePlate || ''}
-              vehicle={selectedVehicle}
-              vehicleError={null}
-              vehicleLoading={false}
-              onReload={onReload}
-            />
-          )
-        }
+        {openEditDialog && (
+          <VehicleEditDialogForm
+            open={openEditDialog}
+            onClose={handleCloseEditDialog}
+            licensePlate={selectedVehicle?.licensePlate || ''}
+            vehicle={selectedVehicle}
+            vehicleError={null}
+            vehicleLoading={false}
+            onReload={onReload}
+          />
+        )}
       </Card>
       <ConfirmDialog
         open={confirmDelete.value}
@@ -150,22 +146,22 @@ export default function RenderClientVehicles({ vehicles, clientCPF, onReload }: 
         title="Deletar Veículo"
         content="Você tem certeza que deseja deletar?"
         action={
-          <Button variant="contained" color="error" onClick={
-            async () => {
-              if(selectedVehicle){
+          <Button
+            variant="contained"
+            color="error"
+            onClick={async () => {
+              if (selectedVehicle) {
                 await deleteVehicle(selectedVehicle.licensePlate);
                 onReload();
                 confirmDelete.onFalse();
                 enqueueSnackbar('Veículo deletado com sucesso!', { variant: 'success' });
               }
-            }
-          }>
+            }}
+          >
             Deletar
           </Button>
         }
       />
-
     </>
   );
-
 }

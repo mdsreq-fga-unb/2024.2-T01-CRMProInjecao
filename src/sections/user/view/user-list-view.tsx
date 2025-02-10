@@ -12,7 +12,15 @@ import Dialog from '@mui/material/Dialog';
 // hooks
 import { useSnackbar } from 'notistack';
 // components
-import { useTable, TableNoData, TableEmptyRows, TableHeadCustom, TablePaginationCustom, getComparator, emptyRows } from 'src/components/table';
+import {
+  useTable,
+  TableNoData,
+  TableEmptyRows,
+  TableHeadCustom,
+  TablePaginationCustom,
+  getComparator,
+  emptyRows,
+} from 'src/components/table';
 import { useSettingsContext } from 'src/components/settings';
 // sections
 // api
@@ -70,13 +78,16 @@ export default function UserListView() {
 
   const notFound = (!dataFiltered.length && canReset) || !dataFiltered.length;
 
-  const handleFilters = useCallback((name: string, value: string) => {
-    table.onResetPage();
-    setFilters((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }, [table]);
+  const handleFilters = useCallback(
+    (name: string, value: string) => {
+      table.onResetPage();
+      setFilters((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
+    },
+    [table]
+  );
 
   const handleResetFilters = useCallback(() => {
     setFilters(defaultFilters);
@@ -112,12 +123,10 @@ export default function UserListView() {
         ]}
         action={
           <Button
-            onClick={
-              () => {
-                setCurrentUser(null);
-                userNewEdit.onTrue();
-              }
-            }
+            onClick={() => {
+              setCurrentUser(null);
+              userNewEdit.onTrue();
+            }}
             variant="contained"
             startIcon={<Iconify icon="mingcute:add-line" />}
           >
@@ -145,7 +154,14 @@ export default function UserListView() {
 
         <TableContainer sx={{ position: 'relative', overflow: 'unset' }}>
           <Table size="small">
-            <TableHeadCustom order={table.order} orderBy={table.orderBy} headLabel={TABLE_HEAD} rowCount={dataFiltered.length} numSelected={table.selected.length} onSort={table.onSort} />
+            <TableHeadCustom
+              order={table.order}
+              orderBy={table.orderBy}
+              headLabel={TABLE_HEAD}
+              rowCount={dataFiltered.length}
+              numSelected={table.selected.length}
+              onSort={table.onSort}
+            />
 
             <TableBody>
               {dataFiltered.map((user) => (
@@ -169,7 +185,15 @@ export default function UserListView() {
           </Table>
         </TableContainer>
 
-        <TablePaginationCustom count={dataFiltered.length} page={table.page} rowsPerPage={table.rowsPerPage} onPageChange={table.onChangePage} onRowsPerPageChange={table.onChangeRowsPerPage} dense={table.dense} onChangeDense={table.onChangeDense} />
+        <TablePaginationCustom
+          count={dataFiltered.length}
+          page={table.page}
+          rowsPerPage={table.rowsPerPage}
+          onPageChange={table.onChangePage}
+          onRowsPerPageChange={table.onChangeRowsPerPage}
+          dense={table.dense}
+          onChangeDense={table.onChangeDense}
+        />
       </Card>
 
       <Dialog open={userNewEdit.value} onClose={userNewEdit.onFalse} fullWidth maxWidth="sm">

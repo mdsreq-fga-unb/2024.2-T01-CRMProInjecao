@@ -71,11 +71,9 @@ export default function ClientListView() {
   const router = useRouter();
 
   const clientNewEdit = useBoolean();
-  const { clients, clientsLoading, } = useGetClients();
+  const { clients, clientsLoading } = useGetClients();
   const [currClient, setCurrClient] = useState<IClient | null>(null);
-  const [tableData, setTableData] = useState<IClient[]>(
-    clients as IClient[] || []
-  );
+  const [tableData, setTableData] = useState<IClient[]>((clients as IClient[]) || []);
 
   const [filters, setFilters] = useState(defaultFilters);
   const { enqueueSnackbar } = useSnackbar();
@@ -88,7 +86,7 @@ export default function ClientListView() {
 
   const denseHeight = table.dense ? 52 : 72;
 
-  const canReset = !!filters.name
+  const canReset = !!filters.name;
 
   const notFound = (!dataFiltered.length && canReset) || !dataFiltered.length;
 
@@ -103,18 +101,20 @@ export default function ClientListView() {
     [table]
   );
 
-  const handleDelete = useCallback(async (currentClient: IClient) => {
-    try {
-      if (!currentClient) return;
-      await deleteClient(currentClient.cpf);
-      enqueueSnackbar('Cliente deletado com sucesso', { variant: 'success' });
-      router.push(paths.dashboard.clients);
-    } catch (error) {
-      enqueueSnackbar('Erro ao deletar cliente', { variant: 'error' });
-      console.error(error);
-    }
-  }, [router, enqueueSnackbar]);
-
+  const handleDelete = useCallback(
+    async (currentClient: IClient) => {
+      try {
+        if (!currentClient) return;
+        await deleteClient(currentClient.cpf);
+        enqueueSnackbar('Cliente deletado com sucesso', { variant: 'success' });
+        router.push(paths.dashboard.clients);
+      } catch (error) {
+        enqueueSnackbar('Erro ao deletar cliente', { variant: 'error' });
+        console.error(error);
+      }
+    },
+    [router, enqueueSnackbar]
+  );
 
   const handleEditRow = useCallback(
     (row: IClient) => {
@@ -135,17 +135,15 @@ export default function ClientListView() {
     setFilters(defaultFilters);
   }, []);
 
-
   useEffect(() => {
-    setTableData(clients as IClient[] || []);
+    setTableData((clients as IClient[]) || []);
     if (currClient && currClient.cpf) {
       if (typeof clients === typeof []) {
         const tempOrganization = clients.find((client) => client.cpf === currClient.cpf);
         setCurrClient(tempOrganization as IClient);
       }
     }
-  }
-    , [clients, currClient, clientsLoading]);
+  }, [clients, currClient, clientsLoading]);
   return (
     <>
       <Container maxWidth={settings.themeStretch ? false : 'lg'}>
@@ -157,12 +155,10 @@ export default function ClientListView() {
           ]}
           action={
             <Button
-              onClick={
-                () => {
-                  setCurrClient(null);
-                  clientNewEdit.onTrue();
-                }
-              }
+              onClick={() => {
+                setCurrClient(null);
+                clientNewEdit.onTrue();
+              }}
               variant="contained"
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
@@ -190,10 +186,7 @@ export default function ClientListView() {
                 value={tab.value}
                 label={tab.label}
                 icon={
-                  <Label
-                    variant="filled"
-                    color="success"
-                  >
+                  <Label variant="filled" color="success">
                     {tab.value === 'all' && clients?.length}
                   </Label>
                 }
@@ -204,7 +197,7 @@ export default function ClientListView() {
           <ClientTableToolbar
             filters={filters}
             onFilters={handleFilters}
-          //
+            //
           />
 
           {canReset && (
@@ -220,7 +213,6 @@ export default function ClientListView() {
           )}
 
           <TableContainer sx={{ position: 'relative', overflow: 'unset' }}>
-
             <Scrollbar>
               <Table size={table.dense ? 'small' : 'medium'} sx={{ minWidth: 960 }}>
                 <TableHeadCustom
@@ -240,11 +232,11 @@ export default function ClientListView() {
                     )
                     .map((row) => (
                       <ClientTableRow
-                        key={(`${row.cpf}`)}
+                        key={`${row.cpf}`}
                         row={row}
-                        selected={table.selected.includes((`${(`${row.cpf}`)}`))}
-                        onSelectRow={() => table.onSelectRow((`${row.cpf}`))}
-                        onDeleteRow={() => handleDelete((row))}
+                        selected={table.selected.includes(`${`${row.cpf}`}`)}
+                        onSelectRow={() => table.onSelectRow(`${row.cpf}`)}
+                        onDeleteRow={() => handleDelete(row)}
                         onEditRow={() => handleEditRow(row)}
                       />
                     ))}
@@ -273,26 +265,30 @@ export default function ClientListView() {
         </Card>
       </Container>
 
-      <Dialog open={clientNewEdit.value} onClose={
-        () => {
+      <Dialog
+        open={clientNewEdit.value}
+        onClose={() => {
           setCurrClient(null);
           clientNewEdit.onFalse();
-        }
-      } fullWidth maxWidth="md" >
-        <Card sx={{
-          p: 3.5,
-          overflowY: 'auto',
-        }}>
-          <CardHeader sx={{
-            pb: 1,
-            position: 'relative',
-          }} title={
-            <Typography variant="h5">
-              {
-                currClient ? 'Editar Cliente' : 'Novo Cliente'
-              }
-            </Typography>
-          } />
+        }}
+        fullWidth
+        maxWidth="md"
+      >
+        <Card
+          sx={{
+            p: 3.5,
+            overflowY: 'auto',
+          }}
+        >
+          <CardHeader
+            sx={{
+              pb: 1,
+              position: 'relative',
+            }}
+            title={
+              <Typography variant="h5">{currClient ? 'Editar Cliente' : 'Novo Cliente'}</Typography>
+            }
+          />
           <Divider
             sx={{
               height: 2,
@@ -300,40 +296,34 @@ export default function ClientListView() {
               zIndex: 99,
             }}
           />
-          {
-            currClient && currClient.cpf ? (
-              <ClientNewEditForm
-                currentClient={currClient}
-                onClose={
-                  () => {
-                    setCurrClient(null);
-                    clientNewEdit.onFalse();
-                  }
-                }
-              />
-            ) : (
-              <ClientNewEditForm
-                onClose={
-                  () => {
-                    setCurrClient(null);
-                    clientNewEdit.onFalse();
-                  }
-                }
-              />
-            )
-          }
+          {currClient && currClient.cpf ? (
+            <ClientNewEditForm
+              currentClient={currClient}
+              onClose={() => {
+                setCurrClient(null);
+                clientNewEdit.onFalse();
+              }}
+            />
+          ) : (
+            <ClientNewEditForm
+              onClose={() => {
+                setCurrClient(null);
+                clientNewEdit.onFalse();
+              }}
+            />
+          )}
 
-          <IconButton onClick={() => {
-            setCurrClient(null);
-            clientNewEdit.onFalse();
-          }
-          }
-            sx={{ position: 'absolute', top: 10, right: 25, zIndex: 99 }}>
+          <IconButton
+            onClick={() => {
+              setCurrClient(null);
+              clientNewEdit.onFalse();
+            }}
+            sx={{ position: 'absolute', top: 10, right: 25, zIndex: 99 }}
+          >
             <Iconify icon="iconamoon:close" color="error.main" width={30} />
           </IconButton>
         </Card>
       </Dialog>
-
     </>
   );
 }

@@ -3,7 +3,6 @@ import useSWR, { mutate } from 'swr';
 import axios, { fetcher, endpoints } from 'src/utils/axios';
 import { createVehicle, IupdateVehicle, IVehicle } from '@/types/vehicle';
 
-
 const URL = endpoints.vehicle;
 
 const options = {
@@ -43,7 +42,7 @@ export function useGetOneVehicle(licensePlate: string) {
 
   const memoizedValue = useMemo(
     () => ({
-      vehicle: data as IVehicle ?? {} as IVehicle,
+      vehicle: (data as IVehicle) ?? ({} as IVehicle),
       vehicleLoading: isLoading,
       vehicleError: error,
       vehicleValidating: isValidating,

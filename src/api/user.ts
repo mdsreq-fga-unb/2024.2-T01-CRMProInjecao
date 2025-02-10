@@ -16,7 +16,7 @@ const options = {
 };
 
 export function useGetUsers() {
-  const URL_SERVER = `/user`
+  const URL_SERVER = `/user`;
 
   const { data, isLoading, error, isValidating } = useSWR(URL_SERVER, fetcher);
 
@@ -32,7 +32,6 @@ export function useGetUsers() {
   );
 
   return memoizedValue;
-
 }
 
 export async function createUser(user: ICreateUser) {

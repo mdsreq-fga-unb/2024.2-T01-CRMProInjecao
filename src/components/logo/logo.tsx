@@ -24,19 +24,16 @@ const Logo = forwardRef<HTMLDivElement, LogoProps>(
         ref={ref}
         component="div"
         sx={{
-          width: 40,
-          height: 40,
+          width: 70,
+          height: 70,
           display: 'inline-flex',
+          backgroundColor: theme.palette.mode === 'light' ? theme.palette.grey[600] : null,
+          borderRadius: 4,
           ...sx,
         }}
         {...other}
       >
-        <Image
-          src={theme.palette.mode === 'light' ? '/next.svg' : '/next-dark.svg'}
-          alt="logo"
-          width={40}
-          height={40}
-        />
+        <Image src="/logo-vetor.png" alt="logo" width={70} height={70} />
       </Box>
     );
 

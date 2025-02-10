@@ -28,12 +28,14 @@ import { Divider } from '@mui/material';
 export default function ModernLoginView() {
   const password = useBoolean();
 
-  const { login } = useAuthContext()
-  const { enqueueSnackbar } = useSnackbar()
-  const router = useRouter()
+  const { login } = useAuthContext();
+  const { enqueueSnackbar } = useSnackbar();
+  const router = useRouter();
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().required('Email é obrigatório').email('Email deve ser um endereço de email válido'),
+    email: Yup.string()
+      .required('Email é obrigatório')
+      .email('Email deve ser um endereço de email válido'),
     password: Yup.string().required('Senha é obrigatória'),
   });
 
@@ -60,17 +62,17 @@ export default function ModernLoginView() {
     } catch (error) {
       console.error(error);
       enqueueSnackbar('Erro ao efetuar login', { variant: 'error' });
-
     }
   });
 
   const renderBottom = (
     <>
-      <Divider sx={{
-        my: 2
-      }} />
+      <Divider
+        sx={{
+          my: 2,
+        }}
+      />
       <Stack spacing={2} direction="row" justifyContent="space-between">
-
         <Stack direction="column" spacing={0.5}>
           <Typography variant="body2">Novo usuário?</Typography>
 
@@ -86,9 +88,11 @@ export default function ModernLoginView() {
           </Link>
         </Stack>
       </Stack>
-      <Divider sx={{
-        my: 2
-      }} />
+      <Divider
+        sx={{
+          my: 2,
+        }}
+      />
     </>
   );
 
@@ -111,7 +115,6 @@ export default function ModernLoginView() {
         }}
       />
 
-
       <LoadingButton
         fullWidth
         color="inherit"
@@ -127,10 +130,8 @@ export default function ModernLoginView() {
     </Stack>
   );
 
-
   return (
     <FormProvider methods={methods} onSubmit={onSubmit}>
-
       {renderForm}
       {renderBottom}
     </FormProvider>

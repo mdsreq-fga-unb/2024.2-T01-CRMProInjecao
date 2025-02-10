@@ -15,7 +15,7 @@ interface Props extends StackProps {
 
 export default function AppWelcome({ title, description, action, img, ...other }: Props) {
   const theme = useTheme();
-  const settings = useSettingsContext()
+  const settings = useSettingsContext();
   return (
     <Card
       sx={{

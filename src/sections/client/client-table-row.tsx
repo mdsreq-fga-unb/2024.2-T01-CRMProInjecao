@@ -40,7 +40,6 @@ export default function ClientTableRow({
   return (
     <>
       <TableRow hover selected={selected}>
-
         <TableCell>
           <Typography variant="subtitle2">{name}</Typography>
         </TableCell>
@@ -50,9 +49,7 @@ export default function ClientTableRow({
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{
-            vehicles?.length ?? 0
-          }</Typography>
+          <Typography variant="subtitle2">{vehicles?.length ?? 0}</Typography>
         </TableCell>
 
         <TableCell>
@@ -70,7 +67,6 @@ export default function ClientTableRow({
             <Iconify icon="eva:more-vertical-fill" />
           </IconButton>
         </TableCell>
-
       </TableRow>
 
       <CustomPopover
@@ -80,13 +76,11 @@ export default function ClientTableRow({
         sx={{ width: 140 }}
       >
         <MenuItem
-          onClick={
-            () => {
-              onSelectRow();
-              popover.onClose();
-              confirm.onTrue();
-            }
-          }
+          onClick={() => {
+            onSelectRow();
+            popover.onClose();
+            confirm.onTrue();
+          }}
           sx={{ color: 'error.main' }}
         >
           <Iconify icon="solar:trash-bin-trash-bold" />
@@ -100,12 +94,14 @@ export default function ClientTableRow({
         title="Deletar Cliente"
         content="Você tem certeza que deseja deletar?"
         action={
-          <Button variant="contained" color="error" onClick={
-            () => {
+          <Button
+            variant="contained"
+            color="error"
+            onClick={() => {
               onDeleteRow();
               confirm.onFalse();
-            }
-          }>
+            }}
+          >
             Deletar
           </Button>
         }

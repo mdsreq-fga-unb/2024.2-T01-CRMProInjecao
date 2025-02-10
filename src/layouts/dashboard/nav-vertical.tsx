@@ -1,5 +1,3 @@
-
-
 import { useEffect } from 'react';
 // @mui
 import Box from '@mui/material/Box';
@@ -25,7 +23,6 @@ type Props = {
 };
 
 export default function NavVertical({ openNav, onCloseNav }: Props) {
-
   const pathname = usePathname();
   const lgUp = useResponsive('up', 'lg');
 
@@ -37,10 +34,6 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]);
-
-
-
-
 
   const renderContent = (
     <Scrollbar
@@ -55,12 +48,9 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
     >
       <Logo sx={{ mt: 3, ml: 4, mb: 1 }} />
 
-      <NavSectionVertical
-        data={navData}
-      />
+      <NavSectionVertical data={navData} />
 
       <Box sx={{ flexGrow: 1 }} />
-
     </Scrollbar>
   );
   return (
@@ -75,7 +65,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
 
       {lgUp ? (
         <Stack
-          className='selector1'
+          className="selector1"
           sx={{
             height: 1,
             position: 'fixed',
@@ -87,7 +77,7 @@ export default function NavVertical({ openNav, onCloseNav }: Props) {
         </Stack>
       ) : (
         <Drawer
-          className='selector1'
+          className="selector1"
           open={openNav}
           onClose={onCloseNav}
           PaperProps={{

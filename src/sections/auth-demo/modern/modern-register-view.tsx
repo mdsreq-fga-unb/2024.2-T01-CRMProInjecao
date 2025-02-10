@@ -25,8 +25,8 @@ import { useSnackbar } from 'notistack';
 
 export default function ModernRegisterView() {
   const password = useBoolean();
-  const { register } = useAuthContext()
-  const {enqueueSnackbar} = useSnackbar()
+  const { register } = useAuthContext();
+  const { enqueueSnackbar } = useSnackbar();
 
   const RegisterSchema = Yup.object().shape({
     email: Yup.string().required('Email is required').email('Email must be a valid email address'),
@@ -51,12 +51,11 @@ export default function ModernRegisterView() {
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      await register(data.email, data.password)
-      
+      await register(data.email, data.password);
     } catch (error) {
       console.error(error);
       enqueueSnackbar('Erro ao efetuar login!', { variant: 'error' });
-      reset()
+      reset();
     }
   });
 
@@ -73,7 +72,6 @@ export default function ModernRegisterView() {
       </Stack>
     </Stack>
   );
-
 
   const renderForm = (
     <Stack spacing={2.5}>
@@ -93,8 +91,6 @@ export default function ModernRegisterView() {
           ),
         }}
       />
-
-
 
       <LoadingButton
         fullWidth

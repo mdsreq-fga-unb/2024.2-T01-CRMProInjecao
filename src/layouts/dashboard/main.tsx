@@ -63,9 +63,7 @@ export default function Main({ children, sx, ...other }: BoxProps) {
       }}
       {...other}
     >
-      <SnackbarProvider>
-        {children}
-      </SnackbarProvider>
+      <SnackbarProvider>{children}</SnackbarProvider>
     </Box>
   );
 }

@@ -40,9 +40,8 @@ export default function UserTableRow({
   return (
     <>
       <TableRow hover selected={selected}>
-
         <TableCell>
-          <Typography variant="subtitle2">{name ?? "Sem nome definido"}</Typography>
+          <Typography variant="subtitle2">{name ?? 'Sem nome definido'}</Typography>
         </TableCell>
 
         <TableCell>
@@ -50,9 +49,9 @@ export default function UserTableRow({
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{
-            role === UserRole.ADMIN ? 'Administrador' : 'Usuário'
-          }</Typography>
+          <Typography variant="subtitle2">
+            {role === UserRole.ADMIN ? 'Administrador' : 'Usuário'}
+          </Typography>
         </TableCell>
 
         <TableCell>
@@ -100,9 +99,11 @@ export default function UserTableRow({
         open={confirm.value}
         onClose={confirm.onFalse}
         title="Delete"
-        content={<>
-          Você tem certeza que deseja excluir o usuário <strong>{name}</strong>?
-        </>}
+        content={
+          <>
+            Você tem certeza que deseja excluir o usuário <strong>{name}</strong>?
+          </>
+        }
         action={
           <Button variant="contained" color="error" onClick={onDeleteRow}>
             Deletar

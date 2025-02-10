@@ -16,7 +16,7 @@ const options = {
 };
 
 export function useGetClients() {
-  const URL_SERVER = `/client`
+  const URL_SERVER = `/client`;
 
   const { data, isLoading, error, isValidating } = useSWR(URL_SERVER, fetcher);
 
@@ -32,7 +32,6 @@ export function useGetClients() {
   );
 
   return memoizedValue;
-
 }
 
 export async function createClient(client: ICreateClient) {
@@ -41,7 +40,6 @@ export async function createClient(client: ICreateClient) {
   mutate(URL.findAll, false);
   return response.data;
 }
-
 
 export async function updateClient(cpf: string, client: Partial<ICreateClient>) {
   const URL_UPDATE = URL.update(cpf);
@@ -67,7 +65,6 @@ export function useGetOneClient(cpf: string) {
 
   return memoizedValue;
 }
-
 
 export async function deleteClient(cpf: string) {
   const URL_DELETE = URL.delete(cpf);

@@ -5,7 +5,18 @@ import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Grid, Card, Typography, Divider, MenuItem } from '@mui/material';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+  Grid,
+  Card,
+  Typography,
+  Divider,
+  MenuItem,
+} from '@mui/material';
 import LoadingButton from '@mui/lab/LoadingButton';
 // components
 import FormProvider from 'src/components/hook-form/form-provider';
@@ -134,7 +145,11 @@ export default function VehicleCreateDialogForm({ open, onClose, clientCPF, onRe
                       <RHFTextField name="color" label="Cor" />
                     </Grid>
                     <Grid xs={12} sm={6}>
-                      <RHFTextField name="currentMileage" label="Quilometragem Atual" type="number" />
+                      <RHFTextField
+                        name="currentMileage"
+                        label="Quilometragem Atual"
+                        type="number"
+                      />
                     </Grid>
                     <Grid xs={12}>
                       <RHFTextField name="descritpion" label="Descrição" multiline rows={3} />
