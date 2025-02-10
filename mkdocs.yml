@@ -149,6 +149,8 @@ nav:
       - Historias de Usuário: estudo-de-caso-pbb/lista-historias-usuario.md
       - Critérios de Aceitação: estudo-de-caso-pbb/criterios-aceitacao.md
       - BDD: estudo-de-caso-pbb/bdd.md
+    - UC - Connect Care:
+      - Template: estudo-de-caso-uc/template-especificacao-caso-de-uso.md
 
   - Apresentações:
     - Unidade 1: apresentacao-1.md
