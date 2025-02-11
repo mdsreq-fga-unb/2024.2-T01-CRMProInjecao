@@ -62,15 +62,15 @@ No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Cons
 
 #### FE01 - Validação de Informações
 
-Nos passos 2.1.5, 2.2.1.2, 2.2.1.5 ou 2.2.2.2 o sistema verifica que uma ou mais informações não foram validadas (formato e/ou obrigatoriedade) e exibe uma mensagem informando ao Profissional de Saúde. O sistema retorna ao passo 2.1.4, 2.2.1.1, 2.2.1.4 ou 2.2.2.1, conforme o local de onde foi chamado.
+Nos passos 5 do Fluxo Principal, 5 do FA01 ou 2 do FA02 o sistema verifica que uma ou mais informações não foram validadas (formato e/ou obrigatoriedade) e exibe uma mensagem informando ao Profissional de Saúde. O sistema retorna ao passo 4 do Fluxo Principal, 4 do FA01 ou 1 do FA02, conforme o local de onde foi chamado.
 
 #### FE02 - Profissional de Saúde não encontrado
 
-Nos passos 2.2.1.3, 2.2.2.3, 2.2.1.5 ou 2.2.3.3 o sistema não encontra o Profissional de Saúde informado e apresenta a mensagem. O sistema  retorna ao passo 2.1.4, 2.2.1.1, 2.2.1.4 ou 2.2.2.1, conforme o local de onde foi chamado.
+Nos passos 3 do FA01 ou 3 do FA02 o sistema não encontra o Profissional de Saúde informado e apresenta a mensagem. O sistema  retorna ao passo 2 do FA01 ou 2 do FA02, conforme o local de onde foi chamado.
 
 #### FE03 - Atualizações não confirmadas
 
-Nos passos 2.2.1.7 ou 2.2.2.6 o advogado não confirma as atualizações. O sistema retorna ao passo 2.2.1.3 ou 2.2.2.3 conforme o local de onde foi chamado.
+Nos passos 7 do Fluxo Principal ou 7 do FA01 o advogado não confirma as atualizações. O sistema retorna ao passo 6 do Fluxo Principal ou 6 do FA01 conforme o local de onde foi chamado.
 
 ## Requisitos Especiais
 
