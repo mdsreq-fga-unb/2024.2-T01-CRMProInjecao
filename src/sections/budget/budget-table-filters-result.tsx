@@ -4,18 +4,19 @@ import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack, { StackProps } from '@mui/material/Stack';
 import Iconify from 'src/components/iconify';
+import { BudgetStatus } from '@/types/budget';
 
 interface Props extends StackProps {
   filters: {
     name: string;
-    budgetStatus: 'all' | 'linked' | 'unlinked';
+    status: BudgetStatus | 'all';
   };
   onFilters: (name: string, value: any) => void;
   onResetFilters: VoidFunction;
   results: number;
 }
 
-export default function ServiceOrderTableFiltersResult({
+export default function BudgetTableFiltersResult({
   filters,
   onFilters,
   onResetFilters,
@@ -23,7 +24,7 @@ export default function ServiceOrderTableFiltersResult({
   ...other
 }: Props) {
   const handleRemoveFilter = (key: string) => {
-    onFilters(key, key === 'budgetStatus' ? 'all' : '');
+    onFilters(key, key === 'status' ? 'all' : '');
   };
 
   return (
@@ -36,27 +37,15 @@ export default function ServiceOrderTableFiltersResult({
       </Box>
 
       <Stack flexGrow={1} spacing={1} direction="row" flexWrap="wrap" alignItems="center">
-        {filters.budgetStatus !== 'all' && (
+        {filters.status !== 'all' && (
           <Block label="Status:">
-            <Chip
-              size="small"
-              label={
-                filters.budgetStatus === 'linked'
-                  ? 'Vinculadas a Orçamento'
-                  : 'Sem Orçamento'
-              }
-              onDelete={() => handleRemoveFilter('budgetStatus')}
-            />
+            <Chip size="small" label={filters.status} onDelete={() => handleRemoveFilter('status')} />
           </Block>
         )}
 
         {filters.name && (
           <Block label="Busca:">
-            <Chip
-              size="small"
-              label={filters.name}
-              onDelete={() => handleRemoveFilter('name')}
-            />
+            <Chip size="small" label={filters.name} onDelete={() => handleRemoveFilter('name')} />
           </Block>
         )}
 

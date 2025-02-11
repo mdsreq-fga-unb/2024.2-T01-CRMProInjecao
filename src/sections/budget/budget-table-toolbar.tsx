@@ -4,16 +4,17 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Iconify from 'src/components/iconify';
 import { MenuItem, Select } from '@mui/material';
+import { BudgetStatus } from '@/types/budget';
 
 type Props = {
   filters: {
     name: string;
-    budgetStatus: 'all' | 'linked' | 'unlinked';
+    status: BudgetStatus | 'all';
   };
   onFilters: (name: string, value: any) => void;
 };
 
-export default function ServiceOrderTableToolbar({ filters, onFilters }: Props) {
+export default function BudgetTableToolbar({ filters, onFilters }: Props) {
   const handleFilterName = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       onFilters('name', event.target.value);
@@ -21,9 +22,9 @@ export default function ServiceOrderTableToolbar({ filters, onFilters }: Props) 
     [onFilters]
   );
 
-  const handleFilterBudgetStatus = useCallback(
+  const handleFilterStatus = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
-      onFilters('budgetStatus', event.target.value);
+      onFilters('status', event.target.value);
     },
     [onFilters]
   );
@@ -42,7 +43,7 @@ export default function ServiceOrderTableToolbar({ filters, onFilters }: Props) 
         fullWidth
         value={filters.name}
         onChange={handleFilterName}
-        placeholder="Buscar por cliente ou descrição..."
+        placeholder="Buscar..."
         InputProps={{
           startAdornment: (
             <InputAdornment position="start">
@@ -54,13 +55,14 @@ export default function ServiceOrderTableToolbar({ filters, onFilters }: Props) 
 
       <Select
         native
-        value={filters.budgetStatus}
-        onChange={handleFilterBudgetStatus}
-        sx={{ width: { xs: 1, md: 240 } }}
+        value={filters.status}
+        onChange={handleFilterStatus}
+        sx={{ width: { xs: 1, md: 200 } }}
       >
-        <option value="all">Todas as Ordens</option>
-        <option value="linked">Vinculadas a Orçamento</option>
-        <option value="unlinked">Sem Orçamento</option>
+        <option value="all">Todos Status</option>
+        <option value={BudgetStatus.PENDING}>Pendente</option>
+        <option value={BudgetStatus.ACCEPTED}>Aceito</option>
+        <option value={BudgetStatus.CANCELED}>Cancelado</option>
       </Select>
     </Stack>
   );

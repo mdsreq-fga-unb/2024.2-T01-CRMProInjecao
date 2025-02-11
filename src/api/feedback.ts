@@ -66,4 +66,27 @@ export async function deleteFeedback(id: number) {
   const response = await axios.delete(URL_DELETE);
   mutate(URL.findAll, false);
   return response.data;
+}
+
+export function useGetFeedbackByToken(token?: string | null) {
+  const { data, isLoading, error } = useSWR(
+    token ? `${endpoints.feedback.getByToken(token)}` : null,
+    fetcher
+  );
+
+  const memoizedValue = useMemo(
+    () => ({
+      feedbackData: data,
+      loading: isLoading,
+      error,
+    }),
+    [data, error, isLoading]
+  );
+
+  return memoizedValue;
+}
+
+export async function createClientFeedback(data: any) {
+  const response = await axios.post(endpoints.feedback.createClient, data);
+  return response.data;
 } 

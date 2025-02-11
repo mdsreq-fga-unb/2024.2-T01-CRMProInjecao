@@ -7,11 +7,13 @@ import IconButton from '@mui/material/IconButton';
 import { useBoolean } from 'src/hooks/use-boolean';
 import Iconify from 'src/components/iconify';
 import CustomPopover, { usePopover } from 'src/components/custom-popover';
-import { IServiceOrder } from 'src/types/service-order';
+import { IServiceOrder , ServiceOrderStatus } from 'src/types/service-order';
 import { ConfirmDialog } from '@/components/custom-dialog';
-import { Typography } from '@mui/material';
+import { Typography, Stack, Link, Checkbox } from '@mui/material';
 import { fDateTime } from '@/utils/format-time';
 import { fCurrency } from '@/utils/format-number';
+import { useState } from 'react';
+import Label from '@/components/label';
 
 type Props = {
   selected: boolean;
@@ -24,95 +26,148 @@ type Props = {
 export default function ServiceOrderTableRow({
   row,
   selected,
-  onEditRow,
   onSelectRow,
+  onEditRow,
   onDeleteRow,
 }: Props) {
-  const { type, description, client, vehicle, additionalCost, createdAt } = row;
+  const [openConfirm, setOpenConfirm] = useState(false);
+  const [openPopover, setOpenPopover] = useState<HTMLElement | null>(null);
 
-  const confirm = useBoolean();
-  const popover = usePopover();
+  const handleOpenConfirm = () => {
+    setOpenConfirm(true);
+  };
+
+  const handleCloseConfirm = () => {
+    setOpenConfirm(false);
+  };
+
+  const handleOpenPopover = (event: React.MouseEvent<HTMLElement>) => {
+    setOpenPopover(event.currentTarget);
+  };
+
+  const handleClosePopover = () => {
+    setOpenPopover(null);
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case ServiceOrderStatus.COMPLETED:
+        return 'success';
+      case ServiceOrderStatus.CANCELED:
+        return 'error';
+      default:
+        return 'warning';
+    }
+  };
+
+  const getStatusLabel = (status: string) => {
+    switch (status) {
+      case ServiceOrderStatus.COMPLETED:
+        return 'Concluída';
+      case ServiceOrderStatus.CANCELED:
+        return 'Cancelada';
+      default:
+        return 'Em Andamento';
+    }
+  };
+
 
   return (
     <>
       <TableRow hover selected={selected}>
-        <TableCell>
-          <Typography variant="subtitle2">{type.name}</Typography>
-        </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{description}</Typography>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <div>
+              <Typography variant="subtitle2">{row.type.name}</Typography>
+              {row.budget && (
+                <Link
+                  sx={{
+                    color: 'text.secondary',
+                    cursor: 'pointer',
+                    '&:hover': { textDecoration: 'underline' }
+                  }}
+                >
+                  Orçamento: {row.budget.name}
+                </Link>
+              )}
+            </div>
+          </Stack>
         </TableCell>
 
+        <TableCell>{row.description}</TableCell>
+
         <TableCell>
-          <Typography variant="subtitle2">{client.name}</Typography>
+          <Typography variant="subtitle2">{row.client.name}</Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            CPF: {client.cpf}
+            {row.client.cpf}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{vehicle.model}</Typography>
+          <Typography variant="subtitle2">{row.vehicle.model}</Typography>
           <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-            Placa: {vehicle.licensePlate}
+            {row.vehicle.licensePlate}
           </Typography>
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{fCurrency(additionalCost)}</Typography>
+          <Label
+            variant="soft"
+            color={getStatusColor(row.status)}
+          >
+            {getStatusLabel(row.status)}
+          </Label>
         </TableCell>
 
-        <TableCell>
-          <Typography variant="subtitle2">{fDateTime(createdAt)}</Typography>
-        </TableCell>
+        <TableCell align="right">{
+          fCurrency(parseFloat(String(row.type.price)) + parseFloat(String(row.additionalCost)))
+        }</TableCell>
+
+        <TableCell align="right">{fDateTime(row.createdAt)}</TableCell>
 
         <TableCell align="right">
-          <Tooltip title="Edição rápida" placement="top" arrow>
-            <IconButton color="default" onClick={onEditRow}>
+          <Tooltip title="Editar" placement="top" arrow>
+            <IconButton color='default' onClick={onEditRow}>
               <Iconify icon="solar:pen-bold" />
             </IconButton>
           </Tooltip>
-
-          <IconButton color={popover.open ? 'inherit' : 'default'} onClick={popover.onOpen}>
-            <Iconify icon="eva:more-vertical-fill" />
-          </IconButton>
+          <Tooltip title="Detalhes" placement="top" arrow>
+            <IconButton color='info' onClick={onSelectRow}>
+              <Iconify icon="solar:eye-bold" />
+            </IconButton>
+          </Tooltip>
         </TableCell>
+
+
       </TableRow>
 
       <CustomPopover
-        open={popover.open}
-        onClose={popover.onClose}
+        open={openPopover}
+        onClose={handleClosePopover}
         arrow="right-top"
         sx={{ width: 140 }}
       >
+
         <MenuItem
           onClick={() => {
-            onSelectRow();
-            popover.onClose();
-            confirm.onTrue();
+            onEditRow();
+            handleClosePopover();
           }}
-          sx={{ color: 'error.main' }}
         >
-          <Iconify icon="solar:trash-bin-trash-bold" />
-          Deletar
+          <Iconify icon="solar:pen-bold" />
+          Edit
         </MenuItem>
       </CustomPopover>
 
       <ConfirmDialog
-        open={confirm.value}
-        onClose={confirm.onFalse}
-        title="Deletar"
-        content="Tem certeza que deseja deletar?"
+        open={openConfirm}
+        onClose={handleCloseConfirm}
+        title="Delete"
+        content="Are you sure want to delete?"
         action={
-          <Button
-            variant="contained"
-            color="error"
-            onClick={() => {
-              onDeleteRow();
-              confirm.onFalse();
-            }}
-          >
-            Deletar
+          <Button variant="contained" color="error" onClick={onDeleteRow}>
+            Delete
           </Button>
         }
       />

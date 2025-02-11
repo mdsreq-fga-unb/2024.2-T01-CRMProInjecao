@@ -22,39 +22,39 @@ import {
   TableHeadCustom,
   TablePaginationCustom,
 } from 'src/components/table';
-import { IServiceOrder } from 'src/types/service-order';
-import { deleteServiceOrder, useGetServiceOrders } from 'src/api/service-order';
+import { IBudget, BudgetStatus } from 'src/types/budget';
+import { deleteBudget, updateBudget, useGetBudgets } from 'src/api/budget';
 import { useSnackbar } from 'notistack';
 import { CardHeader, Dialog, Divider, TableContainer, Typography } from '@mui/material';
-import ServiceOrderTableRow from '../service-order-table-row';
-import ServiceOrderNewEditForm from '../service-order-new-edit-form';
-import ServiceOrderTableToolbar from '../service-order-table-toolbar';
-import ServiceOrderTableFiltersResult from '../service-order-table-filters-result';
+import BudgetTableRow from '../budget-table-row';
+import BudgetTableToolbar from '../budget-table-toolbar';
+import BudgetTableFiltersResult from '../budget-table-filters-result';
+import BudgetNewEditForm from '../budget-new-edit-form';
 
 const TABLE_HEAD = [
-  { id: 'type', label: 'Tipo / Orçamento' },
+  { id: 'name', label: 'Nome' },
   { id: 'description', label: 'Descrição' },
   { id: 'client', label: 'Cliente' },
   { id: 'vehicle', label: 'Veículo' },
+  { id: 'totalCost', label: 'Valor Total' },
   { id: 'status', label: 'Status' },
-  { id: 'totalValue', label: 'Valor Total' },
   { id: 'createdAt', label: 'Data' },
   { id: 'actions', label: 'Ações', align: 'right' },
 ];
 
 const defaultFilters = {
   name: '',
-  budgetStatus: 'all' as const,
+  status: 'all' as BudgetStatus | 'all',
 };
 
-export default function ServiceOrderListView() {
+export default function BudgetListView() {
   const table = useTable();
   const settings = useSettingsContext();
   const router = useRouter();
-  const serviceOrderNewEdit = useBoolean();
-  const { serviceOrders, serviceOrdersLoading } = useGetServiceOrders();
-  const [currServiceOrder, setCurrServiceOrder] = useState<IServiceOrder | null>(null);
-  const [tableData, setTableData] = useState<IServiceOrder[]>(serviceOrders || []);
+  const budgetNewEdit = useBoolean();
+  const { budgets, budgetsLoading } = useGetBudgets();
+  const [currBudget, setCurrBudget] = useState<IBudget | null>(null);
+  const [tableData, setTableData] = useState<IBudget[]>(budgets || []);
   const { enqueueSnackbar } = useSnackbar();
   const [filters, setFilters] = useState(defaultFilters);
 
@@ -66,32 +66,58 @@ export default function ServiceOrderListView() {
 
   const denseHeight = table.dense ? 52 : 72;
 
-  const canReset = !!filters.name;
+  const canReset = !!filters.name || filters.status !== 'all';
   const notFound = (!dataFiltered.length && canReset) || !dataFiltered.length;
 
   const handleDelete = useCallback(
-    async (currentServiceOrder: IServiceOrder) => {
+    async (currentBudget: IBudget) => {
       try {
-        await deleteServiceOrder(currentServiceOrder.id);
-        enqueueSnackbar('Ordem de serviço deletada com sucesso', { variant: 'success' });
+        await deleteBudget(currentBudget.id);
+        enqueueSnackbar('Orçamento deletado com sucesso', { variant: 'success' });
       } catch (error) {
         console.error(error);
-        enqueueSnackbar('Erro ao deletar ordem de serviço', { variant: 'error' });
+        enqueueSnackbar('Erro ao deletar orçamento', { variant: 'error' });
+      }
+    },
+    [enqueueSnackbar]
+  );
+
+  const handleAcceptBudget = useCallback(
+    async (currentBudget: IBudget) => {
+      try {
+        await updateBudget(currentBudget.id, { status: BudgetStatus.ACCEPTED });
+        enqueueSnackbar('Orçamento aceito com sucesso', { variant: 'success' });
+      } catch (error) {
+        console.error(error);
+        enqueueSnackbar('Erro ao aceitar orçamento', { variant: 'error' });
+      }
+    },
+    [enqueueSnackbar]
+  );
+
+  const handleCancelBudget = useCallback(
+    async (currentBudget: IBudget) => {
+      try {
+        await updateBudget(currentBudget.id, { status: BudgetStatus.CANCELED });
+        enqueueSnackbar('Orçamento cancelado com sucesso', { variant: 'success' });
+      } catch (error) {
+        console.error(error);
+        enqueueSnackbar('Erro ao cancelar orçamento', { variant: 'error' });
       }
     },
     [enqueueSnackbar]
   );
 
   const handleEditRow = useCallback(
-    (row: IServiceOrder) => {
-      setCurrServiceOrder(row);
-      serviceOrderNewEdit.onTrue();
+    (row: IBudget) => {
+      setCurrBudget(row);
+      budgetNewEdit.onTrue();
     },
-    [serviceOrderNewEdit]
+    [budgetNewEdit]
   );
 
   const handleFilters = useCallback(
-    (name: string, value: string) => {
+    (name: string, value: any) => {
       table.onResetPage();
       setFilters((prevState) => ({
         ...prevState,
@@ -106,8 +132,8 @@ export default function ServiceOrderListView() {
   }, []);
 
   useEffect(() => {
-    setTableData(serviceOrders || []);
-  }, [serviceOrders, serviceOrdersLoading]);
+    setTableData(budgets || []);
+  }, [budgets, budgetsLoading]);
 
   return (
     <>
@@ -116,30 +142,33 @@ export default function ServiceOrderListView() {
           heading="Lista"
           links={[
             { name: 'Dashboard', href: paths.dashboard.root },
-            { name: 'Ordens de Serviço', href: paths.dashboard.serviceOrders },
+            { name: 'Orçamentos', href: paths.dashboard.budgets },
           ]}
           action={
             <Button
               onClick={() => {
-                setCurrServiceOrder(null);
-                serviceOrderNewEdit.onTrue();
+                setCurrBudget(null);
+                budgetNewEdit.onTrue();
               }}
               variant="contained"
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
-              Nova Ordem de Serviço
+              Novo Orçamento
             </Button>
           }
+          sx={{
+            mb: { xs: 3, md: 5 },
+          }}
         />
 
         <Card>
-          <ServiceOrderTableToolbar
+          <BudgetTableToolbar
             filters={filters}
             onFilters={handleFilters}
           />
 
           {canReset && (
-            <ServiceOrderTableFiltersResult
+            <BudgetTableFiltersResult
               filters={filters}
               onFilters={handleFilters}
               onResetFilters={handleResetFilters}
@@ -167,13 +196,15 @@ export default function ServiceOrderListView() {
                       table.page * table.rowsPerPage + table.rowsPerPage
                     )
                     .map((row) => (
-                      <ServiceOrderTableRow
+                      <BudgetTableRow
                         key={row.id}
                         row={row}
                         selected={table.selected.includes(row.id)}
-                        onSelectRow={() => router.push(paths.dashboard.services.viewOrder(row.id))}
+                        onSelectRow={() => router.push(paths.dashboard.services.viewBudget(row.id))}
                         onDeleteRow={() => handleDelete(row)}
                         onEditRow={() => handleEditRow(row)}
+                        onAcceptBudget={() => handleAcceptBudget(row)}
+                        onCancelBudget={() => handleCancelBudget(row)}
                       />
                     ))}
 
@@ -201,10 +232,10 @@ export default function ServiceOrderListView() {
       </Container>
 
       <Dialog
-        open={serviceOrderNewEdit.value}
+        open={budgetNewEdit.value}
         onClose={() => {
-          setCurrServiceOrder(null);
-          serviceOrderNewEdit.onFalse();
+          setCurrBudget(null);
+          budgetNewEdit.onFalse();
         }}
         fullWidth
         maxWidth="md"
@@ -222,7 +253,7 @@ export default function ServiceOrderListView() {
             }}
             title={
               <Typography variant="h5">
-                {currServiceOrder ? 'Editar Ordem de Serviço' : 'Nova Ordem de Serviço'}
+                {currBudget ? 'Editar Orçamento' : 'Novo Orçamento'}
               </Typography>
             }
           />
@@ -233,11 +264,11 @@ export default function ServiceOrderListView() {
               zIndex: 99,
             }}
           />
-          <ServiceOrderNewEditForm
-            currentServiceOrder={currServiceOrder}
+          <BudgetNewEditForm
+            currentBudget={currBudget}
             onClose={() => {
-              setCurrServiceOrder(null);
-              serviceOrderNewEdit.onFalse();
+              setCurrBudget(null);
+              budgetNewEdit.onFalse();
             }}
           />
         </Card>
@@ -251,14 +282,14 @@ function applyFilter({
   comparator,
   filters,
 }: {
-  inputData: IServiceOrder[];
+  inputData: IBudget[];
   comparator: (a: any, b: any) => number;
   filters: {
     name: string;
-    budgetStatus: 'all' | 'linked' | 'unlinked';
+    status: BudgetStatus | 'all';
   };
 }) {
-  const { name, budgetStatus } = filters;
+  const { name, status } = filters;
 
   const stabilizedThis = inputData.map((el, index) => [el, index] as const);
 
@@ -272,20 +303,15 @@ function applyFilter({
 
   if (name) {
     inputData = inputData.filter(
-      (serviceOrder) =>
-        serviceOrder.client.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 ||
-        serviceOrder.description.toLowerCase().indexOf(name.toLowerCase()) !== -1
+      (budget) =>
+        budget.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 ||
+        budget.client.name.toLowerCase().indexOf(name.toLowerCase()) !== -1
     );
   }
 
-  if (budgetStatus !== 'all') {
-    inputData = inputData.filter((serviceOrder) => {
-      if (budgetStatus === 'linked') {
-        return !!serviceOrder.budget;
-      }
-      return !serviceOrder.budget;
-    });
+  if (status !== 'all') {
+    inputData = inputData.filter((budget) => budget.status === status);
   }
 
   return inputData;
-}
+} 
