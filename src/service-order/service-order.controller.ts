@@ -59,7 +59,6 @@ export class ServiceOrderController {
 
   @Get('type/:id')
   findOneType(@Param('id', ParseUUIDPipe) id: string) {
-    console.log('adsada');
     return this.serviceOrderService.findOneType(id);
   }
 

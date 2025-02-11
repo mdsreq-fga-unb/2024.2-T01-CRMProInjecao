@@ -2,10 +2,10 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { EmailService } from './email.service';
 import { Logger } from '@nestjs/common';
 import { MailerService } from '@nestjs-modules/mailer';
+import { SimpleEmailTemplate } from './templates/templates.types';
 
 describe('EmailService', () => {
   let service: EmailService;
-  let logger: Logger;
   let mailerService: jest.Mocked<MailerService>;
 
   const mockMailerService = {
@@ -25,25 +25,86 @@ describe('EmailService', () => {
     }).compile();
 
     service = module.get<EmailService>(EmailService);
-    logger = module.get<Logger>(Logger);
     mailerService = module.get(MailerService);
+  });
+
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   it('should be defined', () => {
     expect(service).toBeDefined();
   });
 
-  // // Add a test for sending email
-  // it("should send an email successfully", async () => {
-  //   const emailData = {
-  //     sendTo: "test@example.com",
-  //     subject: "Test Subject",
-  //     template: "test-template",
-  //     context: { name: "Test User" }
-  //   };
+  describe('sendEmail', () => {
+    it('should send an email successfully with simple template', async () => {
+      const emailData: SimpleEmailTemplate = {
+        sendTo: 'test@example.com',
+        subject: 'Test Subject',
+        template: 'simpleEmail',
+        context: {
+          title: 'Test Title',
+          message: 'Test Message',
+        },
+      };
 
-  //   const result = await service.sendEmail(emailData);
-  //   expect(result).toEqual({ send: true });
-  //   expect(mailerService.sendMail).toHaveBeenCalled();
-  // });
+      const result = await service.sendEmail(emailData);
+
+      expect(result).toEqual({ send: true });
+      expect(mailerService.sendMail).toHaveBeenCalledWith({
+        to: emailData.sendTo,
+        from: 'CRM-PROINJECAO <contato@casapiri.com.br>',
+        subject: emailData.subject,
+        template: emailData.template,
+        context: emailData.context,
+      });
+    });
+
+    it('should handle errors when sending email fails', async () => {
+      const error = new Error('Failed to send email');
+      mockMailerService.sendMail.mockRejectedValueOnce(error);
+
+      const emailData: SimpleEmailTemplate = {
+        sendTo: 'test@example.com',
+        subject: 'Test Subject',
+        template: 'simpleEmail',
+        context: {
+          title: 'Test Title',
+          message: 'Test Message',
+        },
+      };
+
+      const result = await service.sendEmail(emailData);
+
+      expect(result).toEqual({
+        send: false,
+        error: error.message,
+      });
+    });
+
+    it('should log email data when EMAIL_DISABLED is true', async () => {
+      const originalEnv = process.env.EMAIL_DISABLED;
+      process.env.EMAIL_DISABLED = 'true';
+
+      const emailData: SimpleEmailTemplate = {
+        sendTo: 'test@example.com',
+        subject: 'Test Subject',
+        template: 'simpleEmail',
+        context: {
+          title: 'Test Title',
+          message: 'Test Message',
+        },
+      };
+
+      const debugSpy = jest.spyOn(Logger.prototype, 'debug');
+
+      const result = await service.sendEmail(emailData);
+
+      expect(result).toEqual({ send: true });
+      expect(debugSpy).toHaveBeenCalled();
+      expect(mailerService.sendMail).not.toHaveBeenCalled();
+
+      process.env.EMAIL_DISABLED = originalEnv;
+    });
+  });
 });

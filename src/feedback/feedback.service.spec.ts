@@ -1,7 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { FeedbackService } from './feedback.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Feedback } from './entities/feedback.entity';
 import { ClientService } from '../client/client.service';
 import { ServiceOrderService } from '../service-order/service-order.service';
@@ -9,9 +8,6 @@ import { NotFoundException } from '@nestjs/common';
 
 describe('FeedbackService', () => {
   let service: FeedbackService;
-  let feedbackRepository: Repository<Feedback>;
-  let clientService: ClientService;
-  let serviceOrderService: ServiceOrderService;
 
   const mockFeedbackRepository = {
     create: jest.fn(),
@@ -49,11 +45,6 @@ describe('FeedbackService', () => {
     }).compile();
 
     service = module.get<FeedbackService>(FeedbackService);
-    feedbackRepository = module.get<Repository<Feedback>>(
-      getRepositoryToken(Feedback),
-    );
-    clientService = module.get<ClientService>(ClientService);
-    serviceOrderService = module.get<ServiceOrderService>(ServiceOrderService);
   });
 
   describe('create', () => {

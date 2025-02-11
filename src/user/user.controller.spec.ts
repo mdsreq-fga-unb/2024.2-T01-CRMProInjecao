@@ -6,7 +6,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 
 describe('UserController', () => {
   let controller: UserController;
-  let userService: UserService;
 
   const mockUserService = {
     create: jest.fn(),
@@ -23,7 +22,6 @@ describe('UserController', () => {
     }).compile();
 
     controller = module.get<UserController>(UserController);
-    userService = module.get<UserService>(UserService);
   });
 
   it('should be defined', () => {

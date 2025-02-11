@@ -4,9 +4,7 @@ import {
   IsOptional,
   IsArray,
   IsUUID,
-  IsEnum,
 } from 'class-validator';
-import { BudgetStatus } from '../entities/budget.entity';
 
 export class CreateBudgetDto {
   @IsString()

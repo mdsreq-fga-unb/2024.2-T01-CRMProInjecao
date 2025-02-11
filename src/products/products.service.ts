@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Product } from './entities/product.entity';
-import { Category } from '../category/entities/category.entity';
 import { In, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CategoryService } from '../category/category.service';
@@ -72,5 +71,11 @@ export class ProductsService {
 
   async remove(id: string) {
     await this.productRepository.delete(id);
+  }
+
+  async findByIds(ids: string[]) {
+    return this.productRepository.find({
+      where: { id: In(ids) },
+    });
   }
 }

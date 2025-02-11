@@ -15,6 +15,12 @@ import {
 } from 'typeorm';
 import { Budget } from './budget.entity';
 
+export enum ServiceOrderStatus {
+  IN_PROGRESS = 'in_progress',
+  COMPLETED = 'completed',
+  CANCELED = 'canceled',
+}
+
 @Entity()
 export class ServiceOrderType {
   @PrimaryGeneratedColumn('uuid')
@@ -82,6 +88,13 @@ export class ServiceOrder {
 
   @ManyToOne(() => Budget, (budget) => budget.serviceOrders, { nullable: true })
   budget: Budget;
+
+  @Column({
+    type: 'enum',
+    enum: ServiceOrderStatus,
+    default: ServiceOrderStatus.IN_PROGRESS,
+  })
+  status: ServiceOrderStatus;
 
   @CreateDateColumn()
   createdAt: Date;

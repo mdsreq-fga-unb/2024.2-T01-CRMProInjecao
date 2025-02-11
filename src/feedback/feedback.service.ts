@@ -115,4 +115,45 @@ export class FeedbackService {
       id,
     };
   }
+
+  async findByToken(token: string) {
+    const decodedToken = this.decodeToken(token);
+
+    if (!decodedToken) {
+      throw new NotFoundException('Token inválido');
+    }
+
+    const { feedbackId, clientCPF } = decodedToken;
+
+    // Buscar o feedback
+    const feedback = await this.feedbackRepository.findOne({
+      where: { id: feedbackId },
+      relations: [
+        'client',
+        'serviceOrders',
+        'serviceOrders.type',
+        'serviceOrders.vehicle',
+        'serviceOrders.client',
+      ],
+    });
+
+    if (!feedback || feedback.client.cpf !== clientCPF) {
+      throw new NotFoundException('Feedback não encontrado ou token inválido');
+    }
+
+    return {
+      client: feedback.client,
+      serviceOrder: feedback.serviceOrders,
+    };
+  }
+
+  private decodeToken(token: string) {
+    try {
+      // Decodificar o token base64
+      const decoded = Buffer.from(token, 'base64').toString('utf-8');
+      return JSON.parse(decoded);
+    } catch (error) {
+      return null;
+    }
+  }
 }

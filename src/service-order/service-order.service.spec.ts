@@ -9,14 +9,10 @@ import { Budget } from './entities/budget.entity';
 import { ProductsService } from '../products/products.service';
 import { VehicleService } from '../vehicle/vehicle.service';
 import { ClientService } from '../client/client.service';
-import { Repository } from 'typeorm';
 import { NotFoundException } from '@nestjs/common';
 
 describe('ServiceOrderService', () => {
   let service: ServiceOrderService;
-  let serviceOrderRepository: Repository<ServiceOrder>;
-  let serviceOrderTypeRepository: Repository<ServiceOrderType>;
-  let budgetRepository: Repository<Budget>;
 
   const mockProductsService = {
     findOne: jest.fn(),
@@ -82,15 +78,6 @@ describe('ServiceOrderService', () => {
     }).compile();
 
     service = module.get<ServiceOrderService>(ServiceOrderService);
-    serviceOrderRepository = module.get<Repository<ServiceOrder>>(
-      getRepositoryToken(ServiceOrder),
-    );
-    serviceOrderTypeRepository = module.get<Repository<ServiceOrderType>>(
-      getRepositoryToken(ServiceOrderType),
-    );
-    budgetRepository = module.get<Repository<Budget>>(
-      getRepositoryToken(Budget),
-    );
   });
 
   it('should be defined', () => {

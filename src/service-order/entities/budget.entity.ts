@@ -2,8 +2,6 @@ import { Client } from '../../client/entities/client.entity';
 import { Product } from '../../products/entities/product.entity';
 import { Vehicle } from '../../vehicle/entities/vehicle.entity';
 import {
-  BeforeInsert,
-  BeforeUpdate,
   Column,
   CreateDateColumn,
   DeleteDateColumn,
@@ -93,14 +91,4 @@ export class Budget {
     default: 0,
   })
   totalCost: number;
-
-  @BeforeUpdate()
-  async updateTotalCost() {
-    this.totalCost = this.initialCost + this.additionalCost;
-  }
-
-  @BeforeInsert()
-  async setTotalCost() {
-    this.totalCost = this.initialCost + this.additionalCost;
-  }
 }
