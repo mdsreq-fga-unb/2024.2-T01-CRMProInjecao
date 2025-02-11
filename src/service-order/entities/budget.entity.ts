@@ -2,8 +2,6 @@ import { Client } from '../../client/entities/client.entity';
 import { Product } from '../../products/entities/product.entity';
 import { Vehicle } from '../../vehicle/entities/vehicle.entity';
 import {
-  BeforeInsert,
-  BeforeUpdate,
   Column,
   CreateDateColumn,
   DeleteDateColumn,

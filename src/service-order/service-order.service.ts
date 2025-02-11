@@ -94,7 +94,8 @@ export class ServiceOrderService {
       await this.emailService.sendEmail({
         context: {
           title: 'Nova Ordem de Serviço Criada',
-          message: `Olá ${savedServiceOrder.client.name},\n\n` +
+          message:
+            `Olá ${savedServiceOrder.client.name},\n\n` +
             `Uma nova ordem de serviço foi criada para seu veículo ${savedServiceOrder.vehicle.model} ` +
             `(${savedServiceOrder.vehicle.licensePlate}).\n\n` +
             `Tipo de Serviço: ${savedServiceOrder.type.name}\n` +
@@ -208,7 +209,8 @@ export class ServiceOrderService {
         await this.emailService.sendEmail({
           context: {
             title: 'Atualização da Ordem de Serviço',
-            message: `Olá ${savedServiceOrder.client.name},\n\n` +
+            message:
+              `Olá ${savedServiceOrder.client.name},\n\n` +
               `Sua ordem de serviço ${statusMessages[savedServiceOrder.status]}.\n\n` +
               `Tipo de Serviço: ${savedServiceOrder.type.name}\n` +
               `Veículo: ${savedServiceOrder.vehicle.model} (${savedServiceOrder.vehicle.licensePlate})\n` +

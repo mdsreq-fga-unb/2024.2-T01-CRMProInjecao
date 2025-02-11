@@ -118,7 +118,7 @@ export class FeedbackService {
 
   async findByToken(token: string) {
     const decodedToken = this.decodeToken(token);
-    
+
     if (!decodedToken) {
       throw new NotFoundException('Token inválido');
     }
@@ -128,7 +128,13 @@ export class FeedbackService {
     // Buscar o feedback
     const feedback = await this.feedbackRepository.findOne({
       where: { id: feedbackId },
-      relations: ['client', 'serviceOrders', 'serviceOrders.type', 'serviceOrders.vehicle', 'serviceOrders.client'],
+      relations: [
+        'client',
+        'serviceOrders',
+        'serviceOrders.type',
+        'serviceOrders.vehicle',
+        'serviceOrders.client',
+      ],
     });
 
     if (!feedback || feedback.client.cpf !== clientCPF) {
@@ -137,7 +143,7 @@ export class FeedbackService {
 
     return {
       client: feedback.client,
-      serviceOrder: feedback.serviceOrders
+      serviceOrder: feedback.serviceOrders,
     };
   }
 

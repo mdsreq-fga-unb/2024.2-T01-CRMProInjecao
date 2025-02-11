@@ -126,7 +126,8 @@ export class BudgetService {
       await this.emailService.sendEmail({
         context: {
           title: 'Novo Orçamento Criado',
-          message: `Olá ${savedBudget.client.name},\n\n` +
+          message:
+            `Olá ${savedBudget.client.name},\n\n` +
             `Um novo orçamento foi criado para seu veículo ${savedBudget.vehicle.model} ` +
             `(${savedBudget.vehicle.licensePlate}).\n\n` +
             `Nome: ${savedBudget.name}\n` +
@@ -343,7 +344,8 @@ export class BudgetService {
         await this.emailService.sendEmail({
           context: {
             title: 'Atualização do Orçamento',
-            message: `Olá ${savedBudget.client.name},\n\n` +
+            message:
+              `Olá ${savedBudget.client.name},\n\n` +
               `Seu orçamento ${statusMessages[savedBudget.status]}.\n\n` +
               `Nome: ${savedBudget.name}\n` +
               `Veículo: ${savedBudget.vehicle.model} (${savedBudget.vehicle.licensePlate})\n` +
@@ -355,7 +357,10 @@ export class BudgetService {
           template: 'simpleEmail',
         });
       } catch (error) {
-        console.error('Erro ao enviar email de atualização de orçamento:', error);
+        console.error(
+          'Erro ao enviar email de atualização de orçamento:',
+          error,
+        );
       }
     }
 
