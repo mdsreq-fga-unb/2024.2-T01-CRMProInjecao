@@ -154,6 +154,7 @@ nav:
       - Casos de uso:
         - UC001: estudo-de-caso-uc/caso-de-uso-01.md
         - UC002: estudo-de-caso-uc/caso-de-uso-02.md
+        - UC003: estudo-de-caso-uc/caso-de-uso-03.md
 
   - Apresentações:
     - Unidade 1: apresentacao-1.md
