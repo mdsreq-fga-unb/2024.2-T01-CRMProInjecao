@@ -14,6 +14,7 @@ import { Typography, Rating } from '@mui/material';
 type Props = {
   client: any;
   serviceOrder: any;
+  feedbackId: number;
 };
 
 const FeedbackSchema = Yup.object().shape({
@@ -21,12 +22,12 @@ const FeedbackSchema = Yup.object().shape({
   description: Yup.string(),
 });
 
-export default function FeedbackClientForm({ client, serviceOrder }: Props) {
+export default function FeedbackClientForm({ client, serviceOrder, feedbackId }: Props) {
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
   const hasFeedback = useMemo(() => serviceOrder.feedback &&
-      (serviceOrder.feedback.description !== '' || serviceOrder.feedback.rating > 1), [serviceOrder]);
+    (serviceOrder.feedback.description !== '' || serviceOrder.feedback.rating > 1), [serviceOrder]);
 
   const methods = useForm({
     resolver: yupResolver(FeedbackSchema),
@@ -43,7 +44,7 @@ export default function FeedbackClientForm({ client, serviceOrder }: Props) {
 
   const onSubmit = async (data: any) => {
     try {
-      await createClientFeedback({
+      await createClientFeedback(feedbackId, {
         ...data,
         clientCPF: client.cpf,
       });

@@ -89,7 +89,7 @@ export const endpoints = {
     update: (id: number) => `/feedback/${id}`,
     delete: (id: number) => `/feedback/${id}`,
     getByToken: (token: string) => `/feedback/token/${token}`,
-    createClient: '/feedback/client',
+    createClient: (feedbackId : number) => `/feedback/client/${feedbackId}`,
   },
   serviceOrder: {
     findAll: '/service-order',

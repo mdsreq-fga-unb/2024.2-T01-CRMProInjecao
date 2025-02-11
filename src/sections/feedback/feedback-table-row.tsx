@@ -40,7 +40,7 @@ export default function FeedbackTableRow({
         </TableCell>
 
         <TableCell>
-          <Typography variant="subtitle2">{description}</Typography>
+          <Typography variant="subtitle2">{description || 'Não há'}</Typography>
         </TableCell>
 
         <TableCell>
@@ -62,9 +62,9 @@ export default function FeedbackTableRow({
             </IconButton>
           </Tooltip>
 
-          <IconButton color={popover.open ? 'inherit' : 'default'} onClick={popover.onOpen}>
+          {/* <IconButton color={popover.open ? 'inherit' : 'default'} onClick={popover.onOpen}>
             <Iconify icon="eva:more-vertical-fill" />
-          </IconButton>
+          </IconButton> */}
         </TableCell>
       </TableRow>
 

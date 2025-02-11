@@ -10,12 +10,11 @@ export default function FeedbackPage() {
   const searchParams = useSearchParams();
   const token = searchParams.get('token');
   const { feedbackData, loading } = useGetFeedbackByToken(token);
-
   if (loading) {
     return <LoadingScreen />;
   }
 
-  if (!feedbackData) {
+  if (!feedbackData.feedbackId) {
     return (
       <Container>
         <Typography variant="h4" sx={{ mb: 5 }}>
@@ -34,6 +33,7 @@ export default function FeedbackPage() {
       <FeedbackClientForm
         client={feedbackData.client}
         serviceOrder={feedbackData.serviceOrder}
+        feedbackId={feedbackData.feedbackId}
       />
     </Container>
   );

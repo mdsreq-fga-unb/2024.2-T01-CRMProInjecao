@@ -37,7 +37,7 @@ export default function FeedbackNewEditForm({ currentFeedback, onClose }: Props)
     serviceOrderIds: Yup.array().of(Yup.string()),
   });
 
-  const hasClientFeedback = currentFeedback && currentFeedback.description !== '' && currentFeedback.rating > 0;
+  const hasClientFeedback = currentFeedback && (currentFeedback.description !== '' || currentFeedback.rating > 1);
 
   const defaultValues = useMemo(
     () => ({

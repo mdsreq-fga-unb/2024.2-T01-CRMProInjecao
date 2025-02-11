@@ -68,6 +68,11 @@ export async function deleteFeedback(id: number) {
   return response.data;
 }
 
+type FeedbackData = {
+  feedbackId: number;
+  serviceOrder?: any[]
+  client?: any;
+}
 export function useGetFeedbackByToken(token?: string | null) {
   const { data, isLoading, error } = useSWR(
     token ? `${endpoints.feedback.getByToken(token)}` : null,
@@ -76,7 +81,7 @@ export function useGetFeedbackByToken(token?: string | null) {
 
   const memoizedValue = useMemo(
     () => ({
-      feedbackData: data,
+      feedbackData: data as FeedbackData,
       loading: isLoading,
       error,
     }),
@@ -86,7 +91,7 @@ export function useGetFeedbackByToken(token?: string | null) {
   return memoizedValue;
 }
 
-export async function createClientFeedback(data: any) {
-  const response = await axios.post(endpoints.feedback.createClient, data);
+export async function createClientFeedback(feedbackId: number, data: any) {
+  const response = await axios.post(endpoints.feedback.createClient(feedbackId), data);
   return response.data;
 } 
