@@ -39,10 +39,12 @@ Este fluxo alternativo ocorre quando o paciente já possui registro e opta por f
 
 ### Fluxo de Exceção
 
-### FE01 Dados Inválidos
+#### FE01 Dados Inválidos
+
 1. Se no passo 6 do fluxo principal as informações preenchidas pelo paciente forem inválidas, o sistema exibe uma mensagem de erro e retorna ao passo 3 do fluxo principal.
 
 ## Requisitos Especiais
+
 - O sistema deve estar acessível em dispositivos móveis com Android e iOS.
 - O tempo máximo de resposta do sistema para validação deve ser inferior a 2 segundos.
 - Os campos obrigatórios devem ser destacados e informados ao usuário caso estejam vazios.
