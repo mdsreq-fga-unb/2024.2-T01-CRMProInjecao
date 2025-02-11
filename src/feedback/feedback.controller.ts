@@ -23,9 +23,9 @@ export class FeedbackController {
   }
 
   @Public()
-  @Post('client')
-  createClientFeedback(@Body() createFeedbackDto: CreateFeedbackDto) {
-    return this.feedbackService.create(createFeedbackDto);
+  @Post('client/:id')
+  createClientFeedback(@Param('id') id: number, @Body() updateFeedbackDTO: UpdateFeedbackDto) {
+    return this.feedbackService.update(id,updateFeedbackDTO);
   }
 
   @Post()

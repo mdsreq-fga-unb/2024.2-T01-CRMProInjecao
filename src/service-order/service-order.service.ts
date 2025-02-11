@@ -42,7 +42,7 @@ export class ServiceOrderService {
     private budgetRepository: Repository<Budget>,
     private serviceHistoryService: ServiceHistoryService,
     private emailService: EmailService,
-  ) {}
+  ) { }
 
   async create(createServiceOrderDto: CreateServiceOrderDto) {
     const serviceOrder = this.serviceOrderRepository.create(
@@ -100,7 +100,7 @@ export class ServiceOrderService {
             `(${savedServiceOrder.vehicle.licensePlate}).\n\n` +
             `Tipo de Serviço: ${savedServiceOrder.type.name}\n` +
             `Descrição: ${savedServiceOrder.description}\n` +
-            `Valor Total: R$ ${(savedServiceOrder.type.price + savedServiceOrder.additionalCost).toFixed(2)}`,
+            `Valor Total: R$ ${parseFloat(String(savedServiceOrder.type.price) + parseFloat(String(savedServiceOrder.additionalCost))).toFixed(2) || '0.00'}`,
         },
         sendTo: savedServiceOrder.client.email,
         subject: 'Nova Ordem de Serviço - PRO INJEÇÃO',
@@ -215,7 +215,7 @@ export class ServiceOrderService {
               `Tipo de Serviço: ${savedServiceOrder.type.name}\n` +
               `Veículo: ${savedServiceOrder.vehicle.model} (${savedServiceOrder.vehicle.licensePlate})\n` +
               `Status: ${savedServiceOrder.status}\n` +
-              `Valor Total: R$ ${(savedServiceOrder.type.price + savedServiceOrder.additionalCost).toFixed(2)}`,
+              `Valor Total: R$ ${parseFloat(String(savedServiceOrder.type.price) + parseFloat(String(savedServiceOrder.additionalCost))).toFixed(2) || '0.00'}`,
           },
           sendTo: savedServiceOrder.client.email,
           subject: 'Atualização da Ordem de Serviço - PRO INJEÇÃO',

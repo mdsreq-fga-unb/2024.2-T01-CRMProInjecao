@@ -31,7 +31,7 @@ export class BudgetService {
     private serviceOrderService: ServiceOrderService,
     private serviceHistoryService: ServiceHistoryService,
     private emailService: EmailService,
-  ) {}
+  ) { }
 
   async create(createBudgetDto: CreateBudgetDto) {
     const budget = this.budgetRepository.create({
@@ -127,12 +127,12 @@ export class BudgetService {
         context: {
           title: 'Novo Orçamento Criado',
           message:
-            `Olá ${savedBudget.client.name},\n\n` +
+            `Olá ${savedBudget.client.name || 'Nome não informado'},\n\n` +
             `Um novo orçamento foi criado para seu veículo ${savedBudget.vehicle.model} ` +
             `(${savedBudget.vehicle.licensePlate}).\n\n` +
-            `Nome: ${savedBudget.name}\n` +
-            `Descrição: ${savedBudget.description}\n` +
-            `Valor Total: R$ ${savedBudget.totalCost.toFixed(2)}`,
+            `Nome: ${savedBudget.name || 'Nome não informado'}\n` +
+            `Descrição: ${savedBudget.description || 'Nenhuma descrição'}\n` +
+            `Valor Total: R$ ${parseFloat(String(savedBudget.totalCost))?.toFixed(2) || '0.00'}`,
         },
         sendTo: savedBudget.client.email,
         subject: 'Novo Orçamento - PRO INJEÇÃO',
@@ -350,7 +350,7 @@ export class BudgetService {
               `Nome: ${savedBudget.name}\n` +
               `Veículo: ${savedBudget.vehicle.model} (${savedBudget.vehicle.licensePlate})\n` +
               `Status: ${savedBudget.status}\n` +
-              `Valor Total: R$ ${savedBudget.totalCost.toFixed(2)}`,
+              `Valor Total: R$ ${parseFloat(String(savedBudget.totalCost))?.toFixed(2) || '0.00'}`,
           },
           sendTo: savedBudget.client.email,
           subject: 'Atualização do Orçamento - PRO INJEÇÃO',
