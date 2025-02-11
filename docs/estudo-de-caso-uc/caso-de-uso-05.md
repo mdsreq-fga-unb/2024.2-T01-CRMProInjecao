@@ -5,7 +5,7 @@
 Registrar Campanhas de Saúde
 
 ## Breve descrição
-Este caso de uso permite ao profissional de saúde criar um perfil profissional para que sejam registradas suas especializações e horários de disponibilidade. Para isso, é possível que seja realizado o cadastro, consulta e alteração dos dados do profissional de saúde.
+Este caso de uso permite que as organizações de saúde possam registrar campanhas de saúde para que sejam divulgadas e realizadas. Para isso, é possível que seja realizado o cadastro, consulta e alteração das campanhas de saúde.
 
 ## Atores
 - **Organizações**
@@ -13,64 +13,62 @@ Este caso de uso permite ao profissional de saúde criar um perfil profissional 
 ## Fluxo de Eventos
 
 ### Fluxo Principal
-Este caso de uso é iniciado quando o profissional de saúde escolher a opção *Profissional de Saúde*.
+Este caso de uso é iniciado quando a organização escolher a opção *Campanhas de Saúde*.
 
 1. O sistema apresenta as seguintes opções:
-- *Cadastrar novo Profissional de Saúde*;
-- *Atualizar Dados de Profissional de Saúde* [FA01](#fa01-atualizar-dados-de-profissional-de-saude);
-- *Consultar Profissional de Saúde* [FA02](#fa02-consultar-profissional-de-saude);
+   
+    - *Cadastrar nova Campanha de Saúde*;
+    - *Remover Campanha de Saúde* [FA01](#fa01-remover-campanha-de-saude);
 
-2. O Profissional de Saúde seleciona a opção para o cadastro de um novo Profissional de Saúde.
-3. O sistema apresenta as informações a serem preenchidas para a inclusão de um novo Profissional de Saúde.
-4. O Profissional de Saúde preenche as informações e solicita o cadastro.
+2. A Organização seleciona a opção para o cadastro de uma nova campanha de saúde.
+3. O sistema apresenta as informações a serem preenchidas para a inclusão de uma nova campanha de saúde.
+4. A Organização preenche as informações e solicita o cadastro.
 5. O sistema valida as informações preenchidas [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
-6. O sistema envia uma mensagem perguntando se o Profissional de Saúde deseja confirmar o cadastro.
-7. O Profissional de Saúde seleciona a opção de confirmar o cadastro [FE03](#fe03-atualizacoes-nao-confirmadas).
-8. O sistema exibe a mensagem de cadastro realizado com sucesso.
-9. O caso de uso é encerrado.
+6. O sistema verifica se a campanha já existe [RN02](#rn02-verificacao-de-campanha-existente) [FE02](#fe02-validacao-de-camapanha-existente).
+7. O sistema envia uma mensagem perguntando se a Organização desja confirmar o cadastro.
+9. A Organização seleciona a opção de confirmar o cadastro [FE03](#fe03-nao-confirmacao-de-cadastro).
+10. O sistema exibe a mensagem de campanha cadastrada com sucesso.
+11. O caso de uso é encerrado.
 
 ### Fluxos Alternativos
 
-#### FA01 - Atualizar dados de Profissional de Saúde
+#### FA01 Remover Campanha de Saúde
 
-No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Atualizar Dados de Profissional de Saúde.
+No passo um do Fluxo Principal o Profissional de Saúde seleciona a opção de Atualizar Dados de Profissional de Saúde.
 
-1. O sistema solicita que o Profissional de Saúde informe o CRM do Profissional de Saúde que deseja atualizar.
-2. O Profissional de Saúde informa o CRM e solicita a consulta [RN01](#rn01-validacao-de-informacoes) .
-3. O sistema apresenta os dados do Profissional de Saúde procurado [FE02](#fe02-profissional-de-saude-nao-encontrado);
-- Número de identificação do Profissional de Saúde (não liberado para edição), especialização médica e horários de disponibilidade.
-4. O Profissional de Saúde realiza as atualizações necessárias.
-5. O sistema valida os dados atualizados [FE01](#fe01-validacao-de-informacoes) [RN01](#rn01-validacao-de-informacoes).
-6. O sistema pergunta ao Profissional de Saúde se deseja confirmar as atualizações.
-7. O Profissional de Saúde confirma as atualizações [FE03](#fe03-atualizacoes-nao-confirmadas).
-8. O sistema exibe a mensagem de dados atualizados com sucesso.
+1. O sistema mostra as campanhas de saúde cadastradas [FE04](#fe04-campanhas-de-saude-nao-encontradas).
+2. A Organização seleciona uma campanha de saúde.
+3. O sistema apresenta um resumo das informações da campanha de saúde selecionada;
+4. O sistema apresenta a opção de remover a campanha de saúde.
+5. A Organização seleciona a opção de remover.
+6. O sistema exibe uma mensagem de confirmação [FE05](#fe05-nao-confirmacao-de-remocao).
+7. A Organização confirma a remoção.
+8. O sistema exibe a mensagem de campanha de saúde removida com sucesso.
 9. O caso de uso é encerrado.
-
-#### FA02 - Consultar Profissional de Saúde
-
-No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Consultar Profissional de Saúde.
-
-1. O sistema solicita que o Profissional de Saúde informe o Número de identificação do Profissional de Saúde que deseja atualizar.
-2. O Profissional de Saúde informa o CRM e solicita a consulta [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
-3. O sistema apresenta os dados do Profissional de Saúde procurado [FE02](#fe02-profissional-de-saude-nao-encontrado);
-- Número de identificação do Profissional de Saúde (não liberado para edição), especialização médica e horários de disponibilidade.
-4. O sistema apresenta a opção de voltar.
-5. O Profissional de Saúde seleciona a opção de voltar.
-6. O caso de uso é encerrado.
 
 ### Fluxos de Exceção
 
-#### FE01 - Validação de Informações
+#### FE01 Validação de Informações
 
-Nos passos 5 do Fluxo Principal, 5 do FA01 ou 2 do FA02 o sistema verifica que uma ou mais informações não foram validadas (formato e/ou obrigatoriedade) e exibe uma mensagem informando ao Profissional de Saúde. O sistema retorna ao passo 4 do Fluxo Principal, 4 do FA01 ou 1 do FA02, conforme o local de onde foi chamado.
+No fluxo principal na etapa 5, o sistema valida as informações preenchidas pela Organização. Caso as informações estejam inválidas (formatacação ou obrigatoriedade), o sistema exibe uma mensagem de erro informando a organização e retorna ao passo 3 do fluxo principal.
 
-#### FE02 - Profissional de Saúde não encontrado
+#### FE02 Validação de camapanha existente
 
-Nos passos 3 do FA01 ou 3 do FA02 o sistema não encontra o Profissional de Saúde informado e apresenta a mensagem. O sistema  retorna ao passo 2 do FA01 ou 2 do FA02, conforme o local de onde foi chamado.
+No fluxo principal na etapa 6, o sistema verifica se a campanha de saúde já existe. Caso a campanha já exista, o sistema exibe uma mensagem de erro informando a organização e retorna ao passo 3 do fluxo principal.
 
-#### FE03 - Atualizações não confirmadas
+#### FE03 Não confirmação de cadastro
 
-Nos passos 7 do Fluxo Principal ou 7 do FA01 o advogado não confirma as atualizações. O sistema retorna ao passo 6 do Fluxo Principal ou 6 do FA01 conforme o local de onde foi chamado.
+No fluxo principal na etapa 9, o sistema exibe uma mensagem perguntando se a Organização deseja confirmar o cadastro. Caso a Organização não confirme o cadastro, o sistema exibe uma mensagem de cancelamento e retorna ao passo 3 do fluxo principal.
+
+#### FE04 Campanhas de saúde não encontradas
+
+No fluxo alternativo na etapa 1, o sistema verifica se existem campanhas de saúde cadastradas. Caso não existam campanhas de saúde cadastradas, o sistema exibe uma mensagem informando a Organização e retorna ao passo 1 do fluxo principal.
+
+
+#### FE05 Não confirmação de remoção
+
+No fluxo alternativo na etapa 7, o sistema exibe uma mensagem perguntando se a Organização deseja confirmar a remoção. Caso a Organização não confirme a remoção, o sistema exibe uma mensagem de cancelamento e retorna ao passo 3 do fluxo alternativo.
+
 
 ## Requisitos Especiais
 
@@ -80,29 +78,34 @@ Nos passos 7 do Fluxo Principal ou 7 do FA01 o advogado não confirma as atualiz
 
 ## Regras de Negócio
 
-### RN01 - Validação de informações
+### RN01 Validação de informações
 As seguintes validações devem ser realizadas:
 
-| Nome                        |         Formato         | Obrigatoriedade | Valores |
-|-----------------------------|:----------------------:|:--------------:|:--------|
-| Número de identificação     |      9999999999       |       Sim      | -       |
-| Especialização médica       | Texto até 500 caracteres |       Sim      | -       |
-| Horários de disponibilidade | Texto até 500 caracteres |       Sim      | -       |
+| Campo                | Formato                        | Obrigatoriedade |
+|----------------------|------------------------------|----------------|
+| Nome da Campanha     | Texto em até 50 caracteres                          | Sim            |
+| Descrição            | Texto em até 500 caracteres                          | Sim            |
+| Data de Início       | Data                    | Sim            |
+| Data de Término      | Data                    | Sim            |
+| Local                | Texto em até 50 caracteres                          | Sim            |
+| Público Alvo         | Texto em até 50 caracteres                          | Sim            |
 
 
+### RN02 Verificação de campanha existente
+
+No passo 6 do fluxo principal, o sistema verifica se a campanha de saúde já existe no mesmo dia, hora, local e público alvo. Caso a campanha já exista, o sistema exibe uma mensagem de erro informando a organização e retorna ao passo 3 do fluxo principal.
 
 ## Pré-Condições
 
-- O profissional de saúde deve ter acesso ao sistema Connect Care via web ou aplicativo móvel.
-- O profissional de saúde deve fornecer informações válidas para completar o registro.
+- A organização de saúde deve ter acesso ao sistema Connect Care via web ou aplicativo móvel.
+- A Organização de saúde deve fornecer informações válidas para completar o registro.
 
 ## Pós-Condições
 
-- Após o registro bem-sucedido, o profissional de saúde pode acessar sua conta e utilizar os serviços do sistema.
-- O sistema armazena os dados do profissional de saúde para futuras autenticações.
+- Após o registro bem-sucedido, a campanha de saúde pode ser visualizada.
 
 ## Histórico de Revisão
 
 | Versão | Descrição | Autor | Data |
 | ------ | ------------------------------------------------------------------- | ------------ |---------- |
-| 1.0 | Criação da Especificação | [Arthur Heleno](http://github.com/arthur-heleno) | 10/02/2025 |
+| 1.0 | Criação da Especificação | [Bruno Bragança dos Reis](https://github.com/BrunoBReis) | 11/02/2025 |
