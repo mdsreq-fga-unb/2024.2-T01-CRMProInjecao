@@ -1,5 +1,5 @@
 
-# Caso de Uso 02: Buscar Serviços
+# Caso de Uso 03: Buscar Serviços
 
 ## Nome
 Buscar Serviços
@@ -16,8 +16,9 @@ O caso de uso permite que o paciente possa buscar os serviços de saúde dispon�
 Este caso de uso é iniciado quando o paciente escolher a opção de buscar serviços.
 
 1. O sistema apresenta as seguintes opções de busca:
-- *Realizar a busca utilizando os filtros.* [RN01](#rn01-filtros-disponiveis);
-- *Realizar a busca a partir da pesquisa de um nome específico* [FA01](#fa01-realizar-a-busca-a-partir-da-pesquisa-de-um-nome-especifico);
+
+    - *Realizar a busca utilizando os filtros.* [RN01](#rn01-filtros-disponiveis);
+    - *Realizar a busca a partir da pesquisa de um nome específico* [FA01](#fa01-realizar-a-busca-a-partir-da-pesquisa-de-um-nome-especifico);
 
 2. O paciente clica em busca utilizando filtros.
 3. O sistema irá mostrar os filtros de localização, de disponibilidade e por tipo de atendimento.

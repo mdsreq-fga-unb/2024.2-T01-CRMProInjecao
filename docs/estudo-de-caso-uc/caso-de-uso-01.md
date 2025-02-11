@@ -15,8 +15,8 @@ Este caso de uso permite que o paciente do Connect Care possa registrar um novo 
 Este caso de uso é iniciado quando o paciente entra no sistema.
 
 1. O sistema apresenta as seguintes opções:
-    - **Registro de novo usuário**
-    - **Realizar login do usuário** [FA01](#fa01-realizar-login)
+    - *Registro de novo usuário*
+    - *Realizar login do usuário* [FA01](#fa01-realizar-login)
 2. O paciente seleciona a opção de **registro de novo usuário**.
 3. O sistema apresenta as informações a serem preenchidas para o registro.
 4. O paciente preenche as informações do registro de novo usuário.
