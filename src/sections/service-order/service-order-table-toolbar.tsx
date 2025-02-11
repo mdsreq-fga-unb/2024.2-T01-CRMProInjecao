@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Iconify from 'src/components/iconify';
-import { MenuItem, Select } from '@mui/material';
+import { Select } from '@mui/material';
 
 type Props = {
   filters: {
@@ -55,7 +55,7 @@ export default function ServiceOrderTableToolbar({ filters, onFilters }: Props) 
       <Select
         native
         value={filters.budgetStatus}
-        onChange={handleFilterBudgetStatus}
+        onChange={handleFilterBudgetStatus as any}
         sx={{ width: { xs: 1, md: 240 } }}
       >
         <option value="all">Todas as Ordens</option>

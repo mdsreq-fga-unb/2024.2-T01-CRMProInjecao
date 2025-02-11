@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Iconify from 'src/components/iconify';
-import { MenuItem, Select } from '@mui/material';
+import { Select } from '@mui/material';
 import { BudgetStatus } from '@/types/budget';
 
 type Props = {
@@ -56,7 +56,7 @@ export default function BudgetTableToolbar({ filters, onFilters }: Props) {
       <Select
         native
         value={filters.status}
-        onChange={handleFilterStatus}
+        onChange={handleFilterStatus as any}
         sx={{ width: { xs: 1, md: 200 } }}
       >
         <option value="all">Todos Status</option>

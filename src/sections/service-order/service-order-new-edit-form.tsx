@@ -11,19 +11,18 @@ import { useRouter } from 'src/routes/hooks';
 import { useSnackbar } from 'src/components/snackbar';
 import FormProvider, { RHFTextField, RHFSelect, RHFMultiSelect } from 'src/components/hook-form';
 import { createServiceOrder, updateServiceOrder, useGetServiceOrderTypes } from 'src/api/service-order';
-import { IServiceOrder , ServiceOrderStatus } from 'src/types/service-order';
+import { IServiceOrder, ServiceOrderStatus } from 'src/types/service-order';
 import useSWR, { mutate } from 'swr';
 import { endpoints, fetcher } from '@/utils/axios';
 import { useGetClients } from '@/api/client';
-import { CircularProgress, IconButton, Typography, Divider, MenuItem } from '@mui/material';
+import { CircularProgress, IconButton, Typography, Divider } from '@mui/material';
 import { useGetProductsByFilter } from '@/api/product';
 import { useBoolean } from 'src/hooks/use-boolean';
 import Iconify from 'src/components/iconify';
 import { IVehicle } from '@/types/vehicle';
 import { fCurrency } from '@/utils/format-number';
 import Label from '@/components/label';
-import ServiceHistoryTimeline from '@/components/service-history/service-history-timeline';
-import { useGetServiceHistoryByServiceOrder } from '@/api/service-history';
+
 import ServiceOrderTypeModal from './service-order-type-modal';
 
 type Props = {
@@ -97,8 +96,7 @@ export default function ServiceOrderNewEditForm({ currentServiceOrder, onClose }
 
   const values = watch()
 
-  // Substituir o useGetVehicles pelo hook filtrado
-  const { vehicles, vehiclesLoading } = useFilteredVehicles(selectedClientCPF);
+  const { vehicles } = useFilteredVehicles(selectedClientCPF);
 
   const onSubmit = handleSubmit(async (data) => {
     try {

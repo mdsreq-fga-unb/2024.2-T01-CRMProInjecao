@@ -1,7 +1,5 @@
-import * as Yup from 'yup';
 import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 // @mui
 import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
@@ -13,14 +11,12 @@ import { useRouter } from 'src/routes/hooks';
 // components
 import { useSnackbar } from 'src/components/snackbar';
 import FormProvider from 'src/components/hook-form/form-provider';
-import { RHFSelect, RHFTextField } from 'src/components/hook-form';
+import { RHFTextField } from 'src/components/hook-form';
 // api
-import { createProductFunction } from 'src/api/product';
+
 // types
-import { CreateProductDTO, ICategory, IProduct } from 'src/types/product';
-import { mutate } from 'swr';
-import { endpoints } from '@/utils/axios';
-import RenderClientVehicles from '../vehicle/vehicle-client-render';
+import { IProduct } from 'src/types/product';
+import { ICategory } from '@/types/category';
 
 type Props = {
   currentProduct?: IProduct | null;
@@ -32,16 +28,16 @@ export default function ProductNewEditForm({ currentProduct, onClose }: Props) {
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
-  const NewProductSchema = Yup.object().shape({
-    name: Yup.string().required('Nome é obrigatório'),
-    desciption: Yup.string(),
-    brand: Yup.string(),
-    costPrice: Yup.number().required('Preço de custo é obrigatório'),
-    sellPrice: Yup.number().required('Preço de venda é obrigatório'),
-    categories: Yup.array()
-      .of(Yup.string().required('Categoria é obrigatória'))
-      .min(1, 'Pelo menos uma categoria é obrigatória'),
-  });
+  // const NewProductSchema = Yup.object().shape({
+  //   name: Yup.string().required('Nome é obrigatório'),
+  //   desciption: Yup.string(),
+  //   brand: Yup.string(),
+  //   costPrice: Yup.number().required('Preço de custo é obrigatório'),
+  //   sellPrice: Yup.number().required('Preço de venda é obrigatório'),
+  //   categories: Yup.array()
+  //     .of(Yup.string().required('Categoria é obrigatória'))
+  //     .min(1, 'Pelo menos uma categoria é obrigatória'),
+  // });
 
   const defaultValues = useMemo(
     () => ({
@@ -56,28 +52,27 @@ export default function ProductNewEditForm({ currentProduct, onClose }: Props) {
   );
 
   const methods = useForm({
-    resolver: yupResolver(NewProductSchema),
     defaultValues,
   });
 
   const {
     reset,
-    watch,
+    // watch,
     handleSubmit,
     formState: { isSubmitting },
   } = methods;
 
-  const values = watch();
+  // const values = watch();
 
   const onSubmit = handleSubmit(async (data) => {
     try {
-      if (currentProduct && currentProduct.cpf) {
-        await updateClient(currentProduct.cpf, data);
-        enqueueSnackbar('Cliente atualizado com sucesso!', { variant: 'success' });
-      } else {
-        await createClient(data);
-        enqueueSnackbar('Cliente criado com sucesso!', { variant: 'success' });
-      }
+      // if (currentProduct && currentProduct.cpf) {
+      // await updateClient(currentProduct.cpf, data);
+      //   enqueueSnackbar('Cliente atualizado com sucesso!', { variant: 'success' });
+      // } else {
+      // await createClient(data);
+      //   enqueueSnackbar('Cliente criado com sucesso!', { variant: 'success' });
+      // }
       reset();
       onClose();
       router.push('/dashboard/clients');
@@ -92,7 +87,7 @@ export default function ProductNewEditForm({ currentProduct, onClose }: Props) {
         <Grid container spacing={3}>
           {/* Informações do Cliente */}
 
-          <RHFSelect>{}</RHFSelect>
+          {/* <RHFSelect>{ }</RHFSelect> */}
           <Grid xs={12} md={12}>
             <Card sx={{ p: 3 }}>
               <Box
@@ -121,7 +116,7 @@ export default function ProductNewEditForm({ currentProduct, onClose }: Props) {
         </Grid>
       </FormProvider>
       {/* Veículos Associados */}
-      {currentProduct && currentProduct.cpf && (
+      {/* {currentProduct && currentProduct.cpf && (
         <Grid xs={12} md={12}>
           <RenderClientVehicles
             clientCPF={currentProduct.cpf}
@@ -131,7 +126,7 @@ export default function ProductNewEditForm({ currentProduct, onClose }: Props) {
             }}
           />
         </Grid>
-      )}
+      )} */}
     </>
   );
 }

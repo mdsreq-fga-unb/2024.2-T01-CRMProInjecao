@@ -8,6 +8,8 @@ export interface ServiceStats {
   canceledBudgets: number;
   activeOrders: number;
   completedOrders: number;
+  averageTicket: number;
+  conversionRate: number;
   canceledOrders: number;
   totalRevenue: number;
 }

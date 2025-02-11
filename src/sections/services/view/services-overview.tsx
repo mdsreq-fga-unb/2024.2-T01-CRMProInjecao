@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Container, Typography, Card, Grid, Button, Stack, Box } from '@mui/material';
+import { Container, Typography, Card, Grid, Button, Stack } from '@mui/material';
 import { useSettingsContext } from '@/components/settings';
 import CustomBreadcrumbs from '@/components/custom-breadcrumbs';
 import Iconify from '@/components/iconify';

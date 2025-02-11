@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Container, Typography } from '@mui/material';
 import FeedbackClientForm from '@/sections/feedback/feedback-client-form';

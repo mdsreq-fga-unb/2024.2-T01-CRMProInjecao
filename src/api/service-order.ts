@@ -4,7 +4,6 @@ import axios, { fetcher, endpoints } from 'src/utils/axios';
 import {
   IServiceOrder,
   ICreateServiceOrder,
-  IUpdateServiceOrder,
   IServiceOrderType,
   ICreateServiceOrderType,
   IUpdateServiceOrderType,

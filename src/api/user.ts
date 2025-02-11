@@ -9,12 +9,6 @@ import { ICreateUser, IUpdateUser, IUser } from '@/types/user';
 
 const URL = endpoints.user;
 
-const options = {
-  revalidateIfStale: false,
-  revalidateOnFocus: false,
-  revalidateOnReconnect: false,
-};
-
 export function useGetUsers() {
   const URL_SERVER = `/user`;
 

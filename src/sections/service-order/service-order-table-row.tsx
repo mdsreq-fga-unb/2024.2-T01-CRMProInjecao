@@ -4,12 +4,11 @@ import MenuItem from '@mui/material/MenuItem';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
-import { useBoolean } from 'src/hooks/use-boolean';
 import Iconify from 'src/components/iconify';
-import CustomPopover, { usePopover } from 'src/components/custom-popover';
+import CustomPopover from 'src/components/custom-popover';
 import { IServiceOrder , ServiceOrderStatus } from 'src/types/service-order';
 import { ConfirmDialog } from '@/components/custom-dialog';
-import { Typography, Stack, Link, Checkbox } from '@mui/material';
+import { Typography, Stack, Link } from '@mui/material';
 import { fDateTime } from '@/utils/format-time';
 import { fCurrency } from '@/utils/format-number';
 import { useState } from 'react';
@@ -33,17 +32,13 @@ export default function ServiceOrderTableRow({
   const [openConfirm, setOpenConfirm] = useState(false);
   const [openPopover, setOpenPopover] = useState<HTMLElement | null>(null);
 
-  const handleOpenConfirm = () => {
-    setOpenConfirm(true);
-  };
+  
 
   const handleCloseConfirm = () => {
     setOpenConfirm(false);
   };
 
-  const handleOpenPopover = (event: React.MouseEvent<HTMLElement>) => {
-    setOpenPopover(event.currentTarget);
-  };
+
 
   const handleClosePopover = () => {
     setOpenPopover(null);

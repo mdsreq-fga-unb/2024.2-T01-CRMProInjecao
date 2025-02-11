@@ -5,14 +5,16 @@ import { Container, Tab, Tabs } from '@mui/material';
 import { useSettingsContext } from '@/components/settings';
 import CustomBreadcrumbs from '@/components/custom-breadcrumbs';
 import { paths } from '@/routes/paths';
-import { useGetBudget , useGetBudgetDetails } from '@/api/budget';
+import { useGetBudgetDetails } from '@/api/budget';
 import { LoadingScreen } from '@/components/loading-screen';
 import ServiceHistoryTimeline from '@/components/service-history/service-history-timeline';
 import { useGetServiceHistoryByBudget } from '@/api/service-history';
 import Iconify from '@/components/iconify';
+import { useRouter } from 'src/routes/hooks';
 import BudgetNewEditForm from '../budget-new-edit-form';
 
 export default function BudgetDetailsView({ budgetId }: { budgetId: string }) {
+  const router = useRouter();
   const settings = useSettingsContext();
   const { budget, loading: budgetLoading } = useGetBudgetDetails(budgetId);
   const { serviceHistory, } = useGetServiceHistoryByBudget(budgetId);
@@ -73,7 +75,9 @@ export default function BudgetDetailsView({ budgetId }: { budgetId: string }) {
       {currentTab === 'details' && budget && (
         <BudgetNewEditForm
           currentBudget={budget}
-          onClose={() => {}}
+          onClose={() => {
+            router.push(paths.dashboard.services.budgets);
+          }}
         />
       )}
 

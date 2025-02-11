@@ -5,7 +5,7 @@ import { Container, Tab, Tabs } from '@mui/material';
 import { useSettingsContext } from '@/components/settings';
 import CustomBreadcrumbs from '@/components/custom-breadcrumbs';
 import { paths } from '@/routes/paths';
-import { useGetServiceOrder , useGetServiceOrderDetails } from '@/api/service-order';
+import { useGetServiceOrderDetails } from '@/api/service-order';
 import { LoadingScreen } from '@/components/loading-screen';
 import ServiceHistoryTimeline from '@/components/service-history/service-history-timeline';
 import { useGetServiceHistoryByServiceOrder } from '@/api/service-history';

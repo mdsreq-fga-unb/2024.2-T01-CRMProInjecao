@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Unstable_Grid2';
-import { useRouter } from 'src/routes/hooks';
 import { useSnackbar } from 'src/components/snackbar';
 import FormProvider, { RHFTextField, RHFSelect, RHFMultiSelect } from 'src/components/hook-form';
 import { createBudget, updateBudget } from 'src/api/budget';
@@ -15,18 +14,15 @@ import { IBudget, BudgetStatus } from 'src/types/budget';
 import useSWR, { mutate } from 'swr';
 import { endpoints, fetcher } from '@/utils/axios';
 import { useGetClients } from '@/api/client';
-import { CircularProgress, Typography, Divider, IconButton, Button, MenuItem } from '@mui/material';
+import { CircularProgress, Typography, Divider, Button, MenuItem } from '@mui/material';
 import { useGetProductsByFilter } from '@/api/product';
 import { useGetServiceOrderTypes } from '@/api/service-order';
 import { IVehicle } from '@/types/vehicle';
 import { fCurrency } from '@/utils/format-number';
 import Scrollbar from 'src/components/scrollbar';
-import { usePopover } from '@/components/custom-popover';
 import Label from '@/components/label';
 import { ConfirmDialog } from '@/components/custom-dialog';
 import { useBoolean } from '@/hooks/use-boolean';
-import ServiceHistoryTimeline from '@/components/service-history/service-history-timeline';
-import { useGetServiceHistoryByBudget } from '@/api/service-history';
 
 type Props = {
   currentBudget?: IBudget | null;
@@ -47,17 +43,11 @@ const useFilteredVehicles = (clientCPF: string) => {
 };
 
 export default function BudgetNewEditForm({ currentBudget, onClose }: Props) {
-  const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
   const [totalCost, setTotalCost] = useState(0);
-
   const { clients, clientsLoading } = useGetClients();
   const { serviceOrderTypes, serviceOrderTypesLoading } = useGetServiceOrderTypes();
   const { products, productsLoading } = useGetProductsByFilter(null, null);
-
-  const { serviceHistory, serviceHistoryLoading } = useGetServiceHistoryByBudget(
-    currentBudget?.id || null
-  );
 
   const NewBudgetSchema = Yup.object().shape({
     name: Yup.string().required('Nome é obrigatório'),
@@ -116,20 +106,20 @@ export default function BudgetNewEditForm({ currentBudget, onClose }: Props) {
       total += parseFloat(String(values.additionalCost)) || 0;
 
       // Soma o preço dos tipos de serviço selecionados
-      const selectedTypes = serviceOrderTypes?.filter((type) => 
+      const selectedTypes = serviceOrderTypes?.filter((type) =>
         values.serviceTypeIds?.includes(type.id)
       ) || [];
-      
+
       total += selectedTypes.reduce((sum, type) => {
         const typePrice = parseFloat(String(type.price)) || 0;
         return sum + typePrice;
       }, 0);
 
       // Soma o preço dos produtos selecionados
-      const selectedProducts = products?.filter((product) => 
+      const selectedProducts = products?.filter((product) =>
         values.productIds?.includes(product.id)
       ) || [];
-      
+
       total += selectedProducts.reduce((sum, product) => {
         const productPrice = parseFloat(String(product.sellPrice)) || 0;
         return sum + productPrice;
@@ -230,12 +220,12 @@ export default function BudgetNewEditForm({ currentBudget, onClose }: Props) {
               <Typography variant="subtitle2" sx={{ mb: 1 }}>
                 Ordem #{index + 1} - {order.type.name}
               </Typography>
-              
+
               <Stack spacing={1}>
                 <Typography variant="body2" sx={{ color: 'text.secondary' }}>
                   {order.description}
                 </Typography>
-                
+
                 {order.products && order.products.length > 0 && (
                   <Box>
                     <Typography variant="caption" sx={{ color: 'text.secondary' }}>
@@ -248,7 +238,7 @@ export default function BudgetNewEditForm({ currentBudget, onClose }: Props) {
                     ))}
                   </Box>
                 )}
-                
+
                 {order.additionalCost && order.additionalCost > 0 ? (
                   <Typography variant="body2">
                     Custo Adicional: {fCurrency(order.additionalCost)}
@@ -356,10 +346,10 @@ export default function BudgetNewEditForm({ currentBudget, onClose }: Props) {
                 sm: 'repeat(2, 1fr)',
               }}
             >
-              <RHFTextField 
-                name="name" 
-                label="Nome do Orçamento" 
-                fullWidth 
+              <RHFTextField
+                name="name"
+                label="Nome do Orçamento"
+                fullWidth
                 sx={{ gridColumn: 'span 2' }}
                 disabled={!isEditable}
               />
@@ -504,7 +494,7 @@ export default function BudgetNewEditForm({ currentBudget, onClose }: Props) {
           </Card>
         </Grid>
 
-        
+
       </Grid>
 
       {/* Diálogo de confirmação */}

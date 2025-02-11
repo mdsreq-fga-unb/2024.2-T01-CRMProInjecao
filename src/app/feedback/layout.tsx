@@ -1,7 +1,6 @@
 'use client';
 
 import { SnackbarProvider } from '@/components/snackbar';
-import AuthClassicLayout from '@/layouts/auth/classic';
 import CompactLayout from '@/layouts/compact';
 import { GuestGuard } from 'src/auth/guard';
 

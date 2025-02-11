@@ -59,7 +59,7 @@ export default function UserListView() {
 
   const { themeStretch } = useSettingsContext();
 
-  const { users, usersLoading } = useGetUsers();
+  const { users } = useGetUsers();
   const [tableData, setTableData] = useState<IUser[]>(users || []);
 
   const [filters, setFilters] = useState(defaultFilters);

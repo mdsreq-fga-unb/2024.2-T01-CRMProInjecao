@@ -19,7 +19,6 @@ import { ICategory } from '@/types/category';
 import { IProduct } from '@/types/product';
 import {
   alpha,
-  Button,
   Card,
   Container,
   Dialog,
@@ -30,8 +29,6 @@ import {
   Tabs,
 } from '@mui/material';
 import { useCallback, useEffect, useState } from 'react';
-import { useRouter } from 'src/routes/hooks';
-import Label from '@/components/label';
 import ProductTableToolbar from '../product-table-toolbar';
 import ProductsTableFiltersResult from '../product-table-filters-result';
 import ProductTableRow from '../product-table-row';

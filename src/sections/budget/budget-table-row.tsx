@@ -1,12 +1,10 @@
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import IconButton from '@mui/material/IconButton';
 import { useBoolean } from 'src/hooks/use-boolean';
 import Iconify from 'src/components/iconify';
-import CustomPopover, { usePopover } from 'src/components/custom-popover';
 import { IBudget, BudgetStatus } from 'src/types/budget';
 import { ConfirmDialog } from '@/components/custom-dialog';
 import { Typography, Chip } from '@mui/material';
@@ -57,7 +55,6 @@ export default function BudgetTableRow({
   const { name, description, client, vehicle, totalCost, status, createdAt } = row;
 
   const confirm = useBoolean();
-  const popover = usePopover();
 
   const isPending = status === BudgetStatus.PENDING;
 

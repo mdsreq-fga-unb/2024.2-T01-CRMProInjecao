@@ -3,17 +3,12 @@ import { useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import LoadingButton from '@mui/lab/LoadingButton';
-import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
-import Grid from '@mui/material/Unstable_Grid2';
 import { useRouter } from 'src/routes/hooks';
 import { useSnackbar } from 'src/components/snackbar';
-import FormProvider, { RHFTextField, RHFSelect } from 'src/components/hook-form';
-import { updateFeedback, createClientFeedback } from 'src/api/feedback';
-import { IFeedback } from 'src/types/feedback';
-import { mutate } from 'swr';
-import { endpoints } from '@/utils/axios';
+import FormProvider, { RHFTextField } from 'src/components/hook-form';
+import { createClientFeedback } from 'src/api/feedback';
 import { Typography, Rating } from '@mui/material';
 
 type Props = {
@@ -30,10 +25,8 @@ export default function FeedbackClientForm({ client, serviceOrder }: Props) {
   const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
-  const hasFeedback = useMemo(() => {
-    return serviceOrder.feedback &&
-      (serviceOrder.feedback.description !== '' || serviceOrder.feedback.rating > 1);
-  }, [serviceOrder]);
+  const hasFeedback = useMemo(() => serviceOrder.feedback &&
+      (serviceOrder.feedback.description !== '' || serviceOrder.feedback.rating > 1), [serviceOrder]);
 
   const methods = useForm({
     resolver: yupResolver(FeedbackSchema),
