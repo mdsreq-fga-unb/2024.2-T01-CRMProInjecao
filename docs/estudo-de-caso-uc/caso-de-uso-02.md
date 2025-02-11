@@ -17,38 +17,42 @@ Este caso de uso é iniciado quando o profissional de saúde escolher a opção 
 
 1. O sistema apresenta as seguintes opções:
 - *Cadastrar novo Profissional de Saúde*;
-- *Atualizar Dados de Profissional de Saúde* (FA01);
-- *Consultar Profissional de Saúde* (FA02);
+- *Atualizar Dados de Profissional de Saúde* [FA01](#fa01-atualizar-dados-de-profissional-de-saude);
+- *Consultar Profissional de Saúde* [FA02](#fa02-consultar-profissional-de-saude);
 
 2. O Profissional de Saúde seleciona a opção para o cadastro de um novo Profissional de Saúde.
 3. O sistema apresenta as informações a serem preenchidas para a inclusão de um novo Profissional de Saúde.
 4. O Profissional de Saúde preenche as informações e solicita o cadastro.
-5. O sistema valida as informações preenchidas (RN01) (FE01).
+5. O sistema valida as informações preenchidas [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
 6. O sistema envia uma mensagem perguntando se o Profissional de Saúde deseja confirmar o cadastro.
-7. O Profissional de Saúde seleciona a opção de confirmar o cadastro (FE03).
+7. O Profissional de Saúde seleciona a opção de confirmar o cadastro [FE03](#fe03-atualizacoes-nao-confirmadas).
 8. O sistema exibe a mensagem de cadastro realizado com sucesso.
 9. O caso de uso é encerrado.
 
 ### Fluxos Alternativos
 
 #### FA01 - Atualizar dados de Profissional de Saúde
+
 No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Atualizar Dados de Profissional de Saúde.
+
 1. O sistema solicita que o Profissional de Saúde informe o CRM do Profissional de Saúde que deseja atualizar.
-2. O Profissional de Saúde informa o CRM e solicita a consulta (RN01) .
-3. O sistema apresenta os dados do Profissional de Saúde procurado (FE02);
+2. O Profissional de Saúde informa o CRM e solicita a consulta [RN01](#rn01-validacao-de-informacoes) .
+3. O sistema apresenta os dados do Profissional de Saúde procurado [FE02](#fe02-profissional-de-saude-nao-encontrado);
 - Número de identificação do Profissional de Saúde (não liberado para edição), especialização médica e horários de disponibilidade.
 4. O Profissional de Saúde realiza as atualizações necessárias.
-5. O sistema valida os dados atualizados (FE01) (RN01).
+5. O sistema valida os dados atualizados [FE01](#fe01-validacao-de-informacoes) [RN01](#rn01-validacao-de-informacoes).
 6. O sistema pergunta ao Profissional de Saúde se deseja confirmar as atualizações.
-7. O Profissional de Saúde confirma as atualizações (FE03).
+7. O Profissional de Saúde confirma as atualizações [FE03](#fe03-atualizacoes-nao-confirmadas).
 8. O sistema exibe a mensagem de dados atualizados com sucesso.
 9. O caso de uso é encerrado.
 
 #### FA02 - Consultar Profissional de Saúde
+
 No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Consultar Profissional de Saúde.
+
 1. O sistema solicita que o Profissional de Saúde informe o Número de identificação do Profissional de Saúde que deseja atualizar.
-2. O Profissional de Saúde informa o CRM e solicita a consulta (RN01) (FE01).
-3. O sistema apresenta os dados do Profissional de Saúde procurado (FE02);
+2. O Profissional de Saúde informa o CRM e solicita a consulta [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
+3. O sistema apresenta os dados do Profissional de Saúde procurado [FE02](#fe02-profissional-de-saude-nao-encontrado);
 - Número de identificação do Profissional de Saúde (não liberado para edição), especialização médica e horários de disponibilidade.
 4. O sistema apresenta a opção de voltar.
 5. O Profissional de Saúde seleciona a opção de voltar.
@@ -57,12 +61,15 @@ No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Cons
 ### Fluxos de Exceção
 
 #### FE01 - Validação de Informações
+
 Nos passos 2.1.5, 2.2.1.2, 2.2.1.5 ou 2.2.2.2 o sistema verifica que uma ou mais informações não foram validadas (formato e/ou obrigatoriedade) e exibe uma mensagem informando ao Profissional de Saúde. O sistema retorna ao passo 2.1.4, 2.2.1.1, 2.2.1.4 ou 2.2.2.1, conforme o local de onde foi chamado.
 
 #### FE02 - Profissional de Saúde não encontrado
+
 Nos passos 2.2.1.3, 2.2.2.3, 2.2.1.5 ou 2.2.3.3 o sistema não encontra o Profissional de Saúde informado e apresenta a mensagem. O sistema  retorna ao passo 2.1.4, 2.2.1.1, 2.2.1.4 ou 2.2.2.1, conforme o local de onde foi chamado.
 
 #### FE03 - Atualizações não confirmadas
+
 Nos passos 2.2.1.7 ou 2.2.2.6 o advogado não confirma as atualizações. O sistema retorna ao passo 2.2.1.3 ou 2.2.2.3 conforme o local de onde foi chamado.
 
 ## Requisitos Especiais
@@ -85,10 +92,12 @@ As seguintes validações devem ser realizadas:
 
 
 ## 5. **Pré-Condições** 
+
 - O profissional de saúde deve ter acesso ao sistema Connect Care via web ou aplicativo móvel.
 - O profissional de saúde deve fornecer informações válidas para completar o registro.
 
 ## Pós-Condições
+
 - Após o registro bem-sucedido, o profissional de saúde pode acessar sua conta e utilizar os serviços do sistema.
 - O sistema armazena os dados do profissional de saúde para futuras autenticações.
 
