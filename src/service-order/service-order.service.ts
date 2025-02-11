@@ -7,12 +7,16 @@ import { CreateServiceOrderTypeDto } from './dto/create-service-order-type.dto';
 import { UpdateServiceOrderTypeDto } from './dto/update-service-order-type.dto';
 import {
   ServiceOrder,
+  ServiceOrderStatus,
   ServiceOrderType,
 } from './entities/service-order.entity';
 import { ProductsService } from '../products/products.service';
 import { VehicleService } from '../vehicle/vehicle.service';
 import { ClientService } from '../client/client.service';
 import { Budget } from './entities/budget.entity';
+import { ServiceHistoryService } from './service-history.service';
+import { ServiceHistoryType } from './entities/service-history.entity';
+import { EmailService } from '../email/email.service';
 
 interface CreateFromBudgetDto {
   budgetId: string;
@@ -36,6 +40,8 @@ export class ServiceOrderService {
     private clientService: ClientService,
     @InjectRepository(Budget)
     private budgetRepository: Repository<Budget>,
+    private serviceHistoryService: ServiceHistoryService,
+    private emailService: EmailService,
   ) {}
 
   async create(createServiceOrderDto: CreateServiceOrderDto) {
@@ -80,19 +86,49 @@ export class ServiceOrderService {
       serviceOrder.products = products;
     }
 
-    return this.serviceOrderRepository.save(serviceOrder);
+    const savedServiceOrder =
+      await this.serviceOrderRepository.save(serviceOrder);
+
+    // Enviar email para o cliente
+    try {
+      await this.emailService.sendEmail({
+        context: {
+          title: 'Nova Ordem de Serviço Criada',
+          message: `Olá ${savedServiceOrder.client.name},\n\n` +
+            `Uma nova ordem de serviço foi criada para seu veículo ${savedServiceOrder.vehicle.model} ` +
+            `(${savedServiceOrder.vehicle.licensePlate}).\n\n` +
+            `Tipo de Serviço: ${savedServiceOrder.type.name}\n` +
+            `Descrição: ${savedServiceOrder.description}\n` +
+            `Valor Total: R$ ${(savedServiceOrder.type.price + savedServiceOrder.additionalCost).toFixed(2)}`,
+        },
+        sendTo: savedServiceOrder.client.email,
+        subject: 'Nova Ordem de Serviço - PRO INJEÇÃO',
+        template: 'simpleEmail',
+      });
+    } catch (error) {
+      console.error('Erro ao enviar email de nova ordem:', error);
+    }
+
+    await this.serviceHistoryService.createHistoryEntry({
+      type: ServiceHistoryType.SERVICE_ORDER_CREATED,
+      description: `Ordem de Serviço criada para ${savedServiceOrder.type.name}`,
+      serviceOrder: savedServiceOrder,
+      changes: createServiceOrderDto,
+    });
+
+    return savedServiceOrder;
   }
 
   findAll() {
     return this.serviceOrderRepository.find({
-      relations: ['type', 'client', 'vehicle', 'products'],
+      relations: ['type', 'client', 'vehicle', 'products', 'budget'],
     });
   }
 
   async findOne(id: string) {
     const serviceOrder = await this.serviceOrderRepository.findOne({
       where: { id },
-      relations: ['type', 'client', 'vehicle', 'products'],
+      relations: ['type', 'client', 'vehicle', 'products', 'budget'],
     });
 
     if (!serviceOrder) {
@@ -103,6 +139,7 @@ export class ServiceOrderService {
   }
 
   async update(id: string, updateServiceOrderDto: UpdateServiceOrderDto) {
+    const oldServiceOrder = await this.findOne(id);
     const serviceOrder = await this.findOne(id);
 
     if (updateServiceOrderDto.typeId) {
@@ -144,6 +181,10 @@ export class ServiceOrderService {
       serviceOrder.products = products;
     }
 
+    if (updateServiceOrderDto.status) {
+      serviceOrder.status = updateServiceOrderDto.status;
+    }
+
     // Atualizar campos simples
     if (updateServiceOrderDto.description) {
       serviceOrder.description = updateServiceOrderDto.description;
@@ -152,7 +193,48 @@ export class ServiceOrderService {
       serviceOrder.additionalCost = updateServiceOrderDto.additionalCost;
     }
 
-    return this.serviceOrderRepository.save(serviceOrder);
+    const savedServiceOrder =
+      await this.serviceOrderRepository.save(serviceOrder);
+
+    // Enviar email apenas se houver mudança de status
+    if (updateServiceOrderDto.status) {
+      const statusMessages = {
+        [ServiceOrderStatus.COMPLETED]: 'foi concluída',
+        [ServiceOrderStatus.CANCELED]: 'foi cancelada',
+        [ServiceOrderStatus.IN_PROGRESS]: 'está em andamento',
+      };
+
+      try {
+        await this.emailService.sendEmail({
+          context: {
+            title: 'Atualização da Ordem de Serviço',
+            message: `Olá ${savedServiceOrder.client.name},\n\n` +
+              `Sua ordem de serviço ${statusMessages[savedServiceOrder.status]}.\n\n` +
+              `Tipo de Serviço: ${savedServiceOrder.type.name}\n` +
+              `Veículo: ${savedServiceOrder.vehicle.model} (${savedServiceOrder.vehicle.licensePlate})\n` +
+              `Status: ${savedServiceOrder.status}\n` +
+              `Valor Total: R$ ${(savedServiceOrder.type.price + savedServiceOrder.additionalCost).toFixed(2)}`,
+          },
+          sendTo: savedServiceOrder.client.email,
+          subject: 'Atualização da Ordem de Serviço - PRO INJEÇÃO',
+          template: 'simpleEmail',
+        });
+      } catch (error) {
+        console.error('Erro ao enviar email de atualização de ordem:', error);
+      }
+    }
+
+    await this.serviceHistoryService.createHistoryEntry({
+      type: ServiceHistoryType.SERVICE_ORDER_UPDATED,
+      description: `Ordem de Serviço atualizada`,
+      serviceOrder: savedServiceOrder,
+      changes: {
+        before: oldServiceOrder,
+        after: updateServiceOrderDto,
+      },
+    });
+
+    return savedServiceOrder;
   }
 
   async remove(id: string) {
@@ -213,8 +295,8 @@ export class ServiceOrderService {
         `Budget with ID ${createFromBudgetDto.budgetId} not found`,
       );
     }
-
     serviceOrder.budget = budget;
-    return this.serviceOrderRepository.save(serviceOrder);
+    const res = await this.serviceOrderRepository.save(serviceOrder);
+    return res;
   }
 }

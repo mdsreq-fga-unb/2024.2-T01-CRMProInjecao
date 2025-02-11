@@ -73,4 +73,10 @@ export class ProductsService {
   async remove(id: string) {
     await this.productRepository.delete(id);
   }
+
+  async findByIds(ids: string[]) {
+    return this.productRepository.find({
+      where: { id: In(ids) },
+    });
+  }
 }

@@ -10,10 +10,23 @@ import {
 import { FeedbackService } from './feedback.service';
 import { CreateFeedbackDto } from './dto/create-feedback.dto';
 import { UpdateFeedbackDto } from './dto/update-feedback.dto';
+import { Public } from '../auth/public.decorator';
 
 @Controller('feedback')
 export class FeedbackController {
   constructor(private readonly feedbackService: FeedbackService) {}
+
+  @Public()
+  @Get('token/:token')
+  findByToken(@Param('token') token: string) {
+    return this.feedbackService.findByToken(token);
+  }
+
+  @Public()
+  @Post('client')
+  createClientFeedback(@Body() createFeedbackDto: CreateFeedbackDto) {
+    return this.feedbackService.create(createFeedbackDto);
+  }
 
   @Post()
   create(@Body() createFeedbackDto: CreateFeedbackDto) {

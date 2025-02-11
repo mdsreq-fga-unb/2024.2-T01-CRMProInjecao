@@ -93,14 +93,4 @@ export class Budget {
     default: 0,
   })
   totalCost: number;
-
-  @BeforeUpdate()
-  async updateTotalCost() {
-    this.totalCost = this.initialCost + this.additionalCost;
-  }
-
-  @BeforeInsert()
-  async setTotalCost() {
-    this.totalCost = this.initialCost + this.additionalCost;
-  }
 }
