@@ -16,8 +16,9 @@ O caso de uso permite que o paciente possa buscar os serviços de saúde dispon�
 Este caso de uso é iniciado quando o paciente escolher a opção de buscar serviços.
 
 1. O sistema apresenta as seguintes opções de busca:
-- *Realizar a busca utilizando os filtros.*;
+- *Realizar a busca utilizando os filtros.* [RN01](#rn01-filtros-disponiveis);
 - *Realizar a busca a partir da pesquisa de um nome específico* [FA01](#fa01-realizar-a-busca-a-partir-da-pesquisa-de-um-nome-especifico);
+
 2. O paciente clica em busca utilizando filtros.
 3. O sistema irá mostrar os filtros de localização, de disponibilidade e por tipo de atendimento.
 4. O paciente irá clicar nos filtros desejados e realizará a pesquisa.
@@ -34,7 +35,7 @@ No passo 1 o Paciente escolhe a opção de realizar a busca a partir da pesquisa
 
 1. O sistema irá solicitar o nome do serviço.
 2. O paciente irá colocar o nome do serviço desejado.
-3. O sistema irá buscar o serviço pelo nome.[FE01](#fe01-servico-nao-encontrado)[RN01](#rn01-serviços-disponiveis);
+3. O sistema irá buscar o serviço pelo nome.[FE01](#fe01-servico-nao-encontrado) [RN02](#rn01-servicos-disponiveis);
 4. O sistema irá mostrar o serviço encontrado.
 5. O paciente irá clicar no serviço.
 6. O caso de uso é encerrado.
@@ -53,8 +54,18 @@ No passo 3 do fluxo alternativo 1 FA01 o sistema não encontra o serviço pesqui
 
 ## Regras de Negócio
 
-### RN01 Serviços disponíveis
-Apenas os serviços que foram “registrados” de acordo com o nome pesquisado são apresentados.
+### RN01 Filtros disponíveis
+| Nome                           |         Formato         | Obrigatoriedade | Valores |
+|--------------------------------|:----------------------:|:--------------:|:--------|
+| Filtro por localização         |             -          |       -      | Ativo/Inativo      |
+| Filtro por disponibilidade     |             -          |       -      | Ativo/Inativo      |
+| Filtro por tipo de atendimento |             -          |       -      | Ativo/Inativo      |
+
+### RN02 Serviços disponíveis
+| Nome                   |         Formato          | Obrigatoriedade | Valores |
+|------------------------|:------------------------:|:--------------:|:--------|
+| Busca por nome         | Texto até 500 caracteres |       Sim      |    -    |
+
 
 ## Pré-Condições
 
