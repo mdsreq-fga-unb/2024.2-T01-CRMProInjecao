@@ -9,14 +9,15 @@ import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useRouter } from 'src/routes/hooks';
 import { useSnackbar } from 'src/components/snackbar';
-import FormProvider, { RHFTextField, RHFSelect, RHFMultiSelect } from 'src/components/hook-form';
+import FormProvider, { RHFSelect, RHFMultiSelect } from 'src/components/hook-form';
 import { createFeedback, updateFeedback } from 'src/api/feedback';
 import { IFeedback } from 'src/types/feedback';
 import { mutate } from 'swr';
 import { endpoints } from '@/utils/axios';
 import { useGetClients } from '@/api/client';
-import { CircularProgress } from '@mui/material';
+import { CircularProgress, InputAdornment, Tooltip, TextField, Typography, Rating, Divider, IconButton } from '@mui/material';
 import { useGetServiceOrders } from '@/api/service-order';
+import Iconify from '@/components/iconify';
 
 type Props = {
   currentFeedback?: IFeedback | null;
@@ -36,10 +37,14 @@ export default function FeedbackNewEditForm({ currentFeedback, onClose }: Props)
     serviceOrderIds: Yup.array().of(Yup.string()),
   });
 
+  const hasClientFeedback = currentFeedback && currentFeedback.description !== '' && currentFeedback.rating > 0;
+
   const defaultValues = useMemo(
     () => ({
       clientCPF: currentFeedback?.client.cpf || '',
       serviceOrderIds: currentFeedback?.serviceOrders.map((so) => so.id) || [],
+      description: currentFeedback?.description || '',
+      rating: currentFeedback?.rating || 0,
     }),
     [currentFeedback]
   );
@@ -90,6 +95,24 @@ export default function FeedbackNewEditForm({ currentFeedback, onClose }: Props)
     }
   });
 
+  const generateFeedbackLink = (feedbackId: number, clientCPF: string) => {
+    const data = {
+      feedbackId,
+      clientCPF,
+    };
+    const token = Buffer.from(JSON.stringify(data)).toString('base64');
+    const baseUrl = window.location.origin;
+    return `${baseUrl}/feedback?token=${token}`;
+  };
+
+  const handleCopyLink = () => {
+    if (currentFeedback) {
+      const link = generateFeedbackLink(currentFeedback.id, currentFeedback.client.cpf);
+      navigator.clipboard.writeText(link);
+      enqueueSnackbar('Link copiado para a área de transferência!');
+    }
+  };
+
   if (clientsLoading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', p: 3 }}>
@@ -103,45 +126,132 @@ export default function FeedbackNewEditForm({ currentFeedback, onClose }: Props)
       <Grid container spacing={3}>
         <Grid xs={12} md={12}>
           <Card sx={{ p: 3 }}>
-            <Box
-              rowGap={3}
-              columnGap={2}
-              display="grid"
-              gridTemplateColumns={{
-                xs: 'repeat(1, 1fr)',
-                sm: 'repeat(2, 1fr)',
-              }}
-            >
-              <RHFSelect native name="clientCPF" label="Cliente">
-                <option value="" label='Selecione um cliente' />
-                {clients?.map((client) => (
-                  <option key={client.cpf} value={client.cpf}>
-                    {client.name} - CPF: {client.cpf}
-                  </option>
-                ))}
-              </RHFSelect>
+            {hasClientFeedback ? (
+              <>
+                <Typography variant="h6" sx={{ mb: 2 }}>
+                  Avaliação do Cliente
+                </Typography>
 
-              {
-                selectedClientCPF && (
-                  <RHFMultiSelect
-                    options={filteredServiceOrders.map((so) => ({
-                      label: `OS #${so.id} - ${so.description}`,
-                      value: so.id,
-                    }))}
-                    name="serviceOrderIds"
-                    label="Ordens de Serviço"
-                    disabled={!selectedClientCPF}
-                    placeholder='Selecione as ordens de serviço'
+                <Stack spacing={3}>
+                  <Box>
+                    <Typography variant="subtitle2" gutterBottom>
+                      Cliente
+                    </Typography>
+                    <Typography variant="body2">
+                      {currentFeedback.client.name} - CPF: {currentFeedback.client.cpf}
+                    </Typography>
+                  </Box>
+
+
+                  <Divider />
+
+                  <Box>
+                    <Typography variant="subtitle2" gutterBottom>
+                      Nota
+                    </Typography>
+                    <Rating value={currentFeedback.rating} readOnly />
+                  </Box>
+
+                  <Box>
+                    <Typography variant="subtitle2" gutterBottom>
+                      Comentário
+                    </Typography>
+                    <Typography variant="body2">
+                      {currentFeedback.description}
+                    </Typography>
+                  </Box>
+
+                  <TextField
+                    fullWidth
+                    label="Link para Feedback"
+                    value={generateFeedbackLink(currentFeedback.id, currentFeedback.client.cpf)}
+                    InputProps={{
+                      readOnly: true,
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Tooltip title="Copiar Link">
+                            <IconButton onClick={handleCopyLink} edge="end">
+                              <Iconify icon="eva:copy-fill" />
+                            </IconButton>
+                          </Tooltip>
+                        </InputAdornment>
+                      ),
+                    }}
                   />
-                )
-              }
-            </Box>
+                </Stack>
+              </>
+            ) : (
+              <>
+                <Box
+                  rowGap={3}
+                  columnGap={2}
+                  display="grid"
+                  gridTemplateColumns={{
+                    xs: 'repeat(1, 1fr)',
+                    sm: 'repeat(2, 1fr)',
+                  }}
+                >
+                  <RHFSelect
+                    native
+                    name="clientCPF"
+                    label="Cliente"
+                    disabled={!!(currentFeedback && currentFeedback.id)}
+                  >
+                    <option value="" label='Selecione um cliente' />
+                    {clients?.map((client) => (
+                      <option key={client.cpf} value={client.cpf}>
+                        {client.name} - CPF: {client.cpf}
+                      </option>
+                    ))}
+                  </RHFSelect>
 
-            <Stack alignItems="flex-end" sx={{ mt: 3 }}>
-              <LoadingButton type="submit" variant="contained" loading={isSubmitting}>
-                {!currentFeedback ? 'Criar Feedback' : 'Salvar Mudanças'}
-              </LoadingButton>
-            </Stack>
+                  {selectedClientCPF && currentFeedback && (
+                    <RHFMultiSelect
+                      options={filteredServiceOrders.map((so) => ({
+                        label: `OS #${so.id} - ${so.type.name}`,
+                        value: so.id,
+                      }))}
+                      name="serviceOrderIds"
+                      label="Ordens de Serviço"
+                      disabled={!!(currentFeedback && currentFeedback.id)}
+                      placeholder='Selecione as ordens de serviço'
+                    />
+                  )}
+                </Box>
+
+                {currentFeedback && (
+                  <TextField
+                    fullWidth
+                    label="Link para Feedback"
+                    value={generateFeedbackLink(currentFeedback.id, currentFeedback.client.cpf)}
+                    InputProps={{
+                      readOnly: true,
+                      endAdornment: (
+                        <InputAdornment position="end">
+                          <Tooltip title="Copiar Link">
+                            <IconButton onClick={handleCopyLink} edge="end">
+                              <Iconify icon="eva:copy-fill" />
+                            </IconButton>
+                          </Tooltip>
+                        </InputAdornment>
+                      ),
+                    }}
+                    sx={{ mt: 3 }}
+                  />
+                )}
+
+                <Stack alignItems="flex-end" sx={{ mt: 3 }}>
+                  <LoadingButton
+                    type="submit"
+                    variant="contained"
+                    loading={isSubmitting}
+                    disabled={!!(currentFeedback && currentFeedback.id)}
+                  >
+                    {!currentFeedback ? 'Criar Feedback' : 'Salvar Mudanças'}
+                  </LoadingButton>
+                </Stack>
+              </>
+            )}
           </Card>
         </Grid>
       </Grid>

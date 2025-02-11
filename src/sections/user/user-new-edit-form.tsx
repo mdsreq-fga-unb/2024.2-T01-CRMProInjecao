@@ -8,8 +8,6 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Grid from '@mui/material/Unstable_Grid2';
-// routes
-import { useRouter } from 'src/routes/hooks';
 // components
 import { useSnackbar } from 'src/components/snackbar';
 import FormProvider from 'src/components/hook-form/form-provider';
@@ -27,18 +25,12 @@ const roleOptions = [
   { value: 2, label: 'Usuário' },
 ];
 
-const statusOptions = [
-  { value: true, label: 'Ativo' },
-  { value: false, label: 'Inativo' },
-];
-
 type Props = {
   currentUser?: IUser | null;
   onClose: VoidFunction;
 };
 
 export default function UserNewEditForm({ currentUser, onClose }: Props) {
-  const router = useRouter();
   const { enqueueSnackbar } = useSnackbar();
 
   const NewUserSchema = Yup.object().shape({

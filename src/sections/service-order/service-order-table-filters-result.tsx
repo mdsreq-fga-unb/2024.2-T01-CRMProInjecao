@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import Stack, { StackProps } from '@mui/material/Stack';
 import Iconify from 'src/components/iconify';
@@ -8,8 +7,9 @@ import Iconify from 'src/components/iconify';
 interface Props extends StackProps {
   filters: {
     name: string;
+    budgetStatus: 'all' | 'linked' | 'unlinked';
   };
-  onFilters: (name: string, value: string) => void;
+  onFilters: (name: string, value: any) => void;
   onResetFilters: VoidFunction;
   results: number;
 }
@@ -22,7 +22,7 @@ export default function ServiceOrderTableFiltersResult({
   ...other
 }: Props) {
   const handleRemoveFilter = (key: string) => {
-    onFilters(key, '');
+    onFilters(key, key === 'budgetStatus' ? 'all' : '');
   };
 
   return (
@@ -35,9 +35,27 @@ export default function ServiceOrderTableFiltersResult({
       </Box>
 
       <Stack flexGrow={1} spacing={1} direction="row" flexWrap="wrap" alignItems="center">
+        {filters.budgetStatus !== 'all' && (
+          <Block label="Status:">
+            <Chip
+              size="small"
+              label={
+                filters.budgetStatus === 'linked'
+                  ? 'Vinculadas a Orçamento'
+                  : 'Sem Orçamento'
+              }
+              onDelete={() => handleRemoveFilter('budgetStatus')}
+            />
+          </Block>
+        )}
+
         {filters.name && (
-          <Block label="Nome:">
-            <Chip size="small" label={filters.name} onDelete={() => handleRemoveFilter('name')} />
+          <Block label="Busca:">
+            <Chip
+              size="small"
+              label={filters.name}
+              onDelete={() => handleRemoveFilter('name')}
+            />
           </Block>
         )}
 

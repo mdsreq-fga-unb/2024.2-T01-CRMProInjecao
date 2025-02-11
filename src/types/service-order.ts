@@ -10,6 +10,7 @@ export type IServiceOrderType = {
 export type IServiceOrder = {
   id: string;
   type: IServiceOrderType;
+  status: ServiceOrderStatus;
   description: string;
   client: {
     cpf: string;
@@ -19,16 +20,18 @@ export type IServiceOrder = {
     licensePlate: string;
     model: string;
   };
-  additionalCost: number;
   products: Array<{
     id: string;
     name: string;
-    price: number;
+    costPrice: number;
+    sellPrice: number;
   }>;
   budget?: {
     id: string;
     name: string;
-  };
+    status: string;
+  } | null;
+  additionalCost: number;
   createdAt: Date;
   updatedAt: Date;
 };
@@ -49,6 +52,7 @@ export type IUpdateServiceOrder = {
   vehicleLicensePlate?: string;
   additionalCost?: number;
   productIds?: string[];
+  status?: ServiceOrderStatus;
 };
 
 export type ICreateServiceOrderType = {
@@ -62,3 +66,15 @@ export type IUpdateServiceOrderType = {
   description?: string;
   price?: number;
 }; 
+
+export type IServiceOrderStatus = {
+  id: string;
+  name: string;
+  description: string;
+};
+
+export enum ServiceOrderStatus {
+  IN_PROGRESS = 'in_progress',
+  COMPLETED = 'completed',
+  CANCELED = 'canceled',
+}

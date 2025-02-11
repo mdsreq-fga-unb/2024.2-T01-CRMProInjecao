@@ -64,9 +64,23 @@ export function useNavData() {
             icon: ICONS.user,
           },
           {
-            title: 'Ordens de Serviço',
-            path: '/dashboard/service-orders',
+            title: 'Serviços',
+            path: '/dashboard/services',
             icon: ICONS.order,
+            children: [
+              {
+                title: 'Visão Geral',
+                path: '/dashboard/services/overview',
+              },
+              {
+                title: 'Orçamentos',
+                path: '/dashboard/services/budgets',
+              },
+              {
+                title: 'Ordens de Serviço',
+                path: '/dashboard/services/orders',
+              },
+            ],
           },
           {
             title: 'Feedbacks',

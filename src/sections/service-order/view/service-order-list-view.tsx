@@ -32,17 +32,19 @@ import ServiceOrderTableToolbar from '../service-order-table-toolbar';
 import ServiceOrderTableFiltersResult from '../service-order-table-filters-result';
 
 const TABLE_HEAD = [
-  { id: 'type', label: 'Tipo' },
+  { id: 'type', label: 'Tipo / Orçamento' },
   { id: 'description', label: 'Descrição' },
   { id: 'client', label: 'Cliente' },
   { id: 'vehicle', label: 'Veículo' },
-  { id: 'additionalCost', label: 'Custo Adicional' },
+  { id: 'status', label: 'Status' },
+  { id: 'totalValue', label: 'Valor Total' },
   { id: 'createdAt', label: 'Data' },
   { id: 'actions', label: 'Ações', align: 'right' },
 ];
 
 const defaultFilters = {
   name: '',
+  budgetStatus: 'all' as const,
 };
 
 export default function ServiceOrderListView() {
@@ -169,7 +171,7 @@ export default function ServiceOrderListView() {
                         key={row.id}
                         row={row}
                         selected={table.selected.includes(row.id)}
-                        onSelectRow={() => table.onSelectRow(row.id)}
+                        onSelectRow={() => router.push(paths.dashboard.services.viewOrder(row.id))}
                         onDeleteRow={() => handleDelete(row)}
                         onEditRow={() => handleEditRow(row)}
                       />
@@ -253,9 +255,10 @@ function applyFilter({
   comparator: (a: any, b: any) => number;
   filters: {
     name: string;
+    budgetStatus: 'all' | 'linked' | 'unlinked';
   };
 }) {
-  const { name } = filters;
+  const { name, budgetStatus } = filters;
 
   const stabilizedThis = inputData.map((el, index) => [el, index] as const);
 
@@ -273,6 +276,15 @@ function applyFilter({
         serviceOrder.client.name.toLowerCase().indexOf(name.toLowerCase()) !== -1 ||
         serviceOrder.description.toLowerCase().indexOf(name.toLowerCase()) !== -1
     );
+  }
+
+  if (budgetStatus !== 'all') {
+    inputData = inputData.filter((serviceOrder) => {
+      if (budgetStatus === 'linked') {
+        return !!serviceOrder.budget;
+      }
+      return !serviceOrder.budget;
+    });
   }
 
   return inputData;

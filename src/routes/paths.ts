@@ -18,7 +18,7 @@ export const paths = {
     },
   },
   dashboard: {
-    root: ROOTS.DASHBOARD,
+    root: '/dashboard',
     users: `${ROOTS.DASHBOARD}/users`,
     clients: `${ROOTS.DASHBOARD}/clients`,
     serviceOrders: `${ROOTS.DASHBOARD}/service-orders`,
@@ -28,5 +28,16 @@ export const paths = {
     configuration: `${ROOTS.DASHBOARD}/configuration`,
     account: `${ROOTS.DASHBOARD}/account`,
     feedbacks: `${ROOTS.DASHBOARD}/feedbacks`,
+    budgets: `${ROOTS.DASHBOARD}/budgets`,
+    services: {
+      root: '/dashboard/services',
+      overview: '/dashboard/services/overview',
+      budgets: '/dashboard/services/budgets',
+      orders: '/dashboard/services/orders',
+      newBudget: '/dashboard/services/budgets/new',
+      newOrder: '/dashboard/services/orders/new',
+      viewBudget: (id: string) => `/dashboard/services/budgets/${id}`,
+      viewOrder: (id: string) => `/dashboard/services/orders/${id}`,
+    },
   },
 };

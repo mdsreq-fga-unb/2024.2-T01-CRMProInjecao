@@ -4,7 +4,6 @@ import axios, { fetcher, endpoints } from 'src/utils/axios';
 import {
   IServiceOrder,
   ICreateServiceOrder,
-  IUpdateServiceOrder,
   IServiceOrderType,
   ICreateServiceOrderType,
   IUpdateServiceOrderType,
@@ -19,6 +18,25 @@ const options = {
 };
 
 // Service Orders
+export function useGetServiceOrder(id?: string) {
+  const { data, isLoading, error, mutate:theMuta } = useSWR(
+    id ? `${endpoints.serviceOrder.findOne(id)}` : null,
+    fetcher
+  );
+
+  const serviceOrder = useMemo(
+    () => (data as IServiceOrder) || null,
+    [data]
+  );
+
+  return {
+    serviceOrder,
+    loading: isLoading,
+    error,
+    mutate: theMuta
+  };
+}
+
 export function useGetServiceOrders() {
   const URL_SERVER = `/service-order`;
 
@@ -44,8 +62,8 @@ export async function createServiceOrder(serviceOrder: ICreateServiceOrder) {
   return response.data;
 }
 
-export async function updateServiceOrder(id: string, serviceOrder: IUpdateServiceOrder) {
-  const response = await axios.patch(URL.update(id), serviceOrder);
+export async function updateServiceOrder(id: string, data: any, refreshData?: () => Promise<any>) {
+  const response = await axios.patch(URL.update(id), data);
   mutate(URL.findAll);
   return response.data;
 }
@@ -126,4 +144,24 @@ export async function deleteServiceOrderType(id: string) {
   const response = await axios.delete(`${URL.delete(id)}/type`);
   mutate(`${URL.findAll}/type`);
   return response.data;
+}
+
+// Novo hook para a view de detalhes
+export function useGetServiceOrderDetails(id?: string) {
+  const { data, isLoading, error, mutate: thaMutate } = useSWR(
+    id ? `${endpoints.serviceOrder.findOne(id)}` : null,
+    fetcher
+  );
+
+  const serviceOrder = useMemo(
+    () => (data as IServiceOrder) || null,
+    [data]
+  );
+
+  return {
+    serviceOrder,
+    loading: isLoading,
+    error,
+    mutate: thaMutate,
+  };
 } 

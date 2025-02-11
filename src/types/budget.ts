@@ -33,6 +33,21 @@ export type IBudget = {
   serviceOrders: Array<{
     id: string;
     description: string;
+    products?: Array<{
+      id: string;
+      name: string;
+      costPrice: number;
+      sellPrice: number;
+    }>;
+    additionalCost?: number;
+    type: {
+      id: string;
+      name: string;
+      price: number;
+    };
+    createdAt: Date;
+    updatedAt: Date;
+    deletedAt: Date;
   }>;
   createdAt: Date;
   updatedAt: Date;

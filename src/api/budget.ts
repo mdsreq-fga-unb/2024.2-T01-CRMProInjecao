@@ -11,6 +11,25 @@ const options = {
   revalidateOnReconnect: false,
 };
 
+export function useGetBudget(id?: string) {
+  const { data, isLoading, error, mutate:theMutate } = useSWR(
+    id ? `${endpoints.budget.findOne(id)}` : null,
+    fetcher
+  );
+
+  const budget = useMemo(
+    () => (data as IBudget) || null,
+    [data]
+  );
+
+  return {
+    budget,
+    loading: isLoading,
+    error,
+    mutate: theMutate,
+  };
+}
+
 export function useGetBudgets() {
   const URL_SERVER = `/budget`;
 
@@ -86,4 +105,24 @@ export function useGetClientBudgets(clientCPF: string) {
   );
 
   return memoizedValue;
+}
+
+// Novo hook para a view de detalhes
+export function useGetBudgetDetails(id?: string) {
+  const { data, isLoading, error, mutate: thaMutate } = useSWR(
+    id ? `${endpoints.budget.findOne(id)}` : null,
+    fetcher
+  );
+
+  const budget = useMemo(
+    () => (data as IBudget) || null,
+    [data]
+  );
+
+  return {
+    budget,
+    loading: isLoading,
+    error,
+    mutate: thaMutate,
+  };
 } 
