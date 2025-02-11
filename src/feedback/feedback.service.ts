@@ -140,7 +140,6 @@ export class FeedbackService {
     if (!feedback || feedback.client.cpf !== clientCPF) {
       throw new NotFoundException('Feedback não encontrado ou token inválido');
     }
-    console.log(feedback);
 
     return {
       feedbackId: feedback.id,
