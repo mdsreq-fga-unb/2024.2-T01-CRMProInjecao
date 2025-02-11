@@ -35,7 +35,7 @@ No passo 1 o Paciente escolhe a opção de realizar a busca a partir da pesquisa
 
 1. O sistema irá solicitar o nome do serviço.
 2. O paciente irá colocar o nome do serviço desejado.
-3. O sistema irá buscar o serviço pelo nome.[FE01](#fe01-servico-nao-encontrado) [RN02](#rn01-servicos-disponiveis);
+3. O sistema irá buscar o serviço pelo nome.[FE01](#fe01-servico-nao-encontrado) [RN02](#rn02-servicos-disponiveis);
 4. O sistema irá mostrar o serviço encontrado.
 5. O paciente irá clicar no serviço.
 6. O caso de uso é encerrado.
