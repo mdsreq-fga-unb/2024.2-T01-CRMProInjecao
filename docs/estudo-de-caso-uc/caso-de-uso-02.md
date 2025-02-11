@@ -78,7 +78,7 @@ Nos passos 7 do Fluxo Principal ou 7 do FA01 o advogado não confirma as atualiz
 - O tempo máximo de resposta do sistema para validação deve ser inferior a 2 segundos.
 - Os campos obrigatórios devem ser destacados e informados ao usuário caso estejam vazios.
 
-## 4. Regras de Negócio
+## Regras de Negócio
 
 ### RN01 - Validação de informações
 As seguintes validações devem ser realizadas:
@@ -91,7 +91,7 @@ As seguintes validações devem ser realizadas:
 
 
 
-## 5. **Pré-Condições** 
+## Pré-Condições
 
 - O profissional de saúde deve ter acesso ao sistema Connect Care via web ou aplicativo móvel.
 - O profissional de saúde deve fornecer informações válidas para completar o registro.
@@ -101,7 +101,7 @@ As seguintes validações devem ser realizadas:
 - Após o registro bem-sucedido, o profissional de saúde pode acessar sua conta e utilizar os serviços do sistema.
 - O sistema armazena os dados do profissional de saúde para futuras autenticações.
 
-## **Histórico de Revisão**
+## Histórico de Revisão
 
 | Versão | Descrição | Autor | Data |
 | ------ | ------------------------------------------------------------------- | ------------ |---------- |
