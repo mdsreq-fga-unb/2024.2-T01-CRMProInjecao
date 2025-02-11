@@ -1,11 +1,10 @@
-
-# Caso de Uso 02: Gerar Atendimentos
+# Caso de Uso 06: Gerar Atendimentos de Saúde
 
 ## Nome
 Gerar Atendimentos de Saúde
 
-## Breve descrição
-Este caso de uso permite ao profissional de saúde criar um perfil profissional para que sejam registradas suas especializações e horários de disponibilidade. Para isso, é possível que seja realizado o cadastro, consulta e alteração dos dados do profissional de saúde.
+## Breve Descrição
+Este caso de uso permite que o Profissional de Saúde possa gerar novos atendimentos para os pacientes, agendando consultas e definindo os detalhes necessários, como data, hora, tipo de atendimento e observações. Essa funcionalidade visa organizar a agenda do profissional e assegurar que os atendimentos sejam registrados de forma clara e precisa no sistema.
 
 ## Atores
 - **Profissional de Saúde**
@@ -13,96 +12,81 @@ Este caso de uso permite ao profissional de saúde criar um perfil profissional 
 ## Fluxo de Eventos
 
 ### Fluxo Principal
-Este caso de uso é iniciado quando o profissional de saúde escolher a opção *Profissional de Saúde*.
+Este caso de uso é iniciado quando o Profissional de Saúde seleciona a opção *Gerar Atendimentos de Saúde* no sistema.
 
-1. O sistema apresenta as seguintes opções:
-- *Cadastrar novo Profissional de Saúde*;
-- *Atualizar Dados de Profissional de Saúde* [FA01](#fa01-atualizar-dados-de-profissional-de-saude);
-- *Consultar Profissional de Saúde* [FA02](#fa02-consultar-profissional-de-saude);
-
-2. O Profissional de Saúde seleciona a opção para o cadastro de um novo Profissional de Saúde.
-3. O sistema apresenta as informações a serem preenchidas para a inclusão de um novo Profissional de Saúde.
-4. O Profissional de Saúde preenche as informações e solicita o cadastro.
-5. O sistema valida as informações preenchidas [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
-6. O sistema envia uma mensagem perguntando se o Profissional de Saúde deseja confirmar o cadastro.
-7. O Profissional de Saúde seleciona a opção de confirmar o cadastro [FE03](#fe03-atualizacoes-nao-confirmadas).
-8. O sistema exibe a mensagem de cadastro realizado com sucesso.
+1. O sistema apresenta o menu com as seguintes opções:
+    - *Criar Novo Atendimento*
+    - *Visualizar Atendimentos Agendados* [FA01](#fa01-visualizar-atendimentos-agendados)
+2. O Profissional de Saúde seleciona a opção *Criar Novo Atendimento*.
+3. O sistema exibe um formulário para o cadastro do atendimento [RN02](#rn02-validacao-dos-campos-do-formulario-de-atendimento)
+4. O Profissional de Saúde preenche os dados necessários e confirma o cadastro.
+5. O sistema valida as informações inseridas [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-dados-invalidos).
+6. Se os dados estiverem corretos, o sistema exibe uma mensagem solicitando a confirmação final da geração do atendimento.
+7. O Profissional de Saúde confirma a operação [FE02](#fe02-nao-confirmacao-de-atendimento).
+8. O sistema registra o atendimento e exibe a mensagem “Atendimento Gerado com Sucesso”.
 9. O caso de uso é encerrado.
 
 ### Fluxos Alternativos
 
-#### FA01 - Atualizar dados de Profissional de Saúde
+#### FA01 Visualizar Atendimentos Agendados
 
-No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Atualizar Dados de Profissional de Saúde.
-
-1. O sistema solicita que o Profissional de Saúde informe o CRM do Profissional de Saúde que deseja atualizar.
-2. O Profissional de Saúde informa o CRM e solicita a consulta [RN01](#rn01-validacao-de-informacoes) .
-3. O sistema apresenta os dados do Profissional de Saúde procurado [FE02](#fe02-profissional-de-saude-nao-encontrado);
-- Número de identificação do Profissional de Saúde (não liberado para edição), especialização médica e horários de disponibilidade.
-4. O Profissional de Saúde realiza as atualizações necessárias.
-5. O sistema valida os dados atualizados [FE01](#fe01-validacao-de-informacoes) [RN01](#rn01-validacao-de-informacoes).
-6. O sistema pergunta ao Profissional de Saúde se deseja confirmar as atualizações.
-7. O Profissional de Saúde confirma as atualizações [FE03](#fe03-atualizacoes-nao-confirmadas).
-8. O sistema exibe a mensagem de dados atualizados com sucesso.
-9. O caso de uso é encerrado.
-
-#### FA02 - Consultar Profissional de Saúde
-
-No passo 1 do fluxo básico o Profissional de Saúde seleciona a opção de Consultar Profissional de Saúde.
-
-1. O sistema solicita que o Profissional de Saúde informe o Número de identificação do Profissional de Saúde que deseja atualizar.
-2. O Profissional de Saúde informa o CRM e solicita a consulta [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
-3. O sistema apresenta os dados do Profissional de Saúde procurado [FE02](#fe02-profissional-de-saude-nao-encontrado);
-- Número de identificação do Profissional de Saúde (não liberado para edição), especialização médica e horários de disponibilidade.
-4. O sistema apresenta a opção de voltar.
-5. O Profissional de Saúde seleciona a opção de voltar.
-6. O caso de uso é encerrado.
+1. No passo 1, o Profissional de Saúde seleciona a opção *Visualizar Atendimentos Agendados*.
+2. O sistema apresenta uma lista com todos os atendimentos previamente agendados, exibindo informações resumidas como data, hora e tipo de atendimento.
+3. O Profissional de Saúde pode selecionar um atendimento para visualizar detalhes adicionais.
+4. Após a consulta, o Profissional de Saúde opta por retornar ao menu principal.
+5. O caso de uso é encerrado.
 
 ### Fluxos de Exceção
 
-#### FE01 - Validação de Informações
+#### FE01 Dados Inválidos
+- Se, no passo 5, as informações preenchidas não atenderem aos critérios de validação, o sistema exibe uma mensagem de erro e retorna ao passo 3 para que o Profissional de Saúde corrija os dados.
 
-Nos passos 5 do Fluxo Principal, 5 do FA01 ou 2 do FA02 o sistema verifica que uma ou mais informações não foram validadas (formato e/ou obrigatoriedade) e exibe uma mensagem informando ao Profissional de Saúde. O sistema retorna ao passo 4 do Fluxo Principal, 4 do FA01 ou 1 do FA02, conforme o local de onde foi chamado.
-
-#### FE02 - Profissional de Saúde não encontrado
-
-Nos passos 3 do FA01 ou 3 do FA02 o sistema não encontra o Profissional de Saúde informado e apresenta a mensagem. O sistema  retorna ao passo 2 do FA01 ou 2 do FA02, conforme o local de onde foi chamado.
-
-#### FE03 - Atualizações não confirmadas
-
-Nos passos 7 do Fluxo Principal ou 7 do FA01 o advogado não confirma as atualizações. O sistema retorna ao passo 6 do Fluxo Principal ou 6 do FA01 conforme o local de onde foi chamado.
+#### FE02 Não Confirmação de Atendimento
+- Se, no passo 7, o Profissional de Saúde não confirmar a operação, o sistema cancela a geração do atendimento e retorna ao passo 3 do fluxo principal.
 
 ## Requisitos Especiais
 
 - O sistema deve estar acessível em dispositivos móveis com Android e iOS.
-- O tempo máximo de resposta do sistema para validação deve ser inferior a 2 segundos.
-- Os campos obrigatórios devem ser destacados e informados ao usuário caso estejam vazios.
+- O tempo máximo de resposta do sistema para validação das informações deve ser inferior a 2 segundos.
+- O formulário deve destacar os campos obrigatórios e alertar o usuário caso algum campo essencial esteja vazio.
 
 ## Regras de Negócio
 
-### RN01 - Validação de informações
-As seguintes validações devem ser realizadas:
+### RN01 Validação de Informações
+As seguintes validações devem ser realizadas no formulário de atendimento:
 
-| Nome                        |         Formato         | Obrigatoriedade | Valores |
-|-----------------------------|:----------------------:|:--------------:|:--------|
-| Número de identificação     |      9999999999       |       Sim      | -       |
-| Especialização médica       | Texto até 500 caracteres |       Sim      | -       |
-| Horários de disponibilidade | Texto até 500 caracteres |       Sim      | -       |
+| Campo                      | Formato                        | Obrigatoriedade |
+|----------------------------|--------------------------------|-----------------|
+| Nome do Paciente           | Texto até 100 caracteres       | Sim             |
+| Data e Hora do Atendimento | Formato de data e hora         | Sim             |
+| Tipo de Atendimento        | Texto até 50 caracteres        | Sim             |
+| Observações                | Texto até 500 caracteres       | Não             |
+
+### RN02 Validação dos Campos do Formulário de Atendimento
+
+Para o cadastro do atendimento, os seguintes campos devem ser validados conforme as regras abaixo:
+
+| Campo                      | Formato                                  | Obrigatoriedade |
+|----------------------------|------------------------------------------|-----------------|
+| Nome do Paciente           | Texto (até 100 caracteres)               | Sim             |
+| Data e Hora do Atendimento | Data e hora (Formato: DD/MM/AAAA HH:MM)    | Sim           |
+| Tipo de Atendimento        | Texto (até 50 caracteres)                | Sim             |
+| Observações                | Texto (até 500 caracteres)               | Não             |
 
 
 
 ## Pré-Condições
 
-- O profissional de saúde deve ter acesso ao sistema Connect Care via web ou aplicativo móvel.
-- O profissional de saúde deve fornecer informações válidas para completar o registro.
+- O Profissional de Saúde deve estar autenticado no sistema Connect Care.
+- O Profissional de Saúde deve possuir as permissões necessárias para gerar atendimentos.
 
 ## Pós-Condições
 
-- Após o registro bem-sucedido, o profissional de saúde pode acessar sua conta e utilizar os serviços do sistema.
-- O sistema armazena os dados do profissional de saúde para futuras autenticações.
+- Após a geração do atendimento, os dados são registrados no sistema e ficam disponíveis para consulta e eventuais atualizações.
+- O paciente associado ao atendimento poderá visualizar os detalhes do seu agendamento.
 
 ## Histórico de Revisão
 
-| Versão | Descrição | Autor | Data |
-| ------ | ------------------------------------------------------------------- | ------------ |---------- |
-| 1.0 | Criação da Especificação | [Arthur Heleno](http://github.com/arthur-heleno) | 10/02/2025 |
+| Versão | Descrição             | Autor                                            | Data       |
+|--------|-----------------------|--------------------------------------------------|------------|
+| 1.0    | Criação do Documento  | [Bruno Bragança dos Reis](https://github.com/BrunoBReis)         | 11/02/2025 |

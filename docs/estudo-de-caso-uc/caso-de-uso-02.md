@@ -16,9 +16,10 @@ Este caso de uso permite ao profissional de saúde criar um perfil profissional 
 Este caso de uso é iniciado quando o profissional de saúde escolher a opção *Profissional de Saúde*.
 
 1. O sistema apresenta as seguintes opções:
-- *Cadastrar novo Profissional de Saúde*;
-- *Atualizar Dados de Profissional de Saúde* [FA01](#fa01-atualizar-dados-de-profissional-de-saude);
-- *Consultar Profissional de Saúde* [FA02](#fa02-consultar-profissional-de-saude);
+   
+    - *Cadastrar novo Profissional de Saúde*;
+    - *Atualizar Dados de Profissional de Saúde* [FA01](#fa01-atualizar-dados-de-profissional-de-saude);
+    - *Consultar Profissional de Saúde* [FA02](#fa02-consultar-profissional-de-saude);
 
 2. O Profissional de Saúde seleciona a opção para o cadastro de um novo Profissional de Saúde.
 3. O sistema apresenta as informações a serem preenchidas para a inclusão de um novo Profissional de Saúde.
