@@ -1,11 +1,11 @@
 
-# Caso de Uso 02: Realizar o Agendamento
+# Caso de Uso 04: Realizar o Agendamento
 
 ## Nome
 Realizar o Agendamento de Consulta
 
 ## Breve descrição
-Este caso de uso permite ao profissional de saúde criar um perfil profissional para que sejam registradas suas especializações e horários de disponibilidade. Para isso, é possível que seja realizado o cadastro, consulta e alteração dos dados do profissional de saúde.
+Este caso de uso permite que o paciente seja capaz de realizar o agendamento da consulta, e assim, conseguindo realizar a consulta.
 
 ## Atores
 - **Paciente**
@@ -13,20 +13,21 @@ Este caso de uso permite ao profissional de saúde criar um perfil profissional 
 ## Fluxo de Eventos
 
 ### Fluxo Principal
-Este caso de uso é iniciado quando o profissional de saúde escolher a opção *Profissional de Saúde*.
+Este caso de uso é inciado como o paciente acessa a função de "Agendar Consulta" no sistema Connect Care.
 
 1. O sistema apresenta as seguintes opções:
-- *Cadastrar novo Profissional de Saúde*;
-- *Atualizar Dados de Profissional de Saúde* [FA01](#fa01-atualizar-dados-de-profissional-de-saude);
-- *Consultar Profissional de Saúde* [FA02](#fa02-consultar-profissional-de-saude);
 
-2. O Profissional de Saúde seleciona a opção para o cadastro de um novo Profissional de Saúde.
-3. O sistema apresenta as informações a serem preenchidas para a inclusão de um novo Profissional de Saúde.
+    - *Realizar uma nova consulta*;
+    - *Cancelar consulta*[FA01];
+
+2. O Profissional de Saúde seleciona a opção para realizar a nova consulta.
+3. O sistema apresenta as informações a serem preenchidas para a nova consulta.
 4. O Profissional de Saúde preenche as informações e solicita o cadastro.
 5. O sistema valida as informações preenchidas [RN01](#rn01-validacao-de-informacoes) [FE01](#fe01-validacao-de-informacoes).
-6. O sistema envia uma mensagem perguntando se o Profissional de Saúde deseja confirmar o cadastro.
+6. O sistema envia uma mensagem perguntando se o Profissional de Saúde deseja confirmar a nova consulta.
 7. O Profissional de Saúde seleciona a opção de confirmar o cadastro [FE03](#fe03-atualizacoes-nao-confirmadas).
-8. O sistema exibe a mensagem de cadastro realizado com sucesso.
+8. O sistema exibe a mensagem de consulta realizada com sucesso.
+9. O sistema exibe a mensagem de consulta realizada com sucesso.
 9. O caso de uso é encerrado.
 
 ### Fluxos Alternativos
