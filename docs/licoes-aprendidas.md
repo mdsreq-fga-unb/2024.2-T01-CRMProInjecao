@@ -62,6 +62,18 @@ Durante a execução do projeto, a equipe da Pro Injeção identificou algumas l
 - **Desafio**: O desenvolvimento do projeto foi impactado pelo curto prazo disponível para entrega e pela grande quantidade de MVPs documentados.
 - **Ação de melhoria**: Para lidar com o alto volume de tarefas em tempo limitado, dividimos as entregas em ciclos menores e priorizamos os MVPs críticos para o funcionamento do sistema.
 
+### Unidade 4
+
+#### 1. Casos de Uso
+
+- **Desafio**: Encontramos dificuldades no estudo de caso dos casos de uso. Durante a produção do diagrama de uso, ocorreu uma certa dúvida sobre o tamanho de cada caso de uso.
+- **Ação de melhoria**: Nos juntamos para perguntar sobre os casos de uso para o professor e, após a explicação dele na especificação dos casos de uso, ficou mais compreensível qual tamanho é mais adequado para os casos de uso do nosso projeto.
+
+#### 2. Desenvolvimento
+
+- **Desafio**: Encontramos a mesma dificuldade encontrada na Unidade 3, devido ao curto prazo para o desenvolvimento do produto.
+- **Ação de melhoria**: Realizamos o desenvolvimento apenas nas principais funcionalidades, além de separarmos a equipe em duas frentes para conseguir auxiliar no desenvolvimento.
+
 
 
 <center>
@@ -71,5 +83,6 @@ Durante a execução do projeto, a equipe da Pro Injeção identificou algumas l
 | 0.1    | Lições aprendidas na unidade 1 | [Bruno Bragança](http://github.com/BrunoBReis) | 11/11/2024 |
 | 0.2    | Adicionando lições aprendidas na unidade 2 | [Pedro Braga](http://github.com/Stain19), [Vinicius Vieira](http://github.com/viniciusvieira00) | 11/11/2024 |
 | 0.3    | Lições aprendidas na unidade 3 | [Arthur Heleno](http://github.com/arthur-heleno) | 20/01/2025 |
+| 0.4    | Lições aprendidas na unidade 4 | [Paulo Filho](http://github.com/PauloFilho2) | 10/02/2025 |
 
 </center>
