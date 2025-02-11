@@ -6,7 +6,11 @@ O "ConnectCare", um estudo de caso fictício, foi concebido com a missão de red
 ### Casos de uso
 
 - **UC01**: [Registrar Paciente](./caso-de-uso-01.md)
-- **UC02**: [Cadastrar proﬁssional de saúde](./caso-de-uso-02.md) 
+- **UC02**: [Cadastrar proﬁssional de saúde](./caso-de-uso-02.md)
+- **UC03**: [Buscar Serviços de Saúde](./caso-de-uso-03.md)
+- **UC04**: [Realizar Agendamento](./caso-de-uso-04.md)
+- **UC05**: [Registrar Campanhas de Saúde](./caso-de-uso-05.md)
+- **UC06**: [Gerar Atendimentos de Saúde](./caso-de-uso-06.md)
 
 
 ### Diagrama de caso de uso 
